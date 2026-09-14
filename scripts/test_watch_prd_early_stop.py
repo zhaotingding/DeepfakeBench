@@ -52,6 +52,7 @@ class MonitorTest(unittest.TestCase):
 
     def test_failure_retry_success_not_repeated(self):
         self.call.side_effect = [1, 0]
+        self.active.side_effect = [[], [], [], [456], []]
         watch.tick(True, -1)
         watch.tick(True, -1)
         self.assertEqual(self.call.call_count, 1)
@@ -98,6 +99,10 @@ class MonitorTest(unittest.TestCase):
         self.assertIsNone(watch.handoff_reason('', rows, True))
         self.assertIn('自动早停', watch.handoff_reason(
             '[EarlyStop] retaining saved best checkpoints\nStop Training on best Testing metric', rows, False))
+
+    def test_abnormal_report_only_is_not_recovery(self):
+        watch.tick(True, -1)
+        self.assertEqual(json.loads(self.state.read_text())['phase'], 'codex_failed')
 
     def test_normal_handoff_without_next_training_is_failure(self):
         watch.LOG.write_text('Stop Training on best Testing metric')

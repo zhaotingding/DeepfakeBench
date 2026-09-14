@@ -5,12 +5,12 @@
 当前 R3 重跑：sd15_vae / cosine / clip / concat，BS32，seed1024。
 下一项仅 F1：sd15_vae / signed_diff / clip / orig；随后 F2：sd15_vae / signed_diff / clip / residual，其他组件使用baseline默认。不得将R3的cosine继承给F1/F2。
 训练配置：training/config/detector/prd_r3_cosine.yaml。
-训练日志：logs/training/csy/lora_prd_r3_cosine_restart_20260914_2026-09-14-08-58-57/training.log。
-tmux：prd_r3_cosine_restart_20260914；主PID启动时为2597326，必须现场核验，不得依据历史PID发信号。
-监控状态：.state/prd_r3_cosine_restart_20260914_watch；控制台：logs/prd_r3_cosine_restart_20260914/console.log。
+训练日志：logs/training/csy/lora_prd_r3_cosine_retry_hard_20260914_2026-09-14-16-47-39/training.log。
+tmux：prd_r3_cosine_retry_hard_20260914；主PID启动时为664801，必须现场核验，不得依据历史PID发信号。
+监控状态：.state/prd_r3_cosine_retry_hard_20260914_watch；控制台：logs/prd_r3_cosine_retry_hard_20260914/console.log。
 T1已由用户主动结束，平均最佳权重保存在checkpoints/prd_t1_final/ckpt_best.pth。
 T2重跑已在epoch6正常自动早停，退出码0；平均最佳权重备份为checkpoints/prd_t2_restart_20260909_final/ckpt_best.pth，来源epoch5 step4938，平均AUC0.8855307209。
-旧T2（2026-09-09-00-04-18）已作废，只保留归档。旧R3（2026-09-12-15-37-48）在epoch2中途因NAS挂载断连异常退出，只保留异常摘要，不作为完整结果。T1/T2/T3/R2不得重启；R3已于2026-09-14从头重跑，不得重复启动。T3在epoch15自动早停，摘要与最佳权重已验证并备份到checkpoints/prd_t3_identity_20260909_final/ckpt_best.pth。R2在epoch19自动早停，退出码0，平均最佳来源epoch5 step4938，平均AUC0.8790599608205724，已验证并备份到checkpoints/prd_r2_abs_diff_20260910_final/ckpt_best.pth。当前R3从原始本地CLIP/VAE初始化，未加载前项训练后权重。
+旧T2（2026-09-09-00-04-18）已作废，只保留归档。旧R3（2026-09-12-15-37-48）在epoch2中途异常退出（与NAS故障相关，直接原因未证实），只保留异常摘要，不作为完整结果。T1/T2/T3/R2不得重启；R3已于2026-09-14从头重跑，不得重复启动。T3在epoch15自动早停，摘要与最佳权重已验证并备份到checkpoints/prd_t3_identity_20260909_final/ckpt_best.pth。R2在epoch19自动早停，退出码0，平均最佳来源epoch5 step4938，平均AUC0.8790599608205724，已验证并备份到checkpoints/prd_r2_abs_diff_20260910_final/ckpt_best.pth。当前R3从原始本地CLIP/VAE初始化，未加载前项训练后权重。
 baseline：fcddae1；框架完整快照：1d377a7；监控修复提交：542a450。
 
 执行顺序：
@@ -25,3 +25,5 @@ baseline：fcddae1；框架完整快照：1d377a7；监控修复提交：542a450
 6. 每次操作报告含命令、Git hash、PID、配置、checkpoint、当前未解决项；仅为完成且验证的代码做一个摘要提交，不push。运行状态集中.state/，日志logs/，checkpoint为checkpoints/；不覆盖已有成果。
 
 权限边界：正常sandbox/自动审批；不得开启danger-full-access或bypass，不得修改全局安全配置。不得sudo、改驱动/CUDA、下载权重、删除数据、修改dataset或metric定义。若自动审批或实际环境阻止必要操作，落盘明确失败原因；不得声称已启动，不得用无限重试掩盖失败。独立Codex会话的输出不保证同步显示在VS Code原聊天。
+
+2026-09-14新增授权：异常退出也必须回调Codex恢复同一实验；环境健康且无训练才启动。09:00重跑也已异常退出，现为16:47 hard挂载后的新任务。正常完成/早停才推进F1、F2。不得将报告生成或返回码0单独视为训练恢复成功。
