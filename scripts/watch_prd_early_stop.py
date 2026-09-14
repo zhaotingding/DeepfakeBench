@@ -16,10 +16,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'training'))
 from experiment_summary import write_experiment_summary
-LOG = ROOT / 'logs/training/csy/lora_prd_r3_cosine_retry_hard_20260914_2026-09-14-16-47-39/training.log'
-STATE = ROOT / '.state/prd_r3_cosine_retry_hard_20260914_watch'
+LOG = ROOT / 'logs/training/csy/lora_prd_r3_testbs64_20260914_2026-09-14-17-25-11/training.log'
+STATE = ROOT / '.state/prd_r3_testbs64_20260914_watch'
 DATASETS = {'Celeb-DF-v2', 'DFDCP', 'DFDC'}
-TRAINING_PID = 664801
+TRAINING_PID = 856685
 MAX_ATTEMPTS = 3
 
 
