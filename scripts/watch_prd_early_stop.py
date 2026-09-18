@@ -16,10 +16,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'training'))
 from experiment_summary import write_experiment_summary
-LOG = ROOT / 'logs/training/csy/lora_prd_r3_testbs64_20260914_2026-09-14-17-25-11/training.log'
-STATE = ROOT / '.state/prd_r3_testbs64_20260914_watch'
+LOG = ROOT / 'logs/training/csy/lora_prd_f1_orig_20260918_2026-09-18-17-09-38/training.log'
+STATE = ROOT / '.state/prd_f1_orig_20260918_watch'
 DATASETS = {'Celeb-DF-v2', 'DFDCP', 'DFDC'}
-TRAINING_PID = 856685
+TRAINING_PID = 1249075
 MAX_ATTEMPTS = 3
 
 
@@ -59,7 +59,7 @@ def training_alive():
         state = (proc / 'stat').read_text().rsplit(')', 1)[1].split()[0]
     except FileNotFoundError:
         return False
-    if 'training/train.py' not in command or 'prd_r3_cosine.yaml' not in command:
+    if 'training/train.py' not in command or 'prd_f1_orig.yaml' not in command:
         return False  # PID reuse is not the original training job.
     return state != 'Z'
 
