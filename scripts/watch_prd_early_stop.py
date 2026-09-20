@@ -16,10 +16,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'training'))
 from experiment_summary import write_experiment_summary
-LOG = ROOT / 'logs/training/csy/lora_prd_f1_orig_20260918_2026-09-18-17-09-38/training.log'
-STATE = ROOT / '.state/prd_f1_orig_20260918_watch'
+LOG = ROOT / 'logs/training/csy/lora_prd_f2_residual_20260920_2026-09-20-14-30-49/training.log'
+STATE = ROOT / '.state/prd_f2_residual_20260920_watch'
 DATASETS = {'Celeb-DF-v2', 'DFDCP', 'DFDC'}
-TRAINING_PID = 1249075
+TRAINING_PID = 2248756
 MAX_ATTEMPTS = 3
 
 
@@ -59,7 +59,7 @@ def training_alive():
         state = (proc / 'stat').read_text().rsplit(')', 1)[1].split()[0]
     except FileNotFoundError:
         return False
-    if 'training/train.py' not in command or 'prd_f1_orig.yaml' not in command:
+    if 'training/train.py' not in command or 'prd_f2_residual.yaml' not in command:
         return False  # PID reuse is not the original training job.
     return state != 'Z'
 
@@ -138,7 +138,22 @@ def dispatch(event, output, lock_fd):
             raise
 
 
+def queue_complete():
+    """Only the final, normally ended run can close the authorized queue."""
+    marker = STATE / 'queue_complete.json'
+    if not marker.exists():
+        return False
+    value = json.loads(marker.read_text())
+    return (value.get('experiment') == 'F2' and value.get('log') == str(LOG)
+            and value.get('status') == 'complete'
+            and 'Stop Training on best Testing metric' in LOG.read_text()
+            and not project_training())
+
+
 def tick(armed, lock_fd):
+    if queue_complete():
+        print('F1/F2 queue complete; no further dispatch.', flush=True)
+        return
     log_text = LOG.read_text()
     rows = completed_epochs(log_text)
     alive = training_alive()
@@ -177,7 +192,7 @@ def tick(armed, lock_fd):
     save_json(path, job)  # Survives reboot; interrupted dispatch is reconciled on retry.
     try:
         code = dispatch(event, output, lock_fd)
-        if code == 0 and not project_training():
+        if code == 0 and not project_training() and not queue_complete():
             code = 1
             job['dispatch_error'] = '回调返回零但未发现恢复或后续训练，不能视为交接完成。'
         job.update(codex_exit_code=code, phase='codex_returned' if code == 0 else 'codex_failed')

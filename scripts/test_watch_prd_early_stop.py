@@ -115,6 +115,24 @@ class MonitorTest(unittest.TestCase):
         watch.tick(True, -1)
         self.assertEqual(json.loads(self.state.read_text())['phase'], 'codex_returned')
 
+    def test_final_queue_complete_without_next_training(self):
+        watch.LOG.write_text('Stop Training on best Testing metric')
+        def finish(*args):
+            watch.save_json(watch.STATE / 'queue_complete.json',
+                            {'experiment': 'F2', 'log': str(watch.LOG), 'status': 'complete'})
+            return 0
+        self.call.side_effect = finish
+        watch.tick(True, -1)
+        self.assertEqual(json.loads(self.state.read_text())['phase'], 'codex_returned')
+        watch.tick(True, -1)
+        self.assertEqual(self.call.call_count, 1)
+
+    def test_completion_marker_cannot_hide_abnormal_exit(self):
+        watch.save_json(watch.STATE / 'queue_complete.json',
+                        {'experiment': 'F2', 'log': str(watch.LOG), 'status': 'complete'})
+        watch.tick(True, -1)
+        self.assertEqual(json.loads(self.state.read_text())['phase'], 'codex_failed')
+
 
 if __name__ == '__main__':
     unittest.main()
