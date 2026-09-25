@@ -1,0 +1,14 @@
+{
+  "checkpoint": "/home/zhaoting.ding/disk/zhaoting.ding/DeepfakeBench/logs/checkpoint_backups/prd_t1_seed2026_20260924/ckpt_best.pth",
+  "seed": 2026,
+  "batch16_minus_batch64_auc": {
+    "Celeb-DF-v2": 1.5157506259022568e-06,
+    "DFDCP": -4.318524745139385e-06,
+    "DFDC": -3.817846686571258e-07
+  },
+  "reference_batch64_auc": {
+    "Celeb-DF-v2": 0.90962631,
+    "DFDCP": 0.89386922,
+    "DFDC": 0.83582218
+  }
+}

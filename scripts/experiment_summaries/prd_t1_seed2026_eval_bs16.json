@@ -1,0 +1,29 @@
+{
+  "checkpoint": "/home/zhaoting.ding/disk/zhaoting.ding/DeepfakeBench/logs/checkpoint_backups/prd_t1_seed2026_20260924/ckpt_best.pth",
+  "batch_size": 16,
+  "data_root": "/home/zhaoting.ding/local_datasets",
+  "datasets": {
+    "Celeb-DF-v2": {
+      "acc": 0.8171132764920829,
+      "auc": 0.9096159878739949,
+      "eer": 0.17224199288256228,
+      "ap": 0.9516243156642386,
+      "video_auc": 0.9532881692002644
+    },
+    "DFDCP": {
+      "acc": 0.803042619904773,
+      "auc": 0.8938798735506017,
+      "eer": 0.18878156244704286,
+      "ap": 0.9379402762017841,
+      "video_auc": 0.9299917576756644
+    },
+    "DFDC": {
+      "acc": 0.7526794635017712,
+      "auc": 0.835819207961579,
+      "eer": 0.24765668220975262,
+      "ap": 0.8638369718132225,
+      "video_auc": 0.8683357035078885
+    }
+  },
+  "completed_at": "2026-09-25T15:17:34.006829"
+}
