@@ -1,0 +1,91 @@
+1
+.state/prd_seed3407_queue_20260927/smoke_t1.log 2026-09-27 12:46:33.791295258 +0800 5961
+['in_channels', 'out_channels', 'kernel_size', 'stride', 'padding', 'dilation', 'groups', 'bias', 'padding_mode', 'device', 'dtype']
+spatial_count=0 keep_stride_count=0
+{
+  "preflight": "PASS",
+  "python": "3.10.21",
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "gpu": "Tesla V100-PCIE-32GB",
+  "data_root": "/datasets/Deepfake",
+  "clip_path": "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14",
+  "model_directories": [
+    "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14",
+    "/root/autodl-tmp/prd-common/pretrained/vae_original"
+  ],
+  "early_stopping": {
+    "enabled": true,
+    "max_declines": 3
+  },
+  "train_batch": 32,
+  "test_batch": 64
+}
+INFO:detectors.lora_detector:Loaded CLIP from local path: /root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14
+Scucessfully applied PEFT LoRA:
+trainable params: 3,145,728 || all params: 306,325,504 || trainable%: 1.0269
+INFO:detectors.lora_detector:Loading VAE for augmentation from: /root/autodl-tmp/prd-common/pretrained/vae_original
+An error occurred while trying to fetch /root/autodl-tmp/prd-common/pretrained/vae_original: Error no file named diffusion_pytorch_model.safetensors found in directory /root/autodl-tmp/prd-common/pretrained/vae_original.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Traceback (most recent call last):
+  File "/root/DeepfakeBench-prd-common/scripts/formal_batch_smoke.py", line 38, in <module>
+    pred = model(batch)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/DeepfakeBench-prd-common/training/detectors/lora_detector.py", line 196, in forward
+    feat_vae = self.features(processed_images.detach())
+  File "/root/DeepfakeBench-prd-common/training/detectors/lora_detector.py", line 143, in features
+    return self.encoder.forward_features(data)
+  File "/root/DeepfakeBench-prd-common/training/detectors/feature_encoders.py", line 23, in forward_features
+    return self.backbone(images)["pooler_output"]
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/peft/peft_model.py", line 812, in forward
+    return self.get_base_model()(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/transformers/models/clip/modeling_clip.py", line 1097, in forward
+    encoder_outputs = self.encoder(
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/transformers/models/clip/modeling_clip.py", line 877, in forward
+    layer_outputs = encoder_layer(
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/transformers/models/clip/modeling_clip.py", line 618, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/transformers/models/clip/modeling_clip.py", line 574, in forward
+    hidden_states = self.activation_fn(hidden_states)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/prd-common/lib/python3.10/site-packages/transformers/activations.py", line 96, in forward
+    return input * torch.sigmoid(1.702 * input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 122.25 MiB is free. Process 2053098 has 5.45 GiB memory in use. Process 1604657 has 26.16 GiB memory in use. Of the allocated memory 25.33 GiB is allocated by PyTorch, and 468.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+d995c4809a330949dc5f60a209f8170322686a31992ee17df332d1bfc86ebd86  training/config/detector/prd_t1_seed3407.yaml
+ad0efd6377e65e60b583a7baad3448daf7120682cf16212f4a22d0ae54395351  training/config/detector/prd_t2_blur_seed3407.yaml
+88b300296e11fbde323ef4860137eb8d0d4d9b2f26e1c48a3a9560ab704ac56f  training/config/detector/prd_t3_identity_seed3407.yaml
+7793ecccf524c314b66b3c9814e4aaa4cec46235fb7861fde7bb547c7f28c69b  scripts/formal_batch_smoke.py
+4cf4294dd6ea66a4f9706bfa31c54eac73def274907cf9234edb226c441ac9f4  .state/prd_seed3407_queue_20260927/smoke_t1.log
+?? scripts/formal_batch_smoke.py
+?? training/config/detector/prd_t1_seed3407.yaml
+?? training/config/detector/prd_t2_blur_seed3407.yaml
+?? training/config/detector/prd_t3_identity_seed3407.yaml
+No Sockets found in /run/screen/S-root.
+
+5582 MiB, 26913 MiB, 100 %
