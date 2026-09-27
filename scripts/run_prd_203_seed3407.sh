@@ -2,7 +2,8 @@
 set -euo pipefail
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 source /root/prd-common-activate.sh
-queue=.state/prd_seed3407_bs16_queue_20260927
+queue=.state/prd_seed3407_bs16_tmux_20260927
+smoke=.state/prd_seed3407_bs16_queue_20260927
 exec 7>"$queue/queue.lock"
 flock -n 7 || exit 1
 test "$(git branch --show-current)" = prd-203-1-seed3407
@@ -19,11 +20,11 @@ finish() {
 trap finish EXIT
 echo "$$" >"$queue/runner.pid"
 for experiment in t1 t2_blur t3_identity; do
-    test "$(cat "$queue/smoke_${experiment}.exit")" = 0
-    grep -q FORMAL_BATCH_SMOKE_PASS "$queue/smoke_${experiment}.log"
+    test "$(cat "$smoke/smoke_${experiment}.exit")" = 0
+    grep -q FORMAL_BATCH_SMOKE_PASS "$smoke/smoke_${experiment}.log"
 done
 for experiment in t1 t2_blur t3_identity; do
-    task=prd_${experiment}_seed3407_bs16_203_20260927
+    task=prd_${experiment}_seed3407_bs16_203_tmux_20260927
     mkdir ".state/$task"
     "$PYTHON_BIN" scripts/prd_203_event.py "$queue" "$task" start
     set +e
