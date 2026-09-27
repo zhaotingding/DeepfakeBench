@@ -1,4 +1,4 @@
-"""Bounded physical BS32/BS64 acceptance; never starts a full epoch."""
+"""Bounded physical BS16/BS64 acceptance; never starts a full epoch."""
 import copy, json, sys, time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -13,7 +13,7 @@ preflight(config)
 torch.manual_seed(config['manualSeed'])
 torch.cuda.manual_seed_all(config['manualSeed'])
 torch.backends.cudnn.benchmark = config['cudnn']
-assert config['train_batchSize'] == 32 and config['test_batchSize'] == 64
+assert config['train_batchSize'] == 16 and config['test_batchSize'] == 64
 model = DETECTOR[config['model_name']](config).cuda()
 adam = config['optimizer']['adam']
 optimizer = torch.optim.Adam(model.parameters(), lr=adam['lr'], betas=(adam['beta1'], adam['beta2']), eps=adam['eps'], weight_decay=adam['weight_decay'], amsgrad=adam['amsgrad'])
@@ -36,14 +36,14 @@ for i, batch in enumerate(batches('train')):
     batch = move(batch)
     optimizer.zero_grad()
     pred = model(batch)
-    assert list(pred['cls'].shape) == [32, 2]
+    assert list(pred['cls'].shape) == [16, 2]
     loss = model.get_losses(batch, pred)['overall']
     assert torch.isfinite(loss)
     loss.backward()
     assert all(torch.isfinite(p.grad).all() for p in model.parameters() if p.grad is not None)
     optimizer.step()
     torch.cuda.synchronize()
-    print(json.dumps(dict(phase='train', batch=i, size=32, loss=loss.item(), seconds=time.monotonic()-started, peak_bytes=torch.cuda.max_memory_allocated())), flush=True)
+    print(json.dumps(dict(phase='train', batch=i, size=16, loss=loss.item(), seconds=time.monotonic()-started, peak_bytes=torch.cuda.max_memory_allocated())), flush=True)
     del batch, pred, loss
 del optimizer
 torch.cuda.empty_cache()
