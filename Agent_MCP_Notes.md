@@ -29,3 +29,10 @@
 - 归档和结果提交在各自工作树进行，避免共用 Git 索引。旧 GPU0 队列运行中，不修改其已加载的循环；新增 GPU0 等待队列只在旧 completion.json 完整成功后开始。新增队列的资源边界为 2026-10-07 00:00 Asia/Shanghai，timeout 只针对自己的新增训练；窗口结束保留未完成状态，不冒充完整实验结果。
 - 两个监控 ID：GPU0=prd；GPU1=26-09-29-17-30-prd4090-gpu1。标题 YY-MM-DD HH:mm  PRD4090-GPU0/1进度检查，独立单次时间、错开、按实测重估。首次已登记 2026-09-29 16:30 / 17:30，实际触发待验证。
 - 证据：准备提交 e8bd3ba、.state/prd_dual_gpu_setup_20260929/prepared_manifest.json、GPU1 .state/prd_dual_gpu_preflight_20260929/smoke.log、两卡队列日志；2026-09-29 实际验证 R2 BS32 两步反向/Adam、三测试集 BS64 前向通过；GPU0 原 PID3177316 与 GPU1 正式 PID692711 同时运行。后续 PID 和实验结果必须重新核验。
+
+## 运行中 Bash 文件的修改约束（2026-09-29）
+
+- F1 seed2026 在 16:15 正常早停并写出 TRAINING_EXIT_CODE=0；早前原地重写正在等待 Python 的 Bash 启动器，使其恢复读取时出现截断命令 ome/.../python，外层误报127并阻断归档。这是启动器更新引起的交接故障，不是模型训练失败。
+- 禁止原地覆盖仍可能被 Bash 读取的脚本。本机 ext4 的隔离模拟中，原子替换可保留运行进程的原脚本；本 NAS CIFS 挂载对打开脚本的 rename 返回 Permission denied，因此运行期间应保留原文件，采用不同文件名的新脚本供后续启动，或等读取进程全部退出后再替换。不能把写文件成功当作运行中更新安全。
+- F1 原 completion.json/finalize.log 原样保留；实际正常完成和校验归档以 completion.recovered.json、finalize.recovered.log、result_commit.txt 为准。scripts/recover_prd_gpu0_20260929.sh 只接续未启动的 F2 seed2026，随后进入 prd_gpu0_queue_resumed_20260929 的 F1/F2 seed42。旧失败日志不能触发重跑 F1。
+- 证据：旧 runner.log、.state/prd_gpu0_repair_20260929/bash_replace_repro.json、F1恢复归档manifest（SHA256=7a46f4fa311733aea80ca862ab3c81c8638128d6c3a5b03c9609e4f068d8e505）。F1结束及归档为实际验证；文件替换差异为隔离模拟验证；后续实验状态仍须实时核验。

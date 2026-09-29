@@ -4,7 +4,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 gpu=$1
 [[ "$gpu" =~ ^[01]$ ]] || exit 2
-queue=prd_gpu${gpu}_queue_20260929
+queue=${2:-prd_gpu${gpu}_queue_20260929}
+[[ "$queue" =~ ^prd_gpu[01]_queue_[a-zA-Z0-9_]+$ ]] || exit 2
 mkdir -p ".state/$queue" logs/RealTime
 exec 7>".state/$queue/queue.lock"
 flock -n 7

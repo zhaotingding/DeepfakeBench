@@ -4,8 +4,18 @@ from datetime import datetime
 root=Path(__file__).resolve().parents[1]
 task=sys.argv[1]
 state=root/".state"/task
+recovery = len(sys.argv) == 4 and sys.argv[3] == "--recover-launcher-exit"
+completion_name = "completion.recovered.json" if recovery else "completion.json"
+if recovery:
+    previous = json.loads((state/"completion.json").read_text())
+    assert previous["training_exit_code"] == 127 and int(sys.argv[2]) == 0
+    console = (root/"logs"/task/"console.log").read_text()
+    assert "TRAINING_EXIT_CODE=0 at " in console
 result={"task":task,"training_exit_code":int(sys.argv[2]),"finished_at":datetime.now().isoformat(),"status":"failed"}
 try:
+    if recovery:
+        result.update(recovered_from=str(state/"completion.json"), launcher_exit_code=127,
+                      recovery_reason="Training exited 0; in-place edit of live Bash launcher corrupted its subsequent shell read.")
     assert result["training_exit_code"]==0, "Training failed; inspect console.log"
     runs=list((root/"logs/training/csy").glob("lora_"+task+"_*"))
     assert len(runs)==1, "Expected exactly one run directory"
@@ -31,7 +41,7 @@ try:
 except Exception as error:
     result["error"]=str(error)
 finally:
-    with (state/"completion.json").open("x") as f: json.dump(result,f,indent=2)
-    with (root/"logs/RealTime"/(task+"_completion.json")).open("x") as f: json.dump(result,f,indent=2)
+    with (state/completion_name).open("x") as f: json.dump(result,f,indent=2)
+    with (root/"logs/RealTime"/(task+"_"+completion_name)).open("x") as f: json.dump(result,f,indent=2)
     print(json.dumps(result),flush=True)
 sys.exit(0 if result["status"]=="complete" else 1)
