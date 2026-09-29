@@ -21,3 +21,11 @@
 - 队列入口 `scripts/run_prd_seed2026_queue.sh`；状态 `.state/prd_seed2026_queue_20260926/runner.log`，每组 `.state/prd_<实验>_seed2026_20260926/completion.json`、`result_commit.txt`；队列完成文件仅在全部归档与提交后写出。队列结束不自行添加新实验。
 - GPU0 真实 FF++ 小批量验证：三组各两次前向、反向、Adam 更新，loss 与梯度有限；特征宽度 T3=2048，F1/F2=1024。证据 `.state/prd_seed2026_queue_20260926/smoke.log`；2026-09-26 实际验证，仅证明小批量路径可运行，完整训练待完成。
 - 初次监控暂估 6 小时后；后续按本次实际 epoch 耗时重估，不把 6 小时设成永久固定频率。修改应用调度文件后须区分“配置已写入”与“实际定时触发已验证”。
+
+## 2026-09-29 双卡并发
+
+- 用户授权管理员空闲窗口内同时使用两卡；此前“GPU0 单卡、F2 后停止”仅适用于旧批次，现以 scripts/prd_dual_gpu_20260929.md 的有限矩阵为准。GPU0 原 F1→F2 seed2026 完整结束后接 F1→F2 seed42；GPU1 为 R2 seed2026→T1/T2/T3/R2 seed42；避开203-1已预留的seed3407。
+- GPU0 保留原目录、分支及 prd_training.lock；GPU1 使用 /home/zhaoting.ding/prd-worktrees/gpu1-20260929、codex/prd4090-gpu1-20260929 和独立 prd_training_gpu1.lock。同用户任意训练检查会误阻挡另一卡，现只检查目标 GPU；不把另一卡训练当重复任务。GPU1 logs 链接至 NAS 原项目 logs/gpu1_20260929，数据保持本地。
+- 归档和结果提交在各自工作树进行，避免共用 Git 索引。旧 GPU0 队列运行中，不修改其已加载的循环；新增 GPU0 等待队列只在旧 completion.json 完整成功后开始。新增队列的资源边界为 2026-10-07 00:00 Asia/Shanghai，timeout 只针对自己的新增训练；窗口结束保留未完成状态，不冒充完整实验结果。
+- 两个监控 ID：GPU0=prd；GPU1=26-09-29-17-30-prd4090-gpu1。标题 YY-MM-DD HH:mm  PRD4090-GPU0/1进度检查，独立单次时间、错开、按实测重估。首次已登记 2026-09-29 16:30 / 17:30，实际触发待验证。
+- 证据：准备提交 e8bd3ba、.state/prd_dual_gpu_setup_20260929/prepared_manifest.json、GPU1 .state/prd_dual_gpu_preflight_20260929/smoke.log、两卡队列日志；2026-09-29 实际验证 R2 BS32 两步反向/Adam、三测试集 BS64 前向通过；GPU0 原 PID3177316 与 GPU1 正式 PID692711 同时运行。后续 PID 和实验结果必须重新核验。
