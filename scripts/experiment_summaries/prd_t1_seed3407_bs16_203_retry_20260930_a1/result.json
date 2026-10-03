@@ -1,0 +1,41 @@
+{
+  "status": "complete",
+  "task": "prd_t1_seed3407_bs16_203_retry_20260930_a1",
+  "run_id": "lora_prd_t1_seed3407_bs16_203_retry_20260930_a1_2026-09-30-16-25-34-344158",
+  "run_dir": "/root/autodl-tmp/prd-common/outputs/logs/training/lora_prd_t1_seed3407_bs16_203_retry_20260930_a1_2026-09-30-16-25-34-344158",
+  "seed": 3407,
+  "thread_id": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "training_commit": "62cc7521bf9ff3db794b9ad0fb279f1a5979b3d2",
+  "source_status": {
+    "git_commit": "62cc7521bf9ff3db794b9ad0fb279f1a5979b3d2",
+    "git_status": [
+      " M scripts/PRD_MONITOR.md",
+      "?? scripts/gpu_monitor.py",
+      "?? scripts/test_gpu_monitor.py"
+    ],
+    "changed_file_sha256": {
+      "scripts/PRD_MONITOR.md": "d3a7cacac8abfbee926a1b6c0d9e2d182937d6d55e5dccb4f851b2ed0d6b08d1",
+      "scripts/gpu_monitor.py": "ad02ccd04685958e1a276645ef9419573bcb40066279a11e76046c264014cef0",
+      "scripts/test_gpu_monitor.py": "4de523632100f35c11cf0137b26d13bf8bbe3faeda7655700517cf8bccbefdc0"
+    },
+    "config_sha256": "a109a1b32d67b2736d2668ef3c0fb2f99726f316f93262fec3179174c479f209"
+  },
+  "started_at": "2026-09-30T16:25:08.031383+08:00",
+  "finished_at": "2026-10-03T10:16:24.332865+08:00",
+  "dataset_auc": {
+    "Celeb-DF-v2": 0.8382540776986952,
+    "DFDCP": 0.8820138623596501,
+    "DFDC": 0.8548121655416074
+  },
+  "average_auc": 0.8583600351999842,
+  "last_epoch": 11,
+  "early_stop_epoch": 11,
+  "selected_epoch": 3,
+  "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/training/lora_prd_t1_seed3407_bs16_203_retry_20260930_a1_2026-09-30-16-25-34-344158/test/avg/ckpt_best.pth",
+  "checkpoint_sha256": "bfd35a301ae126871053666b106a81a753521af79d5d08a6f29c73b401d5bf6f",
+  "checkpoint_bytes": 1401384250,
+  "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/prd_t1_seed3407_bs16_203_retry_20260930_a1",
+  "train_batch": 16,
+  "test_batch": 64,
+  "protocol": "Target-set-selected development evaluation; seed, batch, hardware and environment confounded across hosts."
+}
