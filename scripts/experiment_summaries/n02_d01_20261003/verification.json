@@ -1,0 +1,16 @@
+{
+  "original_cache_max_error": 0.0,
+  "eval_duplicate_residual_max_abs": 0.0,
+  "matched_norm_relative_max_error": 1.3072902049771074e-07,
+  "dropout": {
+    "uncontrolled_max_abs": 0.3606128692626953,
+    "uncontrolled_mean_l2": 1.3220033645629883,
+    "replayed_rng_max_abs": 0.0
+  },
+  "independent_ce_max_error": {
+    "vae": 2.7040928074484327e-07,
+    "blur_raw_sigma1": 2.1040899866875407e-07,
+    "blur_matched": 2.0536049882835528e-07,
+    "identity_strict": 1.8470789298064005e-07
+  }
+}

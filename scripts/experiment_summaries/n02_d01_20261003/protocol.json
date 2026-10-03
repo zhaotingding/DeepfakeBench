@@ -1,0 +1,14 @@
+{
+  "id": "N02-D01/v1",
+  "hypothesis": "At the fixed VAE-trained paired T01 endpoint, VAE residual direction is more useful than Gaussian-blur direction even after exact per-video feature L2 norm matching.",
+  "alternative": "Response differences can be explained by residual strength, or blur directions perform at least as well at this endpoint.",
+  "scope": "203-only frozen-checkpoint sensitivity; N02 GPU1 resource remains disabled. Does not repeat 4090 N01 fixed-VAE norm/direction linear-head training.",
+  "inputs": "P03-T01 paired final checkpoint eea7cf98a12f96cf7d52c7acb4f738d0bbcec835dc3415f82a07545b251af406; P03-D02 cached original/VAE residual f9b5648fb8cf60c9df9cc1e7e9a038cca950bdb0c91ecce701bc5ad1f476ca59; unchanged 192-video manifest ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a.",
+  "matching": "Gaussian sigma fixed 1.0, using existing probe implementation. Per-video r_blur_matched=r_blur*||r_VAE||2/||r_blur||2. No labels, AUC, search or fitted parameters in matching. Stop if either norm<=1e-8. Feature-space matching, not an equivalent physical image operator.",
+  "identity": "Model eval, frozen parameters, verify two original encoder forwards differ at most1e-5; strict residual used in head is exactly z-z=0. Separate first16-image encoder train-mode no-grad test compares uncontrolled dropout with replayed CPU/CUDA RNG; return to eval. Never call this a change to original training protocol.",
+  "conditions": ["VAE cached/reproduced baseline", "raw sigma1 blur descriptive", "per-video norm-matched blur primary", "strict identity descriptive"],
+  "decision": "Support only macro CE(matched_blur)-CE(VAE)>=0.02nat and macro AUC(VAE)-AUC(matched_blur)>=0.01 and each domain CE difference>=0. If either macro difference<=0, directional advantage not supported; otherwise inconclusive. These are engineering screening thresholds, not significance tests.",
+  "budget": "One checkpoint, 192 fixed videos, testBS64; first16 also encoder stochasticity check; 0 training updates, existing203 GPU<=30minutes, no retries or expansion.",
+  "stops": "Hash/config/code/lock mismatch, baseline error above atol1e-4 rtol1e-5, nonfinite values, norms<=1e-8, relative norm-match error>=1e-5, or timeout.",
+  "limits": "VAE-trained head favors its training distribution; no retrained-method or VAE-specific causal superiority claim. Matching uses per-sample VAE norm as a reference and changes only feature magnitude; not matched image-space perturbation. Identity has zero strength and is a negative control, not an equal-positive-strength arm. Small developmental domains, video-record units not donor/frame replicas; family dependence unknown."
+}

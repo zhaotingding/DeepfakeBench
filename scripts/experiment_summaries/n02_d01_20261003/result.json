@@ -1,0 +1,113 @@
+{
+  "id": "N02-D01/v1",
+  "status": "complete",
+  "started_at": "2026-10-03T22:16:12.433324+08:00",
+  "ended_at": "2026-10-03T22:16:35.290523+08:00",
+  "training_updates": 0,
+  "code_commit": "31c15585601b8d0f390beab4109b427cacc19e93",
+  "claim": "9f8898e28eadb0cf4857123441e3f866e3666041",
+  "metrics": {
+    "vae": {
+      "Celeb-DF-v2": {
+        "ce": 0.3393232245349572,
+        "auc": 0.927734375
+      },
+      "DFDC": {
+        "ce": 0.516053216222789,
+        "auc": 0.8359375
+      },
+      "DFDCP": {
+        "ce": 0.5447922436084338,
+        "auc": 0.8232421875
+      }
+    },
+    "blur_raw_sigma1": {
+      "Celeb-DF-v2": {
+        "ce": 0.3481019354428495,
+        "auc": 0.9267578125
+      },
+      "DFDC": {
+        "ce": 0.5134453321220339,
+        "auc": 0.8466796875
+      },
+      "DFDCP": {
+        "ce": 0.5134418919935311,
+        "auc": 0.830078125
+      }
+    },
+    "blur_matched": {
+      "Celeb-DF-v2": {
+        "ce": 0.3550413134215962,
+        "auc": 0.921875
+      },
+      "DFDC": {
+        "ce": 0.522758328446043,
+        "auc": 0.8447265625
+      },
+      "DFDCP": {
+        "ce": 0.5053134275469516,
+        "auc": 0.830078125
+      }
+    },
+    "identity_strict": {
+      "Celeb-DF-v2": {
+        "ce": 0.33408307821603034,
+        "auc": 0.9306640625
+      },
+      "DFDC": {
+        "ce": 0.5084553463493129,
+        "auc": 0.8427734375
+      },
+      "DFDCP": {
+        "ce": 0.5220911415880392,
+        "auc": 0.826171875
+      }
+    }
+  },
+  "differences": {
+    "Celeb-DF-v2": {
+      "ce": 0.015718088886639003,
+      "auc": 0.005859375
+    },
+    "DFDC": {
+      "ce": 0.006705112223253984,
+      "auc": -0.0087890625
+    },
+    "DFDCP": {
+      "ce": -0.03947881606148218,
+      "auc": -0.0068359375
+    }
+  },
+  "delta_ce": -0.005685204983863064,
+  "delta_auc": -0.0032552083333333335,
+  "verdict": "directional_advantage_not_supported",
+  "peak_gpu_allocated": 2578675712,
+  "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/p03_t01_20261003/paired_final.pth",
+  "checkpoint_sha256": "eea7cf98a12f96cf7d52c7acb4f738d0bbcec835dc3415f82a07545b251af406",
+  "protocol": {
+    "id": "N02-D01/v1",
+    "hypothesis": "At the fixed VAE-trained paired T01 endpoint, VAE residual direction is more useful than Gaussian-blur direction even after exact per-video feature L2 norm matching.",
+    "alternative": "Response differences can be explained by residual strength, or blur directions perform at least as well at this endpoint.",
+    "scope": "203-only frozen-checkpoint sensitivity; N02 GPU1 resource remains disabled. Does not repeat 4090 N01 fixed-VAE norm/direction linear-head training.",
+    "inputs": "P03-T01 paired final checkpoint eea7cf98a12f96cf7d52c7acb4f738d0bbcec835dc3415f82a07545b251af406; P03-D02 cached original/VAE residual f9b5648fb8cf60c9df9cc1e7e9a038cca950bdb0c91ecce701bc5ad1f476ca59; unchanged 192-video manifest ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a.",
+    "matching": "Gaussian sigma fixed 1.0, using existing probe implementation. Per-video r_blur_matched=r_blur*||r_VAE||2/||r_blur||2. No labels, AUC, search or fitted parameters in matching. Stop if either norm<=1e-8. Feature-space matching, not an equivalent physical image operator.",
+    "identity": "Model eval, frozen parameters, verify two original encoder forwards differ at most1e-5; strict residual used in head is exactly z-z=0. Separate first16-image encoder train-mode no-grad test compares uncontrolled dropout with replayed CPU/CUDA RNG; return to eval. Never call this a change to original training protocol.",
+    "conditions": [
+      "VAE cached/reproduced baseline",
+      "raw sigma1 blur descriptive",
+      "per-video norm-matched blur primary",
+      "strict identity descriptive"
+    ],
+    "decision": "Support only macro CE(matched_blur)-CE(VAE)>=0.02nat and macro AUC(VAE)-AUC(matched_blur)>=0.01 and each domain CE difference>=0. If either macro difference<=0, directional advantage not supported; otherwise inconclusive. These are engineering screening thresholds, not significance tests.",
+    "budget": "One checkpoint, 192 fixed videos, testBS64; first16 also encoder stochasticity check; 0 training updates, existing203 GPU<=30minutes, no retries or expansion.",
+    "stops": "Hash/config/code/lock mismatch, baseline error above atol1e-4 rtol1e-5, nonfinite values, norms<=1e-8, relative norm-match error>=1e-5, or timeout.",
+    "limits": "VAE-trained head favors its training distribution; no retrained-method or VAE-specific causal superiority claim. Matching uses per-sample VAE norm as a reference and changes only feature magnitude; not matched image-space perturbation. Identity has zero strength and is a negative control, not an equal-positive-strength arm. Small developmental domains, video-record units not donor/frame replicas; family dependence unknown."
+  },
+  "artifact_hashes": {
+    "started.json": "bf6d03f84db03885ffab4a7418606bf21c30d1645946bd66ff6cf67d6d70be56",
+    "per_video_ce.json": "442c70463618f6fed6148a396de333aefdb72a6b8b7c7ed362f07326e53d48d4",
+    "features_and_logits.npz": "526e3413d928e51653cea70c9d222087a5bc696cda6f0b48641ec9123160176d",
+    "verification.json": "eedb2073e90df693c5788db8319f2a80c05d62f9fe1f751a0b17166df1ea0fa3",
+    "evaluation_manifest.json": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a"
+  }
+}
