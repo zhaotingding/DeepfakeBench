@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / '.state/p04_d02_20261003'
+OUT = ROOT / '.state/p04_d02_20261003_a2'
 sys.path.insert(0, str(ROOT / 'training'))
 
 def sha(path):
@@ -65,17 +65,24 @@ def main():
     for domain in sorted({r['domain'] for r in rows}):
         selected = [r for r in rows if r['domain'] == domain]
         assert [sum(r['label'] == y for r in selected) for y in (0,1)] == [32,32]
-        assert sha(Path(config['dataset_json_folder']) / (domain+'.json')) == selected[0]['json_sha256']
+        source = Path(config['dataset_json_folder']) / (domain+'.json')
+        assert sha(source) == selected[0]['json_sha256']
+        records = json.loads(source.read_text())[domain]
+        for row in selected:
+            frames = records[row['label_string']]['test'][row['original_video_key']]['frames']
+            keys = [f for f in frames if f.replace('\\','/') == row['frame']]
+            assert len(keys) == 1
+            row['lmdb_key'] = keys[0]
     for row in rows:
         # Reuse the actual test image loader, without __getitem__'s silent fallback.
         loader = object.__new__(DeepfakeAbstractBaseDataset)
         loader.config, loader.lmdb = config, True
         loader.env = lmdb.open(str(Path(config['lmdb_dir'])/(row['domain']+'_lmdb')), readonly=True, lock=False, create=False)
         with loader.env.begin(write=False) as txn:
-            raw = txn.get(row['frame'].encode())
+            raw = txn.get(row['lmdb_key'].encode())
             assert raw is not None, row['frame']
             content_hashes.append(hashlib.sha256(raw).hexdigest())
-        images.append(loader.normalize(loader.to_tensor(loader.load_rgb(row['frame']))))
+        images.append(loader.normalize(loader.to_tensor(loader.load_rgb(row['lmdb_key']))))
         loader.env.close()
     write('image_evidence.json', [dict(r, image_bytes_sha256=h) for r,h in zip(rows,content_hashes)])
     assert torch.cuda.is_available()

@@ -6,7 +6,7 @@ exec 9>.state/prd_training.lock
 flock -n 9
 exec 8>.state/p04_d02.lock
 flock -n 8
-state=.state/p04_d02_20261003
+state=.state/p04_d02_20261003_a2
 mkdir "$state"
 echo $$ > "$state/runner.pid"
 exec >"$state/runner.log" 2>&1
