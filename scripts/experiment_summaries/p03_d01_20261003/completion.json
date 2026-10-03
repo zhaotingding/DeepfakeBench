@@ -1,0 +1,41 @@
+{
+  "diagnostic_id": "P03-D01/v1",
+  "status": "completed",
+  "archived_at": "2026-10-03T16:51:43.445534+08:00",
+  "claim_commit": "457977d7fea6693ee910ea7fd7af332ae632cc1f",
+  "code_commit": "533da194da2dc264baeeb2e752e4bcd40d8333a3",
+  "source_thread_id": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "launch_time": "2026-10-03T16:48:40+08:00",
+  "ended_at": "2026-10-03T16:48:53+08:00",
+  "analysis_exit_code": 0,
+  "overall_exit_code": 0,
+  "independent_verification": {
+    "status": "verified",
+    "checked_at": "2026-10-03T16:48:52.894737+08:00",
+    "independent_torch_all192_four_states_two_references": true,
+    "max_numerical_error": 3.1086244689504383e-15,
+    "all_domain_auc_ce_and_decision_verified": true,
+    "artifact_hashes_verified": true,
+    "source_video_records": 192
+  },
+  "artifacts_sha256": {
+    "started.json": "dd66d3cf85897ef29f043f0ba5a46686736074b58ae36c4b33ad773b4a5d326d",
+    "launched_at.txt": "805386d72dd04fc002026aff58ae324f764606765c293747e2b9d0acb555bcd9",
+    "per_video.json": "d75221b0c9aaa7cb95d762ed46a63000f475e9899731c4c89d4df46906da34e6",
+    "runner.log": "a495d7567cdf24320e5b2735e9265f3dc91128ad9ebeb751670603c4ed1c294f",
+    "analysis_exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "result.json": "be892cea95f3f670757db75f7648838da26d4b3ba3d5a974869d84e93f1505f8",
+    "verification.json": "30e22fc599e8f25990b393bb16890c9fe85c5a62198a5732412768ee9c33411c",
+    "ended_at.txt": "0fd20909ced6737b754ad096d628a59c01063427c05ea5e06075c020f7ef9222",
+    "实验摘要.md": "8f8304c5db129deec819f888473fbd02b7ae88df270f358d99bda7c8ed0cd626",
+    "runner.pid": "b3d5b9ff970d24d860842c9ba06cb9e78767a2b0e00a70b593b5fae1b9bbea93",
+    "protocol.json": "f924d577a4a2671bdcaf5f57f69a092a0895a1ad062e3c20ffb260d09340c270",
+    "exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/training/lora_prd_t1_seed3407_bs16_203_retry_20260930_a1_2026-09-30-16-25-34-344158/test/avg/ckpt_best.pth",
+  "checkpoint_sha256": "bfd35a301ae126871053666b106a81a753521af79d5d08a6f29c73b401d5bf6f",
+  "verdict": "support_small_variation_contribution",
+  "training_updates": 0,
+  "new_checkpoints": 0,
+  "gpu_used": false
+}

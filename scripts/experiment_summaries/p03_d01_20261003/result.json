@@ -1,0 +1,246 @@
+{
+  "diagnostic_id": "P03-D01/v1",
+  "status": "analysis_complete_pending_independent_verification",
+  "started_at": "2026-10-03T16:48:43.759156+08:00",
+  "ended_at": "2026-10-03T16:48:49.206113+08:00",
+  "code_commit": "533da194da2dc264baeeb2e752e4bcd40d8333a3",
+  "claim_commit": "457977d7fea6693ee910ea7fd7af332ae632cc1f",
+  "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/training/lora_prd_t1_seed3407_bs16_203_retry_20260930_a1_2026-09-30-16-25-34-344158/test/avg/ckpt_best.pth",
+  "checkpoint_sha256": "bfd35a301ae126871053666b106a81a753521af79d5d08a6f29c73b401d5bf6f",
+  "protocol": {
+    "diagnostic_id": "P03-D01/v1",
+    "question": "Does weak residual pairing sensitivity reflect a small contribution of between-video residual variation to this frozen head?",
+    "hypothesis": "Residual block contributes at most 10% of mean absolute two-block attribution in every domain, under both preregistered references.",
+    "alternative": "Residual variation materially changes the head output despite weak dependence on exact original/residual pairing.",
+    "source": ".state/p04_d02_20261003_a2",
+    "source_result_commit": "b5c546346a97583dd4b3d5adaa4cef9fd1b5191e",
+    "features_sha256": "93a0b1ce46300cb99781c5f5445c15fe07365a63ff92589a1f4760ec1ca452c5",
+    "rows_sha256": "ba3920f62069e1cc552b188478624235cb70910fffd9f33a6a2024ada2d07bf0",
+    "checkpoint_sha256": "bfd35a301ae126871053666b106a81a753521af79d5d08a6f29c73b401d5bf6f",
+    "sample_unit": "192 existing video records, one frame per record, 32 real and 32 fake per domain; shared source-person independence unknown",
+    "references": [
+      "pooled_leave_one_video_out_mean",
+      "within_domain_leave_one_video_out_mean"
+    ],
+    "reference_rule": "For each recipient, average all other records in the reference pool, without using labels or outcomes. No reference tuning.",
+    "model": "Same frozen T1 concat head, eval BatchNorm, dropout off, input [192,2048], logits [192,2]. Original and signed residual blocks each [192,1024].",
+    "score": "f(z,r)=logit_fake-logit_real",
+    "states": {
+      "00": "f(z_ref,r_ref)",
+      "10": "f(z,r_ref)",
+      "01": "f(z_ref,r)",
+      "11": "f(z,r)"
+    },
+    "attribution": {
+      "original": "0.5*((f10-f00)+(f11-f01))",
+      "residual": "0.5*((f01-f00)+(f11-f10))",
+      "interaction": "f11-f10-f01+f00"
+    },
+    "primary": "Per-domain mean(abs(phi_r))/(mean(abs(phi_z))+mean(abs(phi_r))) for both references.",
+    "decision": "support_small_variation_contribution if all six shares <=0.10; reject_uniformly_small_variation_contribution if any share >=0.20; otherwise inconclusive. A zero denominator is inconclusive. These are descriptive practical thresholds, not population significance tests.",
+    "secondary": "Per-domain CE and AUC of all four states; label-aligned mean contributions; mean absolute interaction. Never select references using target AUC.",
+    "budget": {
+      "experiments": 1,
+      "training_updates": 0,
+      "new_checkpoints": 0,
+      "gpu_seconds": 0,
+      "cpu_threads": 2,
+      "analysis_timeout_seconds": 300,
+      "verification_timeout_seconds": 300,
+      "peak_rss_limit_bytes": 4294967296
+    },
+    "stop": "Stop on input/hash/shape/finiteness/head replay/attribution closure mismatch, time or memory budget failure; no automatic experiment expansion.",
+    "limitations": "Reference-dependent frozen-model response, not retraining causality or intrinsic information. Constant residual offsets are removed by this comparison, so small attribution does not imply the whole branch is useless. Mean replacements may be off joint manifold. Fixed target development subset and selected checkpoint; no independent final test, source-person independence or cross-machine seed causality. No bootstrap or pseudo-independent frame p-values."
+  },
+  "metrics": {
+    "pooled_leave_one_video_out_mean": {
+      "Celeb-DF-v2": {
+        "n": 64,
+        "mean_abs_original": 3.047000376376218,
+        "mean_abs_residual": 0.19585042532936142,
+        "residual_share": 0.060394522383315864,
+        "mean_true_label_original": 2.3825069282837563,
+        "mean_true_label_residual": 0.007977308722052046,
+        "mean_abs_interaction": 0.08999759411580929,
+        "states": {
+          "00": {
+            "auc": 0.1826171875,
+            "ce": 1.3411431761506114
+          },
+          "10": {
+            "auc": 0.861328125,
+            "ce": 0.7588684699011534
+          },
+          "01": {
+            "auc": 0.4697265625,
+            "ce": 1.3290981356280707
+          },
+          "11": {
+            "auc": 0.8544921875,
+            "ce": 0.7733042347150036
+          }
+        },
+        "residual_center_delta_ce": -0.014435764813850227,
+        "original_center_delta_ce": 0.555793900913067
+      },
+      "DFDC": {
+        "n": 64,
+        "mean_abs_original": 3.3045065074245716,
+        "mean_abs_residual": 0.23700039405932244,
+        "residual_share": 0.06692077713021513,
+        "mean_true_label_original": 2.415806246205955,
+        "mean_true_label_residual": 0.07558955937516977,
+        "mean_abs_interaction": 0.17508630658200203,
+        "states": {
+          "00": {
+            "auc": 0.1904296875,
+            "ce": 1.3416757199045506
+          },
+          "10": {
+            "auc": 0.8359375,
+            "ce": 0.7134502985824196
+          },
+          "01": {
+            "auc": 0.525390625,
+            "ce": 1.2910541059918832
+          },
+          "11": {
+            "auc": 0.8408203125,
+            "ce": 0.7000137152748577
+          }
+        },
+        "residual_center_delta_ce": 0.013436583307561922,
+        "original_center_delta_ce": 0.5910403907170255
+      },
+      "DFDCP": {
+        "n": 64,
+        "mean_abs_original": 2.639319090335997,
+        "mean_abs_residual": 0.2027163329720413,
+        "residual_share": 0.07132786991658464,
+        "mean_true_label_original": 1.7232946610267472,
+        "mean_true_label_residual": -0.001963765134064519,
+        "mean_abs_interaction": 0.12455290905320872,
+        "states": {
+          "00": {
+            "auc": 0.314453125,
+            "ce": 1.3406283285226044
+          },
+          "10": {
+            "auc": 0.7880859375,
+            "ce": 0.743951696132822
+          },
+          "01": {
+            "auc": 0.431640625,
+            "ce": 1.3302334242687306
+          },
+          "11": {
+            "auc": 0.7861328125,
+            "ce": 0.7333741449412414
+          }
+        },
+        "residual_center_delta_ce": 0.010577551191580548,
+        "original_center_delta_ce": 0.5968592793274892
+      }
+    },
+    "within_domain_leave_one_video_out_mean": {
+      "Celeb-DF-v2": {
+        "n": 64,
+        "mean_abs_original": 3.0595834651253297,
+        "mean_abs_residual": 0.2186484082363477,
+        "residual_share": 0.066697053986036,
+        "mean_true_label_original": 2.368746595144404,
+        "mean_true_label_residual": 0.03687592137311822,
+        "mean_abs_interaction": 0.11278294718909733,
+        "states": {
+          "00": {
+            "auc": 0.1806640625,
+            "ce": 1.4573498221678292
+          },
+          "10": {
+            "auc": 0.861328125,
+            "ce": 0.766637000309115
+          },
+          "01": {
+            "auc": 0.431640625,
+            "ce": 1.4426249552838764
+          },
+          "11": {
+            "auc": 0.8544921875,
+            "ce": 0.7733042347150036
+          }
+        },
+        "residual_center_delta_ce": -0.006667234405888678,
+        "original_center_delta_ce": 0.6693207205688727
+      },
+      "DFDC": {
+        "n": 64,
+        "mean_abs_original": 3.369853278501787,
+        "mean_abs_residual": 0.22234466005575587,
+        "residual_share": 0.06189655020653984,
+        "mean_true_label_original": 2.465444073108531,
+        "mean_true_label_residual": 0.04089243324833054,
+        "mean_abs_interaction": 0.14807742477818792,
+        "states": {
+          "00": {
+            "auc": 0.1865234375,
+            "ce": 1.3395482648464727
+          },
+          "10": {
+            "auc": 0.837890625,
+            "ce": 0.7051640225220432
+          },
+          "01": {
+            "auc": 0.486328125,
+            "ce": 1.2948386325970507
+          },
+          "11": {
+            "auc": 0.8408203125,
+            "ce": 0.7000137152748577
+          }
+        },
+        "residual_center_delta_ce": 0.00515030724718557,
+        "original_center_delta_ce": 0.594824917322193
+      },
+      "DFDCP": {
+        "n": 64,
+        "mean_abs_original": 2.5711750543331324,
+        "mean_abs_residual": 0.21788394717108406,
+        "residual_share": 0.07812095300012414,
+        "mean_true_label_original": 1.7353032495592093,
+        "mean_true_label_residual": -0.00487632849889276,
+        "mean_abs_interaction": 0.11248629443793096,
+        "states": {
+          "00": {
+            "auc": 0.283203125,
+            "ce": 1.2032384301762695
+          },
+          "10": {
+            "auc": 0.7880859375,
+            "ce": 0.7435198348760517
+          },
+          "01": {
+            "auc": 0.3974609375,
+            "ce": 1.1868624718107261
+          },
+          "11": {
+            "auc": 0.7861328125,
+            "ce": 0.7333741449412414
+          }
+        },
+        "residual_center_delta_ce": 0.010145689934810243,
+        "original_center_delta_ce": 0.4534883268694847
+      }
+    }
+  },
+  "verdict": "support_small_variation_contribution",
+  "original_gpu_logits_replay_max_error": 5.595625305332419e-07,
+  "attribution_closure_max_error": 1.7763568394002505e-15,
+  "peak_rss_bytes": 467570688,
+  "training_updates": 0,
+  "new_checkpoints": 0,
+  "gpu_used": false,
+  "artifacts_sha256": {
+    "started.json": "dd66d3cf85897ef29f043f0ba5a46686736074b58ae36c4b33ad773b4a5d326d",
+    "per_video.json": "d75221b0c9aaa7cb95d762ed46a63000f475e9899731c4c89d4df46906da34e6"
+  }
+}

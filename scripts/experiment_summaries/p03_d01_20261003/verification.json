@@ -1,0 +1,9 @@
+{
+  "status": "verified",
+  "checked_at": "2026-10-03T16:48:52.894737+08:00",
+  "independent_torch_all192_four_states_two_references": true,
+  "max_numerical_error": 3.1086244689504383e-15,
+  "all_domain_auc_ce_and_decision_verified": true,
+  "artifact_hashes_verified": true,
+  "source_video_records": 192
+}
