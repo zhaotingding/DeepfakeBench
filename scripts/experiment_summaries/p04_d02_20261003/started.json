@@ -1,0 +1,220 @@
+{
+  "started_at": "2026-10-03T15:26:06.072476+08:00",
+  "pid": 33451,
+  "cwd": "/root/DeepfakeBench-prd-common",
+  "diagnostic_id": "P04-D02/v1",
+  "claim_commit": "583e89ab9ed24018a61c9ada2989c69c1a751182",
+  "code_commit": "f7cafcfc3c4caf51384ad3b052f8d937ab46d822",
+  "code_sha256": "54f232066f23b51e8cc0fba60a25d0a1a1bd978d50eab15334b22fde7c63472e",
+  "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/training/lora_prd_t1_seed3407_bs16_203_retry_20260930_a1_2026-09-30-16-25-34-344158/test/avg/ckpt_best.pth",
+  "checkpoint_sha256": "bfd35a301ae126871053666b106a81a753521af79d5d08a6f29c73b401d5bf6f",
+  "source_status": " M scripts/PRD_MONITOR.md\n?? scripts/gpu_monitor.py\n?? scripts/run_prd_203_continue_20261003.sh\n?? scripts/test_gpu_monitor.py\n",
+  "run_metadata_sha256": "33960987f53f1d803d8424adb6d42a5dfa6080330ebfcee5fc30624e70ee68ec",
+  "config": {
+    "log_dir": "/root/autodl-tmp/prd-common/outputs/logs/training",
+    "model_name": "lora",
+    "backbone_name": "vit",
+    "pretrained_root": "/root/autodl-tmp/prd-common/pretrained",
+    "clip_path": "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14",
+    "vae_path": "/root/autodl-tmp/prd-common/pretrained/vae_original",
+    "train_dataset": [
+      "FaceForensics++"
+    ],
+    "test_dataset": [
+      "Celeb-DF-v2",
+      "DFDCP",
+      "DFDC"
+    ],
+    "train_batchSize": 16,
+    "test_batchSize": 64,
+    "workers": 8,
+    "frame_num": {
+      "train": 8,
+      "test": 32
+    },
+    "resolution": 224,
+    "compression": "c23",
+    "with_mask": false,
+    "with_landmark": false,
+    "use_data_augmentation": true,
+    "data_aug": {
+      "flip_prob": 0.5,
+      "rotate_prob": 0.5,
+      "rotate_limit": [
+        -10,
+        10
+      ],
+      "blur_prob": 0.5,
+      "blur_limit": [
+        3,
+        7
+      ],
+      "brightness_prob": 0.5,
+      "brightness_limit": [
+        -0.1,
+        0.1
+      ],
+      "contrast_limit": [
+        -0.1,
+        0.1
+      ],
+      "quality_lower": 40,
+      "quality_upper": 100
+    },
+    "mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "nEpochs": 30,
+    "start_epoch": 0,
+    "save_epoch": 1,
+    "rec_iter": 100,
+    "manualSeed": 3407,
+    "save_ckpt": true,
+    "save_feat": true,
+    "lr_scheduler": null,
+    "metric_scoring": "auc",
+    "cuda": true,
+    "cudnn": true,
+    "optimizer": {
+      "type": "adam",
+      "adam": {
+        "lr": 0.0002,
+        "beta1": 0.9,
+        "beta2": 0.999,
+        "eps": 1e-08,
+        "weight_decay": 0.0005,
+        "amsgrad": false
+      }
+    },
+    "probe": {
+      "type": "sd15_vae",
+      "sigma": 1.0,
+      "vae_path": null
+    },
+    "residual": {
+      "type": "signed_diff"
+    },
+    "encoder": {
+      "type": "clip"
+    },
+    "feature_mode": "concat",
+    "analysis": {
+      "save_features": false,
+      "compute_statistics": true,
+      "statistics_max_samples": 2048
+    },
+    "experiment": {
+      "name": "prd_t1_seed3407",
+      "seed": 3407
+    },
+    "early_stopping": {
+      "enabled": true,
+      "max_declines": 3
+    },
+    "mode": "train",
+    "lmdb": true,
+    "dry_run": false,
+    "data_root": "/datasets/Deepfake",
+    "rgb_dir": "/datasets/Deepfake/DeepfakeBench_rgb/rgb",
+    "lmdb_dir": "/datasets/Deepfake/DeepfakeBench/lmdb",
+    "dataset_json_folder": "/datasets/Deepfake/DeepfakeBench/config/dataset_json",
+    "SWA": false,
+    "save_avg": true,
+    "label_dict": {
+      "DFD_fake": 1,
+      "DFD_real": 0,
+      "FF-SH": 1,
+      "FF-F2F": 1,
+      "FF-DF": 1,
+      "FF-FS": 1,
+      "FF-NT": 1,
+      "FF-FH": 1,
+      "FF-real": 0,
+      "CelebDFv1_real": 0,
+      "CelebDFv1_fake": 1,
+      "CelebDFv2_real": 0,
+      "CelebDFv2_fake": 1,
+      "DFDCP_Real": 0,
+      "DFDCP_FakeA": 1,
+      "DFDCP_FakeB": 1,
+      "DFDC_Fake": 1,
+      "DFDC_Real": 0,
+      "DF_fake": 1,
+      "DF_real": 0,
+      "UADFV_Fake": 1,
+      "UADFV_Real": 0,
+      "roop_Real": 0,
+      "roop_Fake": 1,
+      "VQGAN_Real": 0,
+      "VQGAN_Fake": 1,
+      "StyleGAN2_Real": 0,
+      "StyleGAN2_Fake": 1,
+      "StyleGANXL_Real": 0,
+      "StyleGANXL_Fake": 1,
+      "SiT_Real": 0,
+      "SiT_Fake": 1,
+      "sd2.1_Real": 0,
+      "sd2.1_Fake": 1,
+      "rddm_Real": 0,
+      "rddm_Fake": 1,
+      "ddim_Real": 0,
+      "ddim_Fake": 1,
+      "pixart_Real": 0,
+      "pixart_Fake": 1,
+      "DiT_Real": 0,
+      "DiT_Fake": 1
+    },
+    "spe_label_dict": {
+      "FF-F2F": 1,
+      "FF-DF": 2,
+      "FF-FS": 3,
+      "FF-NT": 4,
+      "FF-real": 0,
+      "DFD_fake": 1,
+      "DFD_real": 0,
+      "CelebDFv1_real": 0,
+      "CelebDFv1_fake": 1,
+      "CelebDFv2_real": 0,
+      "CelebDFv2_fake": 1,
+      "DFDCP_Real": 0,
+      "DFDCP_FakeA": 1,
+      "DFDCP_FakeB": 1,
+      "DFDC_Fake": 1,
+      "DFDC_Real": 0,
+      "DF_fake": 1,
+      "DF_real": 0,
+      "UADFV_Fake": 1,
+      "UADFV_Real": 0,
+      "roop_Real": 0,
+      "roop_Fake": 1,
+      "VQGAN_Real": 0,
+      "VQGAN_Fake": 1,
+      "StyleGAN2_Real": 0,
+      "StyleGAN2_Fake": 1,
+      "StyleGANXL_Real": 0,
+      "StyleGANXL_Fake": 1,
+      "SiT_Real": 0,
+      "SiT_Fake": 1,
+      "sd2.1_Real": 0,
+      "sd2.1_Fake": 1,
+      "rddm_Real": 0,
+      "rddm_Fake": 1,
+      "ddim_Real": 0,
+      "ddim_Fake": 1,
+      "pixart_Real": 0,
+      "pixart_Fake": 1,
+      "DiT_Real": 0,
+      "DiT_Fake": 1
+    },
+    "local_rank": 0,
+    "task_target": "prd_t1_seed3407_bs16_203_retry_20260930_a1",
+    "ddp": false
+  }
+}

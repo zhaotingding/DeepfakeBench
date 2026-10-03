@@ -1,0 +1,19 @@
+{
+  "status": "verified",
+  "time": "2026-10-03T15:27:49.255982+08:00",
+  "normal_exit_code": 0,
+  "artifact_hashes_match": true,
+  "donor_marginals_preserved": true,
+  "metadata_video_units": 192,
+  "unique_image_byte_hashes": 192,
+  "cpu_numpy_replay_video_indices": [
+    0,
+    32,
+    64,
+    96,
+    128,
+    160
+  ],
+  "max_cpu_replay_error": 9.14110752647801e-08,
+  "baseline_all192_ce_and_domain_auc_verified": true
+}

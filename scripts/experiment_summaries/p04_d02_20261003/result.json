@@ -1,0 +1,108 @@
+{
+  "diagnostic_id": "P04-D02/v1",
+  "status": "complete",
+  "started_at": "2026-10-03T15:26:06.072476+08:00",
+  "finished_at": "2026-10-03T15:27:05.353641+08:00",
+  "metrics": {
+    "Celeb-DF-v2": {
+      "aligned": {
+        "auc": 0.8544921875,
+        "ce": 0.7733042240142822,
+        "delta_ce": 0.0,
+        "true_margin": 2.383390426635742
+      },
+      "same_domain_same_label": {
+        "auc": 0.86328125,
+        "ce": 0.7566948890435015,
+        "delta_ce": -0.01660931421895384,
+        "true_margin": 2.340444185072556
+      },
+      "same_domain_opposite_label": {
+        "auc": 0.86328125,
+        "ce": 0.7573101946088627,
+        "delta_ce": -0.015994008653592573,
+        "true_margin": 2.3338795104064047
+      },
+      "other_domain_same_label": {
+        "auc": 0.8623046875,
+        "ce": 0.746174351943182,
+        "delta_ce": -0.027129851319273257,
+        "true_margin": 2.4187026710715145
+      }
+    },
+    "DFDC": {
+      "aligned": {
+        "auc": 0.8408203125,
+        "ce": 0.7000136971473694,
+        "delta_ce": 0.0,
+        "true_margin": 2.4846138954162598
+      },
+      "same_domain_same_label": {
+        "auc": 0.837890625,
+        "ce": 0.69791799666325,
+        "delta_ce": -0.0020957041888323147,
+        "true_margin": 2.458432588609867
+      },
+      "same_domain_opposite_label": {
+        "auc": 0.8359375,
+        "ce": 0.704883389180111,
+        "delta_ce": 0.004869688328028587,
+        "true_margin": 2.4458220994565636
+      },
+      "other_domain_same_label": {
+        "auc": 0.837890625,
+        "ce": 0.7153658204880458,
+        "delta_ce": 0.01535211963596339,
+        "true_margin": 2.337424027500674
+      }
+    },
+    "DFDCP": {
+      "aligned": {
+        "auc": 0.7861328125,
+        "ce": 0.7333741188049316,
+        "delta_ce": 0.0,
+        "true_margin": 1.7178611755371094
+      },
+      "same_domain_same_label": {
+        "auc": 0.78125,
+        "ce": 0.7447512064936745,
+        "delta_ce": 0.011377062967767415,
+        "true_margin": 1.6896410747431219
+      },
+      "same_domain_opposite_label": {
+        "auc": 0.7900390625,
+        "ce": 0.7274940153965872,
+        "delta_ce": -0.005880128129319928,
+        "true_margin": 1.7550012886640616
+      },
+      "other_domain_same_label": {
+        "auc": 0.7890625,
+        "ce": 0.7343892505714393,
+        "delta_ce": 0.0010151070455322042,
+        "true_margin": 1.7306945568416268
+      }
+    }
+  },
+  "verdict": "no_consistent_pairing_dependence",
+  "repeat_max_error": 0.0,
+  "head_max_error": 7.152557373046875e-07,
+  "gpu": "Tesla V100-PCIE-32GB",
+  "max_allocated_bytes": 1902303744,
+  "torch_version": "2.5.1+cu124",
+  "training_updates": 0,
+  "code_sha256": "54f232066f23b51e8cc0fba60a25d0a1a1bd978d50eab15334b22fde7c63472e",
+  "artifacts_sha256": {
+    "image_evidence.json": "f627da7d427676159f6bbb6091c9aa89de7a1bbc69e38951c10630a16662e7c8",
+    "started.json": "d372808d0b222b796bc2b642e013b9498542eeaa03bd4dc084efa8ffe0077fff",
+    "features.npz": "93a0b1ce46300cb99781c5f5445c15fe07365a63ff92589a1f4760ec1ca452c5",
+    "per_video.json": "ba3920f62069e1cc552b188478624235cb70910fffd9f33a6a2024ada2d07bf0",
+    "donors.json": "4a4750e32b3b0e4b36cfaaeb31aa7ef2721eab5045cf0eb9bd65babc16ef1ed4"
+  },
+  "limitations": [
+    "Frozen checkpoint sensitivity, not retraining causality.",
+    "Swaps may be off the joint feature manifold.",
+    "Video-record unit; source-family/person independence unknown.",
+    "Target-selected development data; no independent test claim.",
+    "Donor averaging measures a mixture, not a deployable classifier."
+  ]
+}

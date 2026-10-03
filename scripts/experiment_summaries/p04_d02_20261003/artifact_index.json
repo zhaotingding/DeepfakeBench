@@ -1,0 +1,13 @@
+{
+  "donors.json": "4a4750e32b3b0e4b36cfaaeb31aa7ef2721eab5045cf0eb9bd65babc16ef1ed4",
+  "ended_at.txt": "5698d3d8d0547c8cbe99b339951e221513d73d11f07c95885bfee6f58156482a",
+  "exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+  "first_attempt_failure.json": "1fe2db6d10ddb31b984228a61b2baa28493dc4835bc5a8a25a255a7768cb26b6",
+  "image_evidence.json": "f627da7d427676159f6bbb6091c9aa89de7a1bbc69e38951c10630a16662e7c8",
+  "per_video.json": "ba3920f62069e1cc552b188478624235cb70910fffd9f33a6a2024ada2d07bf0",
+  "result.json": "c6c78f3ceaafae4007f6aedc9d4551f9e9bd72a1b86b9e586b022c2d20b15e46",
+  "started.json": "d372808d0b222b796bc2b642e013b9498542eeaa03bd4dc084efa8ffe0077fff",
+  "verification.json": "581215978c00be492870690005f6eccb80918ff5e89d1f320257b98cd4f7dc28",
+  "verification_script.py": "8cdde8ce006415e89ed5d077bb3c72c4f2ff0f5300fa7fdd4c25a8eda30b138d",
+  "features.npz (state only)": "93a0b1ce46300cb99781c5f5445c15fe07365a63ff92589a1f4760ec1ca452c5"
+}

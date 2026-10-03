@@ -1,0 +1,5 @@
+{
+  "time": "2026-10-03T15:23:19.245918+08:00",
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/DeepfakeBench-prd-common/scripts/p04_d02.py\", line 154, in <module>\n    main()\n  File \"/root/DeepfakeBench-prd-common/scripts/p04_d02.py\", line 76, in main\n    assert raw is not None, row['frame']\nAssertionError: Celeb-DF-v2/Celeb-real/frames/id24_0009/159.png\n"
+}
