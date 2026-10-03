@@ -1,14 +1,5 @@
-# PRD实验详细记录（共享入口）
+# PRD实验详细记录（按需证据入口）
 
-服务器占用、登录核验、运行结果与归档证据的唯一权威版本在[共享分支 codex/prd-progress](https://github.com/John08066/DeepfakeBench/blob/codex/prd-progress/PRD实验详细记录.md)。本文件仅为入口，不维护分支私有进度表。
+[共享证据索引](https://github.com/John08066/DeepfakeBench/blob/codex/prd-progress/PRD实验详细记录.md)用于定位具体实验的协议、结果、失败和归档。**普通监控无需读取本索引或历史全文。** 日常状态与认领只看[精简总表](https://github.com/John08066/DeepfakeBench/blob/codex/prd-progress/PRD实验总表.md)。
 
-训练前先读取远端最新版，两步有依赖，同步失败立即停止：
-
-```bash
-git fetch origin codex/prd-progress &&
-git show FETCH_HEAD:PRD实验详细记录.md
-```
-
-同时阅读另一张表及项目根目录 `Agent_MCP_Notes.md` 的置顶规则。先登记实验认领并成功push共享分支，才能启动；不合并训练代码，不强推。4090直连不可用时由PC认证Git通过SSH bundle中转，核对远端与服务器ref的SHA，禁止把旧缓存当最新。
-
-2026-10-03初始化共享提交：`fe45d30be4de9c6f6200f53e410caf4605eb0395`。以后以新fetch结果为准。旧 `PROJECT_REPORT.md` 已迁移，原文保留在Git历史。
+新实验查重不明确、复用checkpoint/特征或异常排查时，先按实验ID/科学问题定位，再只读相关记录。完整协议须在启动前固定，结束由所属Agent归档，向总表登记结论与证据链接；历史档案不作为当前执行规则。共享ref同步命令见本目录总表入口，不在运行工作树切换分支。
