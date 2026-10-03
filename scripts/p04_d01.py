@@ -14,7 +14,7 @@ import yaml
 ROOT = Path('/root/DeepfakeBench-prd-common')
 DATA = Path('/datasets/Deepfake/DeepfakeBench/config/dataset_json')
 DOMAINS = ('Celeb-DF-v2', 'DFDCP', 'DFDC')
-OUT = ROOT/'.state/p04_d01_20261003'
+OUT = ROOT/'.state/p04_d01_20261003_a2'
 
 def sha(p):
     h = hashlib.sha256()
@@ -53,6 +53,7 @@ def main():
         source_hashes[domain] = sha(p)
         ds = json.loads(p.read_text())[domain]
         split_ids = {s: set() for s in ('train','val','test')}
+        invalid_splits = {}
         frame_counts = [0,0]
         effective_frames = [0,0]
         seen_frames = Counter()
@@ -61,6 +62,13 @@ def main():
             assert labels[label_str] in (0,1)
             for split, videos in splits.items():
                 assert split in split_ids
+                valid = isinstance(videos, dict) and all(
+                    isinstance(v, dict) and 'label' in v and 'frames' in v
+                    for v in videos.values())
+                if not valid:
+                    assert split != 'test', 'Malformed primary test split'
+                    invalid_splits[split] = 'Not a video-id to record mapping; overlap unavailable'
+                    continue
                 for name, info in videos.items():
                     assert info['label'] == label_str
                     video_id = label_str+'_'+name
@@ -86,7 +94,8 @@ def main():
             loader_max32_frames_real_fake=effective_frames, empty_test_videos=empty,
             duplicate_test_frame_paths=sum(n-1 for n in seen_frames.values()),
             split_video_counts={s: len(v) for s,v in split_ids.items()},
-            exact_video_overlap={a+'_'+b: len(split_ids[a]&split_ids[b])
+            invalid_split_schema=invalid_splits,
+            exact_video_overlap={a+'_'+b: None if a in invalid_splits or b in invalid_splits else len(split_ids[a]&split_ids[b])
                 for a,b in [('train','test'),('val','test'),('train','val')]})
         assert sha(p) == source_hashes[domain], 'Input changed during read'
     assert all(n > 0 for c in counts.values() for n in c)
