@@ -1,0 +1,17 @@
+{
+  "id":"N02-T01/v1",
+  "owner_thread":"01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "authorization":"2026-10-03 user explicitly requests immediate next-stage training and scheduled monitoring on existing203; no extra rental or other GPU access.",
+  "hypothesis":"Under equal unit feature residual norm and matched end-to-end training, VAE residual direction benefits classification more than fixed sigma1 Gaussian blur direction.",
+  "alternative":"N02-D01 frozen-checkpoint null response reflects comparable direction utility; VAE direction retains no advantage when both arms can adapt.",
+  "dedup":"N02-D01 only changed probes at a fixed VAE-trained endpoint; T01 newly trains both LoRA+head from identical pretrained initialization. N01/4090 compares information within VAE using linear heads, not VAE vs blur direction sources. Old T2/raw blur retained norm/dropout/selection confounds.",
+  "arms":["vae","blur"],
+  "intervention":"Same [B,1024] original features concatenated with signed residual r/||r||2 [B,1024], both unit norm, same [2048,1024,2] head. Only probe source differs: original VAE or Gaussian sigma1. Norm<=1e-8 or unit-norm error>=1e-5 stops. No AUC-based strength fitting, no moving VAE reference norm. Gradients propagate through normalization.",
+  "stochasticity":"Encoder eval disables LoRA dropout but LoRA gradients remain enabled; verify nonzero LoRA gradients. Head remains train with matched CPU/CUDA RNG before head. Same augmented batch per step. VAE frozen. This explicitly differs from legacy stochastic dual-forward protocol.",
+  "training":"FF++c23, 28768 frames, same original 8-frame sampling; physicalBS16/testBS64; seed3407 for paired reproduction; Adam original lr0.0002 and other unchanged settings; two contemporaneous arms, fresh pretrained initialization. No AMP, no accumulation, no scheduler, same fixed training budget.",
+  "budget":{"arms":2,"epochs_per_arm":2,"updates_per_arm":3596,"wall_seconds":21600,"smoke_seconds":300,"automatic_retries":0,"extra_rental":false},
+  "evaluation":"Once at terminal3596 updates, 192 fixed video records/one frame per video/32 per domain-label cell; CDFv2 DFDCP DFDC already development domains. Same manifest ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. No target checkpoint selection/early stopping; use each arm's own unit-norm probe at eval. Save both terminal checkpoints, strict reload, backup hash and independent CE/AUC verification.",
+  "decision":"macro deltaCE=CE(blur)-CE(vae)>=0.02nat and deltaAUC=AUC(vae)-AUC(blur)>=0.01 and all domain deltaCE>=0 supports fixed-budget VAE direction advantage. Either macro difference<=0: not supported; otherwise inconclusive. Engineering thresholds, not statistical equivalence/significance.",
+  "stops":"Input/code/claim/lock mismatch, smoke failure, nonfinite loss/gradient/features, zero residual norm, missing LoRA gradient, CUDA/DataLoader error,6h timeout or archive/Git failure. Preserve evidence, no autonomous retry or extra experiments.",
+  "limits":"Unit feature norm isolates direction only within this transformed method, not raw PRD or equal pixel perturbation. Both backbones can diverge during training, so not same frozen coordinate geometry. Two early epochs/one seed/small previously used target development set cannot establish convergence, final-test generalization or method equivalence. No causal claims beyond this controlled training protocol."
+}
