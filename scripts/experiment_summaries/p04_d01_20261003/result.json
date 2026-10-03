@@ -1,0 +1,130 @@
+{
+  "diagnostic_id": "P04-D01/v1",
+  "status": "complete",
+  "started_at": "2026-10-03T14:21:47.825000+08:00",
+  "finished_at": "2026-10-03T14:21:50.043939+08:00",
+  "claim_commit": "5324e24b6db9de1b7250c675c9088ca676eaab75",
+  "code_commit": "47c7c78c02ec12bfec3c16c031c2c2aba3a683c4",
+  "code_sha256": "8a66b0b917c704ccb18b202005bc202a5815ec866657e803dbe1764aea0755d9",
+  "config_sha256": "9e4fe09ba45dd63c747c1454c4a1bbdb1986e0424d74d8ce58fb1a12c49ee060",
+  "dataset_json_sha256": {
+    "Celeb-DF-v2": "919030ca617e6eb78831fd19470ae2f252ba0452a7497e28014f65fa9c34c29d",
+    "DFDCP": "fc01695baf1f61079edbe6333b4793c10d252523f0ad8341924fa1e1856c11f6",
+    "DFDC": "ce41a6e936c134f9921747252d666288a0569763df8015d5f7bdeb5272c26796"
+  },
+  "audits": {
+    "Celeb-DF-v2": {
+      "videos_real_fake": [
+        178,
+        340
+      ],
+      "raw_frames_real_fake": [
+        5620,
+        10800
+      ],
+      "loader_max32_frames_real_fake": [
+        5620,
+        10800
+      ],
+      "empty_test_videos": [],
+      "duplicate_test_frame_paths": 0,
+      "split_video_counts": {
+        "train": 5939,
+        "val": 518,
+        "test": 518
+      },
+      "invalid_split_schema": {},
+      "exact_video_overlap": {
+        "train_test": 410,
+        "val_test": 518,
+        "train_val": 410
+      }
+    },
+    "DFDCP": {
+      "videos_real_fake": [
+        230,
+        424
+      ],
+      "raw_frames_real_fake": [
+        5901,
+        11321
+      ],
+      "loader_max32_frames_real_fake": [
+        5901,
+        11321
+      ],
+      "empty_test_videos": [],
+      "duplicate_test_frame_paths": 0,
+      "split_video_counts": {
+        "train": 4407,
+        "val": 654,
+        "test": 654
+      },
+      "invalid_split_schema": {},
+      "exact_video_overlap": {
+        "train_test": 0,
+        "val_test": 654,
+        "train_val": 0
+      }
+    },
+    "DFDC": {
+      "videos_real_fake": [
+        2315,
+        2389
+      ],
+      "raw_frames_real_fake": [
+        63265,
+        68851
+      ],
+      "loader_max32_frames_real_fake": [
+        63265,
+        68851
+      ],
+      "empty_test_videos": [],
+      "duplicate_test_frame_paths": 0,
+      "split_video_counts": {
+        "train": 0,
+        "val": 0,
+        "test": 4704
+      },
+      "invalid_split_schema": {
+        "val": "Not a video-id to record mapping; overlap unavailable"
+      },
+      "exact_video_overlap": {
+        "train_test": 0,
+        "val_test": null,
+        "train_val": null
+      }
+    }
+  },
+  "original": {
+    "auc": 0.5463959558419725,
+    "mutual_information_bits": 0.0097737524334513,
+    "priors": {
+      "Celeb-DF-v2": 0.6563706563706564,
+      "DFDCP": 0.6483180428134556,
+      "DFDC": 0.5078656462585034
+    }
+  },
+  "balanced": {
+    "auc": 0.5,
+    "mutual_information_bits": 0.0,
+    "priors": {
+      "Celeb-DF-v2": 0.5,
+      "DFDCP": 0.5,
+      "DFDC": 0.5
+    }
+  },
+  "selected_per_domain_label": 32,
+  "selected_videos": 192,
+  "manifest_sha256": "a3fdfe91ae7a9613b75d51d0be5a424a2671a21c6001080beab28fe711641c8f",
+  "training_runs": 0,
+  "gpu_used": false,
+  "limitations": [
+    "Descriptive domain-only AUC uses empirical test-label priors; not predictive validation.",
+    "Cannot explain existing within-dataset AUC or show the PRD encoder uses domain cues.",
+    "Video record is counting unit, not proven independent source identity; no independence CI claimed.",
+    "Only metadata paths are hashed; image contents/LMDB availability and source-family overlap not verified.",
+    "Target sets already participated in checkpoint selection; development diagnostic only."
+  ]
+}

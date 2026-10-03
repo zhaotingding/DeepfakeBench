@@ -1,0 +1,8 @@
+{
+  "status": "failed_input_structure",
+  "code_commit": "4a36bc13474a74f6b80b50a1766e090ff463c132",
+  "observed_at": "2026-10-03T14:20:08+08:00",
+  "error": "TypeError: string indices must be integers",
+  "cause": "DFDC val is a record, not video-id mapping",
+  "result_produced": false
+}

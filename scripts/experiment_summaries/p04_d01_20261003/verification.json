@@ -1,0 +1,18 @@
+{
+  "status": "verified",
+  "independent_sklearn_auc": 0.5463959558419724,
+  "selected_rows": 192,
+  "selected_paths_in_source": true,
+  "json_hashes_unchanged": true,
+  "frame_path_overlaps": {
+    "Celeb-DF-v2": {
+      "train_test_exact_frame_paths": 13010,
+      "val_test_exact_frame_paths": 16420
+    },
+    "DFDCP": {
+      "train_test_exact_frame_paths": 0,
+      "val_test_exact_frame_paths": 17222
+    }
+  },
+  "warning": "CDF train/test overlap is within CDF metadata; PRD training uses FF++, so this is not evidence CDF was used as training data. DFDC invalid val count is unavailable, not zero."
+}
