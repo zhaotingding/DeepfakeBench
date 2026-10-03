@@ -1,0 +1,16 @@
+{
+  "id": "P03-T01/v1",
+  "owner_thread": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "hypothesis": "Sample-corresponding residual information benefits learning even if the old frozen head has small residual variation attribution.",
+  "alternative": "At the fixed early training budget, original features suffice and destroying residual correspondence does not consistently harm development performance.",
+  "arms": ["paired", "rolled"],
+  "intervention": "Only while training, roll the residual half [B,1024] by one batch row before the rolled arm's identical [2048,1024,2] head. Original half and batch residual multiset unchanged. Gradients propagate through the permutation.",
+  "confound_boundary": "This deliberately disrupts both original/residual pairing AND residual/recipient-label alignment. It cannot isolate only pair identity or claim residuals contain no label information.",
+  "training": "FF++c23, original 8 frames per video, trainBS16, Adam lr0.0002 and all original optimizer settings, seed3407 as a reproducibility field, no AMP or gradient accumulation. Both arms freshly initialized from the same pretrained CLIP/VAE, identical initial trainable weights. LoRA and head genuinely updated. Same augmented batch tensor and matched CPU/CUDA dropout RNG at every step. cuDNN deterministic with benchmark disabled for both arms.",
+  "budget": {"arms": 2, "epochs_per_arm": 2, "expected_batches_per_epoch": 1798, "expected_updates_per_arm": 3596, "whole_job_wall_seconds": 21600, "smoke_wall_seconds": 300, "extra_rental": false, "automatic_retries": 0},
+  "evaluation": "Only once at the fixed terminal step, both models in eval with original paired inputs; same P04-D01/D02 192-video one-frame manifest, 32 real and 32 fake per domain CDFv2/DFDCP/DFDC, testBS64. Save terminal weights and all logits. No AUC checkpoint selection and no early stopping.",
+  "primary_decision": "deltaCE = macro mean CE(rolled)-CE(paired), deltaAUC = macro mean AUC(paired)-AUC(rolled). Support training correspondence benefit only if deltaCE>=0.05 nat AND deltaAUC>=0.01; if either<=0, not supported at this fixed budget; otherwise inconclusive. Descriptive thresholds, not significance or equivalence tests.",
+  "dedup": "Existing F1/F2 change input/head capacity; P03-D01/P04-D02 only interrogate one frozen selected model. Neither is this matched-budget training intervention. The paired arm is a necessary contemporaneous control, not another independent seed result. Does not claim N01/N02 or their dependent N03.",
+  "stop": "Stop the entire job on nonfinite loss/gradient, CUDA/DataLoader failure, altered input/hash, smoke failure, same-video donor fraction >=2%, failed archive/Git, or 6h timeout. Preserve partial evidence, no extra runs or silent batch reduction.",
+  "limitations": "Two early epochs and one matched seed cannot establish convergence or population-level mechanism. Target data already influenced previous development, so this remains development evaluation despite fixed terminal selection. Video records need not be independent source persons. Dropout is controlled between arms, but not removed from the original training protocol. No cross-server seed/batch/hardware attribution."
+}
