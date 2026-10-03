@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-03T21:54:34.268450+08:00",
+  "numpy_ce_max_error": {
+    "paired": {
+      "aligned": 1.612929643179939e-07,
+      "same_label": 2.2476079575284302e-07,
+      "opposite_label": 1.8258564082884732e-07
+    },
+    "rolled": {
+      "aligned": 2.2059251758577147e-07,
+      "same_label": 3.099364005443306e-07,
+      "opposite_label": 2.0706872572162638e-07
+    }
+  },
+  "artifact_hashes_verified": true
+}

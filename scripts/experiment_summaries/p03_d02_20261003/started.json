@@ -1,0 +1,12 @@
+{
+  "id": "P03-D02/v1",
+  "started_at": "2026-10-03T21:53:29.280875+08:00",
+  "pid": 103452,
+  "cwd": "/root/DeepfakeBench-prd-common",
+  "claim_commit": "332558bb604e72979c104aca0b7b10ac10603248",
+  "code_commit": "2f4fd2b2aac259108f7e190ce6f12e78487a8258",
+  "source_status": " M scripts/PRD_MONITOR.md\n?? scripts/gpu_monitor.py\n?? scripts/run_prd_203_continue_20261003.sh\n?? scripts/test_gpu_monitor.py\n",
+  "script_sha256": "a697f699b860a8b099cb18f43c12a03fd48d052f213ca54431527cd8c2df165f",
+  "protocol_sha256": "6d92674151c7d61cd102904c4005e2ae6eafa7ad3c3cb9cdef06b4466d2e9f5e",
+  "source_result_sha256": "5a559d31fadf82cfb4c19bf067f3277ba5365b2785d1776e3c12fc0995a69b98"
+}

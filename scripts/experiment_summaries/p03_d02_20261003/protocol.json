@@ -1,0 +1,14 @@
+{
+  "id": "P03-D02/v1",
+  "hypothesis": "Training with correctly paired residuals produces greater same-domain donor-label sensitivity than rolled-residual training at the fixed T01 endpoints.",
+  "alternative": "T01's small performance gap need not reflect donor-label sensitivity; it may reflect calibration or sample-specific joint-feature effects.",
+  "novelty": "P04-D02 used only the old target-selected checkpoint; this compares both matched, newly trained T01 endpoints and their interaction. It does not repeat N01 amplitude/direction or N02 probe-strength experiments.",
+  "checkpoint_source": "p03_t01_20261003, paired_final.pth and rolled_final.pth, result commit 875a472438d0adedfd729b42ddfd762332d0660f",
+  "data": "Existing fixed 192 videos, one frame each, 32 per domain-label cell; unchanged manifest SHA256 ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+  "conditions": "Per checkpoint: aligned; all 31 same-domain same-label other-video donors; all 32 same-domain opposite-label donors. Identical recipient/donor indices across checkpoints; frozen eval mode, original feature held fixed, head dimension/capacity unchanged.",
+  "primary": "J=macro[(CE_opposite-CE_same)_paired-(CE_opposite-CE_same)_rolled], mean donor CE then mean recipients in each domain then macro domains.",
+  "decision": "Support only if J>=0.02 nat and each domain interaction>0; J<=0 does not support direction; otherwise inconclusive. Report CE_same-CE_aligned descriptively, no post-hoc threshold changes.",
+  "budget": "One diagnostic; 2 checkpoints x 192 images, existing GPU0, <=30 minutes, 0 training updates, no hyperparameter/seed sweep, no auto retry.",
+  "stop": "Stop on nonfinite values, checkpoint/manifest/hash mismatch, baseline-logit mismatch above atol1e-4 rtol1e-5, resource/lock conflict or 30-minute timeout; preserve all evidence.",
+  "limits": "Conditional responses at these endpoints, not method causality/mediation. Label changes also change feature distributions/strength. Video record unit; source-family dependence unknown. 192 video units, not independent donor combinations. Development evaluation only."
+}

@@ -1,0 +1,96 @@
+{
+  "id": "P03-D02/v1",
+  "status": "complete",
+  "started_at": "2026-10-03T21:53:29.280875+08:00",
+  "ended_at": "2026-10-03T21:54:24.264677+08:00",
+  "training_updates": 0,
+  "metrics": {
+    "paired": {
+      "Celeb-DF-v2": {
+        "aligned": 0.3393232226371765,
+        "same_label": 0.31335580348968506,
+        "opposite_label": 0.4020971357822418,
+        "pairing_delta_ce": -0.025967419147491455,
+        "label_delta_ce": 0.08874133229255676
+      },
+      "DFDC": {
+        "aligned": 0.5160531997680664,
+        "same_label": 0.47806695103645325,
+        "opposite_label": 0.5639608502388,
+        "pairing_delta_ce": -0.03798624873161316,
+        "label_delta_ce": 0.0858938992023468
+      },
+      "DFDCP": {
+        "aligned": 0.5447922348976135,
+        "same_label": 0.5079531669616699,
+        "opposite_label": 0.5960198044776917,
+        "pairing_delta_ce": -0.036839067935943604,
+        "label_delta_ce": 0.08806663751602173
+      }
+    },
+    "rolled": {
+      "Celeb-DF-v2": {
+        "aligned": 0.353486567735672,
+        "same_label": 0.3551994264125824,
+        "opposite_label": 0.372757226228714,
+        "pairing_delta_ce": 0.0017128586769104004,
+        "label_delta_ce": 0.017557799816131592
+      },
+      "DFDC": {
+        "aligned": 0.5368613004684448,
+        "same_label": 0.5346960425376892,
+        "opposite_label": 0.5579675436019897,
+        "pairing_delta_ce": -0.0021652579307556152,
+        "label_delta_ce": 0.023271501064300537
+      },
+      "DFDCP": {
+        "aligned": 0.6181079149246216,
+        "same_label": 0.5781962275505066,
+        "opposite_label": 0.6187992095947266,
+        "pairing_delta_ce": -0.03991168737411499,
+        "label_delta_ce": 0.04060298204421997
+      }
+    }
+  },
+  "interaction_by_domain": {
+    "Celeb-DF-v2": 0.07118353247642517,
+    "DFDC": 0.06262239813804626,
+    "DFDCP": 0.04746365547180176
+  },
+  "macro_interaction": 0.060423195362091064,
+  "verdict": "supports_label_sensitivity_at_these_checkpoints",
+  "checks": {
+    "paired": {
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/p03_t01_20261003/paired_final.pth",
+      "checkpoint_sha256": "eea7cf98a12f96cf7d52c7acb4f738d0bbcec835dc3415f82a07545b251af406",
+      "strict_reload": true,
+      "baseline_logit_max_error": 0.0,
+      "head_reconstruction_max_error": 4.76837158203125e-07
+    },
+    "rolled": {
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/p03_t01_20261003/rolled_final.pth",
+      "checkpoint_sha256": "e705f9d43e00a1a93391689bb5e8f086890ed135a4094dda258739b6ab1420a5",
+      "strict_reload": true,
+      "baseline_logit_max_error": 0.0,
+      "head_reconstruction_max_error": 4.76837158203125e-07
+    }
+  },
+  "code_commit": "2f4fd2b2aac259108f7e190ce6f12e78487a8258",
+  "claim_commit": "332558bb604e72979c104aca0b7b10ac10603248",
+  "max_gpu_allocated": 9667836928,
+  "unit": "192 video records, one fixed frame each",
+  "artifact_hashes": {
+    "rolled_features.npz": "f01b7da5e2ba6926ee1a2b5fedfbdc859fd4df601626202480442ae26e1517ff",
+    "started.json": "b48d965aae34104cc7fccb41e12ec75339177fcae61b3cb717ea812a4c008cc3",
+    "per_video_ce.json": "5315ebc16e904cbb1b14539683fe4a3b513c8fdfc7df1b991465232def1c085d",
+    "donors.json": "6ffc51fecfcd1c00014f293c97ced5b96f4133431bb9a3d99cf18bb275d7b5ce",
+    "evaluation_manifest.json": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+    "paired_features.npz": "f9b5648fb8cf60c9df9cc1e7e9a038cca950bdb0c91ecce701bc5ad1f476ca59"
+  },
+  "limitations": [
+    "Conditional checkpoint sensitivity, not causal mediation or retrained-method superiority.",
+    "Donor labels and feature magnitude/distribution are not independently manipulated.",
+    "Donors and recipients share a finite pool; donor combinations are not independent samples.",
+    "Development domains, two-epoch models, one seed; no independent final-test claim."
+  ]
+}
