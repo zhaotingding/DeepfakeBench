@@ -1,0 +1,59 @@
+{
+  "id": "N01-T03/v1",
+  "run_id": "n01_t03_20261004",
+  "owner_thread": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "hypothesis": "Sample-varying coordinate signs improve classification beyond source-fixed coordinate orientation after equal-budget adaptation.",
+  "alternative": "T02 signed advantage is reproducible by a fixed source-derived sign orientation and does not require per-sample signs.",
+  "arms": {
+    "signed": "[z,u]",
+    "template": "[z,abs(u)*s0]"
+  },
+  "u": "(z(x)-z(VAE(x)))/L2norm",
+  "template": "s0=sign(mean source u), sign(0)=+1; choose 256 distinct FF++ training videos by sorted SHA256(n01-t03-template-v1:+raw image path), first encountered image per video; fixed preprocessing RNG3407, initial pretrained encoder, no gradients; save full indices/image hashes/template. No target input or tuning. Same buffer in both arms.",
+  "controls": [
+    "unit norm and per-coordinate magnitude formula",
+    "same fresh initialization",
+    "same augmented batches/head RNG",
+    "same 2048-1024-2 head",
+    "encoder eval, LoRA train",
+    "calibration restores RNG state",
+    "fixed terminal checkpoint"
+  ],
+  "train": {
+    "frames": 28768,
+    "batch": 16,
+    "test_batch": 64,
+    "seed": 3407,
+    "epochs": 2,
+    "updates_per_arm": 3596,
+    "optimizer": "Adam 0.0002",
+    "workers": 8
+  },
+  "evaluation": "same 192 development videos, one frame/video, 64/domain; no independent final-test claim",
+  "criterion": "deltaCE=CE_template-CE_signed >=0.02nat and deltaAUC=AUC_signed-AUC_template >=0.01 and every domain deltaCE>=0 supports sample-specific sign; either macro delta<=0 not supported, otherwise inconclusive. No equivalence conclusion.",
+  "budget": {
+    "formal_seconds": 21600,
+    "smoke_seconds": 300,
+    "arms": 2,
+    "retries": 0,
+    "checkpoint_backup_gb": 6
+  },
+  "stop": [
+    "timeout",
+    "nonfinite loss/gradient",
+    "zero residual",
+    "source selection count failure",
+    "manifest mismatch",
+    "archive failure",
+    "both fixed terminal checkpoints archived"
+  ],
+  "dedup": "T02 signed/abs cannot distinguish sample-specific information from fixed orientation; D02 sign-only donor response J=0.0000679583 did not support label-conditioned sensitivity. Neither prior nor 4090 N05 has a fixed source template training arm. Signed is a paired bridge control, not seed exploration.",
+  "limits": [
+    "2 epochs only",
+    "reused development set",
+    "template estimated at initial encoder and frozen while LoRA adapts",
+    "template may omit rare coordinate structures",
+    "abs and fixed template retain same information and differ in orientation/optimization",
+    "null is not equivalence or absence of sign information"
+  ]
+}
