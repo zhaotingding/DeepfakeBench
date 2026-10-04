@@ -1,0 +1,78 @@
+{
+  "id": "N01-T02/v1",
+  "run_id": "n01_t02_20261004",
+  "owner_thread": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "hypothesis": "Residual coordinate sign improves fixed-budget classification after matched end-to-end adaptation, beyond unsigned coordinate magnitudes.",
+  "alternative": "Sign is redundant after LoRA/head adaptation; frozen-probe differences can reflect calibration or limited adaptation.",
+  "arms": {
+    "signed": "[z(x), u]",
+    "abs": "[z(x), abs(u)]"
+  },
+  "definition": "r=z(x)-z(VAE(x)); u=r/||r||2; z,r:[B,1024], head input:[B,2048]",
+  "controls": [
+    "same fresh trainable initialization",
+    "same augmented batches and labels",
+    "same head dropout RNG per step",
+    "same frozen deterministic VAE",
+    "encoder eval with LoRA gradients",
+    "same 2048-to-1024-to-2 head",
+    "unit residual norm",
+    "fixed terminal checkpoint"
+  ],
+  "train": {
+    "dataset": "FF++",
+    "frames": 28768,
+    "batch": 16,
+    "test_batch": 64,
+    "seed": 3407,
+    "epochs": 2,
+    "updates_per_arm": 3596,
+    "optimizer": "inherited Adam 0.0002",
+    "workers": 8
+  },
+  "evaluation": {
+    "unit": "one frame per video",
+    "videos": 192,
+    "domains": [
+      "CDFv2",
+      "DFDCP",
+      "DFDC"
+    ],
+    "videos_per_domain": 64,
+    "class_balance": "32 real and 32 fake per domain",
+    "manifest_sha256": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+    "scope": "reused development set; not independent final test"
+  },
+  "criteria": {
+    "delta_ce": "CE_abs - CE_signed",
+    "delta_auc": "AUC_signed - AUC_abs",
+    "support": "macro delta_ce>=0.02 nat and macro delta_auc>=0.01 and each domain delta_ce>=0",
+    "not_supported": "macro delta_ce<=0 or macro delta_auc<=0",
+    "otherwise": "inconclusive",
+    "thresholds": "engineering criteria, not significance tests"
+  },
+  "novelty": "N01-T01 froze target-selected features and trained linear heads; this pair permits LoRA adaptation with equal norm and head. N02-T01 compared VAE/blur, N05-T01 compares norm decompositions with no abs arm. Signed arm is a paired bridge control, not an independent new method/seed result.",
+  "budget": {
+    "formal_max_seconds": 21600,
+    "smoke_max_seconds": 300,
+    "total_arms": 2,
+    "retries": 0,
+    "checkpoint_and_backup_budget_gb": 6
+  },
+  "stop": [
+    "timeout",
+    "nonfinite loss or gradient",
+    "zero residual <=1e-8",
+    "manifest mismatch",
+    "training or archive error",
+    "after both terminal checkpoints archived and committed"
+  ],
+  "limits": [
+    "two epochs only, not convergence",
+    "one reused 192-video development sample",
+    "coordinate sign depends on learned feature basis",
+    "LoRA adaptation may change the two feature spaces",
+    "original feature branch can compensate; null does not prove absence of sign information",
+    "cross-server seed/batch/hardware confounding precludes cross-run causal comparison"
+  ]
+}
