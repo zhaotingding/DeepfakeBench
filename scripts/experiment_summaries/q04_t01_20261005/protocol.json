@@ -1,0 +1,46 @@
+{
+  "id": "Q04-T01/v1",
+  "run_id": "q04_t01_20261005",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/GPU0",
+  "hypothesis": "A frozen final-patch mean residual exposes source-generalizing linear label information that the final CLS pooler residual omits.",
+  "alternative": "Any apparent difference is optimization/scale or source fitting noise; final patch pooling does not improve held-out source discrimination at matched capacity.",
+  "representations": [
+    "cls24: original pretrained post_layernorm CLS output difference",
+    "patch12_mean: same frozen post_layernorm per layer12 patch token, average 256 patches, original-minus-VAE",
+    "patch24_mean: same frozen post_layernorm per layer24 patch token, average 256 patches, original-minus-VAE"
+  ],
+  "controls": "Frozen pretrained CLIP plus zero-update LoRA and frozen eval VAE; signed residual only, each1024 features, source-train-only per-coordinate mean/std (floor1e-6), same zero-init1024->2 linear head2050 parameters, no learned encoder/projection, no augmentation. No layer sweep or target-selected representation.",
+  "data": "Existing FF++c23 JSON official train3596/val700/test700 videos; one lexicographically first frame per video. Union source/donor IDs in manipulated video names; all720/140/140 source IDs disjoint between splits; source-test70 connected components. Same192 target-development videos as previous diagnostics, no target metric until weights chosen on source val.",
+  "training": {
+    "extraction_batch": 16,
+    "head_batch": "full source train3596 videos",
+    "steps_per_arm": 500,
+    "arms": 3,
+    "optimizer": "Adam",
+    "lr": 0.01,
+    "weight_decay": 0.001,
+    "initialization": "all head weights and bias zero",
+    "loss": "equal-class-weight cross entropy",
+    "selection": "minimum source val balanced CE every10steps:50 opportunities; ties earliest; no early stopping"
+  },
+  "primary": "Only final patch24_mean vs cls24 on source-test: delta balanced CE=CLS-patch>=.02nat, delta AUC=patch-CLS>=.01, paired bootstrap95% CE-delta lower bound>0. Resample70 source/donor-connected components2000times, fixedseed20261005; fail criterion otherwise, not equivalence. Midpatch and targetdev are descriptive only.",
+  "budget": {
+    "max_seconds": 3600,
+    "retries": 0,
+    "max_updates_total": 1500,
+    "artifacts_mb": 250,
+    "encoder_updates": 0
+  },
+  "stops": [
+    "manifest/split mismatch or missing frames",
+    "hidden-state interface mismatch",
+    "LoRA B nonzero",
+    "VAE or identity repeat error>=1e-6",
+    "nonfinite features/loss",
+    "timeout",
+    "strict reload or archive mismatch"
+  ],
+  "limitations": "Frozen linear readout, not end-to-end retraining or proof of spatial mechanism. Same pretrained final LayerNorm applied to middle tokens; mean pooling discards spatial layout. Groups identify shared video origins, not certified person identities. Reused target dev, not independent final test.",
+  "dedup": "Q01/Q02 study amplitude responses and reconstruction; N01 tests sign;4090 N07/E01 study end-to-end learning curves/full target eval. None compares fixed intermediate/final patch residual linear accessibility at source-only selection."
+}

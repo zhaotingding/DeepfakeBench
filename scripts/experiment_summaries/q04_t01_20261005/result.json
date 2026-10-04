@@ -1,0 +1,155 @@
+{
+  "id": "Q04-T01/v1",
+  "run_id": "q04_t01_20261005",
+  "status": "completed",
+  "started_at": "2026-10-05T02:39:44.501410+08:00",
+  "ended_at": "2026-10-05T02:45:19.160155+08:00",
+  "code_commit": "ae3c6b73a6fe754fc4da14fc154fdd002a5c819b",
+  "claim_commit": "fe1b08aae5aadadcaa72d80eaada8330d8a2e330",
+  "arms": {
+    "cls24": {
+      "selected_step": 20,
+      "source_val_balanced_ce": 0.596594512462616,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q04_t01_20261005/cls24_source_best.pth",
+      "checkpoint_sha256": "1c6d9b2258d557a773306d7dddcd284c5ce7c874db61e0f81de8e3568ed1e8e0",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.7798341836734693,
+        "ce": 0.6768879294395447,
+        "balanced_ce": 0.596594512462616
+      },
+      "source_test": {
+        "auc": 0.7907525510204081,
+        "ce": 0.696821928024292,
+        "balanced_ce": 0.6196576952934265
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.6337890625,
+          "ce": 0.7785272598266602,
+          "balanced_ce": 0.7785272598266602
+        },
+        "DFDC": {
+          "auc": 0.6982421875,
+          "ce": 0.7338468432426453,
+          "balanced_ce": 0.7338467836380005
+        },
+        "DFDCP": {
+          "auc": 0.4501953125,
+          "ce": 1.028009057044983,
+          "balanced_ce": 1.028009057044983
+        }
+      },
+      "target_macro": {
+        "auc": 0.5940755208333334,
+        "ce": 0.8467943867047628,
+        "balanced_ce": 0.8467943668365479
+      }
+    },
+    "patch12_mean": {
+      "selected_step": 20,
+      "source_val_balanced_ce": 0.5989186763763428,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q04_t01_20261005/patch12_mean_source_best.pth",
+      "checkpoint_sha256": "405807a5db8c4933633b1a6c0960c4f1b49e5caad96cf0c6fb8b863eaa14c1e3",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.8049107142857144,
+        "ce": 0.688618540763855,
+        "balanced_ce": 0.5989186763763428
+      },
+      "source_test": {
+        "auc": 0.7782525510204081,
+        "ce": 0.677150547504425,
+        "balanced_ce": 0.6215094327926636
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.6171875,
+          "ce": 0.8880938291549683,
+          "balanced_ce": 0.8880937695503235
+        },
+        "DFDC": {
+          "auc": 0.6728515625,
+          "ce": 0.8979898691177368,
+          "balanced_ce": 0.8979898691177368
+        },
+        "DFDCP": {
+          "auc": 0.5458984375,
+          "ce": 1.0692534446716309,
+          "balanced_ce": 1.0692534446716309
+        }
+      },
+      "target_macro": {
+        "auc": 0.6119791666666666,
+        "ce": 0.9517790476481119,
+        "balanced_ce": 0.9517790277798971
+      }
+    },
+    "patch24_mean": {
+      "selected_step": 10,
+      "source_val_balanced_ce": 0.6457784175872803,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q04_t01_20261005/patch24_mean_source_best.pth",
+      "checkpoint_sha256": "7915a51ff8e29125dd9ef8011496525d0e9228758457fc79c2be26f4d63bd699",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.7326147959183674,
+        "ce": 0.7629413604736328,
+        "balanced_ce": 0.6457784175872803
+      },
+      "source_test": {
+        "auc": 0.7219770408163265,
+        "ce": 0.7813361287117004,
+        "balanced_ce": 0.6649616956710815
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.740234375,
+          "ce": 0.6312510967254639,
+          "balanced_ce": 0.6312510967254639
+        },
+        "DFDC": {
+          "auc": 0.6884765625,
+          "ce": 0.7189337015151978,
+          "balanced_ce": 0.7189337015151978
+        },
+        "DFDCP": {
+          "auc": 0.51171875,
+          "ce": 1.0028774738311768,
+          "balanced_ce": 1.0028774738311768
+        }
+      },
+      "target_macro": {
+        "auc": 0.6468098958333334,
+        "ce": 0.7843540906906128,
+        "balanced_ce": 0.7843540906906128
+      }
+    }
+  },
+  "first_batch_checks": {
+    "vae_repeat_error": 0.0,
+    "strict_identity_repeat_error": 0.0,
+    "shape": [
+      16,
+      3,
+      1024
+    ],
+    "layers": 25,
+    "patch_tokens": 256
+  },
+  "primary": {
+    "comparison": "patch24_mean vs cls24, source test",
+    "delta_balanced_ce": -0.04530400037765503,
+    "delta_auc": -0.06877551020408157,
+    "paired_source_component_bootstrap_ce_ci95": [
+      -0.12433080482246753,
+      0.030025004497230317
+    ],
+    "bootstrap_samples": 2000,
+    "groups": 70
+  },
+  "verdict": "not_supported_by_predefined_criterion",
+  "limitations": "Frozen source-selected linear residual probes only; common pretrained final layer norm also applied at middle layer; mean patch pooling discards spatial arrangement. Source families grouped by filename origin IDs, not certified person identity. Target 192 reused development videos, never used to select weights or representation; no end-to-end causal or independent final-test claim."
+}

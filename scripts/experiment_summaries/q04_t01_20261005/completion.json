@@ -1,0 +1,34 @@
+{
+  "id": "Q04-T01/v1",
+  "run_id": "q04_t01_20261005",
+  "status": "completed",
+  "started_at": "2026-10-05T02:39:44.501410+08:00",
+  "ended_at": "2026-10-05T02:45:19.160155+08:00",
+  "code_commit": "ae3c6b73a6fe754fc4da14fc154fdd002a5c819b",
+  "claim_commit": "fe1b08aae5aadadcaa72d80eaada8330d8a2e330",
+  "verdict": "not_supported_by_predefined_criterion",
+  "primary": {
+    "comparison": "patch24_mean vs cls24, source test",
+    "delta_balanced_ce": -0.04530400037765503,
+    "delta_auc": -0.06877551020408157,
+    "paired_source_component_bootstrap_ce_ci95": [
+      -0.12433080482246753,
+      0.030025004497230317
+    ],
+    "bootstrap_samples": 2000,
+    "groups": 70
+  },
+  "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q04_t01_20261005",
+  "artifact_sha256": {
+    "predictions.json": "e0972e6ffe9801fcfdd0f51f94fda44de151d55394013c15f02a30b18ef1ad6e",
+    "patch12_mean_source_best.pth": "405807a5db8c4933633b1a6c0960c4f1b49e5caad96cf0c6fb8b863eaa14c1e3",
+    "features.pt": "89070a5b87b345339483441b3fd96617a7e095b424c39aab73305808f2191302",
+    "cls24_source_best.pth": "1c6d9b2258d557a773306d7dddcd284c5ce7c874db61e0f81de8e3568ed1e8e0",
+    "result.json": "935098ea8a94d29f723f5498e43f96a64ba36f3750b93dd9d1d0233878725d20",
+    "evaluation_manifest.json": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+    "history.json": "6ee0d2fbbac816974f91444fe7d6364ecd946829f9434f347e1e07709966b0d5",
+    "patch24_mean_source_best.pth": "7915a51ff8e29125dd9ef8011496525d0e9228758457fc79c2be26f4d63bd699",
+    "manifest.json": "09c6feb434a12f4d8cb2dfab08fd1b5d9381da40009c62b5a056ade5e474bf10",
+    "metadata.json": "28986d23d293fe09744a2851804971a2cb553f683bcf44ffc3bf80c2f4958df0"
+  }
+}
