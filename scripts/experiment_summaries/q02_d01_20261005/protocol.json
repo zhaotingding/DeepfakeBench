@@ -1,0 +1,31 @@
+{
+  "id": "Q02-D01/v1",
+  "run_id": "q02_d01_20261005",
+  "pool": "Q02 reconstruction dynamics",
+  "hypothesis": "Later reconstruction feature response retains development-label association beyond first-step amplitude.",
+  "alternative": "Later response is explained by first-step scale and domain, or no consistent label association remains.",
+  "fixed_inputs": "Existing 192 development videos, one frame/video; manifest ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. Pretrained CLIP with zero-update LoRA, frozen eval, existing frozen VAE. No trained checkpoint or classifier head.",
+  "trajectory": "x0=current normalized image; xk=VAE(x[k-1]) for k=1..3; no extra clamp/quantization. Same existing resize/normalization each time. Record pixel RGB RMS and feature L2 successive differences and ratios to first step; finite output and first batch repeatability checks.",
+  "primary": "Within each domain regress log feature step3 on intercept and log feature step1 (unlabeled OLS), compute residual AUC against video label. Prespecified two-sided association: abs(macro AUC-.5)>=.10, all three domains same direction, stratified video-label permutation p<=.05, exactly1000 permutations seed20261005. Otherwise criterion not supported.",
+  "secondary": "Pixel/feature median step energies and decay ratios descriptive only, no choosing the best step or metric after results.",
+  "budget": {
+    "updates": 0,
+    "encoder_arms": 1,
+    "max_seconds": 900,
+    "retries": 0,
+    "artifacts_mb": 10
+  },
+  "stops": [
+    "timeout",
+    "nonfinite reconstruction/features",
+    "first step or later energy <=1e-8",
+    "initial LoRA B nonzero",
+    "repeat max error>=1e-6",
+    "manifest mismatch",
+    "archive failure"
+  ],
+  "limitations": "Only log-linear first-amplitude adjustment, not full conditional independence; repeated target development data and shared identity dependencies; no manifold or independent final-test proof.",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/GPU0",
+  "dedup": "One-step N01/N02 and signed/abs T04 do not measure iterative reconstruction. 4090 N07 owns learning curves and source selection, not dynamics."
+}
