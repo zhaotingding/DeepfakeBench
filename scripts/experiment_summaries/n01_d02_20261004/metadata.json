@@ -1,0 +1,12 @@
+{
+  "id": "N01-D02/v1",
+  "run_id": "n01_d02_20261004",
+  "started_at": "2026-10-04T20:39:36.345754+08:00",
+  "claim_commit": "c66236ec8b5050ba91e3d6fa2797db0bf26d4845",
+  "code_commit": "88964556013ad18c5b5b6549c2138253da2fc5fd",
+  "source_result_commit": "f026b9d6560bcd57d8d0899603a80a29d7884595",
+  "protocol_sha256": "493ae0f9b2151b9cc981bd4d87ce9bda8e14e718a7d007e6d2edb4ca8b37ee9c",
+  "manifest_sha256": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+  "source_status": " M scripts/PRD_MONITOR.md\n?? scripts/gpu_monitor.py\n?? scripts/run_prd_203_continue_20261003.sh\n?? scripts/test_gpu_monitor.py\n",
+  "updates": 0
+}

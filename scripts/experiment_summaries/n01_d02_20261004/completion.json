@@ -1,0 +1,26 @@
+{
+  "id": "N01-D02/v1",
+  "run_id": "n01_d02_20261004",
+  "status": "completed",
+  "started_at": "2026-10-04T20:39:36.345754+08:00",
+  "ended_at": "2026-10-04T20:40:12.707296+08:00",
+  "code_commit": "88964556013ad18c5b5b6549c2138253da2fc5fd",
+  "claim_commit": "c66236ec8b5050ba91e3d6fa2797db0bf26d4845",
+  "verdict": "not_supported_by_predefined_criterion",
+  "updates": 0,
+  "macro_j": 6.79583114712538e-05,
+  "per_domain_j": {
+    "Celeb-DF-v2": 0.0005263407392703812,
+    "DFDC": -0.0007315321781788953,
+    "DFDCP": 0.00040906637332227547
+  },
+  "negative_control_error": 4.76837158203125e-07,
+  "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n01_d02_20261004",
+  "artifact_sha256": {
+    "signed_features_head.pt": "c8f3730b98c3021becbe6601e0d478057ebf251ac84c9aae1bccd69e0a613e0c",
+    "result.json": "270f128317bf6a4c98e40fbe0613b07954d909a3a81b56603d7f43d20fb185f4",
+    "evaluation_manifest.json": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+    "abs_features_head.pt": "102a8b90394445381130e96e32f04e6ec4edd9074e0368e336d8fdf9c72b47b7",
+    "metadata.json": "20de61ada5397289e417e864e897f3752b5d0d022ff7ae71c54bf47505a7a666"
+  }
+}

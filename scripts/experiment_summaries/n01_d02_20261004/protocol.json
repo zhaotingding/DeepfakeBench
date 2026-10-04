@@ -1,0 +1,32 @@
+{
+  "id": "N01-D02/v1",
+  "run_id": "n01_d02_20261004",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "hypothesis": "Signed-model responses depend on label-related coordinate sign patterns beyond fixed recipient magnitudes.",
+  "alternative": "T02 benefit reflects optimization or joint representation adaptation, without consistent label-related sign response.",
+  "intervention": "For recipient i replace u_i by abs(u_i)*sign(u_j), sign(0)=+1. Preserve z_i, every coordinate magnitude, norm, model and head. All 31 same-label other videos and all 32 opposite-label videos in same domain; average within recipient first.",
+  "control": "Abs checkpoint repeats identical intervention followed by abs; maximum logit change must be <1e-4. Baseline checkpoint replay logits error <1e-4. Norm error <1e-5.",
+  "criterion": "J=mean_recipient(mean_opposite_CE - mean_same_CE); supports if macro J>=0.02 nat and every domain J>0. Otherwise not supported by criterion. No threshold tuning.",
+  "scope": "Fixed 192 recipient videos, one frame per video; donor pairs dependent. Zero updates; 2 fixed T02 checkpoints; no seed variation. Reused development data, not new final test.",
+  "budget": {
+    "max_seconds": 900,
+    "updates": 0,
+    "automatic_retries": 0,
+    "max_artifacts_mb": 100
+  },
+  "stops": [
+    "timeout",
+    "baseline replay mismatch",
+    "nonfinite output",
+    "norm preservation or abs negative-control failure",
+    "checkpoint hash mismatch",
+    "archive error"
+  ],
+  "dedup": "P03-D02 replaced whole residual and mixed amplitude/direction. This isolates coordinate signs at fixed magnitudes on newly trained N01-T02 weights; 4090 N05 compares amplitude representation training and does not do sign-only donors.",
+  "limitation": "Donor labels are used for diagnostic conditioning only, not deployed inference. Off-manifold sign/amplitude combinations and joint learned representation confound generalization. Response sensitivity only, not causal mediation or retraining benefit.",
+  "source_result_commit": "f026b9d6560bcd57d8d0899603a80a29d7884595",
+  "checkpoints": {
+    "signed": "05d6778571d2772fe97778e9f9d050d6d9235dd86286833e046a7eb6f622b1f7",
+    "abs": "f0974a6bf3324e6cd6c7fd60e96c1cb5525b7090d6dab8ff22ca84f4f259c4f5"
+  }
+}
