@@ -1,0 +1,31 @@
+{
+  "id": "Q01-D01/v1",
+  "run_id": "q01_d01_20261005",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/GPU0",
+  "hypothesis": "The fake-real feature residual amplitude difference responds differently to the same fixed postprocessing.",
+  "alternative": "The intervention changes residual amplitude equally for real and fake, leaving the label contrast stable.",
+  "controls": "Same 192 fixed development videos, one frame each, 64/domain balanced labels; frozen pretrained CLIP with zero-update LoRA and existing VAE in eval. Same model and processing for both labels. No classifier or updates. Manifest ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a.",
+  "processing": "All arms use the same RGB8 roundtrip of existing decoded/resized images; normalized raw roundtrip max error<1e-5. Conditions raw, PIL JPEG quality75 subsampling2 optimizeFalse progressiveFalse, PIL BILINEAR half-width/height then back to original size. No parameter search. Decode/resize precedes these interventions, so this does not equalize original capture resolution or compression.",
+  "primary": "For each video/treatment define delta=log(E_treatment/E_raw), E=feature L2 VAE residual. Within each domain D=mean(delta_fake)-mean(delta_real), macro D is equal-domain average. For each of two treatments support requires abs(macro D)>=0.10 natural-log units, all3 domain D same sign, and maxT two-sided adjusted p<=.05 from exactly1000 shared within-domain video-label permutations seed20261005, maximum absolute macro D across the two treatments. Neither supported means criterion not supported, not equivalence.",
+  "secondary": "Report real/fake paired mean delta and domain amplitude AUC, feature/pixel residual medians, actual input RGB RMS changes descriptively only. Video is unit, not 3 conditions as separate observations.",
+  "budget": {
+    "updates": 0,
+    "max_seconds": 900,
+    "retries": 0,
+    "artifacts_mb": 10
+  },
+  "stops": [
+    "manifest mismatch",
+    "nonzero initial LoRA B",
+    "nonfinite values",
+    "feature energy<=1e-8",
+    "RGB8 roundtrip error>=1e-5",
+    "first raw repeat error>=1e-6",
+    "no processed-input change",
+    "timeout",
+    "archive failure"
+  ],
+  "limitations": "Postprocessing affects semantic and frequency content, so sensitivity is not proof that original label signal was wholly due to codec confounding. Reused development videos and shared identity dependence; no independent test or training-method causal claim.",
+  "dedup": "Q02 tests repeated reconstruction without JPEG/resampling; N01/N02 compare residual forms/operators, N07 on4090 tests learning curves. This paired fixed postprocessing sensitivity has not been claimed or completed in current shared records."
+}
