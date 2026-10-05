@@ -16,7 +16,7 @@ meta=json.loads((out/'run_metadata.json').read_text())
 rows=json.loads((out/'evaluation_manifest.json').read_text())
 assert d['steps_per_arm']==3596 and meta['initial_trainable_sha256']['frozen_increment']==meta['initial_trainable_sha256']['adapted_increment']
 assert d['newly_trained_arms']==['frozen_increment'] and d['control_batch_trace_identical']
-assert (out/'batch_trace.jsonl').read_text()==Path('/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t02_20261005/batch_trace.jsonl').read_text()
+assert (out/'batch_trace.jsonl').read_text()==Path('/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t03_20261005/batch_trace.jsonl').read_text()
 assert d['encoder_updates']==0 and d['encoder_frozen'] and d['head_only_trained']
 assert d['frozen_lora_initial_sha256']==d['frozen_lora_final_sha256']
 assert d['checkpoint_selection']=='terminal_after_two_epochs'
