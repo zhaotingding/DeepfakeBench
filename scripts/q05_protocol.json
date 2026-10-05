@@ -1,0 +1,29 @@
+{
+  "id": "Q05-D01/v1",
+  "run_id": "q05_d01_20261005",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "hypothesis": "The implemented preprocessing roundtrip alone produces a material CLIP response relative to full VAE reconstruction.",
+  "alternative": "Preprocessing-only CLIP response is negligible compared with complete reconstruction.",
+  "controls": "Same frozen pretrained CLIP/zero LoRA/VAE eval, 192 fixed development videos one frame/video, 64 per domain balanced labels, batch16. Strict identity, preprocessing-only, full VAE. No classifier or updates.",
+  "processing": "Exact current lora_detector.py pipeline: CLIP denorm, VAE norm, 224 to256 bilinear align_cornersFalse, cast to actual VAE dtype then original dtype, 256 to224 bilinear, VAE denorm, CLIP norm. Preprocessing bypasses only VAE neural operator. First batch equality to actual augmenter with temporary identity VAE forward must pass 1e-6; strict identity features and repeated VAE also <1e-6.",
+  "primary": "Per-video R=norm(z(x)-z(pre(x)))/norm(z(x)-z(VAE(x))). Domain medians and equal-domain macro median. Material-response support requires all3 domain medians>=.10 and lower95% macro CI>.10 from2000 within-domain video bootstrap seed20261005. Otherwise not supported, not equivalence. Threshold fixed before compute.",
+  "secondary": "Residual cosine and pre/full pixel RMS descriptive only. No target AUC model selection. Ratio not additive attribution fraction; paired conditions are not independent samples.",
+  "budget": {
+    "updates": 0,
+    "max_seconds": 900,
+    "max_gpu_hours": 1,
+    "retries": 0,
+    "artifacts_mb": 10
+  },
+  "stops": [
+    "manifest mismatch",
+    "nonzero initial LoRA",
+    "nonfinite",
+    "energy<=1e-8",
+    "identity/bypass/repeat error>=1e-6",
+    "timeout",
+    "archive failure"
+  ],
+  "dedup": "Q01 applies extra JPEG/downsampling before complete VAE; this bypasses VAE while exactly retaining its internal preprocessing. Q02 repeated VAE and Q04 patch means differ; 4090 N09 class-prior correction does not answer this question.",
+  "limitations": "Combined resize/dtype intervention; no separation of the two, additive decomposition, label-discriminative or training-method causal claim. Reused target development videos; possible shared identities."
+}
