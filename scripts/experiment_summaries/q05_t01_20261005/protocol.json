@@ -1,0 +1,35 @@
+{
+  "id": "Q05-T01/v1",
+  "run_id": "q05_t01_20261005",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/V100",
+  "authorization": "User explicitly requested actual next-stage training on existing203 compute on2026-10-05; this finite training follows Q05-D01, not its old0-update diagnostic budget.",
+  "hypothesis": "At equal feature residual norm and matched LoRA/head training, full VAE residual supplies prediction information beyond its internal preprocessing roundtrip.",
+  "alternative": "The internal resize/dtype roundtrip suffices at this finite budget; VAE neural reconstruction does not meet the prespecified incremental benefit.",
+  "controls": "Both arms fresh identical pretrained CLIP/VAE and head initialization; input [z(x),u]2048, same1024 hidden head; u=unit signed residual. Encoder eval disables dropout but LoRA gradients update both encoder passes. Same source batches/augmentation and head dropout RNG. Both operators frozen/no gradient. No sigma or seed sweep.",
+  "operator": "Preprocessing arm exactly CLIP denorm, VAE norm,224->256 bilinear align_cornersFalse, actualVAE dtype roundtrip,256->224 bilinear,VAE denorm,CLIP norm. Full arm existing VAE; Q05-D01 actual augmenter identity-neural bypass equality0 confirms pipeline.",
+  "data": "Existing FF++c23 source training28768frames,1798batches/epoch; existing fixed192target development videos oneframe/video64/domainbalanced, manifestac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. Target evaluation only after fixed terminal weights, no target checkpoint selection.",
+  "training": {
+    "seed": 3407,
+    "train_batch": 16,
+    "test_batch": 64,
+    "epochs": 2,
+    "updates_per_arm": 3596,
+    "arms": 2,
+    "optimizer": "existingN02 Adam config, unchanged",
+    "checkpoint_selection": "fixed terminal, no early stopping",
+    "encoder_dropout": "eval but LoRA gradients enabled",
+    "initialization": "fresh pretrained per arm, not Q05-D01 or earlier trained checkpoint"
+  },
+  "criterion": "MacroCE(preprocess)-MacroCE(VAE)>=.02nat AND MacroAUC(VAE)-MacroAUC(preprocess)>=.01 AND every domain CE delta>=0 supports benefit at fixed budget; macroCEdelta<=0 OR macroAUCdelta<=0 means not supported; otherwise inconclusive.",
+  "budget": {
+    "training_timeout_seconds": 21600,
+    "smoke_timeout_seconds": 300,
+    "retries": 0,
+    "max_updates_per_arm": 3596,
+    "checkpoint_and_backup_gb": 6
+  },
+  "stop": "Smoke/gradient/finite check failure, OOM, timeout, nonzero exit, metric/checkpoint/archive failure: preserve evidence and stop; no batch change or automatic retry.",
+  "dedup": "N02-T01 VAEvsblur sigma1 does not isolate VAE internal preprocessing. Q05-D01 measures frozen response only, not learned predictive performance.4090N09 balances source class prior with original/residual correction and does not compare this bypass. Not another seed replication.",
+  "limitations": "Two epochs finite paired budget, original-image branch may compensate, equal residualnorm changes original protocol.192reuseddevvideos not finaltest; no overallVAE equivalence claim, crossrun/hardware not causal. Normratio fromD01 not additive attribution."
+}
