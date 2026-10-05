@@ -1,0 +1,37 @@
+{
+  "id": "Q05-T05/v1",
+  "run_id": "q05_t05_20261006",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/V100",
+  "authorization": "Continuous203 finite mechanism training authorization; T04 accepted, only this next discriminating gradient intervention, no reverse-branch matrix.",
+  "hypothesis": "Dual-branch backward through unit VAE-added increment improves fixed-budget classification over stopping only the preprocessing encoding gradient.",
+  "alternative": "VAE branch backward alone is sufficient under same forward feature and budget; dual backward fails the registered gain.",
+  "controls": "One new stop_pre arm. Forward r=z(pre)-z(VAE) unchanged at fixed theta; pre feature evaluated no_grad, VAE feature keeps LoRA gradient. Same head/init/inputs/manifests/torch/head RNG and3596updates as T03 reused dual control. Every sourcebatch/augmentationhash must match T03; firststep loss must equal recordedT03 .8123083710670471. Shared encoder updates also change later pre features, so not frozen anchor.",
+  "operator": "Same unit signed VAE-added increment [0,u]2048->1024->2; only pre-encoding backward disabled.",
+  "data": "Existing FF++c23 source training28768frames,1798batches/epoch; existing fixed192target development videos oneframe/video64/domainbalanced, manifestac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. Target evaluation only after fixed terminal weights, no target checkpoint selection.",
+  "training": {
+    "seed": 3407,
+    "train_batch": 16,
+    "test_batch": 64,
+    "epochs": 2,
+    "updates_per_arm": 3596,
+    "arms": 1,
+    "optimizer": "existingN02 Adam config, unchanged",
+    "checkpoint_selection": "fixed terminal, no early stopping",
+    "encoder_dropout": "eval but LoRA gradients enabled",
+    "initialization": "fresh pretrained per arm, not Q05-D01 or earlier trained checkpoint",
+    "control_reused": "Q05-T03 dual backward increment"
+  },
+  "criterion": "MacroCE(stop)-MacroCE(dual)>=.02nat AND MacroAUC(dual)-MacroAUC(stop)>=.01 AND each domain CEdelta>=0 supports fixedbudget dualpath benefit; either macrodelta<=0 notsupported, otherwise inconclusive.",
+  "budget": {
+    "training_timeout_seconds": 10800,
+    "smoke_timeout_seconds": 300,
+    "retries": 0,
+    "max_updates_per_arm": 3596,
+    "checkpoint_and_backup_gb": 6,
+    "new_updates": 3596
+  },
+  "stop": "Smoke/gradient/finite check failure, OOM, timeout, nonzero exit, metric/checkpoint/archive failure: preserve evidence and stop; no batch change or automatic retry.",
+  "dedup": "N06 detaches entire totalresidual and retains original z direct gradient. T05 has no original direct input, preserves VAE-side gradient and stops only pre encoding within VAE-added increment. N10 frozen h0 anchored correction uses smallstep input not this intervention; Q08 frozen linear heads; none answers this gradientroute control.",
+  "limitations": "Only2epoch1seed192reuseddevvideos. Stop-gradient changes optimization vector field, not forward semantics at fixedtheta; sharedencoder still changes pre features. Same trainable capacity/head updates but less backward compute. Cannot infer universal necessity, independent labels, causal VAE physics or target generalization."
+}
