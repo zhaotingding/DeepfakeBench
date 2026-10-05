@@ -1,0 +1,37 @@
+{
+  "id": "Q05-T03/v1",
+  "run_id": "q05_t03_20261005",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/V100",
+  "authorization": "User explicitly requested actual next-stage training on existing203 compute on2026-10-05; this finite training follows Q05-D01, not its old0-update diagnostic budget.",
+  "hypothesis": "The VAE-added feature increment z(pre(x))-z(VAE(x)) alone provides fixed-budget learnable label benefit beyond preprocessing response z(x)-z(pre(x)).",
+  "alternative": "The full residual T02 benefit requires mixing preprocessing and VAE-added response; the isolated increment does not meet the registered benefit over preprocessing.",
+  "controls": "Only one new arm trained: head[0,unit(z(pre)-z(VAE))]2048->1024->2, freshpretrainedLoRA/head, encoder eval but LoRA updated on both encodings. Reuse exact completedT02 pre control. Initial trainable hash, input/evaluation/training manifests, torch version and every sourcebatch index/augmentation tensorhash must match T02; sameheadRNG restoration andshape/budget. Any mismatch fails immediately, not reruncontrol.",
+  "operator": "Preprocessing arm exactly CLIP denorm, VAE norm,224->256 bilinear align_cornersFalse, actualVAE dtype roundtrip,256->224 bilinear,VAE denorm,CLIP norm. Full arm existing VAE; Q05-D01 actual augmenter identity-neural bypass equality0 confirms pipeline.",
+  "data": "Existing FF++c23 source training28768frames,1798batches/epoch; existing fixed192target development videos oneframe/video64/domainbalanced, manifestac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. Target evaluation only after fixed terminal weights, no target checkpoint selection.",
+  "training": {
+    "seed": 3407,
+    "train_batch": 16,
+    "test_batch": 64,
+    "epochs": 2,
+    "updates_per_arm": 3596,
+    "arms": 1,
+    "optimizer": "existingN02 Adam config, unchanged",
+    "checkpoint_selection": "fixed terminal, no early stopping",
+    "encoder_dropout": "eval but LoRA gradients enabled",
+    "initialization": "fresh pretrained per arm, not Q05-D01 or earlier trained checkpoint",
+    "control_reused": "Q05-T02 preprocess"
+  },
+  "criterion": "MacroCE(pre)-MacroCE(increment)>=.02nat AND MacroAUC(increment)-MacroAUC(pre)>=.01 AND every domain CEdelta>=0 supports fixedbudget increment benefit; either macrodelta<=0 notsupported, otherwise inconclusive.",
+  "budget": {
+    "training_timeout_seconds": 21600,
+    "smoke_timeout_seconds": 300,
+    "retries": 0,
+    "max_updates_per_arm": 3596,
+    "checkpoint_and_backup_gb": 6,
+    "new_updates": 3596
+  },
+  "stop": "Smoke/gradient/finite check failure, OOM, timeout, nonzero exit, metric/checkpoint/archive failure: preserve evidence and stop; no batch change or automatic retry.",
+  "dedup": "T02 compares totalresidual z(x)-z(VAE) vs preprocessing, not VAE-added increment. T03 tests exactfeature telescoping at the sameencoder, not anotherseed or repeatedcontrol.4090Q07 examines frozen path responses, Q08 frozen linear accessibility, N10 smallstep anchoredcorrection, Q09 methodholdout; none trains this specificincrement against already matchedpre control.",
+  "limitations": "Only2epochs and192reuseddevelopmentvideos. Encoder adapts differently; exact telescoping at a fixedencoder does not prove independent sources or causal additivity of prediction. T02 crossrun background is not an interaction test. Normnormalizeddirection does not preserve additive scales; one newly trainedarm plus prior controlcost must be stated."
+}
