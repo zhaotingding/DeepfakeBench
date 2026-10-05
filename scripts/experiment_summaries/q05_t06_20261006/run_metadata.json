@@ -1,0 +1,243 @@
+{
+  "id": "Q05-T06/v1",
+  "run_id": "q05_t06_20261006",
+  "smoke": false,
+  "started_at": "2026-10-06T05:43:02.375513+08:00",
+  "pid": 231482,
+  "cwd": "/root/DeepfakeBench-prd-common",
+  "claim_commit": "bf3061ee0a6ede5823cb7186db68d95ca7953638",
+  "code_commit": "086c7b0b7198a69c102e276dc4678e29de71525e",
+  "script_sha256": "98f480ad92724e9e0c026085744c7c8424244c1c2ae11d65310fbd4a7cec07fc",
+  "config": {
+    "log_dir": "/root/autodl-tmp/prd-common/outputs/logs/training",
+    "model_name": "lora",
+    "backbone_name": "vit",
+    "pretrained_root": "/root/autodl-tmp/prd-common/pretrained",
+    "clip_path": "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14",
+    "vae_path": "/root/autodl-tmp/prd-common/pretrained/vae_original",
+    "train_dataset": [
+      "FaceForensics++"
+    ],
+    "test_dataset": [
+      "Celeb-DF-v2",
+      "DFDCP",
+      "DFDC"
+    ],
+    "train_batchSize": 16,
+    "test_batchSize": 64,
+    "workers": 8,
+    "frame_num": {
+      "train": 8,
+      "test": 32
+    },
+    "resolution": 224,
+    "compression": "c23",
+    "with_mask": false,
+    "with_landmark": false,
+    "use_data_augmentation": true,
+    "data_aug": {
+      "flip_prob": 0.5,
+      "rotate_prob": 0.5,
+      "rotate_limit": [
+        -10,
+        10
+      ],
+      "blur_prob": 0.5,
+      "blur_limit": [
+        3,
+        7
+      ],
+      "brightness_prob": 0.5,
+      "brightness_limit": [
+        -0.1,
+        0.1
+      ],
+      "contrast_limit": [
+        -0.1,
+        0.1
+      ],
+      "quality_lower": 40,
+      "quality_upper": 100
+    },
+    "mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "nEpochs": 1,
+    "start_epoch": 0,
+    "save_epoch": 1,
+    "rec_iter": 100,
+    "manualSeed": 3407,
+    "save_ckpt": false,
+    "save_feat": false,
+    "lr_scheduler": null,
+    "metric_scoring": "auc",
+    "cuda": true,
+    "cudnn": false,
+    "optimizer": {
+      "type": "adam",
+      "adam": {
+        "lr": 0.0002,
+        "beta1": 0.9,
+        "beta2": 0.999,
+        "eps": 1e-08,
+        "weight_decay": 0.0005,
+        "amsgrad": false
+      }
+    },
+    "probe": {
+      "type": "sd15_vae",
+      "sigma": 1.0,
+      "vae_path": null
+    },
+    "residual": {
+      "type": "signed_diff"
+    },
+    "encoder": {
+      "type": "clip"
+    },
+    "feature_mode": "concat",
+    "analysis": {
+      "save_features": false,
+      "compute_statistics": true,
+      "statistics_max_samples": 2048
+    },
+    "experiment": {
+      "name": "prd_t1_seed3407",
+      "seed": 3407
+    },
+    "early_stopping": {
+      "enabled": false
+    },
+    "mode": "train",
+    "lmdb": true,
+    "dry_run": false,
+    "data_root": "/datasets/Deepfake",
+    "rgb_dir": "/datasets/Deepfake/DeepfakeBench_rgb/rgb",
+    "lmdb_dir": "/datasets/Deepfake/DeepfakeBench/lmdb",
+    "dataset_json_folder": "/datasets/Deepfake/DeepfakeBench/config/dataset_json",
+    "SWA": false,
+    "save_avg": true,
+    "label_dict": {
+      "DFD_fake": 1,
+      "DFD_real": 0,
+      "FF-SH": 1,
+      "FF-F2F": 1,
+      "FF-DF": 1,
+      "FF-FS": 1,
+      "FF-NT": 1,
+      "FF-FH": 1,
+      "FF-real": 0,
+      "CelebDFv1_real": 0,
+      "CelebDFv1_fake": 1,
+      "CelebDFv2_real": 0,
+      "CelebDFv2_fake": 1,
+      "DFDCP_Real": 0,
+      "DFDCP_FakeA": 1,
+      "DFDCP_FakeB": 1,
+      "DFDC_Fake": 1,
+      "DFDC_Real": 0,
+      "DF_fake": 1,
+      "DF_real": 0,
+      "UADFV_Fake": 1,
+      "UADFV_Real": 0,
+      "roop_Real": 0,
+      "roop_Fake": 1,
+      "VQGAN_Real": 0,
+      "VQGAN_Fake": 1,
+      "StyleGAN2_Real": 0,
+      "StyleGAN2_Fake": 1,
+      "StyleGANXL_Real": 0,
+      "StyleGANXL_Fake": 1,
+      "SiT_Real": 0,
+      "SiT_Fake": 1,
+      "sd2.1_Real": 0,
+      "sd2.1_Fake": 1,
+      "rddm_Real": 0,
+      "rddm_Fake": 1,
+      "ddim_Real": 0,
+      "ddim_Fake": 1,
+      "pixart_Real": 0,
+      "pixart_Fake": 1,
+      "DiT_Real": 0,
+      "DiT_Fake": 1
+    },
+    "spe_label_dict": {
+      "FF-F2F": 1,
+      "FF-DF": 2,
+      "FF-FS": 3,
+      "FF-NT": 4,
+      "FF-real": 0,
+      "DFD_fake": 1,
+      "DFD_real": 0,
+      "CelebDFv1_real": 0,
+      "CelebDFv1_fake": 1,
+      "CelebDFv2_real": 0,
+      "CelebDFv2_fake": 1,
+      "DFDCP_Real": 0,
+      "DFDCP_FakeA": 1,
+      "DFDCP_FakeB": 1,
+      "DFDC_Fake": 1,
+      "DFDC_Real": 0,
+      "DF_fake": 1,
+      "DF_real": 0,
+      "UADFV_Fake": 1,
+      "UADFV_Real": 0,
+      "roop_Real": 0,
+      "roop_Fake": 1,
+      "VQGAN_Real": 0,
+      "VQGAN_Fake": 1,
+      "StyleGAN2_Real": 0,
+      "StyleGAN2_Fake": 1,
+      "StyleGANXL_Real": 0,
+      "StyleGANXL_Fake": 1,
+      "SiT_Real": 0,
+      "SiT_Fake": 1,
+      "sd2.1_Real": 0,
+      "sd2.1_Fake": 1,
+      "rddm_Real": 0,
+      "rddm_Fake": 1,
+      "ddim_Real": 0,
+      "ddim_Fake": 1,
+      "pixart_Real": 0,
+      "pixart_Fake": 1,
+      "DiT_Real": 0,
+      "DiT_Fake": 1
+    },
+    "local_rank": 0,
+    "task_target": "q05_t06_20261006",
+    "ddp": false
+  },
+  "input_hashes": {
+    "/datasets/Deepfake/DeepfakeBench/config/dataset_json/FaceForensics++.json": "459fc9891f0bf6e63a1a7d61aed6e96edcc623701d05726b5a225d6fa0cb0b27",
+    "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14/model.safetensors": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb",
+    "/root/autodl-tmp/prd-common/pretrained/vae_original/diffusion_pytorch_model.bin": "1b134cded8eb78b184aefb8805b6b572f36fa77b255c483665dda931fa0130c5"
+  },
+  "initial_trainable_sha256": {
+    "fixed_pre": "0cab5cb4b248e8f51c680a5cfe857e62baf96ef5119e1db8345b0267707139d3",
+    "moving_pre": "0cab5cb4b248e8f51c680a5cfe857e62baf96ef5119e1db8345b0267707139d3"
+  },
+  "train_manifest_sha256": "48147abddab2ffd813bce112743624088baddbf144a051671c1ffc513a5b7e69",
+  "evaluation_manifest_sha256": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+  "torch_version": "2.5.1+cu124",
+  "gpu": "Tesla V100-PCIE-32GB",
+  "source_status": " M scripts/PRD_MONITOR.md\n?? scripts/gpu_monitor.py\n?? scripts/run_prd_203_continue_20261003.sh\n?? scripts/test_gpu_monitor.py\n",
+  "trainable_parameters": {
+    "fixed_pre": 5248002
+  },
+  "protocol": "One fixed initial pre-encoder reference arm, VAE-side encoder LoRA and same head adapt; reused T05 moving stop-gradient reference control; same3596source augmentation trace and terminal only.",
+  "control_reused_from": "q05_t05_20261006",
+  "control_code": "fc6ca7584f75d48b18dd4ec7df13d0ff0160966e",
+  "control_checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t05_20261006/stop_pre_final.pth",
+  "control_hash": "ec33b2e55802d30e64e785de4e75959e7c9213f6ac4c669269acbcae28a1e0ca",
+  "newly_trained_arms": [
+    "fixed_pre"
+  ],
+  "gradient_intervention": "fixed_initial_pre_encoder_no_grad; adaptive_VAE_encoder_grad"
+}

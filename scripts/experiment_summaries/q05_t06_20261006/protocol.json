@@ -1,0 +1,38 @@
+{
+  "id": "Q05-T06/v1",
+  "run_id": "q05_t06_20261006",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/V100",
+  "authorization": "User continuous203 finite mechanism research; one next fixed-reference arm after T05 acceptance, not reverse-gradient matrix.",
+  "hypothesis": "Fixing the initial pre-encoder reference improves fixed-budget classification over moving pre reference with stop-gradient.",
+  "alternative": "Reference drift is not relieved by fixed initial encoding; fixed reference fails registered gain.",
+  "controls": "Only new fixed_pre arm; frozen deepcopy initial backbone/LoRA uses exact existing CLIPFeatureEncoder adapter. Trainable encoder adapts only via VAE features. T05 stop_pre control reused. Same fresh trainable hash, head, sourcebatch/augmentation3596trace, head RNG, inputs/manifests/torch. First loss equals T05 .8123083710670471; anchor parameters frozen/gradNone and full initial/final state hash equal.",
+  "operator": "r=f_theta0(pre(x))-f_theta(VAE(x)); [0,unit(r)]2048->1024->2; no original direct input. Fixed reference alters forward after adaptation, not backward-only intervention.",
+  "data": "Existing FF++c23 source training28768frames,1798batches/epoch; existing fixed192target development videos oneframe/video64/domainbalanced, manifestac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. Target evaluation only after fixed terminal weights, no target checkpoint selection.",
+  "training": {
+    "seed": 3407,
+    "train_batch": 16,
+    "test_batch": 64,
+    "epochs": 2,
+    "updates_per_arm": 3596,
+    "arms": 1,
+    "optimizer": "existingN02 Adam config, unchanged",
+    "checkpoint_selection": "fixed terminal, no early stopping",
+    "encoder_dropout": "eval but LoRA gradients enabled",
+    "initialization": "fresh pretrained per arm, not Q05-D01 or earlier trained checkpoint",
+    "control_reused": "Q05-T05 moving stop_pre"
+  },
+  "criterion": "MacroCE(moving)-MacroCE(fixed)>=.02nat AND MacroAUC(fixed)-MacroAUC(moving)>=.01 AND each domain CEdelta>=0 supports fixedbudget fixed-reference benefit; either macrodelta<=0 notsupported, otherwise inconclusive.",
+  "budget": {
+    "training_timeout_seconds": 10800,
+    "smoke_timeout_seconds": 300,
+    "retries": 0,
+    "max_updates_per_arm": 3596,
+    "checkpoint_and_backup_gb": 6,
+    "new_updates": 3596,
+    "control_backup": "Reuse already verified T05 source and backup; copy only new fixed_pre checkpoint, aggregate new storage<6GiB."
+  },
+  "stop": "Smoke/gradient/finite check failure, OOM, timeout, nonzero exit, metric/checkpoint/archive failure: preserve evidence and stop; no batch change or automatic retry.",
+  "dedup": "N06 detaches whole total residual with original z direct gradient. N10 freezes h0 predictor and smallstep correction, not pre-encoder feature reference/unit increment head. Q08 frozen linear heads, Q09 method transfer. No opposite-gradient or seed matrix.",
+  "limitations": "2epoch1seed192reuseddevvideos; same trainable capacity/head updates but extra reference storage. Fixed reference changes forward feature geometry as encoder adapts, not pure gradient causal test. No universal necessity, drift-only attribution, information independence or final-test claim."
+}
