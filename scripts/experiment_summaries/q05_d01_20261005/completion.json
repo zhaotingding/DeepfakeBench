@@ -1,0 +1,22 @@
+{
+  "id": "Q05-D01/v1",
+  "run_id": "q05_d01_20261005",
+  "status": "completed",
+  "started_at": "2026-10-05T13:45:35.088899+08:00",
+  "ended_at": "2026-10-05T13:45:53.302187+08:00",
+  "code_commit": "c415786280b8f3fb6d1977f56b900eb9aa4e04c7",
+  "claim_commit": "bf10c4ef3732d5d3a59102a3357cae077bbe64e3",
+  "updates": 0,
+  "verdict": "material_preprocessing_response",
+  "macro_median_ratio": 0.6769535144170126,
+  "bootstrap95": [
+    0.6452999817828338,
+    0.6957725822925568
+  ],
+  "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_d01_20261005",
+  "artifact_sha256": {
+    "result.json": "3646f9604d5d0ba0a3ac1c41aa55e24247a2d29f3bcbaddc0312fb62601a995b",
+    "evaluation_manifest.json": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+    "metadata.json": "653235a62f8e2f1a8c9a6521841eb9994f8e432eeb0683353cdb095061ffc040"
+  }
+}
