@@ -1,0 +1,38 @@
+{
+  "id": "Q05-T04/v1",
+  "run_id": "q05_t04_20261006",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/V100",
+  "authorization": "User continuous203 mechanism-research and finite actual-training authorization; T03 completed and accepted before next claim; no added resource or costs.",
+  "hypothesis": "LoRA encoder adaptation improves fixed-budget VAE-increment classification over frozen-pretrained encoder with the exact same nonlinear head.",
+  "alternative": "Matched nonlinear head training alone reads the frozen increment sufficiently; adaptation fails the registered improvement criterion.",
+  "controls": "Only frozen_increment arm newly trained; backbone requires_grad False, optimizer head-only, zero backbone gradients and unchanged LoRA hash. Reuse T03 adapted_increment control, same fresh initial full trainable hash, head shape/init/dropoutRNG, operator, normalization, every batch/augmentation hash, inputs and torch version; 3596 head updates and terminal weights each.",
+  "operator": "Both arms unit signed z(pre(x))-z(VAE(x)), same fixed preprocessing/VAE and2048->1024->2 head; only encoder adaptation permission differs.",
+  "data": "Existing FF++c23 source training28768frames,1798batches/epoch; existing fixed192target development videos oneframe/video64/domainbalanced, manifestac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. Target evaluation only after fixed terminal weights, no target checkpoint selection.",
+  "training": {
+    "seed": 3407,
+    "train_batch": 16,
+    "test_batch": 64,
+    "epochs": 2,
+    "updates_per_arm": 3596,
+    "arms": 1,
+    "optimizer": "existingN02 Adam config, unchanged",
+    "checkpoint_selection": "fixed terminal, no early stopping",
+    "encoder_dropout": "eval; all encoder parameters frozen, head only gradients",
+    "initialization": "fresh pretrained per arm, not Q05-D01 or earlier trained checkpoint",
+    "control_reused": "Q05-T03 increment",
+    "encoder_updates": 0
+  },
+  "criterion": "MacroCE(frozen)-MacroCE(adapted)>=.02nat AND MacroAUC(adapted)-MacroAUC(frozen)>=.01 AND each domain CEdelta>=0 supports fixed-budget adaptation benefit; either macrodelta<=0 notsupported, otherwise inconclusive.",
+  "budget": {
+    "training_timeout_seconds": 10800,
+    "smoke_timeout_seconds": 300,
+    "retries": 0,
+    "max_updates_per_arm": 3596,
+    "checkpoint_and_backup_gb": 6,
+    "new_updates": 3596
+  },
+  "stop": "Smoke/gradient/finite check failure, OOM, timeout, nonzero exit, metric/checkpoint/archive failure: preserve evidence and stop; no batch change or automatic retry.",
+  "dedup": "Q08 freezes pre/original/joint encoders and fits linear heads on unnormalized total residual for12epochs with sourceval selection. T04 controls same nonlinear head, VAE-added increment, unit directions and2epochs terminal as T03; directly isolates permission to adapt encoder. No rerun of T03 or preprocessing controls.",
+  "limitations": "Only2epochs and192reuseddevelopmentvideos; same head updates but encoder adaptation adds parameters and compute, which is the studied intervention rather than a matched-total-parameter claim. No conclusion of universal LoRA necessity, mutual information or final generalization."
+}
