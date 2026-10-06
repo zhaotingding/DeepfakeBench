@@ -1,0 +1,20 @@
+{
+  "id": "Q05-E01/v1",
+  "run_id": "q05_e01_20261006",
+  "seed": 3407,
+  "updates": 0,
+  "checkpoints": [
+    "T03 native dual descriptive",
+    "T05 native moving primary control",
+    "T06 native fixed primary"
+  ],
+  "source": "FF++c23 official test700 videos;140 real560fake;train/val/test origin IDs disjoint;70 source/donor components",
+  "frames": "Up to32 equally spaced sorted frames/video;same manifest3arms;testBS64",
+  "aggregation": "mean frame logits per video;AUC and balancedCE;frames descriptive only",
+  "primary": "delta balancedCE(moving-fixed)>=.02 nat and deltaAUC(fixed-moving)>=.01 and paired70component bootstrap2000 CE95percent lower>0;any macrodelta<=0 not supported;otherwise inconclusive",
+  "bootstrap_seed": 20261006,
+  "selection": "No new checkpoint selection or optimization;fixed terminal weights",
+  "budget": "10800 seconds hard timeout,no retry,0 updates,source artifacts<50MiB plus same backup,existing weights only",
+  "acceptance": "Actual train originIDs disjoint;all3 native192dev responses maxabs<1e-5;strictload;finite;hash backups;exit0",
+  "limitations": "Seen source methods/unseen source videos;source test previously used by project diagnostics,not untouchedfinaltest;origin filenamegroups not certified identity;one seedshort training budget,no transfercausal claim"
+}
