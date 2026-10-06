@@ -1,0 +1,22 @@
+{
+  "id": "Q05-D02/v1",
+  "run_id": "q05_d02_20261006",
+  "owner": "01a0e12a-41bd-7b81-999d-fd62332d03cb",
+  "server": "203-1-新/V100 GPU0",
+  "hypothesis": "Fixed initial pre reference gives reciprocal fixed-checkpoint inference benefit: T05 improves on substitution to fixed reference and T06 worsens on substitution to moving reference.",
+  "alternative": "The training benefit depends on learned encoder/head accommodation; fixed-model substitutions fail reciprocal improvement even though T06 training improved over T05.",
+  "controls": "Reuse exact T05/T06 final checkpoints and T06 stored initial anchor. Freeze all parameters, model.eval, no optimizer or backward. Each checkpoint evaluated with moving and fixed pre-reference; VAE/output head/encoder/checkpoint/normalization/data unchanged within checkpoint. Native logits must reproduce recorded T05/T06 values with maximum absolute error<1e-5. Strict checkpoint load, exact manifest and weight SHA verified.",
+  "data": "192 reused development videos, one frame/video, 64/domain and32/class/domain; manifestac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a. No sampling, threshold tuning, checkpoint selection or new training.",
+  "primary": "For each checkpoint, deltaCE=CE(moving)-CE(fixed), deltaAUC=AUC(fixed)-AUC(moving). Support reciprocal sensitivity only if each checkpoint macrodeltaCE>=.02nat AND macrodeltaAUC>=.01 AND all3domainCEdelta>=0, AND mean of two within-video CE effects has 95% paired bootstrap lower bound>0. Any macrodeltaCE<=0 or macrodeltaAUC<=0 rejects reciprocal prediction; otherwise inconclusive.",
+  "statistics": "Video is unit. Exactly2000 paired bootstrap replicates, seed20261006, sample32videos with replacement in each domain-label stratum, same video draws for both checkpoints andreferences. Equal-domain macro. Conditional interval excludes training variation and possible sharedidentity dependence.",
+  "dedup": "T05/T06 compare newly trained encoders/head and reference rules. D02 uses fixed terminal weights with reciprocal inference-only substitution, no method retraining claim. N01-D02 swaps donor signs, N10 fixedh0 prediction smallstep calibration, Q08 frozen linear readability and N11 source orthogonalization are different interventions.",
+  "budget": {
+    "updates": 0,
+    "hard_timeout_seconds": 900,
+    "retries": 0,
+    "artifact_limit_mb": 10,
+    "new_checkpoint": false
+  },
+  "stop": "Native reload response mismatch, input/manifest/hash mismatch, nonfinite prediction, zero residual norm, CUDA/OOM/timeout/nonzero exit or archive failure: preserve evidence and stop, no retry or changed batch.",
+  "limitations": "Reused development set, two distinct trained checkpoints and learned feature geometries. Swapping reference may be off trained distribution; fixed-checkpoint sensitivity does not establish causal training benefit, drift-only cause, independent information, universal necessity or independent final test."
+}
