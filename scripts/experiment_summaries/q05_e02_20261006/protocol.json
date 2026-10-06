@@ -1,0 +1,35 @@
+{
+  "id": "Q05-E02/v1",
+  "run_id": "q05_e02_20261006",
+  "input_preflight": {
+    "Celeb-DF-v2": {
+      "videos": 518,
+      "real": 178,
+      "frames": 4139,
+      "json_sha256": "919030ca617e6eb78831fd19470ae2f252ba0452a7497e28014f65fa9c34c29d"
+    },
+    "DFDCP": {
+      "videos": 654,
+      "real": 230,
+      "frames": 5021,
+      "json_sha256": "fc01695baf1f61079edbe6333b4793c10d252523f0ad8341924fa1e1856c11f6"
+    },
+    "DFDC": {
+      "videos": 4704,
+      "real": 2315,
+      "frames": 36072,
+      "json_sha256": "ce41a6e936c134f9921747252d666288a0569763df8015d5f7bdeb5272c26796"
+    }
+  },
+  "checkpoints": [
+    "T05 native moving",
+    "T06 native fixed"
+  ],
+  "updates": 0,
+  "sampling": "All5876official targettest videos;upto8 equallyspaced availableframes/video;45232frames/arm;BS64",
+  "primary": "macrovideo delta balancedCE(moving-fixed)>=.02nat and deltaAUC(fixed-moving)>=.01 and all3domainCEdelta>=0 and stratifiedvideo CE95percent lower>0;any macrodelta<=0 notsupported;otherwise inconclusive",
+  "bootstrap": "2000pairedvideobootstrap;6domainxlabel strata;seed20261006;identical draws2arms",
+  "aggregation": "meanfram logits/video;macro across3domains;balancedCE primary,rawCE descriptive",
+  "budget": "0training,newarms0;10800secondhardlimit,no retry,newsource<50MiB plus same backup",
+  "limitations": "Repeated developmentdomains;nocheckpointchoice;notindependentfinaltest,notidentitycluster bootstrap,not trainingreplicate significance;8frames finite sampling"
+}
