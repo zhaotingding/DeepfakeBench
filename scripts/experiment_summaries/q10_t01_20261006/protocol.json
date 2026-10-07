@@ -1,0 +1,41 @@
+{
+  "id": "Q10-T01/v1",
+  "run_id": "q10_t01_20261006",
+  "seed": 3407,
+  "arms": [
+    "original[z,0]",
+    "joint[z,unit(f(Px)-f(Gx))]"
+  ],
+  "updates_per_arm": 21576,
+  "epochs": 12,
+  "train_batchSize": 16,
+  "test_batchSize": 64,
+  "workers": 8,
+  "optimizer": {
+    "type": "adam",
+    "lr": 0.0002,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0005,
+    "amsgrad": false
+  },
+  "budget_seconds": 115200,
+  "smoke_limit_seconds": 600,
+  "formal_limit_seconds": 114300,
+  "automatic_retry": false,
+  "checkpoint_selection": "min source-val balancedCE each epoch, earliest tie, no target selection",
+  "curves": [
+    2,
+    4,
+    8,
+    12
+  ],
+  "source_val": "700videos one sorted centerframe",
+  "evaluation": "source_best and terminal: all700source test and5876targetvideos, up to8 equallyspaced sortedframes;video meanlogits",
+  "primary": "source_best onsource heldout: CE(original-joint)>=.02,AUC(joint-original)>=.01 and70component2000pairedCECI95lower>0",
+  "limits": "single seed, samehead but different compute; repeated development targets not finaltest; originfilename groups not verifiedpersonidentity",
+  "authorization": "人类已知Q10预计28.2h超过24h并获32h有限方案询问后，最新要求继续下一批并做好定时；按本次接续指令采用已说明32h方案，已在本对话明确说明"
+}
