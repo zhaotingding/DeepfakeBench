@@ -1,0 +1,13 @@
+{
+  "status": "budget_not_passed",
+  "steps": 8,
+  "trace_matches": true,
+  "initial_hash": "0cab5cb4b248e8f51c680a5cfe857e62baf96ef5119e1db8345b0267707139d3",
+  "update_seconds": 2.7626217887736857,
+  "source_val_seconds": 33.0736323967576,
+  "projected_seconds_with_margin": 73127.21549800655,
+  "formal_limit_seconds": 42600,
+  "budget_pass": false,
+  "code_commit": "dda58c14e5f999e323b345f20b0bfad66f02f327",
+  "time": "2026-10-08T09:05:55.923807+08:00"
+}
