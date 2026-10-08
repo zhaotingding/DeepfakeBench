@@ -1,0 +1,28 @@
+{
+  "id": "Q16-P01/v1",
+  "run_id": "q16_p01_20261008",
+  "hypothesis": "Frozen midpoint second response exceeds midpoint view and first-order difference on source video test",
+  "alternative": "Midpoint view or displacement already accounts for readability",
+  "features": "Fresh pretrained frozen CLIP zeroLoRA/VAE, P internalresize/dtype-only, G fullVAE, M=(P+G)/2 in identical affine CLIP-normalized float space; k=f(P)-2f(M)+f(G), midpoint=f(M), firstorder=f(P)-f(G); CLS pooler1024",
+  "arms": [
+    "curvature",
+    "midpoint",
+    "first_order"
+  ],
+  "input_dimensions": 1024,
+  "head_parameters": 2050,
+  "head_updates_per_arm": 500,
+  "encoder_updates": 0,
+  "head_optimizer": "Q04Adam lr.01 wd.001 zero init, train-only mean/std, fullbatch balancedCE",
+  "selection": "50sourceval opportunities every10updates earliest minimum, no target selection",
+  "data": "Exact Q04 manifests train3596/val700/test700 first frame/video sourceIDs720/140/140 disjoint, test70components,192targetdevelopment",
+  "primary": "curvature must pass both controls:CE(control-curvature)>=.02,AUC(curvature-control)>=.01,70component2000pairedCE95lower>0;anypointdiff<=0 notsupported else inconclusive",
+  "norm_descriptive_strata": "Pre-standardization kappa and firstorder L2norm, independent four bins at source-train unlabeled quartiles, all three selected heads reported on source-test, no refit/reselection/new claim",
+  "bootstrap_seed": 20261008,
+  "total_seconds": 14400,
+  "gpu_seconds": 10800,
+  "cpu_seconds": 3600,
+  "source_and_backup_bytes": 2147483648,
+  "automatic_retry": false,
+  "limits": "encoder path curvature not Hessian/manifold or novelty;amplitude/mixedimage artifacts not excluded; frozen readability not endtoend gain; repeateddevelopment not finaltest"
+}
