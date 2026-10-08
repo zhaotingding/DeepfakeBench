@@ -1,0 +1,7432 @@
+[
+  {
+    "endpoint": "source_best",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 2.4414378828566075,
+    "norm_u": 0.006623424897130247,
+    "dot": -0.002707398334620761,
+    "cosine": -0.16742637031474028,
+    "reconstruction_l2": 1.2277823091280633e-06,
+    "reconstruction_relative": 5.015325005298323e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.0009472982066270836,
+    "norm_u": 1.1587917027690879e-05,
+    "dot": -1.6101340232353538e-09,
+    "cosine": -0.14667967365366535,
+    "reconstruction_l2": 7.651317344396425e-10,
+    "reconstruction_relative": 7.979380612197817e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.5206656212649641,
+    "norm_u": 0.0028720639356731898,
+    "dot": 0.00041653597768123886,
+    "cosine": 0.2785476587414857,
+    "reconstruction_l2": 2.6564941062788623e-07,
+    "reconstruction_relative": 5.074122038150519e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.0020163343204018633,
+    "norm_u": 1.966000474394447e-05,
+    "dot": -5.1561534725361405e-09,
+    "cosine": -0.13007075913535404,
+    "reconstruction_l2": 1.2370888799537938e-09,
+    "reconstruction_relative": 6.076091984515721e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 9.924276516311606,
+    "norm_u": 0.02659450756169223,
+    "dot": -0.05198441033949937,
+    "cosine": -0.196961939741797,
+    "reconstruction_l2": 5.0620412340284885e-06,
+    "reconstruction_relative": 5.087033307822061e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "real",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.3356151938717595,
+    "norm_u": 0.0009906751054173928,
+    "dot": -0.00020523069777753558,
+    "cosine": -0.6172618812156627,
+    "reconstruction_l2": 1.49853833410003e-07,
+    "reconstruction_relative": 4.451907920243769e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.07511323321134242,
+    "norm_u": 0.0002568307493521746,
+    "dot": 9.95479121619661e-06,
+    "cosine": 0.5160225500974551,
+    "reconstruction_l2": 3.1899660160395435e-08,
+    "reconstruction_relative": 4.2324045495080214e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.15948138423192568,
+    "norm_u": 0.0004931614740578304,
+    "dot": 3.975368492595283e-05,
+    "cosine": 0.5054500604379633,
+    "reconstruction_l2": 6.699718097413271e-08,
+    "reconstruction_relative": 4.1879900754502855e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.012839478572287797,
+    "norm_u": 8.071658834247518e-05,
+    "dot": 3.336956229137328e-08,
+    "cosine": 0.03219884741053135,
+    "reconstruction_l2": 6.098486922664378e-09,
+    "reconstruction_relative": 4.720119817731052e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "FaceSwap",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.0004935732281476727,
+    "norm_u": 6.131006497937104e-06,
+    "dot": -1.0913909098887563e-10,
+    "cosine": -0.03606591548906419,
+    "reconstruction_l2": 3.9345544822979647e-10,
+    "reconstruction_relative": 7.873766539297691e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.2347970733878437,
+    "norm_u": 0.0006704188979401128,
+    "dot": 5.967848533342727e-05,
+    "cosine": 0.37912189357828907,
+    "reconstruction_l2": 1.0146653256167864e-07,
+    "reconstruction_relative": 4.309152468423541e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.05870253522198842,
+    "norm_u": 0.00044489388582461914,
+    "dot": -1.2944187857912086e-05,
+    "cosine": -0.49563448071804345,
+    "reconstruction_l2": 3.575870758359725e-08,
+    "reconstruction_relative": 6.04569093246924e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 2.7738079281671,
+    "norm_u": 0.006240291523003749,
+    "dot": -0.0044924939009344435,
+    "cosine": -0.25954115457866694,
+    "reconstruction_l2": 1.0265200249486892e-06,
+    "reconstruction_relative": 3.692454028956077e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.01797834876368893,
+    "norm_u": 8.79113454821264e-05,
+    "dot": -2.9159267416849814e-07,
+    "cosine": -0.1844938444518592,
+    "reconstruction_l2": 1.876822218174291e-08,
+    "reconstruction_relative": 1.0388548636148284e-06
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 6.298162616883971,
+    "norm_u": 0.0187317091017314,
+    "dot": 0.03250613588992087,
+    "cosine": 0.2755332862824625,
+    "reconstruction_l2": 2.817697227660614e-06,
+    "reconstruction_relative": 4.460573633580508e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.0043961075247238406,
+    "norm_u": 2.110599318297658e-05,
+    "dot": 1.238791591795659e-08,
+    "cosine": 0.13351318279819627,
+    "reconstruction_l2": 2.8308697189341817e-09,
+    "reconstruction_relative": 6.408722846333325e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 9.055712051317322,
+    "norm_u": 0.025163237676715494,
+    "dot": -0.14908918262818277,
+    "cosine": -0.6542700033730752,
+    "reconstruction_l2": 3.847221043928933e-06,
+    "reconstruction_relative": 4.2366191820646856e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.1541118764850291,
+    "norm_u": 0.0008769354237262147,
+    "dot": -7.634957154341908e-05,
+    "cosine": -0.5649407238014501,
+    "reconstruction_l2": 1.1492153544337042e-07,
+    "reconstruction_relative": 7.414827820670486e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.1737095884705598,
+    "norm_u": 0.0005108802554614325,
+    "dot": 2.464550299040215e-05,
+    "cosine": 0.2777120832596379,
+    "reconstruction_l2": 7.924385827048662e-08,
+    "reconstruction_relative": 4.548481521715187e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.002866150409288495,
+    "norm_u": 3.505059819359713e-05,
+    "dot": -8.1682520420401e-09,
+    "cosine": -0.08130826954743524,
+    "reconstruction_l2": 1.8398876686768767e-09,
+    "reconstruction_relative": 6.341813834794188e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.1276168720867914,
+    "norm_u": 0.0005097060371716984,
+    "dot": 3.713459456890663e-05,
+    "cosine": 0.5708878673072103,
+    "reconstruction_l2": 6.778931972138498e-08,
+    "reconstruction_relative": 5.290808567118563e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.058021717797201985,
+    "norm_u": 0.0003100784876366469,
+    "dot": -3.6635549466933987e-06,
+    "cosine": -0.20362940392001586,
+    "reconstruction_l2": 3.7886299031730084e-08,
+    "reconstruction_relative": 6.494965258180698e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 1.37436890895434,
+    "norm_u": 0.0035489556936843573,
+    "dot": 0.001483945845715916,
+    "cosine": 0.3042384871605118,
+    "reconstruction_l2": 5.556720470173517e-07,
+    "reconstruction_relative": 4.0326935390977947e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.40185867364392824,
+    "norm_u": 0.0011178687168210497,
+    "dot": -0.00011198098604162192,
+    "cosine": -0.2492758111255644,
+    "reconstruction_l2": 1.8262738218076392e-07,
+    "reconstruction_relative": 4.5319606225931074e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.7940534226099801,
+    "norm_u": 0.002691628886093699,
+    "dot": 0.0009675695451872839,
+    "cosine": 0.45270708123748166,
+    "reconstruction_l2": 3.6562041240177073e-07,
+    "reconstruction_relative": 4.588926052508686e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.0052553262437324945,
+    "norm_u": 8.485902742502119e-05,
+    "dot": -2.638672352213689e-08,
+    "cosine": -0.059168115190375285,
+    "reconstruction_l2": 3.109450989052071e-09,
+    "reconstruction_relative": 5.822739907258087e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.0011181592330670182,
+    "norm_u": 9.97652319380867e-06,
+    "dot": 8.70550198884598e-10,
+    "cosine": 0.07803886569359411,
+    "reconstruction_l2": 5.738052098309911e-10,
+    "reconstruction_relative": 5.086313474655318e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "FaceSwap",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.036997850184318094,
+    "norm_u": 0.00015134241099225819,
+    "dot": -3.278381282433206e-06,
+    "cosine": -0.5854938312736985,
+    "reconstruction_l2": 1.8083224016813755e-08,
+    "reconstruction_relative": 4.867730024123471e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.486436467247919,
+    "norm_u": 0.0016846169635572222,
+    "dot": 0.0004811078721208943,
+    "cosine": 0.5871041736977216,
+    "reconstruction_l2": 1.846809598715536e-07,
+    "reconstruction_relative": 3.783507122415991e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 6.67989542742477,
+    "norm_u": 0.021954574275230145,
+    "dot": 0.07057177131002122,
+    "cosine": 0.481211873148469,
+    "reconstruction_l2": 2.8875217420102446e-06,
+    "reconstruction_relative": 4.308544269534221e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 1.276090221755057,
+    "norm_u": 0.003217156817876056,
+    "dot": 0.0013273933178826241,
+    "cosine": 0.3233300098278724,
+    "reconstruction_l2": 4.832187333479873e-07,
+    "reconstruction_relative": 3.7771902315377685e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 0.16721870628402793,
+    "norm_u": 0.0008403727676108279,
+    "dot": -5.325261941993996e-05,
+    "cosine": -0.3789519491811787,
+    "reconstruction_l2": 8.738394226050632e-08,
+    "reconstruction_relative": 5.19959663908763e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "Face2Face",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 0.0008690298006723755,
+    "norm_u": 1.1374178083911034e-05,
+    "dot": -1.3865568588597655e-09,
+    "cosine": -0.14027587628192206,
+    "reconstruction_l2": 5.863687313858272e-10,
+    "reconstruction_relative": 6.660223551172136e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 0.016698167894718403,
+    "norm_u": 6.783431377181185e-05,
+    "dot": -4.3637052732791434e-07,
+    "cosine": -0.3852451244216577,
+    "reconstruction_l2": 9.32776997682723e-09,
+    "reconstruction_relative": 5.563502772356606e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "NeuralTextures",
+    "samples": 8,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 2.5955413400126637,
+    "norm_u": 0.0063894546231469725,
+    "dot": 0.005129779947428276,
+    "cosine": 0.3093192830833471,
+    "reconstruction_l2": 1.0353649768911416e-06,
+    "reconstruction_relative": 3.97921796777097e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 0.27358420428399066,
+    "norm_u": 0.0011734637348962402,
+    "dot": -6.543058094082587e-05,
+    "cosine": -0.20380746373823264,
+    "reconstruction_l2": 1.729782542179538e-07,
+    "reconstruction_relative": 6.295666121538899e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 1.278948587726919,
+    "norm_u": 0.003311138779716377,
+    "dot": -0.001586321629945759,
+    "cosine": -0.3745939644201994,
+    "reconstruction_l2": 6.071838308563482e-07,
+    "reconstruction_relative": 4.7352639898513266e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.031195177922829692,
+    "norm_u": 0.00017413156439010895,
+    "dot": 2.2272106876043482e-07,
+    "cosine": 0.04100117787654289,
+    "reconstruction_l2": 2.6197728485346868e-08,
+    "reconstruction_relative": 8.351388319854508e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.04565430863639165,
+    "norm_u": 0.0005187823764037528,
+    "dot": 3.781372885221962e-06,
+    "cosine": 0.15965499887394216,
+    "reconstruction_l2": 2.3370029690204892e-08,
+    "reconstruction_relative": 5.061395972760115e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.002555530154497115,
+    "norm_u": 2.7704413470240496e-05,
+    "dot": -1.583570766211958e-08,
+    "cosine": -0.2236698805247982,
+    "reconstruction_l2": 1.31909855929023e-09,
+    "reconstruction_relative": 5.106383197435207e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 6.876756813933415,
+    "norm_u": 0.017786069358997954,
+    "dot": -0.047999468363596094,
+    "cosine": -0.39243955916624645,
+    "reconstruction_l2": 3.0840475085635043e-06,
+    "reconstruction_relative": 4.4731718415111974e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.2008155420012318,
+    "norm_u": 0.0011552933723024315,
+    "dot": -6.519153834666387e-05,
+    "cosine": -0.28099696276010644,
+    "reconstruction_l2": 1.0068206574448396e-07,
+    "reconstruction_relative": 4.984980408596017e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.02625962740576319,
+    "norm_u": 0.00011994290772465472,
+    "dot": -7.557840829966911e-08,
+    "cosine": -0.0239957654729385,
+    "reconstruction_l2": 1.3074649979821654e-08,
+    "reconstruction_relative": 4.956354415347167e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.0034635554751856197,
+    "norm_u": 3.68455518761093e-05,
+    "dot": 2.6150007008922742e-08,
+    "cosine": 0.20491068057014325,
+    "reconstruction_l2": 1.986816007885134e-09,
+    "reconstruction_relative": 5.675966817873113e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "Face2Face",
+    "samples": 8,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.04086309977450163,
+    "norm_u": 0.00018924126251344567,
+    "dot": -1.5467212789548616e-06,
+    "cosine": -0.20001608184336492,
+    "reconstruction_l2": 1.7860765384100978e-08,
+    "reconstruction_relative": 4.350730051666656e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "FaceSwap",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.005798940239309447,
+    "norm_u": 6.356333553596587e-05,
+    "dot": -6.568010907056712e-08,
+    "cosine": -0.17818804093528567,
+    "reconstruction_l2": 3.4447517408220207e-09,
+    "reconstruction_relative": 5.87590556976821e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.11585762447262522,
+    "norm_u": 0.0004814016607514483,
+    "dot": 2.2102016446201405e-05,
+    "cosine": 0.39627775504928253,
+    "reconstruction_l2": 5.4017114139194906e-08,
+    "reconstruction_relative": 4.6430777301906483e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.06748357156380184,
+    "norm_u": 0.0002642323802569974,
+    "dot": -2.911717316654218e-06,
+    "cosine": -0.1632920768845136,
+    "reconstruction_l2": 2.911332394674879e-08,
+    "reconstruction_relative": 4.297308879677994e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.2568370118793663,
+    "norm_u": 0.0008485123377106957,
+    "dot": -1.0770525079887546e-05,
+    "cosine": -0.04942208988999513,
+    "reconstruction_l2": 1.64257094080072e-07,
+    "reconstruction_relative": 6.37432368694875e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 2.0811593036334246,
+    "norm_u": 0.005826874099833903,
+    "dot": -0.0007486668281723737,
+    "cosine": -0.06173729990545016,
+    "reconstruction_l2": 1.2024600665385271e-06,
+    "reconstruction_relative": 5.761705944044906e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "FaceSwap",
+    "samples": 6,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.002225377598033725,
+    "norm_u": 1.4493375125520948e-05,
+    "dot": -8.505621805683158e-09,
+    "cosine": -0.26371377975944565,
+    "reconstruction_l2": 1.0249551988824609e-09,
+    "reconstruction_relative": 4.575956433047586e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.0483381755111586,
+    "norm_u": 0.00021350998133011655,
+    "dot": 2.2238971774848427e-06,
+    "cosine": 0.21547965266065433,
+    "reconstruction_l2": 2.2849553269251792e-08,
+    "reconstruction_relative": 4.706232757416172e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.5665140675122756,
+    "norm_u": 0.0016922288580956792,
+    "dot": -0.00013136189718247898,
+    "cosine": -0.1370249387258516,
+    "reconstruction_l2": 2.5973825068599316e-07,
+    "reconstruction_relative": 4.571196277569743e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.12483279964398208,
+    "norm_u": 0.00047574080664887394,
+    "dot": 1.6324050791861112e-05,
+    "cosine": 0.2748709365444839,
+    "reconstruction_l2": 5.896617262999257e-08,
+    "reconstruction_relative": 4.7056786726539247e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.29166161361390325,
+    "norm_u": 0.0012223411294885623,
+    "dot": -4.0975206130452774e-05,
+    "cosine": -0.11493424508434431,
+    "reconstruction_l2": 1.510165125616087e-07,
+    "reconstruction_relative": 5.156189341062427e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.012257325455166357,
+    "norm_u": 9.935894171518098e-05,
+    "dot": 2.6889712047281306e-07,
+    "cosine": 0.22079207287863284,
+    "reconstruction_l2": 6.852247456735737e-09,
+    "reconstruction_relative": 5.545377090366605e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.0025568304454403625,
+    "norm_u": 2.612594181598528e-05,
+    "dot": -1.6651684236304278e-09,
+    "cosine": -0.02492781899302769,
+    "reconstruction_l2": 1.360125838786304e-09,
+    "reconstruction_relative": 5.265771599926426e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "NeuralTextures",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.3434057340979988,
+    "norm_u": 0.0011374632426719524,
+    "dot": 0.0001574342392331291,
+    "cosine": 0.40304568502060356,
+    "reconstruction_l2": 1.4189531203460194e-07,
+    "reconstruction_relative": 4.1183605750979737e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.2957919838886815,
+    "norm_u": 0.001058699699198456,
+    "dot": 1.4444490687371976e-06,
+    "cosine": 0.004612570778358241,
+    "reconstruction_l2": 1.5546213289441512e-07,
+    "reconstruction_relative": 5.237048168979269e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.05215362118153202,
+    "norm_u": 0.00019254612144968506,
+    "dot": 2.660988349246266e-06,
+    "cosine": 0.2649864884740117,
+    "reconstruction_l2": 2.691100257702922e-08,
+    "reconstruction_relative": 5.140969045788446e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.022694247080697706,
+    "norm_u": 0.000172215958807469,
+    "dot": -6.235361227530284e-07,
+    "cosine": -0.15954104975917213,
+    "reconstruction_l2": 1.2986822304280137e-08,
+    "reconstruction_relative": 5.679418929741558e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.14448097170105192,
+    "norm_u": 0.0006237508179068832,
+    "dot": 2.2032785684002774e-05,
+    "cosine": 0.2444824156907202,
+    "reconstruction_l2": 8.222269723176258e-08,
+    "reconstruction_relative": 5.666438404237305e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.014355055000482274,
+    "norm_u": 8.666918971924642e-05,
+    "dot": 4.0547778396434794e-08,
+    "cosine": 0.03259098355941751,
+    "reconstruction_l2": 8.78295586963538e-09,
+    "reconstruction_relative": 6.081653238880213e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.1461771191023307,
+    "norm_u": 0.0004785198930178014,
+    "dot": 2.69045217826692e-05,
+    "cosine": 0.38463241491066463,
+    "reconstruction_l2": 5.163019944197397e-08,
+    "reconstruction_relative": 3.5205055731686887e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.04327569650365573,
+    "norm_u": 0.0002576737051757258,
+    "dot": 3.6487722019568385e-06,
+    "cosine": 0.32721453113508453,
+    "reconstruction_l2": 1.9912146774855672e-08,
+    "reconstruction_relative": 4.57399615038676e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.6418466402544777,
+    "norm_u": 0.0019524103671826748,
+    "dot": -0.00015152116663433155,
+    "cosine": -0.12091242411421467,
+    "reconstruction_l2": 3.8536170251334764e-07,
+    "reconstruction_relative": 5.985745119400807e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.000967367410376748,
+    "norm_u": 9.467388242038496e-06,
+    "dot": 1.282672896157697e-10,
+    "cosine": 0.01400536005545293,
+    "reconstruction_l2": 5.554590114277139e-10,
+    "reconstruction_relative": 5.686314740354412e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "Face2Face",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.026197999063088718,
+    "norm_u": 0.00015021489808905928,
+    "dot": 1.9527979998075746e-06,
+    "cosine": 0.49622220225471864,
+    "reconstruction_l2": 1.5005818224704448e-08,
+    "reconstruction_relative": 5.695193703381358e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 2.575887341402003,
+    "norm_u": 0.007844411228301462,
+    "dot": -0.002456888512866954,
+    "cosine": -0.12159010465442717,
+    "reconstruction_l2": 1.7734315518973696e-06,
+    "reconstruction_relative": 6.863837742025546e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.17342292340840237,
+    "norm_u": 0.0011982478955607798,
+    "dot": 2.7202315235792227e-05,
+    "cosine": 0.1309039318653485,
+    "reconstruction_l2": 9.632839047135291e-08,
+    "reconstruction_relative": 5.516421047461309e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.9379710557622931,
+    "norm_u": 0.00418627960569812,
+    "dot": 0.0012515250411527716,
+    "cosine": 0.3187292161787482,
+    "reconstruction_l2": 5.368705995448927e-07,
+    "reconstruction_relative": 5.698311517525889e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.09701723791243301,
+    "norm_u": 0.0003680354623151062,
+    "dot": 7.657015463599242e-07,
+    "cosine": 0.021444748172905325,
+    "reconstruction_l2": 5.250117750548048e-08,
+    "reconstruction_relative": 5.391079748110455e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.00039576110136185094,
+    "norm_u": 3.911787757982391e-06,
+    "dot": -5.021015549384742e-13,
+    "cosine": -0.0003243270539585942,
+    "reconstruction_l2": 2.922717137469594e-10,
+    "reconstruction_relative": 7.312773062756529e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.006273122398621122,
+    "norm_u": 6.137998333204048e-05,
+    "dot": -5.227251119402516e-08,
+    "cosine": -0.13575718895940447,
+    "reconstruction_l2": 3.248445609443777e-09,
+    "reconstruction_relative": 5.128178053415082e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 4.175068522577392,
+    "norm_u": 0.014006325846263356,
+    "dot": 0.009950852604851275,
+    "cosine": 0.1701658706268211,
+    "reconstruction_l2": 2.065188696040148e-06,
+    "reconstruction_relative": 4.929939833415191e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 1.4712700303765662,
+    "norm_u": 0.009234074552532699,
+    "dot": -0.00849064078407545,
+    "cosine": -0.6249635698724012,
+    "reconstruction_l2": 7.163581650190363e-07,
+    "reconstruction_relative": 4.838609785910337e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.04779805814140189,
+    "norm_u": 0.00026084002938243,
+    "dot": -8.397734296544779e-07,
+    "cosine": -0.06735620899933123,
+    "reconstruction_l2": 2.647059211753547e-08,
+    "reconstruction_relative": 5.507948189629391e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.0066157876095835,
+    "norm_u": 9.449036745924981e-05,
+    "dot": -9.513247406269218e-09,
+    "cosine": -0.015218074263563067,
+    "reconstruction_l2": 5.095455440185073e-09,
+    "reconstruction_relative": 7.593508730365092e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "FaceSwap",
+    "samples": 7,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.0009367609935461993,
+    "norm_u": 9.264228538643576e-06,
+    "dot": -1.7711880822019878e-09,
+    "cosine": -0.20409230127455577,
+    "reconstruction_l2": 4.074534399333998e-10,
+    "reconstruction_relative": 4.307003982784488e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.24400413954412356,
+    "norm_u": 0.0007133482259427845,
+    "dot": 2.86251446826927e-06,
+    "cosine": 0.016445569245209943,
+    "reconstruction_l2": 9.152430364250089e-08,
+    "reconstruction_relative": 3.7399984968992503e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.3524183255903214,
+    "norm_u": 0.0018530948867876442,
+    "dot": -0.00036921089339620545,
+    "cosine": -0.5653512608107205,
+    "reconstruction_l2": 1.672489244132251e-07,
+    "reconstruction_relative": 4.7209262375154467e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.6417070196591483,
+    "norm_u": 0.002619216493941921,
+    "dot": -0.0001138072696304864,
+    "cosine": -0.06771140371761343,
+    "reconstruction_l2": 3.1578942259239686e-07,
+    "reconstruction_relative": 4.901079684071193e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.0005857815579317168,
+    "norm_u": 9.089242648262217e-06,
+    "dot": -4.3264495882417443e-10,
+    "cosine": -0.0812583978780374,
+    "reconstruction_l2": 4.688969349769503e-10,
+    "reconstruction_relative": 7.882332340397133e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.5577737052107821,
+    "norm_u": 0.0021584460609144315,
+    "dot": 0.00029363547537972646,
+    "cosine": 0.24389858823643276,
+    "reconstruction_l2": 2.5537669956583663e-07,
+    "reconstruction_relative": 4.5608507921153456e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "FaceSwap",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.006749844916600484,
+    "norm_u": 6.472348523111693e-05,
+    "dot": -1.309095563951538e-07,
+    "cosine": -0.2996509517270085,
+    "reconstruction_l2": 3.759812255120793e-09,
+    "reconstruction_relative": 5.517315306586754e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 4.829749775292671,
+    "norm_u": 0.020534221683333374,
+    "dot": -0.014795051135774433,
+    "cosine": -0.14918102724057733,
+    "reconstruction_l2": 2.187080425834374e-06,
+    "reconstruction_relative": 4.5091801370764024e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.32418422018233417,
+    "norm_u": 0.000998667075378146,
+    "dot": -0.00016725063104343214,
+    "cosine": -0.5166009035917412,
+    "reconstruction_l2": 1.4858091570002282e-07,
+    "reconstruction_relative": 4.5691492855917173e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.1210792854743525,
+    "norm_u": 0.00041185444993730244,
+    "dot": 2.1817256835386696e-06,
+    "cosine": 0.043750853737879236,
+    "reconstruction_l2": 7.128058645763166e-08,
+    "reconstruction_relative": 5.867142781115719e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.0015815472269440035,
+    "norm_u": 1.449614309731876e-05,
+    "dot": -1.166416263394903e-09,
+    "cosine": -0.050876699988040716,
+    "reconstruction_l2": 8.780093241724642e-10,
+    "reconstruction_relative": 5.501162065224657e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "Face2Face",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.056034983149948814,
+    "norm_u": 0.0002937650434373577,
+    "dot": 5.594815011902797e-06,
+    "cosine": 0.3398805952289502,
+    "reconstruction_l2": 2.8775023329264655e-08,
+    "reconstruction_relative": 5.108408095716082e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.32817459444321356,
+    "norm_u": 0.0011795745372697437,
+    "dot": 6.911795409447433e-05,
+    "cosine": 0.17855027692297357,
+    "reconstruction_l2": 1.892860687468416e-07,
+    "reconstruction_relative": 5.747189092300763e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.4994615094090091,
+    "norm_u": 0.0012520203750124687,
+    "dot": -6.186135941026706e-05,
+    "cosine": -0.09892499514516839,
+    "reconstruction_l2": 2.2253056315686065e-07,
+    "reconstruction_relative": 4.444269026499989e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.30913822736474234,
+    "norm_u": 0.0008060839309861535,
+    "dot": -6.835713984626063e-05,
+    "cosine": -0.2743158531788584,
+    "reconstruction_l2": 1.437228003094175e-07,
+    "reconstruction_relative": 4.6370523694589333e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 1.511658994512937,
+    "norm_u": 0.006043690265725608,
+    "dot": -0.002986836630108817,
+    "cosine": -0.3269304989815356,
+    "reconstruction_l2": 6.824278474872482e-07,
+    "reconstruction_relative": 4.4964527923120297e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.00845337668907613,
+    "norm_u": 8.434084263859767e-05,
+    "dot": 1.0167551731155514e-07,
+    "cosine": 0.14260942641585034,
+    "reconstruction_l2": 4.878617940440068e-09,
+    "reconstruction_relative": 5.71419459863559e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.011836554642417074,
+    "norm_u": 0.00010540694351617776,
+    "dot": -2.2553022244480497e-07,
+    "cosine": -0.18076328313334034,
+    "reconstruction_l2": 5.739642904352173e-09,
+    "reconstruction_relative": 4.80628149994474e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "FaceSwap",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.00025923850978812297,
+    "norm_u": 4.083175264984573e-06,
+    "dot": -1.0440855133590746e-10,
+    "cosine": -0.09863669950703703,
+    "reconstruction_l2": 1.675908885364302e-10,
+    "reconstruction_relative": 6.364492483884491e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "NeuralTextures",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 4.08798577343671,
+    "norm_u": 0.016234076829225678,
+    "dot": -0.022474004415928395,
+    "cosine": -0.33864408097167326,
+    "reconstruction_l2": 1.8083566614751075e-06,
+    "reconstruction_relative": 4.406091114631527e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.232013173258739,
+    "norm_u": 0.001281594901692902,
+    "dot": -0.00010023645860049499,
+    "cosine": -0.33710275307818044,
+    "reconstruction_l2": 1.0123878385915585e-07,
+    "reconstruction_relative": 4.339522255789983e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 2.1698711715236745,
+    "norm_u": 0.005887571627106986,
+    "dot": -0.00428036700231162,
+    "cosine": -0.3350509500771894,
+    "reconstruction_l2": 9.714059548248044e-07,
+    "reconstruction_relative": 4.4646767840541103e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.030310179447172392,
+    "norm_u": 0.00014088805407173216,
+    "dot": -1.7709018482277362e-07,
+    "cosine": -0.041469787781035265,
+    "reconstruction_l2": 4.2668075475055566e-08,
+    "reconstruction_relative": 1.4012013034785166e-06
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "Face2Face",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.1744295453069125,
+    "norm_u": 0.0005587217532766137,
+    "dot": 4.106768281927934e-05,
+    "cosine": 0.42139033453297325,
+    "reconstruction_l2": 9.74559151856418e-08,
+    "reconstruction_relative": 5.569282833809696e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.5731574644764701,
+    "norm_u": 0.0024026135384072173,
+    "dot": -0.0005193573229716985,
+    "cosine": -0.37714502816082857,
+    "reconstruction_l2": 2.8989867294882637e-07,
+    "reconstruction_relative": 5.03680995298866e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 11.479862541232102,
+    "norm_u": 0.03104899230987529,
+    "dot": -0.11444797463547116,
+    "cosine": -0.32108788079204087,
+    "reconstruction_l2": 5.011291380676052e-06,
+    "reconstruction_relative": 4.3535139385560435e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.18320291219060378,
+    "norm_u": 0.0016560128990760973,
+    "dot": 4.249790551046611e-06,
+    "cosine": 0.014007848574805354,
+    "reconstruction_l2": 8.963004933701286e-08,
+    "reconstruction_relative": 4.848564887712669e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 1.8113301672799427,
+    "norm_u": 0.009284936555935366,
+    "dot": -0.009350568130113673,
+    "cosine": -0.5559829046671946,
+    "reconstruction_l2": 8.589152267933516e-07,
+    "reconstruction_relative": 4.717719989160212e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.002454940996599158,
+    "norm_u": 1.9410481560350182e-05,
+    "dot": -7.076472761694123e-09,
+    "cosine": -0.14850445106221472,
+    "reconstruction_l2": 1.4041830007493825e-09,
+    "reconstruction_relative": 5.674953672280436e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.007027756123551022,
+    "norm_u": 5.231015636192342e-05,
+    "dot": -8.124118011294644e-08,
+    "cosine": -0.22099045848122914,
+    "reconstruction_l2": 3.375217246384873e-09,
+    "reconstruction_relative": 4.7672113691375976e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.0003408824277076222,
+    "norm_u": 4.186504587510739e-06,
+    "dot": -5.862966611591597e-11,
+    "cosine": -0.04108291352231615,
+    "reconstruction_l2": 2.9990190741530786e-10,
+    "reconstruction_relative": 8.691072401696415e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 9.755367640286405,
+    "norm_u": 0.04969590461606292,
+    "dot": -0.2703916471045857,
+    "cosine": -0.5577364524870873,
+    "reconstruction_l2": 4.731464019535275e-06,
+    "reconstruction_relative": 4.825531214425535e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "real",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.11011033301861334,
+    "norm_u": 0.0004446010154642517,
+    "dot": -1.383986554211165e-05,
+    "cosine": -0.28270490550401983,
+    "reconstruction_l2": 5.100588659266462e-08,
+    "reconstruction_relative": 4.613623719131568e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 2.657929944448054,
+    "norm_u": 0.007780626637017796,
+    "dot": -0.0011132959811818665,
+    "cosine": -0.05383348998343906,
+    "reconstruction_l2": 1.0711383692832804e-06,
+    "reconstruction_relative": 4.018209556963552e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.0007989361004936102,
+    "norm_u": 9.259636447729719e-06,
+    "dot": 3.1497804836267263e-10,
+    "cosine": 0.04257692637044026,
+    "reconstruction_l2": 4.896897645161887e-10,
+    "reconstruction_relative": 6.059049090873033e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.04056141779633864,
+    "norm_u": 0.0005484399279378007,
+    "dot": 5.368062636533848e-06,
+    "cosine": 0.24131003494491282,
+    "reconstruction_l2": 4.601920132786013e-08,
+    "reconstruction_relative": 1.1194201068880028e-06
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "FaceSwap",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.0054843678107914405,
+    "norm_u": 3.7333144603653226e-05,
+    "dot": -1.8922725340528826e-08,
+    "cosine": -0.09241927133265775,
+    "reconstruction_l2": 4.713830071443531e-09,
+    "reconstruction_relative": 8.536916630441177e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 10.63361922977945,
+    "norm_u": 0.03111683833449887,
+    "dot": -0.01916515244906496,
+    "cosine": -0.0579209544410379,
+    "reconstruction_l2": 4.270776255840832e-06,
+    "reconstruction_relative": 4.004577542814067e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "real",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.19835169720399906,
+    "norm_u": 0.0007715274625655435,
+    "dot": -4.0139247152006004e-05,
+    "cosine": -0.26229010824940324,
+    "reconstruction_l2": 1.1931346618256803e-07,
+    "reconstruction_relative": 5.991941240523829e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 1.1763516470896802,
+    "norm_u": 0.0037272000676329946,
+    "dot": -0.001893270622734586,
+    "cosine": -0.43181012951786485,
+    "reconstruction_l2": 5.754528455464552e-07,
+    "reconstruction_relative": 4.876393191291083e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.005893669430481863,
+    "norm_u": 4.30593870071099e-05,
+    "dot": 3.6649284541769536e-08,
+    "cosine": 0.14441486043005433,
+    "reconstruction_l2": 3.3144768183095003e-09,
+    "reconstruction_relative": 5.583001885727715e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "Face2Face",
+    "samples": 7,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.005702926048340504,
+    "norm_u": 3.4427825419021735e-05,
+    "dot": 6.753451934408119e-09,
+    "cosine": 0.03439683485180551,
+    "reconstruction_l2": 2.422733924584985e-09,
+    "reconstruction_relative": 4.222737481237907e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "FaceSwap",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.00441742224724457,
+    "norm_u": 4.961610505842144e-05,
+    "dot": -2.086977801482504e-08,
+    "cosine": -0.09521957683505293,
+    "reconstruction_l2": 2.52789823600561e-09,
+    "reconstruction_relative": 5.659002758958508e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 9.625367034418776,
+    "norm_u": 0.030227411862296306,
+    "dot": -0.13148324927382446,
+    "cosine": -0.451910222535501,
+    "reconstruction_l2": 4.530035191052142e-06,
+    "reconstruction_relative": 4.6916170891963257e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.2530961500008349,
+    "norm_u": 0.0010056274772748067,
+    "dot": -0.00017894533639830221,
+    "cosine": -0.7030686195823562,
+    "reconstruction_l2": 1.149319305611361e-07,
+    "reconstruction_relative": 4.523066768827984e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 1.264389182264305,
+    "norm_u": 0.005508329079437349,
+    "dot": -0.002901171719977628,
+    "cosine": -0.41655541636142557,
+    "reconstruction_l2": 5.552577524102373e-07,
+    "reconstruction_relative": 4.3724611431255676e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.008983347588431556,
+    "norm_u": 5.63955361062005e-05,
+    "dot": 9.844306737380318e-08,
+    "cosine": 0.194313155259657,
+    "reconstruction_l2": 5.3982071728563565e-09,
+    "reconstruction_relative": 5.971637798206121e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.17147099610284702,
+    "norm_u": 0.000864290658877027,
+    "dot": -2.0444764926748003e-05,
+    "cosine": -0.13795315314233342,
+    "reconstruction_l2": 1.0018810060178922e-07,
+    "reconstruction_relative": 5.813556961222475e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.0008898912092618932,
+    "norm_u": 8.487840810689259e-06,
+    "dot": -9.376681142853808e-10,
+    "cosine": -0.12414093312597468,
+    "reconstruction_l2": 4.779340236330262e-10,
+    "reconstruction_relative": 5.319959582699671e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 5.020535235042754,
+    "norm_u": 0.021941947734322984,
+    "dot": -0.04602908718680721,
+    "cosine": -0.41783726178148883,
+    "reconstruction_l2": 2.156470477660204e-06,
+    "reconstruction_relative": 4.276609292404486e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.10963615239734441,
+    "norm_u": 0.0006176672318718721,
+    "dot": -2.490878490476425e-05,
+    "cosine": -0.36782749923389124,
+    "reconstruction_l2": 8.55475408151966e-08,
+    "reconstruction_relative": 7.75914531604375e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.04876046579093923,
+    "norm_u": 0.00018636568027613352,
+    "dot": -6.029173508914207e-07,
+    "cosine": -0.0663474136236158,
+    "reconstruction_l2": 1.8823662446556275e-08,
+    "reconstruction_relative": 3.8457366658403797e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.001529572010531499,
+    "norm_u": 1.29850511218941e-05,
+    "dot": -5.564149319582404e-09,
+    "cosine": -0.28014648938068726,
+    "reconstruction_l2": 7.589903799643498e-10,
+    "reconstruction_relative": 4.920339083928761e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "Face2Face",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.020340204067640116,
+    "norm_u": 9.268369774356289e-05,
+    "dot": 7.581556782787253e-07,
+    "cosine": 0.4021607980222929,
+    "reconstruction_l2": 9.132998831544525e-09,
+    "reconstruction_relative": 4.46975431784888e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.009427400783501454,
+    "norm_u": 8.260745932781351e-05,
+    "dot": -1.9401122711900734e-07,
+    "cosine": -0.24912403353805415,
+    "reconstruction_l2": 5.382695693446295e-09,
+    "reconstruction_relative": 5.660032626685633e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "real",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.1647855882831284,
+    "norm_u": 0.0005892205198942356,
+    "dot": -5.352075435740036e-06,
+    "cosine": -0.0551220215220106,
+    "reconstruction_l2": 6.767114205506207e-08,
+    "reconstruction_relative": 4.0919861099077637e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 1.071736798069747,
+    "norm_u": 0.005015587666705629,
+    "dot": -0.0007680929480357642,
+    "cosine": -0.14289064926128925,
+    "reconstruction_l2": 6.494842184930376e-07,
+    "reconstruction_relative": 6.031880932855496e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 0.0004475857261557591,
+    "norm_u": 4.935737390276359e-06,
+    "dot": -1.659349977225301e-10,
+    "cosine": -0.07511206829696936,
+    "reconstruction_l2": 2.3027614098646003e-10,
+    "reconstruction_relative": 5.088734116211348e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 0.08537345034867025,
+    "norm_u": 0.0004629787400663129,
+    "dot": 8.872856512433124e-06,
+    "cosine": 0.22448099359871412,
+    "reconstruction_l2": 5.0609728424937736e-08,
+    "reconstruction_relative": 5.89606638605831e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "FaceSwap",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 0.0063349651657460876,
+    "norm_u": 3.814200402197832e-05,
+    "dot": 1.2976893611756895e-09,
+    "cosine": 0.005370602447284984,
+    "reconstruction_l2": 3.695386473023483e-09,
+    "reconstruction_relative": 5.798406294739851e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 5.196720518634167,
+    "norm_u": 0.019577181609636275,
+    "dot": -0.016931453522590737,
+    "cosine": -0.1664235233559013,
+    "reconstruction_l2": 2.1644309195076125e-06,
+    "reconstruction_relative": 4.1493623329942416e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "real",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 2.1732363028691677,
+    "norm_u": 0.004973368010084078,
+    "dot": -0.0035805706931267296,
+    "cosine": -0.3312796090784935,
+    "reconstruction_l2": 1.0041778910433744e-06,
+    "reconstruction_relative": 4.6101066599251213e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.012941313360905999,
+    "norm_u": 7.281688073664758e-05,
+    "dot": -2.1969092240975527e-07,
+    "cosine": -0.2331318918135689,
+    "reconstruction_l2": 6.1054345561042855e-09,
+    "reconstruction_relative": 4.6913888540688647e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.0027971171393974784,
+    "norm_u": 2.943448715095515e-05,
+    "dot": 6.060822474468389e-10,
+    "cosine": 0.007361468120777637,
+    "reconstruction_l2": 1.7539947727147427e-09,
+    "reconstruction_relative": 6.205422735747394e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.022119612997890534,
+    "norm_u": 8.530881593182733e-05,
+    "dot": -1.728956459275254e-07,
+    "cosine": -0.09162471105051578,
+    "reconstruction_l2": 1.105472998000422e-08,
+    "reconstruction_relative": 4.97850434813184e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.0010527977645893238,
+    "norm_u": 1.3317610647432102e-05,
+    "dot": -2.0311249926675876e-09,
+    "cosine": -0.14486563760622978,
+    "reconstruction_l2": 6.975291948131013e-10,
+    "reconstruction_relative": 6.542717711562866e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.010753917719953824,
+    "norm_u": 6.566637970880292e-05,
+    "dot": 4.468474433654471e-08,
+    "cosine": 0.06327752652732875,
+    "reconstruction_l2": 4.757482050483437e-09,
+    "reconstruction_relative": 4.397102519524557e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.05399884106203724,
+    "norm_u": 0.0002777456279575137,
+    "dot": -4.980357298719011e-06,
+    "cosine": -0.3320693793961515,
+    "reconstruction_l2": 2.575507634323528e-08,
+    "reconstruction_relative": 4.7451540183131893e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 1.1151448398792347,
+    "norm_u": 0.0050515069998985414,
+    "dot": 0.0009992492616360071,
+    "cosine": 0.17738692193198966,
+    "reconstruction_l2": 5.257554106321817e-07,
+    "reconstruction_relative": 4.6934219353324626e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "Deepfakes",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.028522676468570603,
+    "norm_u": 0.00017358330888160784,
+    "dot": -1.610067467386613e-07,
+    "cosine": -0.03251964802315259,
+    "reconstruction_l2": 1.5510712025746748e-08,
+    "reconstruction_relative": 5.405133681544844e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.5442900663368936,
+    "norm_u": 0.006201891918571111,
+    "dot": 0.0002866975016752062,
+    "cosine": 0.08493160021355331,
+    "reconstruction_l2": 4.610361475495922e-07,
+    "reconstruction_relative": 8.374984241561635e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.005282009930502627,
+    "norm_u": 8.931094190784826e-05,
+    "dot": -5.504852094359746e-08,
+    "cosine": -0.11669218496892016,
+    "reconstruction_l2": 3.407154829061952e-09,
+    "reconstruction_relative": 6.343234578598041e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 4.428399640401962,
+    "norm_u": 0.01959671669311618,
+    "dot": 0.01537905228432152,
+    "cosine": 0.17721458108327207,
+    "reconstruction_l2": 2.147627153308183e-06,
+    "reconstruction_relative": 4.828302410550459e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "real",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.2060427601252866,
+    "norm_u": 0.0006764260347789687,
+    "dot": 4.312702895016152e-05,
+    "cosine": 0.30943673260806054,
+    "reconstruction_l2": 1.0796073526106236e-07,
+    "reconstruction_relative": 5.222579348656435e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.24608969711040282,
+    "norm_u": 0.0005692836050542507,
+    "dot": 2.1193089457794676e-06,
+    "cosine": 0.015127674209830858,
+    "reconstruction_l2": 1.0341533021912807e-07,
+    "reconstruction_relative": 4.1926440269542336e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "Deepfakes",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.021342453266835943,
+    "norm_u": 0.00011792404894111965,
+    "dot": -2.0455711182143932e-08,
+    "cosine": -0.008127703679984909,
+    "reconstruction_l2": 1.4993710235706517e-08,
+    "reconstruction_relative": 6.986694602374752e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.004047036345255876,
+    "norm_u": 2.6418235594589387e-05,
+    "dot": 2.8740935887208423e-08,
+    "cosine": 0.26881901929882274,
+    "reconstruction_l2": 1.944470258747974e-09,
+    "reconstruction_relative": 4.77351648374585e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.003803656935774349,
+    "norm_u": 3.14464883682303e-05,
+    "dot": 1.9080148629604216e-08,
+    "cosine": 0.15951747223054497,
+    "reconstruction_l2": 1.7906322255093641e-09,
+    "reconstruction_relative": 4.669058503708277e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "NeuralTextures",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 3.9777111237500153,
+    "norm_u": 0.009007283398484058,
+    "dot": 0.0003664994328732795,
+    "cosine": 0.010229307637221206,
+    "reconstruction_l2": 1.6802046674001933e-06,
+    "reconstruction_relative": 4.214505505047596e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.05327276219294072,
+    "norm_u": 0.00026201717587439444,
+    "dot": -2.2459416388893274e-06,
+    "cosine": -0.16090275862460865,
+    "reconstruction_l2": 3.505889863253295e-08,
+    "reconstruction_relative": 6.548807905044871e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 1.4201477828001474,
+    "norm_u": 0.0038206927795598616,
+    "dot": -0.0009948780549251632,
+    "cosine": -0.1833556063039591,
+    "reconstruction_l2": 5.60331158177942e-07,
+    "reconstruction_relative": 3.934996931373972e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.0006340298114448956,
+    "norm_u": 8.401151107369745e-06,
+    "dot": 6.100185291453693e-11,
+    "cosine": 0.01145234841540434,
+    "reconstruction_l2": 3.459222190619091e-10,
+    "reconstruction_relative": 5.384581989753745e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 1.1973728248985387,
+    "norm_u": 0.0037851769467039313,
+    "dot": -0.0004562835783640535,
+    "cosine": -0.10067444754225349,
+    "reconstruction_l2": 5.991820720299475e-07,
+    "reconstruction_relative": 4.988370148718755e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.056554608538236135,
+    "norm_u": 0.00020249143291706828,
+    "dot": -7.960096216646664e-07,
+    "cosine": -0.0695094197273543,
+    "reconstruction_l2": 2.7985997849320084e-08,
+    "reconstruction_relative": 4.930836470422902e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 5.114612660726324,
+    "norm_u": 0.014540996963338894,
+    "dot": -0.012810483544768634,
+    "cosine": -0.1722497458710681,
+    "reconstruction_l2": 2.0300546459841853e-06,
+    "reconstruction_relative": 3.957874498340898e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.08989245742447964,
+    "norm_u": 0.00043448577885774715,
+    "dot": -7.650855011241948e-08,
+    "cosine": -0.001958894977245645,
+    "reconstruction_l2": 4.528722799334537e-08,
+    "reconstruction_relative": 5.013700938755128e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 1.480132791953672,
+    "norm_u": 0.0037640417315541576,
+    "dot": -0.0021254031367152195,
+    "cosine": -0.38149267805820797,
+    "reconstruction_l2": 6.209862605889068e-07,
+    "reconstruction_relative": 4.184834460807499e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.0026077262232019212,
+    "norm_u": 2.7144217150993303e-05,
+    "dot": -1.3452612700924392e-10,
+    "cosine": -0.0019004975928018902,
+    "reconstruction_l2": 1.1300998165819661e-09,
+    "reconstruction_relative": 4.2890147434748276e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.0013687539833150452,
+    "norm_u": 8.476879962156181e-06,
+    "dot": 1.171054487323714e-09,
+    "cosine": 0.10092893095344461,
+    "reconstruction_l2": 9.487670204058706e-10,
+    "reconstruction_relative": 6.888946840388285e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "FaceSwap",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.00803851919811818,
+    "norm_u": 4.793337048327795e-05,
+    "dot": -8.17927682189459e-08,
+    "cosine": -0.21227599518456336,
+    "reconstruction_l2": 4.7272169362467885e-09,
+    "reconstruction_relative": 5.845847602695275e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "NeuralTextures",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 4.761552129402536,
+    "norm_u": 0.01208183352611544,
+    "dot": -0.02227786322752291,
+    "cosine": -0.3872506386099742,
+    "reconstruction_l2": 2.0473133887855783e-06,
+    "reconstruction_relative": 4.288794249171003e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.10646302577032116,
+    "norm_u": 0.0003689529728674168,
+    "dot": -1.305369067054897e-05,
+    "cosine": -0.33232537083516006,
+    "reconstruction_l2": 5.14217451384775e-08,
+    "reconstruction_relative": 4.813328906140481e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 1.4436893245946605,
+    "norm_u": 0.004123369680045808,
+    "dot": -0.00212162019100033,
+    "cosine": -0.35640322204538444,
+    "reconstruction_l2": 5.869986561066517e-07,
+    "reconstruction_relative": 4.0543825760604587e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.0009780542012511652,
+    "norm_u": 1.0576863363382809e-05,
+    "dot": -3.3617585327132505e-09,
+    "cosine": -0.32497256548429343,
+    "reconstruction_l2": 6.580242975078127e-10,
+    "reconstruction_relative": 6.655913627035038e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.005510693676020099,
+    "norm_u": 3.9352418624210335e-05,
+    "dot": 5.611602454716474e-09,
+    "cosine": 0.025876718210435783,
+    "reconstruction_l2": 2.5169601929530933e-09,
+    "reconstruction_relative": 4.535025745789594e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "FaceSwap",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.11381578234521499,
+    "norm_u": 0.0007134984423512379,
+    "dot": 7.802716504165341e-06,
+    "cosine": 0.09608383099814492,
+    "reconstruction_l2": 7.345162716142362e-08,
+    "reconstruction_relative": 6.413349202608268e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 7.724513249890351,
+    "norm_u": 0.02201135101282654,
+    "dot": -0.06095808923315887,
+    "cosine": -0.3585201119573191,
+    "reconstruction_l2": 3.3072837146911794e-06,
+    "reconstruction_relative": 4.2693774112659225e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.19199009275005258,
+    "norm_u": 0.0007815419937648667,
+    "dot": -5.730864504169443e-05,
+    "cosine": -0.3819346000739794,
+    "reconstruction_l2": 1.2629981686496353e-07,
+    "reconstruction_relative": 6.551784292995638e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.1269374876725582,
+    "norm_u": 0.0005024924161506954,
+    "dot": -1.6864782165687406e-05,
+    "cosine": -0.2643999239201122,
+    "reconstruction_l2": 7.054728557513506e-08,
+    "reconstruction_relative": 5.535726349457073e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "Deepfakes",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.002640881424699684,
+    "norm_u": 2.1152966000738653e-05,
+    "dot": -2.4052903692667824e-09,
+    "cosine": -0.0430573541497272,
+    "reconstruction_l2": 1.2833338958775653e-09,
+    "reconstruction_relative": 4.820876470870462e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.0019549386332977613,
+    "norm_u": 1.0992798065711614e-05,
+    "dot": 3.7057936260744263e-09,
+    "cosine": 0.17244072917762124,
+    "reconstruction_l2": 1.0719677526707266e-09,
+    "reconstruction_relative": 5.452721979867135e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.16789827435129373,
+    "norm_u": 0.0006758678510723021,
+    "dot": 1.115000934321243e-05,
+    "cosine": 0.09825783933920557,
+    "reconstruction_l2": 9.504754310958801e-08,
+    "reconstruction_relative": 5.638322809644644e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "real",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.35846684122959743,
+    "norm_u": 0.0013261934632125933,
+    "dot": -0.00014278898975911302,
+    "cosine": -0.3003577546665098,
+    "reconstruction_l2": 1.5797197081727359e-07,
+    "reconstruction_relative": 4.390634492192142e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.4582177843631776,
+    "norm_u": 0.0016450682069362279,
+    "dot": 0.00011433030869340238,
+    "cosine": 0.15167203923883374,
+    "reconstruction_l2": 2.173929330532003e-07,
+    "reconstruction_relative": 4.7273427683540734e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.056423238328058054,
+    "norm_u": 0.0004738618831853506,
+    "dot": 3.296118228895789e-06,
+    "cosine": 0.12328010534123081,
+    "reconstruction_l2": 3.828796176035458e-08,
+    "reconstruction_relative": 6.729334468400292e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "Face2Face",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 1.0635996448244887,
+    "norm_u": 0.004142569731216134,
+    "dot": 0.001457064653216299,
+    "cosine": 0.3306974237502946,
+    "reconstruction_l2": 5.009398136288065e-07,
+    "reconstruction_relative": 4.6915801098793416e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.9704811806857128,
+    "norm_u": 0.004030747954970525,
+    "dot": -0.0002489678034912882,
+    "cosine": -0.06364589930702384,
+    "reconstruction_l2": 6.032808751567345e-07,
+    "reconstruction_relative": 6.190595080741931e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "NeuralTextures",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.0005067331189817727,
+    "norm_u": 5.975097750423475e-06,
+    "dot": -4.669204810433224e-10,
+    "cosine": -0.1542121598958028,
+    "reconstruction_l2": 2.836749526472638e-10,
+    "reconstruction_relative": 5.532873150644985e-07
+  },
+  {
+    "endpoint": "source_best",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.6058421067423374,
+    "norm_u": 0.002114363539096224,
+    "dot": -0.0002358568184453593,
+    "cosine": -0.18412354198341016,
+    "reconstruction_l2": 3.3448355756331963e-07,
+    "reconstruction_relative": 5.501768200747685e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.3033098900096272,
+    "norm_u": 0.001813180360253617,
+    "dot": 0.00014726732381186805,
+    "cosine": 0.26778041908701217,
+    "reconstruction_l2": 2.20533887656458e-07,
+    "reconstruction_relative": 7.227702821327771e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.0039067503286874415,
+    "norm_u": 4.18744269006099e-05,
+    "dot": 1.5882761387922783e-08,
+    "cosine": 0.09708708857557448,
+    "reconstruction_l2": 2.3404972077720532e-09,
+    "reconstruction_relative": 5.927373079601465e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.022150878729907977,
+    "norm_u": 0.00017137625382274496,
+    "dot": 6.882461531683435e-07,
+    "cosine": 0.18130183011360504,
+    "reconstruction_l2": 1.0644115179077943e-08,
+    "reconstruction_relative": 4.768387058939952e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.021213373998559742,
+    "norm_u": 0.0001726872306722437,
+    "dot": 5.046301093159169e-07,
+    "cosine": 0.137753672494862,
+    "reconstruction_l2": 1.1068303565615686e-08,
+    "reconstruction_relative": 5.175475487036736e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 1.130006704513267,
+    "norm_u": 0.006204201180893293,
+    "dot": 0.003203985807087817,
+    "cosine": 0.4570078829676813,
+    "reconstruction_l2": 5.271047171585279e-07,
+    "reconstruction_relative": 4.639145025953583e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 0,
+    "trace_step": 0,
+    "kind": "real",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 6
+    },
+    "norm_z": 0.7458945635992841,
+    "norm_u": 0.002486691711057093,
+    "dot": -0.0003497644513820046,
+    "cosine": -0.18857159692824776,
+    "reconstruction_l2": 4.037561607445241e-07,
+    "reconstruction_relative": 5.395059775743491e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 1.1943183082260505,
+    "norm_u": 0.004377141767227406,
+    "dot": -0.002518127691638561,
+    "cosine": -0.4816893522131361,
+    "reconstruction_l2": 8.406984497610757e-07,
+    "reconstruction_relative": 7.013444906008362e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 4.785997883692517,
+    "norm_u": 0.017581250500836608,
+    "dot": -0.040834300748298184,
+    "cosine": -0.48529169482160683,
+    "reconstruction_l2": 4.179852590116419e-06,
+    "reconstruction_relative": 8.701537901942622e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.12723459034391763,
+    "norm_u": 0.0007471172143500925,
+    "dot": 4.569657698519183e-05,
+    "cosine": 0.4807172763907878,
+    "reconstruction_l2": 6.924353457211464e-08,
+    "reconstruction_relative": 5.410424340571431e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "FaceSwap",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.010824525015325971,
+    "norm_u": 0.00011045390995743753,
+    "dot": 1.080818588818487e-07,
+    "cosine": 0.09039884110608869,
+    "reconstruction_l2": 9.363960331976888e-09,
+    "reconstruction_relative": 8.563308988484581e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.03579340803798348,
+    "norm_u": 0.00017187420250558896,
+    "dot": 1.4187519342599906e-06,
+    "cosine": 0.2306177439352666,
+    "reconstruction_l2": 1.802756501854093e-08,
+    "reconstruction_relative": 5.012490906646026e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 1,
+    "trace_step": 58,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 4,
+      "FaceSwap": 1,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.2148855692460647,
+    "norm_u": 0.0007766995170122033,
+    "dot": -2.966442524735437e-07,
+    "cosine": -0.0017773610228440514,
+    "reconstruction_l2": 9.040777517322872e-08,
+    "reconstruction_relative": 4.1920997906476285e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.8460892902350238,
+    "norm_u": 0.004219902079106208,
+    "dot": -0.0002046286500447823,
+    "cosine": -0.057312304014443455,
+    "reconstruction_l2": 3.673368709285215e-07,
+    "reconstruction_relative": 4.3200388076342963e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.008171341885623825,
+    "norm_u": 6.607864404987214e-05,
+    "dot": -4.477294006157196e-08,
+    "cosine": -0.08292034675674155,
+    "reconstruction_l2": 5.98938528513706e-09,
+    "reconstruction_relative": 7.270947578263695e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 2.123232460417249,
+    "norm_u": 0.015756808636917096,
+    "dot": 0.0047049364203556755,
+    "cosine": 0.14063323054045387,
+    "reconstruction_l2": 1.0232104376497353e-06,
+    "reconstruction_relative": 4.783616507352493e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.005480145801469767,
+    "norm_u": 3.066700688701531e-05,
+    "dot": 6.394260947278016e-08,
+    "cosine": 0.3804756360627198,
+    "reconstruction_l2": 3.1998611837070323e-09,
+    "reconstruction_relative": 5.806514020680679e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 3.1276738440100855,
+    "norm_u": 0.008330602420066792,
+    "dot": 0.003060208643753232,
+    "cosine": 0.11745004056978835,
+    "reconstruction_l2": 1.4203068614647327e-06,
+    "reconstruction_relative": 4.5290333152477783e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 2,
+    "trace_step": 116,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.2495996740088781,
+    "norm_u": 0.0011037328141372822,
+    "dot": -0.00014611657709726327,
+    "cosine": -0.5303853524918325,
+    "reconstruction_l2": 1.0638781437734428e-07,
+    "reconstruction_relative": 4.243572743008195e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.06870260503657553,
+    "norm_u": 0.00031042852028896823,
+    "dot": -6.822835992776005e-06,
+    "cosine": -0.31991169164898375,
+    "reconstruction_l2": 3.298383090413287e-08,
+    "reconstruction_relative": 4.779362564457519e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.0034431616686461846,
+    "norm_u": 2.2885242023399005e-05,
+    "dot": 3.5131584181266583e-09,
+    "cosine": 0.0445845932886148,
+    "reconstruction_l2": 1.9242980359289066e-09,
+    "reconstruction_relative": 5.551852255678685e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.003847877001694897,
+    "norm_u": 3.276430755590495e-05,
+    "dot": -9.894123343406459e-09,
+    "cosine": -0.07847930437563844,
+    "reconstruction_l2": 2.3382243492071056e-09,
+    "reconstruction_relative": 6.025355509238045e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.049024425679559905,
+    "norm_u": 0.000460160946995164,
+    "dot": -8.427153278485569e-07,
+    "cosine": -0.0373558497954299,
+    "reconstruction_l2": 3.088820281029829e-08,
+    "reconstruction_relative": 6.241984608945416e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.23001378885182305,
+    "norm_u": 0.0010030137769703445,
+    "dot": 7.253351118638579e-05,
+    "cosine": 0.31439666531886307,
+    "reconstruction_l2": 1.371476696949513e-07,
+    "reconstruction_relative": 5.9366967309008e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 3,
+    "trace_step": 174,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.40095976923243926,
+    "norm_u": 0.0013062455649507985,
+    "dot": -0.0002614107041910028,
+    "cosine": -0.49911168640578923,
+    "reconstruction_l2": 1.4681799868801464e-07,
+    "reconstruction_relative": 3.649773863247252e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.0837577498988324,
+    "norm_u": 0.00045970252165918854,
+    "dot": -1.748201470990683e-06,
+    "cosine": -0.045403527296640905,
+    "reconstruction_l2": 4.813581170249085e-08,
+    "reconstruction_relative": 5.715657541165251e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.016091080838535127,
+    "norm_u": 0.00010813706052455467,
+    "dot": 7.74880822925253e-08,
+    "cosine": 0.04453230103842448,
+    "reconstruction_l2": 1.536421665155504e-08,
+    "reconstruction_relative": 9.484542245985154e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.0057626943302320965,
+    "norm_u": 3.827614448970201e-05,
+    "dot": -1.369548028024215e-08,
+    "cosine": -0.06209026274055657,
+    "reconstruction_l2": 2.9674424613841975e-09,
+    "reconstruction_relative": 5.115424176549545e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "FaceSwap",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.031684555228201676,
+    "norm_u": 0.00021184644130536897,
+    "dot": 4.538829508093539e-06,
+    "cosine": 0.6761998679877768,
+    "reconstruction_l2": 1.5496886898226795e-08,
+    "reconstruction_relative": 4.858506316416819e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.2955417492735587,
+    "norm_u": 0.0017075388640027062,
+    "dot": 0.0002636254615217089,
+    "cosine": 0.5223936827393173,
+    "reconstruction_l2": 1.4948003842342962e-07,
+    "reconstruction_relative": 5.028777002629963e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 4,
+    "trace_step": 232,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.7243684536252124,
+    "norm_u": 0.00252390635078368,
+    "dot": -0.0005680033791090203,
+    "cosine": -0.3106834752834826,
+    "reconstruction_l2": 3.130283883546633e-07,
+    "reconstruction_relative": 4.3063926048830715e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 1.693211305163266,
+    "norm_u": 0.010004013900169651,
+    "dot": 0.009887777118965187,
+    "cosine": 0.5837316244121242,
+    "reconstruction_l2": 7.321689836685051e-07,
+    "reconstruction_relative": 4.298745880650664e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 0.4705981596351078,
+    "norm_u": 0.001833417667696513,
+    "dot": -0.00041829235610275006,
+    "cosine": -0.48480634127674455,
+    "reconstruction_l2": 2.93086547376529e-07,
+    "reconstruction_relative": 6.203788261779878e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "Face2Face",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 0.001044290699220339,
+    "norm_u": 7.89174242006109e-06,
+    "dot": -9.0383002217915e-10,
+    "cosine": -0.10967116356390719,
+    "reconstruction_l2": 5.841447902042479e-10,
+    "reconstruction_relative": 5.551744327661843e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 0.0024058109391443283,
+    "norm_u": 1.489804985661782e-05,
+    "dot": 4.687276684530524e-09,
+    "cosine": 0.13077648841347309,
+    "reconstruction_l2": 1.3198108966792436e-09,
+    "reconstruction_relative": 5.452166710976459e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "NeuralTextures",
+    "samples": 8,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 3.7619385255211544,
+    "norm_u": 0.019666920551645754,
+    "dot": 0.04161887773239613,
+    "cosine": 0.5625256204788903,
+    "reconstruction_l2": 1.3901399122157867e-06,
+    "reconstruction_relative": 3.6760575158877243e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 5,
+    "trace_step": 290,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 1,
+      "FaceSwap": 3,
+      "NeuralTextures": 8,
+      "real": 3
+    },
+    "norm_z": 2.0741087718456974,
+    "norm_u": 0.004464912038342719,
+    "dot": -0.004126322630235142,
+    "cosine": -0.4455728765503442,
+    "reconstruction_l2": 9.64177314739493e-07,
+    "reconstruction_relative": 4.638648714814012e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.05112363497989062,
+    "norm_u": 0.0005016371920610242,
+    "dot": 1.2542252210647405e-06,
+    "cosine": 0.0489062176353297,
+    "reconstruction_l2": 2.9086813026132403e-08,
+    "reconstruction_relative": 5.634219792440235e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.008020783930767857,
+    "norm_u": 5.23057309097432e-05,
+    "dot": 8.158055923786044e-08,
+    "cosine": 0.19445565868617698,
+    "reconstruction_l2": 5.391811164455944e-09,
+    "reconstruction_relative": 6.678745548994085e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.039603274687574685,
+    "norm_u": 0.000524185089902131,
+    "dot": 1.4488765734679853e-06,
+    "cosine": 0.06979360462280097,
+    "reconstruction_l2": 2.134418884152263e-08,
+    "reconstruction_relative": 5.319097934403247e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.024624505766944114,
+    "norm_u": 0.0001530245449548504,
+    "dot": 5.260367126748481e-07,
+    "cosine": 0.13960064849510254,
+    "reconstruction_l2": 1.1617438970369318e-08,
+    "reconstruction_relative": 4.688699327224817e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.2695881965090226,
+    "norm_u": 0.001823575593727862,
+    "dot": 1.8601421606584504e-05,
+    "cosine": 0.037837417915734244,
+    "reconstruction_l2": 1.3090450571596926e-07,
+    "reconstruction_relative": 4.823096091293038e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 6,
+    "trace_step": 348,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.20329771863654927,
+    "norm_u": 0.0019236852532385944,
+    "dot": -5.970525772896373e-05,
+    "cosine": -0.15266731111047482,
+    "reconstruction_l2": 9.165606959987221e-08,
+    "reconstruction_relative": 4.4662042000792076e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.06068478152294838,
+    "norm_u": 0.0004949169036237729,
+    "dot": 1.4583970738006054e-05,
+    "cosine": 0.48558325765966454,
+    "reconstruction_l2": 3.487804761618615e-08,
+    "reconstruction_relative": 5.700918525782988e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.010198587831997188,
+    "norm_u": 0.00010558276799345834,
+    "dot": 1.5460654798172048e-07,
+    "cosine": 0.14358028120122432,
+    "reconstruction_l2": 7.865486678253851e-09,
+    "reconstruction_relative": 7.633304012125915e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "Face2Face",
+    "samples": 8,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.13124213801935364,
+    "norm_u": 0.0009366746828909068,
+    "dot": 6.343041840005078e-05,
+    "cosine": 0.5159831237803574,
+    "reconstruction_l2": 6.3038339088845e-08,
+    "reconstruction_relative": 4.769171231008836e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "FaceSwap",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.032259572600711696,
+    "norm_u": 0.00010056511461241348,
+    "dot": -1.708876428084017e-07,
+    "cosine": -0.052675018537419,
+    "reconstruction_l2": 3.797949388520181e-08,
+    "reconstruction_relative": 1.1736505641388743e-06
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.050121422905337554,
+    "norm_u": 0.0003858237177212264,
+    "dot": 1.1546364522594341e-05,
+    "cosine": 0.5970805867905716,
+    "reconstruction_l2": 2.660521951080422e-08,
+    "reconstruction_relative": 5.267604411177261e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 7,
+    "trace_step": 406,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 8,
+      "FaceSwap": 2,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.15462672540284744,
+    "norm_u": 0.0005550332057560161,
+    "dot": -1.2046199040377509e-05,
+    "cosine": -0.14036101812836674,
+    "reconstruction_l2": 5.739597390000216e-08,
+    "reconstruction_relative": 3.6986289119693003e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.31340092138048337,
+    "norm_u": 0.001536716996600118,
+    "dot": 0.0002750369975963374,
+    "cosine": 0.5710800051694291,
+    "reconstruction_l2": 1.6294343599203212e-07,
+    "reconstruction_relative": 5.173831772909132e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 2.5360390718152175,
+    "norm_u": 0.012301627953440367,
+    "dot": 0.017708777830141572,
+    "cosine": 0.5676361698003648,
+    "reconstruction_l2": 1.334597110428718e-06,
+    "reconstruction_relative": 5.237121985101423e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "FaceSwap",
+    "samples": 6,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.002587392090854655,
+    "norm_u": 1.6250958864433378e-05,
+    "dot": -3.620628086201541e-09,
+    "cosine": -0.08610783675073061,
+    "reconstruction_l2": 1.1342531984183782e-09,
+    "reconstruction_relative": 4.356408220169638e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.028215053306681687,
+    "norm_u": 0.00040582869902723345,
+    "dot": 1.2887874300989747e-06,
+    "cosine": 0.11255315173131342,
+    "reconstruction_l2": 1.7464201391294997e-08,
+    "reconstruction_relative": 6.101908874720026e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 8,
+    "trace_step": 464,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Face2Face": 2,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.08577535368642518,
+    "norm_u": 0.00034299093862865114,
+    "dot": -6.588822947756334e-06,
+    "cosine": -0.22395598514769005,
+    "reconstruction_l2": 3.972826911684224e-08,
+    "reconstruction_relative": 4.6132179258453097e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.05352872924270542,
+    "norm_u": 0.0002939379347821476,
+    "dot": 8.039483099327747e-06,
+    "cosine": 0.5109584134076933,
+    "reconstruction_l2": 2.5903996123690213e-08,
+    "reconstruction_relative": 4.812841407184126e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.04992121271592853,
+    "norm_u": 0.0002642779833327303,
+    "dot": 1.5137005865226797e-06,
+    "cosine": 0.11473445793535735,
+    "reconstruction_l2": 2.753089061348028e-08,
+    "reconstruction_relative": 5.485826725987466e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.029947978084899934,
+    "norm_u": 0.00013675925011848858,
+    "dot": 9.100790853511805e-07,
+    "cosine": 0.22220555736513242,
+    "reconstruction_l2": 2.8260724762238036e-08,
+    "reconstruction_relative": 9.393708327093404e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.006495312606943895,
+    "norm_u": 4.597547495233891e-05,
+    "dot": 1.663861545894048e-09,
+    "cosine": 0.005571740773985881,
+    "reconstruction_l2": 3.843538790445277e-09,
+    "reconstruction_relative": 5.875813360189275e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "NeuralTextures",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.16332392334756266,
+    "norm_u": 0.0008909756239868992,
+    "dot": 9.203957678173631e-05,
+    "cosine": 0.6324977525060546,
+    "reconstruction_l2": 6.995389526908792e-08,
+    "reconstruction_relative": 4.2598994188223766e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 9,
+    "trace_step": 522,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 5,
+      "real": 2
+    },
+    "norm_z": 0.2064614445705016,
+    "norm_u": 0.0008559857010949288,
+    "dot": -4.620135311891665e-05,
+    "cosine": -0.26142626814587133,
+    "reconstruction_l2": 1.0768591196858538e-07,
+    "reconstruction_relative": 5.194252689101503e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.1295067698122972,
+    "norm_u": 0.0003779802922191813,
+    "dot": -2.625547068610793e-05,
+    "cosine": -0.5363622212732341,
+    "reconstruction_l2": 1.517016967304687e-07,
+    "reconstruction_relative": 1.1679715794840929e-06
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.010448630643268264,
+    "norm_u": 0.00012494309713529655,
+    "dot": 1.698857871857414e-07,
+    "cosine": 0.13013238891361048,
+    "reconstruction_l2": 5.700184239422323e-09,
+    "reconstruction_relative": 5.390972228850947e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.044004035326054805,
+    "norm_u": 0.00028700924477913155,
+    "dot": -1.3055191264873116e-06,
+    "cosine": -0.10337007902110781,
+    "reconstruction_l2": 2.0471404143956616e-08,
+    "reconstruction_relative": 4.6220188171938544e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.004482628982320849,
+    "norm_u": 2.3507489624484667e-05,
+    "dot": 5.979103260263595e-09,
+    "cosine": 0.05674100267959217,
+    "reconstruction_l2": 3.307233612901202e-09,
+    "reconstruction_relative": 7.339399579865463e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.045991483171634547,
+    "norm_u": 0.0002422653033664955,
+    "dot": -4.1008943268959477e-07,
+    "cosine": -0.0368052644972505,
+    "reconstruction_l2": 2.821446065363668e-08,
+    "reconstruction_relative": 6.102568271939374e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 10,
+    "trace_step": 580,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 3
+    },
+    "norm_z": 0.7160160060900117,
+    "norm_u": 0.002036964017015112,
+    "dot": -0.0008469243066351919,
+    "cosine": -0.5806821941854213,
+    "reconstruction_l2": 4.199543322737089e-07,
+    "reconstruction_relative": 5.848514660570432e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.0374309987271326,
+    "norm_u": 0.00014704143698624484,
+    "dot": -5.877571687590304e-07,
+    "cosine": -0.10678906438369948,
+    "reconstruction_l2": 1.8871908490061138e-08,
+    "reconstruction_relative": 5.022057671884885e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.0029604744963040116,
+    "norm_u": 2.2394127549486902e-05,
+    "dot": -3.6113681281770563e-09,
+    "cosine": -0.05447237228523866,
+    "reconstruction_l2": 1.6701761991952634e-09,
+    "reconstruction_relative": 5.599228158555645e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "Face2Face",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.006061901896916867,
+    "norm_u": 3.79253699703284e-05,
+    "dot": 1.0346411639773325e-08,
+    "cosine": 0.045003990399674176,
+    "reconstruction_l2": 2.879984912758452e-09,
+    "reconstruction_relative": 4.7214204382350295e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.038287854684096755,
+    "norm_u": 0.00012221851640562684,
+    "dot": 2.6847634458704424e-06,
+    "cosine": 0.5737305628719126,
+    "reconstruction_l2": 1.945526912321727e-08,
+    "reconstruction_relative": 5.0651476298053e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 11,
+    "trace_step": 638,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 6,
+      "FaceSwap": 4,
+      "real": 2
+    },
+    "norm_z": 0.31049093182567833,
+    "norm_u": 0.0011510876155068075,
+    "dot": -4.570585436533143e-05,
+    "cosine": -0.1278835045784347,
+    "reconstruction_l2": 1.5264230232257737e-07,
+    "reconstruction_relative": 4.898001322038824e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 1.042141447833801,
+    "norm_u": 0.006247575799973611,
+    "dot": -0.001468787941841093,
+    "cosine": -0.22559054610871507,
+    "reconstruction_l2": 5.942499255714604e-07,
+    "reconstruction_relative": 5.668219641519684e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.02871795290819635,
+    "norm_u": 0.00012636722242734632,
+    "dot": 4.6465881605220505e-07,
+    "cosine": 0.12804017609635066,
+    "reconstruction_l2": 1.6462428586615976e-08,
+    "reconstruction_relative": 5.707338052020161e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.0013958516825440445,
+    "norm_u": 1.2367807259442873e-05,
+    "dot": 1.321360992139094e-10,
+    "cosine": 0.007654018347027516,
+    "reconstruction_l2": 8.268032362139968e-10,
+    "reconstruction_relative": 5.871266817428969e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 0.03442352658580323,
+    "norm_u": 0.00012975730923111016,
+    "dot": 1.466042142170667e-07,
+    "cosine": 0.03282156332214132,
+    "reconstruction_l2": 1.679580387297561e-08,
+    "reconstruction_relative": 4.860841569790517e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 2.6468396102127625,
+    "norm_u": 0.01680459506792447,
+    "dot": 0.01577733872128559,
+    "cosine": 0.3547137896677492,
+    "reconstruction_l2": 1.2120540120470726e-06,
+    "reconstruction_relative": 4.5503600279803514e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 12,
+    "trace_step": 696,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 2,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 4
+    },
+    "norm_z": 5.08045756612067,
+    "norm_u": 0.017222355700008653,
+    "dot": -0.050376213438727786,
+    "cosine": -0.575744950055886,
+    "reconstruction_l2": 2.0782789895697114e-06,
+    "reconstruction_relative": 4.0769114998248787e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.13848229678747823,
+    "norm_u": 0.0003670801557733139,
+    "dot": -2.9259623250337033e-05,
+    "cosine": -0.5755904300357259,
+    "reconstruction_l2": 6.251239393443508e-08,
+    "reconstruction_relative": 4.5021731685540245e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.002200707576562453,
+    "norm_u": 1.253173741962115e-05,
+    "dot": 1.5613290018471447e-09,
+    "cosine": 0.05661360386944893,
+    "reconstruction_l2": 1.308031859164537e-09,
+    "reconstruction_relative": 5.91003354630963e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "FaceSwap",
+    "samples": 7,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.001445088111105279,
+    "norm_u": 1.0187289190565848e-05,
+    "dot": -2.4053378334283625e-09,
+    "cosine": -0.16338911463460296,
+    "reconstruction_l2": 1.0225901757485887e-09,
+    "reconstruction_relative": 7.026781154554697e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.07172499280373308,
+    "norm_u": 0.0005208790769876238,
+    "dot": 2.1814730027014573e-05,
+    "cosine": 0.5839052990152621,
+    "reconstruction_l2": 2.9458253636003046e-08,
+    "reconstruction_relative": 4.0774999137167557e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 13,
+    "trace_step": 754,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "FaceSwap": 7,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 1.1540352640502605,
+    "norm_u": 0.0026809924021379194,
+    "dot": -0.001813441650228765,
+    "cosine": -0.5861232149968937,
+    "reconstruction_l2": 4.981293455235338e-07,
+    "reconstruction_relative": 4.306409136595661e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 1.590066750307689,
+    "norm_u": 0.00750555287477023,
+    "dot": 0.006434071226275304,
+    "cosine": 0.5391229494372566,
+    "reconstruction_l2": 7.829943936785226e-07,
+    "reconstruction_relative": 4.901151529221876e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.0031281101904578226,
+    "norm_u": 3.613024109653325e-05,
+    "dot": 1.8197913157352626e-08,
+    "cosine": 0.16101587094909167,
+    "reconstruction_l2": 2.7424137338898414e-09,
+    "reconstruction_relative": 8.666894293309745e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.15549586776995536,
+    "norm_u": 0.0009768520612483556,
+    "dot": 3.44384884640014e-05,
+    "cosine": 0.22672344505469808,
+    "reconstruction_l2": 1.2953225140410005e-07,
+    "reconstruction_relative": 8.278264194796005e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "FaceSwap",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 0.004121131958215264,
+    "norm_u": 2.8571869818937097e-05,
+    "dot": 2.012597284488626e-08,
+    "cosine": 0.170923469140319,
+    "reconstruction_l2": 2.8780724675392798e-09,
+    "reconstruction_relative": 6.935609351433355e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 3.282247002733899,
+    "norm_u": 0.025392439308983047,
+    "dot": 0.03383563746269867,
+    "cosine": 0.40597442883473783,
+    "reconstruction_l2": 1.6115832391705196e-06,
+    "reconstruction_relative": 4.872306269800571e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 14,
+    "trace_step": 812,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 6,
+      "NeuralTextures": 2,
+      "real": 3
+    },
+    "norm_z": 9.579685768459045,
+    "norm_u": 0.03908692583398694,
+    "dot": 0.21866417389457707,
+    "cosine": 0.583975806787197,
+    "reconstruction_l2": 3.867485590571965e-06,
+    "reconstruction_relative": 4.0207682554621595e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.16145370618501484,
+    "norm_u": 0.0006573694054336366,
+    "dot": -7.510929377029275e-06,
+    "cosine": -0.07076787777820537,
+    "reconstruction_l2": 7.604172236233066e-08,
+    "reconstruction_relative": 4.690717280442929e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.004983687767773289,
+    "norm_u": 3.833478283564729e-05,
+    "dot": 1.7404084021481882e-08,
+    "cosine": 0.09109768450270363,
+    "reconstruction_l2": 2.845023310801035e-09,
+    "reconstruction_relative": 5.665094654853883e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "Face2Face",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 1.3979467421723504,
+    "norm_u": 0.006947380636441075,
+    "dot": 0.005944156890790077,
+    "cosine": 0.612038220165946,
+    "reconstruction_l2": 6.799660648678384e-07,
+    "reconstruction_relative": 4.839980848580879e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.00230530277801193,
+    "norm_u": 1.7578581606856466e-05,
+    "dot": -6.999859256428672e-10,
+    "cosine": -0.017273387061699452,
+    "reconstruction_l2": 1.2298270811788173e-09,
+    "reconstruction_relative": 5.294403332680956e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.14674638946497104,
+    "norm_u": 0.0009169355499870646,
+    "dot": 7.987313256511364e-05,
+    "cosine": 0.5936008059487824,
+    "reconstruction_l2": 6.586112463561015e-08,
+    "reconstruction_relative": 4.4602222406232896e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 15,
+    "trace_step": 870,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 1,
+      "FaceSwap": 4,
+      "NeuralTextures": 3,
+      "real": 4
+    },
+    "norm_z": 0.640329317069313,
+    "norm_u": 0.0015878855267617196,
+    "dot": -0.0004044116292218013,
+    "cosine": -0.39774163917925404,
+    "reconstruction_l2": 2.554922354246777e-07,
+    "reconstruction_relative": 3.9801431460537713e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.2650874095308176,
+    "norm_u": 0.0018192488092315415,
+    "dot": 5.631407906416994e-05,
+    "cosine": 0.1167712114218962,
+    "reconstruction_l2": 1.3720286105301768e-07,
+    "reconstruction_relative": 5.14048101708336e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.0029203142627839546,
+    "norm_u": 2.6810858721549854e-05,
+    "dot": 5.626008953666067e-09,
+    "cosine": 0.07185551481703073,
+    "reconstruction_l2": 1.8813671395354928e-09,
+    "reconstruction_relative": 6.383736902810622e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.01477516031265649,
+    "norm_u": 0.00012243259048829884,
+    "dot": 2.74244088982557e-07,
+    "cosine": 0.1516030837288307,
+    "reconstruction_l2": 7.153991911786044e-09,
+    "reconstruction_relative": 4.802112635441851e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "FaceSwap",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.0022451473045934597,
+    "norm_u": 2.925444837969138e-05,
+    "dot": 5.667509419478348e-09,
+    "cosine": 0.08628901205807019,
+    "reconstruction_l2": 1.1940731978552995e-09,
+    "reconstruction_relative": 5.250053981423375e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "NeuralTextures",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.8105624051617578,
+    "norm_u": 0.004843683289307244,
+    "dot": 0.0004182058163845884,
+    "cosine": 0.10651919444424203,
+    "reconstruction_l2": 3.52940821522496e-07,
+    "reconstruction_relative": 4.328405521142696e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 16,
+    "trace_step": 927,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 6,
+      "real": 3
+    },
+    "norm_z": 0.5166132433647517,
+    "norm_u": 0.0010465596185569993,
+    "dot": 8.40737174577891e-05,
+    "cosine": 0.1555001249312473,
+    "reconstruction_l2": 2.063146733261509e-07,
+    "reconstruction_relative": 3.985526249810114e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 4.075853268833061,
+    "norm_u": 0.0075413533856896345,
+    "dot": 0.01314874546349139,
+    "cosine": 0.4277760688770356,
+    "reconstruction_l2": 1.8158841649933407e-06,
+    "reconstruction_relative": 4.446996513911906e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.16637431396544236,
+    "norm_u": 0.0007454397007182829,
+    "dot": 3.726855312866573e-05,
+    "cosine": 0.3004994878036789,
+    "reconstruction_l2": 9.09251938648387e-08,
+    "reconstruction_relative": 5.440720912410593e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "Face2Face",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 1.0908670826054894,
+    "norm_u": 0.0036054879175992736,
+    "dot": 0.0014683681584321548,
+    "cosine": 0.37333531810213777,
+    "reconstruction_l2": 5.671719009836703e-07,
+    "reconstruction_relative": 5.182148152992067e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 20.768246673772204,
+    "norm_u": 0.03388350025611238,
+    "dot": 0.306173479510077,
+    "cosine": 0.43509036753086155,
+    "reconstruction_l2": 9.124500625711406e-06,
+    "reconstruction_relative": 4.386329933221667e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 3.1934451223647584,
+    "norm_u": 0.021336811823622036,
+    "dot": 0.03436970483681149,
+    "cosine": 0.5044136354096634,
+    "reconstruction_l2": 1.6884395068584647e-06,
+    "reconstruction_relative": 5.25211209165494e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 17,
+    "trace_step": 985,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.4212211777406025,
+    "norm_u": 0.0014394309446013344,
+    "dot": -3.364465246561474e-05,
+    "cosine": -0.055490036907718344,
+    "reconstruction_l2": 1.871854485694687e-07,
+    "reconstruction_relative": 4.4287412813736745e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.8272540464630485,
+    "norm_u": 0.0019956435155848314,
+    "dot": 1.7914780943060942e-05,
+    "cosine": 0.010851496549537548,
+    "reconstruction_l2": 4.254341819677381e-07,
+    "reconstruction_relative": 5.13035081120983e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.003841474686024377,
+    "norm_u": 4.188073792805873e-05,
+    "dot": 2.5545925238056322e-08,
+    "cosine": 0.15878494974788387,
+    "reconstruction_l2": 2.5398282245838448e-09,
+    "reconstruction_relative": 6.540292987137489e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.014771896115853722,
+    "norm_u": 0.00015544400727772074,
+    "dot": 3.3592572966674197e-07,
+    "cosine": 0.14629619835706284,
+    "reconstruction_l2": 7.291223894651088e-09,
+    "reconstruction_relative": 4.884476292834374e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.003559841538595252,
+    "norm_u": 2.1866639282671305e-05,
+    "dot": 1.3511537797237154e-08,
+    "cosine": 0.17357695814891203,
+    "reconstruction_l2": 2.8023611138928716e-09,
+    "reconstruction_relative": 7.824091117197615e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 4.755468877301319,
+    "norm_u": 0.010368362703591674,
+    "dot": -0.00297341630462564,
+    "cosine": -0.06030484334539207,
+    "reconstruction_l2": 2.243150925939267e-06,
+    "reconstruction_relative": 4.7067300307908874e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 18,
+    "trace_step": 1043,
+    "kind": "real",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 3,
+      "NeuralTextures": 3,
+      "real": 5
+    },
+    "norm_z": 0.5703888702377947,
+    "norm_u": 0.0016944903436518133,
+    "dot": -0.00045231688186603947,
+    "cosine": -0.4679857792072258,
+    "reconstruction_l2": 2.816647052057063e-07,
+    "reconstruction_relative": 4.92349060667368e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.24720182341017788,
+    "norm_u": 0.001480821001665077,
+    "dot": 0.00013344685131469694,
+    "cosine": 0.3645474762916669,
+    "reconstruction_l2": 1.14014967591344e-07,
+    "reconstruction_relative": 4.584757728509754e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.002088413759643929,
+    "norm_u": 1.3027152690614744e-05,
+    "dot": 2.3213201381344267e-09,
+    "cosine": 0.0853235643523282,
+    "reconstruction_l2": 1.3327642181364134e-09,
+    "reconstruction_relative": 6.342144622357295e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.02210648455825895,
+    "norm_u": 0.00014960827579872565,
+    "dot": 1.0776335603448485e-06,
+    "cosine": 0.3258335536202875,
+    "reconstruction_l2": 1.3841959919713406e-08,
+    "reconstruction_relative": 6.219402490329105e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "FaceSwap",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.005625820158268146,
+    "norm_u": 4.630259804601173e-05,
+    "dot": 6.94677292558434e-08,
+    "cosine": 0.26668089138387935,
+    "reconstruction_l2": 4.694149279259738e-09,
+    "reconstruction_relative": 8.275824556219719e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.9860999653527822,
+    "norm_u": 0.005904464000666573,
+    "dot": 0.0020909650355853343,
+    "cosine": 0.3591247594853088,
+    "reconstruction_l2": 4.2328561682228424e-07,
+    "reconstruction_relative": 4.2669730527127373e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 19,
+    "trace_step": 1101,
+    "kind": "real",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 3,
+      "FaceSwap": 6,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.10281266860035732,
+    "norm_u": 0.00046953843906387426,
+    "dot": -2.629459827659182e-06,
+    "cosine": -0.05446891902431205,
+    "reconstruction_l2": 5.144069925282726e-08,
+    "reconstruction_relative": 4.98059643837715e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.22190161595791508,
+    "norm_u": 0.0006687313754697456,
+    "dot": 0.00010042969697211267,
+    "cosine": 0.6767838513581164,
+    "reconstruction_l2": 1.3251002310370062e-07,
+    "reconstruction_relative": 5.953624312101909e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 1.7485532134921684,
+    "norm_u": 0.005183984657424876,
+    "dot": 0.006326799729580813,
+    "cosine": 0.6979776659536996,
+    "reconstruction_l2": 1.2435457800424557e-06,
+    "reconstruction_relative": 7.090833115443683e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "Face2Face",
+    "samples": 7,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.04017100414662997,
+    "norm_u": 0.00020593932800409473,
+    "dot": 2.2844066749357554e-06,
+    "cosine": 0.2761349902038871,
+    "reconstruction_l2": 1.881919890935106e-08,
+    "reconstruction_relative": 4.6608775429407657e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "FaceSwap",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.004271993918161396,
+    "norm_u": 4.905359077559675e-05,
+    "dot": 2.8023345136347264e-08,
+    "cosine": 0.13372682889677706,
+    "reconstruction_l2": 2.51857501879524e-09,
+    "reconstruction_relative": 5.828621447892449e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.061628917362391296,
+    "norm_u": 0.0004428588280106911,
+    "dot": 6.364084144697035e-06,
+    "cosine": 0.23317719209703647,
+    "reconstruction_l2": 3.301497958976506e-08,
+    "reconstruction_relative": 5.3188391916631e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 20,
+    "trace_step": 1159,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 7,
+      "FaceSwap": 1,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.13705219033362653,
+    "norm_u": 0.0005797739833827925,
+    "dot": -1.5356796229873396e-05,
+    "cosine": -0.19326620455277024,
+    "reconstruction_l2": 5.434043269113946e-08,
+    "reconstruction_relative": 3.9482421805719853e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 1.8169505004846107,
+    "norm_u": 0.0044589123093748345,
+    "dot": 0.0008115176664825574,
+    "cosine": 0.1001672962660698,
+    "reconstruction_l2": 8.265029070770762e-07,
+    "reconstruction_relative": 4.537710749003138e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "Deepfakes",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.023491200317240588,
+    "norm_u": 0.00015455209601546565,
+    "dot": 2.773522621284456e-07,
+    "cosine": 0.07639265514411017,
+    "reconstruction_l2": 1.593087829085647e-08,
+    "reconstruction_relative": 6.73731079156756e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.9366558976794613,
+    "norm_u": 0.003716869682490128,
+    "dot": 0.001075406854219721,
+    "cosine": 0.3088982114024063,
+    "reconstruction_l2": 5.031003784564349e-07,
+    "reconstruction_relative": 5.35001008023439e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.0029795275533266107,
+    "norm_u": 3.157914732206766e-05,
+    "dot": 5.583942644080914e-10,
+    "cosine": 0.005934623110781359,
+    "reconstruction_l2": 1.5145918589268633e-09,
+    "reconstruction_relative": 5.030017231207971e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 6.853586084155097,
+    "norm_u": 0.017191589133612822,
+    "dot": 0.009717019810535773,
+    "cosine": 0.08247060732463275,
+    "reconstruction_l2": 3.3093132645124465e-06,
+    "reconstruction_relative": 4.816504654746656e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 21,
+    "trace_step": 1217,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 1,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 3
+    },
+    "norm_z": 0.073709853559228,
+    "norm_u": 0.00025452707252970923,
+    "dot": 2.2938373219146475e-06,
+    "cosine": 0.12226526227899052,
+    "reconstruction_l2": 2.9770770734029377e-08,
+    "reconstruction_relative": 4.0250145380446614e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.161821153198778,
+    "norm_u": 0.0005560004361021221,
+    "dot": -5.305814575917646e-05,
+    "cosine": -0.5897142800841274,
+    "reconstruction_l2": 7.522761848949973e-08,
+    "reconstruction_relative": 4.6328942714845163e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.04410573406284725,
+    "norm_u": 0.00015494341892977043,
+    "dot": 1.411505566139125e-06,
+    "cosine": 0.20654486668318667,
+    "reconstruction_l2": 6.628509058815371e-08,
+    "reconstruction_relative": 1.4976067778321868e-06
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "Face2Face",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.13375338508855328,
+    "norm_u": 0.0007513906261825532,
+    "dot": 5.459062019421886e-05,
+    "cosine": 0.5431846308858298,
+    "reconstruction_l2": 6.467441589490084e-08,
+    "reconstruction_relative": 4.808336027567188e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.019453510513590764,
+    "norm_u": 8.8332228305912e-05,
+    "dot": 7.031620780428675e-07,
+    "cosine": 0.4092024927391183,
+    "reconstruction_l2": 1.29336661541695e-08,
+    "reconstruction_relative": 6.618447566585113e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 22,
+    "trace_step": 1275,
+    "kind": "real",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 5,
+      "FaceSwap": 3,
+      "real": 5
+    },
+    "norm_z": 0.5587632910277965,
+    "norm_u": 0.0014329991556407446,
+    "dot": -0.0005370228123812318,
+    "cosine": -0.6706855253097777,
+    "reconstruction_l2": 2.1373194472669305e-07,
+    "reconstruction_relative": 3.815304536499271e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 0.8048684312515241,
+    "norm_u": 0.006625361791364578,
+    "dot": 0.001287639048083271,
+    "cosine": 0.24146803381579435,
+    "reconstruction_l2": 5.654401663988767e-07,
+    "reconstruction_relative": 6.967892684411357e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 0.0014882902197029195,
+    "norm_u": 1.3549090777676387e-05,
+    "dot": -3.532895238368919e-09,
+    "cosine": -0.17519954707175772,
+    "reconstruction_l2": 2.0343428240731022e-09,
+    "reconstruction_relative": 1.3545675691643086e-06
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "Face2Face",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 3.82329308024615,
+    "norm_u": 0.015339959775308906,
+    "dot": 0.026447596132387334,
+    "cosine": 0.45094584821593237,
+    "reconstruction_l2": 2.0310242937138913e-06,
+    "reconstruction_relative": 5.291009253915392e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "FaceSwap",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 0.0023747556427349114,
+    "norm_u": 1.7689903151039998e-05,
+    "dot": -2.2675204743239463e-09,
+    "cosine": -0.05397676267541538,
+    "reconstruction_l2": 1.304680002327448e-09,
+    "reconstruction_relative": 5.453332070905335e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 2.9894102813930266,
+    "norm_u": 0.01981689660394282,
+    "dot": 0.029299302933462303,
+    "cosine": 0.49457951097302033,
+    "reconstruction_l2": 1.1477804866438238e-06,
+    "reconstruction_relative": 3.8142035105764947e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 23,
+    "trace_step": 1333,
+    "kind": "real",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 2,
+      "FaceSwap": 2,
+      "NeuralTextures": 4,
+      "real": 5
+    },
+    "norm_z": 3.030804792182537,
+    "norm_u": 0.014987540181336034,
+    "dot": -0.0004656898384875086,
+    "cosine": -0.010251996184266152,
+    "reconstruction_l2": 1.2536920278094056e-06,
+    "reconstruction_relative": 4.116144145771098e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.061187620386255075,
+    "norm_u": 0.00016440330022338606,
+    "dot": 1.4774261735525139e-06,
+    "cosine": 0.14686952613221005,
+    "reconstruction_l2": 2.5233502956091436e-08,
+    "reconstruction_relative": 4.112904748674609e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "Deepfakes",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.007828289388338896,
+    "norm_u": 7.387337516715833e-05,
+    "dot": 1.0695087780599411e-07,
+    "cosine": 0.18493944067074994,
+    "reconstruction_l2": 4.388351680890165e-09,
+    "reconstruction_relative": 5.553355217076202e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.007016050668286362,
+    "norm_u": 4.342662178732173e-05,
+    "dot": -1.2147878734227438e-09,
+    "cosine": -0.0039870500260235165,
+    "reconstruction_l2": 3.691450429183561e-09,
+    "reconstruction_relative": 5.229070478594926e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.007029634457580552,
+    "norm_u": 4.285207523410872e-05,
+    "dot": 5.678275460346576e-08,
+    "cosine": 0.18850021763107885,
+    "reconstruction_l2": 3.575152159944372e-09,
+    "reconstruction_relative": 5.055014446979168e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.004772444507066284,
+    "norm_u": 4.949744385638e-05,
+    "dot": -1.7103394987948843e-08,
+    "cosine": -0.07240335095358819,
+    "reconstruction_l2": 2.6021407922145853e-09,
+    "reconstruction_relative": 5.39645814632147e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 24,
+    "trace_step": 1391,
+    "kind": "real",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 3,
+      "Face2Face": 4,
+      "FaceSwap": 3,
+      "NeuralTextures": 2,
+      "real": 4
+    },
+    "norm_z": 0.24870831376377606,
+    "norm_u": 0.0006529664643261261,
+    "dot": 1.9872376879424098e-05,
+    "cosine": 0.12236821782964294,
+    "reconstruction_l2": 1.0717726430292327e-07,
+    "reconstruction_relative": 4.29807162542971e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.4142164215059078,
+    "norm_u": 0.0025407580240613807,
+    "dot": 0.0001139022734282739,
+    "cosine": 0.10822853361437634,
+    "reconstruction_l2": 3.831647561360793e-07,
+    "reconstruction_relative": 9.193956935984247e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "Deepfakes",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.5973002210909301,
+    "norm_u": 0.0020925185120907403,
+    "dot": 0.0005105206493331652,
+    "cosine": 0.40846168882377515,
+    "reconstruction_l2": 3.157354420042654e-07,
+    "reconstruction_relative": 5.267588696742937e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.7910672541269823,
+    "norm_u": 0.010249149241545175,
+    "dot": 0.0008656995845382614,
+    "cosine": 0.10677411600415987,
+    "reconstruction_l2": 5.912249946382641e-07,
+    "reconstruction_relative": 7.378171620509785e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "FaceSwap",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.0075108996440861305,
+    "norm_u": 5.9828391030329045e-05,
+    "dot": 5.492355560549571e-08,
+    "cosine": 0.12222480746608391,
+    "reconstruction_l2": 3.802809687790526e-09,
+    "reconstruction_relative": 5.023043583326961e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 0.8000192080722666,
+    "norm_u": 0.005609234896099443,
+    "dot": 0.000996166723608807,
+    "cosine": 0.221987228334551,
+    "reconstruction_l2": 3.388082026516405e-07,
+    "reconstruction_relative": 4.20551441062942e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 25,
+    "trace_step": 1449,
+    "kind": "real",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 3,
+      "NeuralTextures": 4,
+      "real": 1
+    },
+    "norm_z": 6.8242163255248,
+    "norm_u": 0.010463897531210938,
+    "dot": 0.01900185365908931,
+    "cosine": 0.2661029600786091,
+    "reconstruction_l2": 2.690169124135915e-06,
+    "reconstruction_relative": 3.936057044865007e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 1.036607297909024,
+    "norm_u": 0.0025912001655862714,
+    "dot": 0.0016298934724000597,
+    "cosine": 0.6067977973634414,
+    "reconstruction_l2": 5.498728069362506e-07,
+    "reconstruction_relative": 5.291316413130265e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "Deepfakes",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 3.3597546917176055,
+    "norm_u": 0.008245900138401426,
+    "dot": 0.016610396108940176,
+    "cosine": 0.5995623444537971,
+    "reconstruction_l2": 1.8878032851628193e-06,
+    "reconstruction_relative": 5.605115657424828e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.041246996345756216,
+    "norm_u": 0.0003898334448800493,
+    "dot": -2.471377102496984e-07,
+    "cosine": -0.015369778002048237,
+    "reconstruction_l2": 2.088762642941075e-08,
+    "reconstruction_relative": 5.016622671428308e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.023645794526090176,
+    "norm_u": 0.00011746510529386221,
+    "dot": 1.5583288696371824e-06,
+    "cosine": 0.5610432385149167,
+    "reconstruction_l2": 1.2310573401029631e-08,
+    "reconstruction_relative": 5.18050704827174e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "NeuralTextures",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.057298282990484166,
+    "norm_u": 0.0003968801136562762,
+    "dot": 1.4079995519556293e-05,
+    "cosine": 0.6191581161455839,
+    "reconstruction_l2": 2.7614955009284866e-08,
+    "reconstruction_relative": 4.786355306672684e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 26,
+    "trace_step": 1507,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 3
+    },
+    "norm_z": 0.44905180054670407,
+    "norm_u": 0.0013660773448396309,
+    "dot": 6.464405927314789e-06,
+    "cosine": 0.010537968321384128,
+    "reconstruction_l2": 2.5478023725065883e-07,
+    "reconstruction_relative": 5.656530296783812e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.6022369211994772,
+    "norm_u": 0.003647438663466997,
+    "dot": 0.00040450243645948346,
+    "cosine": 0.18414747459078934,
+    "reconstruction_l2": 2.915363998229292e-07,
+    "reconstruction_relative": 4.811749883903209e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.0019845752547112917,
+    "norm_u": 1.6839320096922387e-05,
+    "dot": 3.6835932699812193e-09,
+    "cosine": 0.11022485760096667,
+    "reconstruction_l2": 1.3604679218447739e-09,
+    "reconstruction_relative": 6.797531800602286e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.10560740583034155,
+    "norm_u": 0.0005784409630974777,
+    "dot": 1.7428159733452596e-06,
+    "cosine": 0.02852975988608519,
+    "reconstruction_l2": 5.76278931421058e-08,
+    "reconstruction_relative": 5.427078549762669e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.1159337881274654,
+    "norm_u": 0.0004678640819585673,
+    "dot": 1.798688287745247e-05,
+    "cosine": 0.33160889734780685,
+    "reconstruction_l2": 6.640850892562818e-08,
+    "reconstruction_relative": 5.705117381508413e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "NeuralTextures",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 2.478635014688515,
+    "norm_u": 0.01452796095363523,
+    "dot": 0.006789767273068758,
+    "cosine": 0.18855482237228913,
+    "reconstruction_l2": 1.1117549545799192e-06,
+    "reconstruction_relative": 4.459214922737133e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 27,
+    "trace_step": 1565,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 4,
+      "NeuralTextures": 4,
+      "real": 2
+    },
+    "norm_z": 0.5500726443354236,
+    "norm_u": 0.001437325291433168,
+    "dot": 1.2735546237618034e-05,
+    "cosine": 0.01610803118687584,
+    "reconstruction_l2": 3.1562231958885165e-07,
+    "reconstruction_relative": 5.722876048866296e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.4979585191086517,
+    "norm_u": 0.0015834667969722642,
+    "dot": 0.00040972480629220193,
+    "cosine": 0.519625111376689,
+    "reconstruction_l2": 2.4363176195581125e-07,
+    "reconstruction_relative": 4.877102802762998e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.009059359266986361,
+    "norm_u": 7.131476323818027e-05,
+    "dot": -4.362429206491294e-08,
+    "cosine": -0.06752295884865031,
+    "reconstruction_l2": 4.194879280839828e-09,
+    "reconstruction_relative": 4.5942712081866615e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.00187457532461954,
+    "norm_u": 1.1015781535224109e-05,
+    "dot": 1.8041653251261982e-10,
+    "cosine": 0.008736915215508557,
+    "reconstruction_l2": 1.111287211770293e-09,
+    "reconstruction_relative": 5.893574742386813e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "FaceSwap",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 1.0687679378707287,
+    "norm_u": 0.003139888321353702,
+    "dot": 0.0023873789533162674,
+    "cosine": 0.7114161869765141,
+    "reconstruction_l2": 6.074518768672068e-07,
+    "reconstruction_relative": 5.667015969322285e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "NeuralTextures",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 1.6172996597364035,
+    "norm_u": 0.004994081590805834,
+    "dot": 0.004140750882493666,
+    "cosine": 0.5126641804006462,
+    "reconstruction_l2": 6.87655428264808e-07,
+    "reconstruction_relative": 4.2387849422523966e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 28,
+    "trace_step": 1623,
+    "kind": "real",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 3,
+      "FaceSwap": 1,
+      "NeuralTextures": 5,
+      "real": 3
+    },
+    "norm_z": 0.14530922659105786,
+    "norm_u": 0.00044183577400734483,
+    "dot": -1.9171917989586307e-05,
+    "cosine": -0.2986149144496767,
+    "reconstruction_l2": 6.129199992287718e-08,
+    "reconstruction_relative": 4.205252361684888e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.49588666069312326,
+    "norm_u": 0.004578617424866622,
+    "dot": 0.00045241115621653185,
+    "cosine": 0.199258346980851,
+    "reconstruction_l2": 2.426735268937443e-07,
+    "reconstruction_relative": 4.848958309481991e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "Deepfakes",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.002946520537296795,
+    "norm_u": 2.8935257692898805e-05,
+    "dot": -8.266192511703338e-09,
+    "cosine": -0.09695466015429625,
+    "reconstruction_l2": 4.319515776262245e-09,
+    "reconstruction_relative": 1.4517156610210057e-06
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "Face2Face",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.10207182719834385,
+    "norm_u": 0.001020528922945343,
+    "dot": -6.509254508431173e-07,
+    "cosine": -0.006248849222131643,
+    "reconstruction_l2": 4.8208378226615425e-08,
+    "reconstruction_relative": 4.6762320738792493e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "FaceSwap",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.20874076478205078,
+    "norm_u": 0.0006216312301994707,
+    "dot": -9.522346953772906e-06,
+    "cosine": -0.07338442675285442,
+    "reconstruction_l2": 1.061010906245543e-07,
+    "reconstruction_relative": 5.067819849479851e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "NeuralTextures",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 2.5535022711399065,
+    "norm_u": 0.024354347931662565,
+    "dot": 0.01249495684876265,
+    "cosine": 0.20091946172856923,
+    "reconstruction_l2": 1.2030913086382618e-06,
+    "reconstruction_relative": 4.6670218185818365e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 29,
+    "trace_step": 1681,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 2,
+      "Face2Face": 4,
+      "FaceSwap": 5,
+      "NeuralTextures": 3,
+      "real": 2
+    },
+    "norm_z": 0.05273356649225367,
+    "norm_u": 0.00042504824569772245,
+    "dot": -2.327064486321931e-06,
+    "cosine": -0.1038204831605114,
+    "reconstruction_l2": 2.216861429827393e-08,
+    "reconstruction_relative": 4.1702768982140443e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.16125234254742354,
+    "norm_u": 0.0005553948068242339,
+    "dot": -4.8861244580935466e-05,
+    "cosine": -0.5455777846234436,
+    "reconstruction_l2": 8.119333572518199e-08,
+    "reconstruction_relative": 5.017889567754376e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "Deepfakes",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.004740173866069852,
+    "norm_u": 2.5882852822971914e-05,
+    "dot": 5.453397719574541e-09,
+    "cosine": 0.04444887339803818,
+    "reconstruction_l2": 2.3968822100028995e-09,
+    "reconstruction_relative": 5.029067741685847e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "Face2Face",
+    "samples": 3,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.0024377477739032914,
+    "norm_u": 1.260214996957658e-05,
+    "dot": -3.5274144242082513e-09,
+    "cosine": -0.11482146254226051,
+    "reconstruction_l2": 2.9335905690547516e-09,
+    "reconstruction_relative": 1.1972129125207162e-06
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "NeuralTextures",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.021926536448718267,
+    "norm_u": 0.00016949516544510963,
+    "dot": 3.9969710051901396e-07,
+    "cosine": 0.107548324122577,
+    "reconstruction_l2": 1.0032199159501441e-08,
+    "reconstruction_relative": 4.5402719070472736e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 30,
+    "trace_step": 1739,
+    "kind": "real",
+    "samples": 6,
+    "method_counts": {
+      "Deepfakes": 5,
+      "Face2Face": 3,
+      "NeuralTextures": 2,
+      "real": 6
+    },
+    "norm_z": 0.43428462832857373,
+    "norm_u": 0.0014827392264729101,
+    "dot": -0.0003538777621388105,
+    "cosine": -0.5495586366271784,
+    "reconstruction_l2": 1.803781652950693e-07,
+    "reconstruction_relative": 4.1393224625128386e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "all",
+    "samples": 16,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.09417080731808197,
+    "norm_u": 0.0004830059683003743,
+    "dot": -1.6365216234560602e-05,
+    "cosine": -0.3597932051583869,
+    "reconstruction_l2": 6.635072313725061e-08,
+    "reconstruction_relative": 7.009830965446835e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "Deepfakes",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.00892592461302311,
+    "norm_u": 5.6391133981973095e-05,
+    "dot": 1.230695898462371e-07,
+    "cosine": 0.24450441788980481,
+    "reconstruction_l2": 5.0530494802456604e-09,
+    "reconstruction_relative": 5.625553167545315e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "Face2Face",
+    "samples": 5,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.12457928007359227,
+    "norm_u": 0.0006930558120960491,
+    "dot": 1.0672246211982201e-05,
+    "cosine": 0.12360664229692714,
+    "reconstruction_l2": 1.8049513309593006e-07,
+    "reconstruction_relative": 1.440821964560738e-06
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "FaceSwap",
+    "samples": 4,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.09120742470897228,
+    "norm_u": 0.0004092521858266114,
+    "dot": 6.772367975083915e-06,
+    "cosine": 0.18143428030397468,
+    "reconstruction_l2": 4.8496293866087434e-08,
+    "reconstruction_relative": 5.293391499210836e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "NeuralTextures",
+    "samples": 1,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.0013081286968949744,
+    "norm_u": 1.9396005600003048e-05,
+    "dot": -7.000661679701122e-09,
+    "cosine": -0.2759156383833479,
+    "reconstruction_l2": 7.303666566736794e-10,
+    "reconstruction_relative": 5.501718011732763e-07
+  },
+  {
+    "endpoint": "terminal",
+    "batch_number": 31,
+    "trace_step": 1797,
+    "kind": "real",
+    "samples": 2,
+    "method_counts": {
+      "Deepfakes": 4,
+      "Face2Face": 5,
+      "FaceSwap": 4,
+      "NeuralTextures": 1,
+      "real": 2
+    },
+    "norm_z": 0.8247543510215168,
+    "norm_u": 0.0032811159955265564,
+    "dot": -0.001491696643112352,
+    "cosine": -0.5512318626723715,
+    "reconstruction_l2": 3.607512822729789e-07,
+    "reconstruction_relative": 4.356712926471223e-07
+  }
+]

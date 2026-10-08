@@ -1,0 +1,26 @@
+{
+  "id": "Q17-D01/v2",
+  "run_id": "q17_d01_20261009_v2",
+  "started_at": "2026-10-09T07:04:09.210639+08:00",
+  "pid": 828374,
+  "code_commit": "cd9ca0a7ffa2e57c9424549105211a1708ac47b5",
+  "claim_commit": "1bfb724934dad3995d15c11e79a5219d7e71d5bd",
+  "input_hashes": {
+    "/datasets/Deepfake/DeepfakeBench/config/dataset_json/FaceForensics++.json": "459fc9891f0bf6e63a1a7d61aed6e96edcc623701d05726b5a225d6fa0cb0b27",
+    "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14/model.safetensors": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb",
+    "/root/autodl-tmp/prd-common/pretrained/vae_original/diffusion_pytorch_model.bin": "1b134cded8eb78b184aefb8805b6b572f36fa77b255c483665dda931fa0130c5"
+  },
+  "checkpoint_inputs": {
+    "source_best": {
+      "path": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_source_best.pth",
+      "sha256": "2ee070e0b9da850a1a33dd6c9f43f2655d393b3773227049032116c490c5e46f"
+    },
+    "terminal": {
+      "path": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_terminal.pth",
+      "sha256": "4967113fcc3470cc9b98a6d09f8446eac38ae7b0f17bc577c95ef4cb88ae2364"
+    }
+  },
+  "parameter_updates": 0,
+  "augmentation": false,
+  "eval_mode": true
+}

@@ -1,0 +1,140 @@
+{
+  "id": "Q17-D01/v2",
+  "run_id": "q17_d01_20261009_v2",
+  "status": "completed",
+  "started_at": "2026-10-09T07:04:09.210639+08:00",
+  "ended_at": "2026-10-09T07:32:28.438394+08:00",
+  "code_commit": "cd9ca0a7ffa2e57c9424549105211a1708ac47b5",
+  "claim_commit": "1bfb724934dad3995d15c11e79a5219d7e71d5bd",
+  "parameter_updates": 0,
+  "new_checkpoints": 0,
+  "gradient_batches": 64,
+  "gradient_rows": 374,
+  "native_reload_errors": {
+    "source_best": 0.0,
+    "terminal": 0.0
+  },
+  "checkpoint_trainable_unchanged": {
+    "source_best": true,
+    "terminal": true
+  },
+  "gpu_seconds": 1691.4163147667423,
+  "cpu_seconds": 1.393337458372116,
+  "gradient_summary": {
+    "source_best": {
+      "Deepfakes": {
+        "batches": 31,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.6129032258064516,
+        "median_cosine": -0.03251964802315259,
+        "median_norm_z": 0.0052553262437324945,
+        "median_norm_u": 4.30593870071099e-05,
+        "max_reconstruction_relative": 1.4012013034785166e-06
+      },
+      "Face2Face": {
+        "batches": 31,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.2903225806451613,
+        "median_cosine": 0.15965499887394216,
+        "median_norm_z": 0.04056141779633864,
+        "median_norm_u": 0.00018924126251344567,
+        "max_reconstruction_relative": 1.1194201068880028e-06
+      },
+      "FaceSwap": {
+        "batches": 31,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.8064516129032258,
+        "median_cosine": -0.12159010465442717,
+        "median_norm_z": 0.005798940239309447,
+        "median_norm_u": 4.961610505842144e-05,
+        "max_reconstruction_relative": 8.691072401696415e-07
+      },
+      "NeuralTextures": {
+        "batches": 30,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.5333333333333333,
+        "median_cosine": -0.07842297479310315,
+        "median_norm_z": 4.13152714800705,
+        "median_norm_u": 0.013044079686189397,
+        "max_reconstruction_relative": 5.638322809644644e-07
+      },
+      "all": {
+        "batches": 32,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.65625,
+        "median_cosine": -0.06753380635847234,
+        "median_norm_z": 0.8660122391861367,
+        "median_norm_u": 0.0029543928519848777,
+        "max_reconstruction_relative": 6.37432368694875e-07
+      },
+      "real": {
+        "batches": 32,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.8125,
+        "median_cosine": -0.27765640796948243,
+        "median_norm_z": 0.2034291510632592,
+        "median_norm_u": 0.0009946710903977695,
+        "max_reconstruction_relative": 7.75914531604375e-07
+      }
+    },
+    "terminal": {
+      "Deepfakes": {
+        "batches": 31,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.22580645161290322,
+        "median_cosine": 0.09708708857557448,
+        "median_norm_z": 0.008171341885623825,
+        "median_norm_u": 6.607864404987214e-05,
+        "max_reconstruction_relative": 1.4976067778321868e-06
+      },
+      "Face2Face": {
+        "batches": 31,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.25806451612903225,
+        "median_cosine": 0.14063323054045387,
+        "median_norm_z": 0.041246996345756216,
+        "median_norm_u": 0.0003898334448800493,
+        "max_reconstruction_relative": 1.440821964560738e-06
+      },
+      "FaceSwap": {
+        "batches": 31,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.22580645161290322,
+        "median_cosine": 0.13372682889677706,
+        "median_norm_z": 0.0075108996440861305,
+        "median_norm_u": 5.9828391030329045e-05,
+        "max_reconstruction_relative": 1.1736505641388743e-06
+      },
+      "NeuralTextures": {
+        "batches": 30,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.13333333333333333,
+        "median_cosine": 0.27378692870794974,
+        "median_norm_z": 0.5477804786729126,
+        "median_norm_u": 0.003333629441517553,
+        "max_reconstruction_relative": 6.102568271939374e-07
+      },
+      "all": {
+        "batches": 32,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.375,
+        "median_cosine": 0.11249987251813627,
+        "median_norm_z": 0.2841986497702224,
+        "median_norm_u": 0.001560091896786191,
+        "max_reconstruction_relative": 1.1679715794840929e-06
+      },
+      "real": {
+        "batches": 32,
+        "undefined_angles": 0,
+        "negative_cosine_fraction": 0.78125,
+        "median_cosine": -0.190918900740509,
+        "median_norm_z": 0.44166821443763893,
+        "median_norm_u": 0.0014351622235369561,
+        "max_reconstruction_relative": 5.848514660570432e-07
+      }
+    }
+  },
+  "stable_competition_hint": false,
+  "priority_rule": "Both endpoints:all32-batch negative cosine fraction>=.5 and median cosine<=-.1; otherwise lower Q19 priority; no causal or benefit claim",
+  "limitations": "Fixed checkpoints/eval/no augmentation local gradients,not training trajectories;negative angle need not be harmful;zero angles undefined and retained;target repeated development,not finaltest;no oracle model selection;Q19 matched training still required"
+}

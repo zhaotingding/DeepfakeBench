@@ -1,0 +1,6 @@
+{
+  "first_batch_seconds": 26.173064209520817,
+  "projected_gpu_seconds": 2077.016288931109,
+  "limit_seconds": 3500,
+  "budget_pass": true
+}
