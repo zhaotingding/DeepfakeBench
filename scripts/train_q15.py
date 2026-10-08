@@ -22,7 +22,8 @@ def main():
  state=ROOT/'.state'/RUN;out=Path('/root/autodl-tmp/prd-common/outputs/logs/mechanism')/RUN;out.mkdir(parents=True,exist_ok=False)
  torch.set_num_threads(4);torch.manual_seed(3407);torch.cuda.manual_seed_all(3407)
  torch.backends.cudnn.benchmark=False;torch.backends.cudnn.deterministic=True
- source=json.loads((ROOT/'scripts/experiment_summaries/n01_t04_20261004/run_metadata.json').read_text());config=source['config']
+ source=json.loads((ROOT/'scripts/experiment_summaries/n01_t04_20261004/run_metadata.json').read_text());config=dict(source['config']);config['task_target']=RUN
+ assert all(sha(Path(path))==h for path,h in source['input_hashes'].items())
  manifest_path=Path(config['dataset_json_folder'])/'FaceForensics++.json';dataset=json.loads(manifest_path.read_text())['FaceForensics++']
  rows=[];source_ids={};parents={}
  def find(x):
@@ -45,6 +46,7 @@ def main():
  assert sha(out/'evaluation_manifest.json')=='ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a'
  nsource=len(rows)
  rows.extend(dict(domain=r['domain'],split='target_dev',video_id=r['video_id'],label=r['label'],frame=r['frame'],group=r['domain']+'/'+str(r['video_id'])) for r in target_rows)
+ assert rows==json.loads((ROOT/'scripts/experiment_summaries/q04_t01_20261005/manifest.json').read_text())
  save(out/'manifest.json',rows)
  meta=dict(id='Q15-P01/v1',run_id=RUN,started_at=stamp(),claim_commit=args.claim,
   code_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),config=config,weights=source['input_hashes'],
