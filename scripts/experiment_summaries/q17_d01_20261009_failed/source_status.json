@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-09T06:58:00.136574+08:00",
+  "git_dirty": true,
+  "allowed_non_training": {
+    "scripts/PRD_MONITOR.md": "d3a7cacac8abfbee926a1b6c0d9e2d182937d6d55e5dccb4f851b2ed0d6b08d1",
+    "scripts/gpu_monitor.py": "ad02ccd04685958e1a276645ef9419573bcb40066279a11e76046c264014cef0",
+    "scripts/run_prd_203_continue_20261003.sh": "3b12b3d196c3c20bbf99ffd7dc38d7e9df2b793f0f5345d941d3275b92b5ed3e",
+    "scripts/test_gpu_monitor.py": "4de523632100f35c11cf0137b26d13bf8bbe3faeda7655700517cf8bccbefdc0"
+  },
+  "source_status": [
+    " M scripts/PRD_MONITOR.md",
+    "?? scripts/gpu_monitor.py",
+    "?? scripts/run_prd_203_continue_20261003.sh",
+    "?? scripts/test_gpu_monitor.py"
+  ],
+  "code_commit": "83a3ac52c44e7ed7019dd3e608cde5d502dfb02f",
+  "claim_commit": "cae353859849b339e5a9a4cce0cfcbd6d77e035f",
+  "locks_available": true,
+  "prior_processes_exited": true,
+  "active_research_processes": [],
+  "gpu": "0, 0 MiB, 32768 MiB, 0 %\n",
+  "disk_free_bytes": 12824678400
+}

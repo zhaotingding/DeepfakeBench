@@ -1,0 +1,13 @@
+{
+  "id": "Q17-D01/v1",
+  "run_id": "q17_d01_20261009",
+  "status": "failed",
+  "exit_code": 1,
+  "scientific_result": false,
+  "parameter_updates": 0,
+  "gradient_batches": 0,
+  "reason": "Rich loader rows contain LMDB identity fields; compared incorrectly with canonical4-field manifest; canonical manifests exactly equal",
+  "processes_exited": true,
+  "attempt_wall_seconds": 38.23,
+  "archived_at": "2026-10-09T07:02:42.254134+08:00"
+}
