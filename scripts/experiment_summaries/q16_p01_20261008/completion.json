@@ -1,0 +1,48 @@
+{
+  "id": "Q16-P01/v1",
+  "run_id": "q16_p01_20261008",
+  "status": "completed",
+  "started_at": "2026-10-08T09:27:48.568093+08:00",
+  "ended_at": "2026-10-08T09:34:13.498217+08:00",
+  "code_commit": "f1bf0bf7972c672ebda10011c567f9b334e24aa6",
+  "claim_commit": "49a0fe0859e678b7e7398a3d927b4ca0541c2a22",
+  "verdict": "not_supported",
+  "primary": {
+    "comparisons": {
+      "midpoint": {
+        "delta_balanced_ce": -0.07849925756454468,
+        "delta_auc": -0.05772959183673465,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.12855305215543403,
+          -0.02935504713894005
+        ],
+        "supported": false
+      },
+      "first_order": {
+        "delta_balanced_ce": 0.025293052196502686,
+        "delta_auc": -0.00076530612244885,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.0347708771291322,
+          0.08776503727106102
+        ],
+        "supported": false
+      }
+    },
+    "bootstrap_samples": 2000,
+    "groups": 70,
+    "bootstrap_seed": 20261008
+  },
+  "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q16_p01_20261008",
+  "artifact_sha256": {
+    "predictions.json": "7aea73086849618beede57df8fca3d1f80055111fa90ff8c391755472c6db564",
+    "first_order_source_best.pth": "0a2ecdf871075a45a04c7803ea4c2141dfca2a2c72d898c63d9e5ebc9bfb6483",
+    "features.pt": "df6b76e872406abbf9ba076b0ad3025a3ef9d7c158c08bb92a1ed21751c025b8",
+    "result.json": "74014d6c76b75d9d1b91aa93b6007e859721ddb3c9bdff4cf61fc1a7d7488ab2",
+    "evaluation_manifest.json": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+    "history.json": "ecab4addb2a1da4761c4666f7a7c710261c5646c852e60902d271a07b226ac07",
+    "manifest.json": "09c6feb434a12f4d8cb2dfab08fd1b5d9381da40009c62b5a056ade5e474bf10",
+    "metadata.json": "253483d1cc384e2fc064cb2a9290471b72e3b04d7b124a1cd3e489a70c18e2a6",
+    "curvature_source_best.pth": "8d0106e15bf69ad8817f7cf5321e5f833064b286af11a51fea20e6cc73f631d2",
+    "midpoint_source_best.pth": "8877e2b8a3f32829783c37af157c00ef91e78f6dd8a6f1d7856ecf2f2b1188df"
+  }
+}

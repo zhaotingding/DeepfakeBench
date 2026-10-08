@@ -1,0 +1,229 @@
+{
+  "id": "Q16-P01/v1",
+  "run_id": "q16_p01_20261008",
+  "started_at": "2026-10-08T09:27:48.568093+08:00",
+  "claim_commit": "49a0fe0859e678b7e7398a3d927b4ca0541c2a22",
+  "code_commit": "f1bf0bf7972c672ebda10011c567f9b334e24aa6",
+  "config": {
+    "log_dir": "/root/autodl-tmp/prd-common/outputs/logs/training",
+    "model_name": "lora",
+    "backbone_name": "vit",
+    "pretrained_root": "/root/autodl-tmp/prd-common/pretrained",
+    "clip_path": "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14",
+    "vae_path": "/root/autodl-tmp/prd-common/pretrained/vae_original",
+    "train_dataset": [
+      "FaceForensics++"
+    ],
+    "test_dataset": [
+      "Celeb-DF-v2",
+      "DFDCP",
+      "DFDC"
+    ],
+    "train_batchSize": 16,
+    "test_batchSize": 64,
+    "workers": 8,
+    "frame_num": {
+      "train": 8,
+      "test": 32
+    },
+    "resolution": 224,
+    "compression": "c23",
+    "with_mask": false,
+    "with_landmark": false,
+    "use_data_augmentation": true,
+    "data_aug": {
+      "flip_prob": 0.5,
+      "rotate_prob": 0.5,
+      "rotate_limit": [
+        -10,
+        10
+      ],
+      "blur_prob": 0.5,
+      "blur_limit": [
+        3,
+        7
+      ],
+      "brightness_prob": 0.5,
+      "brightness_limit": [
+        -0.1,
+        0.1
+      ],
+      "contrast_limit": [
+        -0.1,
+        0.1
+      ],
+      "quality_lower": 40,
+      "quality_upper": 100
+    },
+    "mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "nEpochs": 1,
+    "start_epoch": 0,
+    "save_epoch": 1,
+    "rec_iter": 100,
+    "manualSeed": 3407,
+    "save_ckpt": false,
+    "save_feat": false,
+    "lr_scheduler": null,
+    "metric_scoring": "auc",
+    "cuda": true,
+    "cudnn": false,
+    "optimizer": {
+      "type": "adam",
+      "adam": {
+        "lr": 0.0002,
+        "beta1": 0.9,
+        "beta2": 0.999,
+        "eps": 1e-08,
+        "weight_decay": 0.0005,
+        "amsgrad": false
+      }
+    },
+    "probe": {
+      "type": "sd15_vae",
+      "sigma": 1.0,
+      "vae_path": null
+    },
+    "residual": {
+      "type": "signed_diff"
+    },
+    "encoder": {
+      "type": "clip"
+    },
+    "feature_mode": "concat",
+    "analysis": {
+      "save_features": false,
+      "compute_statistics": true,
+      "statistics_max_samples": 2048
+    },
+    "experiment": {
+      "name": "prd_t1_seed3407",
+      "seed": 3407
+    },
+    "early_stopping": {
+      "enabled": false
+    },
+    "mode": "train",
+    "lmdb": true,
+    "dry_run": false,
+    "data_root": "/datasets/Deepfake",
+    "rgb_dir": "/datasets/Deepfake/DeepfakeBench_rgb/rgb",
+    "lmdb_dir": "/datasets/Deepfake/DeepfakeBench/lmdb",
+    "dataset_json_folder": "/datasets/Deepfake/DeepfakeBench/config/dataset_json",
+    "SWA": false,
+    "save_avg": true,
+    "label_dict": {
+      "DFD_fake": 1,
+      "DFD_real": 0,
+      "FF-SH": 1,
+      "FF-F2F": 1,
+      "FF-DF": 1,
+      "FF-FS": 1,
+      "FF-NT": 1,
+      "FF-FH": 1,
+      "FF-real": 0,
+      "CelebDFv1_real": 0,
+      "CelebDFv1_fake": 1,
+      "CelebDFv2_real": 0,
+      "CelebDFv2_fake": 1,
+      "DFDCP_Real": 0,
+      "DFDCP_FakeA": 1,
+      "DFDCP_FakeB": 1,
+      "DFDC_Fake": 1,
+      "DFDC_Real": 0,
+      "DF_fake": 1,
+      "DF_real": 0,
+      "UADFV_Fake": 1,
+      "UADFV_Real": 0,
+      "roop_Real": 0,
+      "roop_Fake": 1,
+      "VQGAN_Real": 0,
+      "VQGAN_Fake": 1,
+      "StyleGAN2_Real": 0,
+      "StyleGAN2_Fake": 1,
+      "StyleGANXL_Real": 0,
+      "StyleGANXL_Fake": 1,
+      "SiT_Real": 0,
+      "SiT_Fake": 1,
+      "sd2.1_Real": 0,
+      "sd2.1_Fake": 1,
+      "rddm_Real": 0,
+      "rddm_Fake": 1,
+      "ddim_Real": 0,
+      "ddim_Fake": 1,
+      "pixart_Real": 0,
+      "pixart_Fake": 1,
+      "DiT_Real": 0,
+      "DiT_Fake": 1
+    },
+    "spe_label_dict": {
+      "FF-F2F": 1,
+      "FF-DF": 2,
+      "FF-FS": 3,
+      "FF-NT": 4,
+      "FF-real": 0,
+      "DFD_fake": 1,
+      "DFD_real": 0,
+      "CelebDFv1_real": 0,
+      "CelebDFv1_fake": 1,
+      "CelebDFv2_real": 0,
+      "CelebDFv2_fake": 1,
+      "DFDCP_Real": 0,
+      "DFDCP_FakeA": 1,
+      "DFDCP_FakeB": 1,
+      "DFDC_Fake": 1,
+      "DFDC_Real": 0,
+      "DF_fake": 1,
+      "DF_real": 0,
+      "UADFV_Fake": 1,
+      "UADFV_Real": 0,
+      "roop_Real": 0,
+      "roop_Fake": 1,
+      "VQGAN_Real": 0,
+      "VQGAN_Fake": 1,
+      "StyleGAN2_Real": 0,
+      "StyleGAN2_Fake": 1,
+      "StyleGANXL_Real": 0,
+      "StyleGANXL_Fake": 1,
+      "SiT_Real": 0,
+      "SiT_Fake": 1,
+      "sd2.1_Real": 0,
+      "sd2.1_Fake": 1,
+      "rddm_Real": 0,
+      "rddm_Fake": 1,
+      "ddim_Real": 0,
+      "ddim_Fake": 1,
+      "pixart_Real": 0,
+      "pixart_Fake": 1,
+      "DiT_Real": 0,
+      "DiT_Fake": 1
+    },
+    "local_rank": 0,
+    "task_target": "q16_p01_20261008",
+    "ddp": false
+  },
+  "weights": {
+    "/datasets/Deepfake/DeepfakeBench/config/dataset_json/FaceForensics++.json": "459fc9891f0bf6e63a1a7d61aed6e96edcc623701d05726b5a225d6fa0cb0b27",
+    "/root/autodl-tmp/prd-common/pretrained/clip-vit-large-patch14/model.safetensors": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb",
+    "/root/autodl-tmp/prd-common/pretrained/vae_original/diffusion_pytorch_model.bin": "1b134cded8eb78b184aefb8805b6b572f36fa77b255c483665dda931fa0130c5"
+  },
+  "protocol_sha256": "975f591ce380b7caf7fdbc3e9898d8752ccb0ab4e629d91debfa5924edd8e8ec",
+  "source_json_sha256": "459fc9891f0bf6e63a1a7d61aed6e96edcc623701d05726b5a225d6fa0cb0b27",
+  "manifest_sha256": "09c6feb434a12f4d8cb2dfab08fd1b5d9381da40009c62b5a056ade5e474bf10",
+  "source_counts": [
+    3596,
+    700,
+    700
+  ],
+  "test_source_components": 70,
+  "target_development_videos": 192,
+  "source_status": " M scripts/PRD_MONITOR.md\n?? scripts/gpu_monitor.py\n?? scripts/run_prd_203_continue_20261003.sh\n?? scripts/test_gpu_monitor.py\n"
+}

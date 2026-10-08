@@ -1,0 +1,470 @@
+{
+  "id": "Q16-P01/v1",
+  "run_id": "q16_p01_20261008",
+  "status": "completed",
+  "started_at": "2026-10-08T09:27:48.568093+08:00",
+  "ended_at": "2026-10-08T09:34:13.498217+08:00",
+  "code_commit": "f1bf0bf7972c672ebda10011c567f9b334e24aa6",
+  "claim_commit": "49a0fe0859e678b7e7398a3d927b4ca0541c2a22",
+  "arms": {
+    "curvature": {
+      "selected_step": 10,
+      "source_val_balanced_ce": 0.6213446855545044,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q16_p01_20261008/curvature_source_best.pth",
+      "checkpoint_sha256": "8d0106e15bf69ad8817f7cf5321e5f833064b286af11a51fea20e6cc73f631d2",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.7482908163265306,
+        "ce": 0.7459019422531128,
+        "balanced_ce": 0.6213446855545044
+      },
+      "source_test": {
+        "auc": 0.7562755102040817,
+        "ce": 0.7179874777793884,
+        "balanced_ce": 0.6144382357597351
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.6025390625,
+          "ce": 0.7741578221321106,
+          "balanced_ce": 0.7741578817367554
+        },
+        "DFDC": {
+          "auc": 0.6611328125,
+          "ce": 0.7062881588935852,
+          "balanced_ce": 0.70628821849823
+        },
+        "DFDCP": {
+          "auc": 0.556640625,
+          "ce": 0.8263658285140991,
+          "balanced_ce": 0.8263658285140991
+        }
+      },
+      "target_macro": {
+        "auc": 0.6067708333333334,
+        "ce": 0.7689372698465983,
+        "balanced_ce": 0.7689373095830282
+      }
+    },
+    "midpoint": {
+      "selected_step": 30,
+      "source_val_balanced_ce": 0.5090498924255371,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q16_p01_20261008/midpoint_source_best.pth",
+      "checkpoint_sha256": "8877e2b8a3f32829783c37af157c00ef91e78f6dd8a6f1d7856ecf2f2b1188df",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.8267729591836734,
+        "ce": 0.5737648010253906,
+        "balanced_ce": 0.5090498924255371
+      },
+      "source_test": {
+        "auc": 0.8140051020408163,
+        "ce": 0.6438400745391846,
+        "balanced_ce": 0.5359389781951904
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.7412109375,
+          "ce": 0.6669397354125977,
+          "balanced_ce": 0.6669397354125977
+        },
+        "DFDC": {
+          "auc": 0.6689453125,
+          "ce": 0.7857977747917175,
+          "balanced_ce": 0.7857977747917175
+        },
+        "DFDCP": {
+          "auc": 0.6298828125,
+          "ce": 0.8783203363418579,
+          "balanced_ce": 0.8783203363418579
+        }
+      },
+      "target_macro": {
+        "auc": 0.6800130208333334,
+        "ce": 0.7770192821820577,
+        "balanced_ce": 0.7770192821820577
+      }
+    },
+    "first_order": {
+      "selected_step": 20,
+      "source_val_balanced_ce": 0.6581512689590454,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q16_p01_20261008/first_order_source_best.pth",
+      "checkpoint_sha256": "0a2ecdf871075a45a04c7803ea4c2141dfca2a2c72d898c63d9e5ebc9bfb6483",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.7360969387755102,
+        "ce": 0.7520756125450134,
+        "balanced_ce": 0.6581512689590454
+      },
+      "source_test": {
+        "auc": 0.7570408163265305,
+        "ce": 0.7041338086128235,
+        "balanced_ce": 0.6397312879562378
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.619140625,
+          "ce": 0.7972121238708496,
+          "balanced_ce": 0.7972121238708496
+        },
+        "DFDC": {
+          "auc": 0.65625,
+          "ce": 0.8084838390350342,
+          "balanced_ce": 0.808483898639679
+        },
+        "DFDCP": {
+          "auc": 0.4365234375,
+          "ce": 1.0314640998840332,
+          "balanced_ce": 1.0314639806747437
+        }
+      },
+      "target_macro": {
+        "auc": 0.5706380208333334,
+        "ce": 0.8790533542633057,
+        "balanced_ce": 0.8790533343950907
+      }
+    }
+  },
+  "norm_summary": {
+    "curvature": {
+      "train": {
+        "mean": 11.04928207397461,
+        "quantiles": [
+          5.591166019439697,
+          9.272745847702026,
+          10.601919651031494,
+          12.306887149810791,
+          24.84910774230957
+        ]
+      },
+      "val": {
+        "mean": 11.072851181030273,
+        "quantiles": [
+          5.794915199279785,
+          9.340577602386475,
+          10.616233825683594,
+          12.249687671661377,
+          24.912790298461914
+        ]
+      },
+      "test": {
+        "mean": 10.801681518554688,
+        "quantiles": [
+          4.967530727386475,
+          9.306345462799072,
+          10.490517616271973,
+          11.854776382446289,
+          25.362407684326172
+        ]
+      },
+      "target_dev": {
+        "mean": 10.181742668151855,
+        "quantiles": [
+          5.919119834899902,
+          8.755433797836304,
+          10.115106582641602,
+          11.386121034622192,
+          16.30368423461914
+        ]
+      }
+    },
+    "displacement": {
+      "train": {
+        "mean": 11.481099128723145,
+        "quantiles": [
+          5.4257659912109375,
+          9.619255781173706,
+          10.94881534576416,
+          12.666869878768921,
+          27.393470764160156
+        ]
+      },
+      "val": {
+        "mean": 11.787262916564941,
+        "quantiles": [
+          6.429457664489746,
+          9.712360143661499,
+          11.196824073791504,
+          13.221842288970947,
+          28.743194580078125
+        ]
+      },
+      "test": {
+        "mean": 11.012096405029297,
+        "quantiles": [
+          5.797317028045654,
+          9.258776187896729,
+          10.619554996490479,
+          12.35053038597107,
+          23.373838424682617
+        ]
+      },
+      "target_dev": {
+        "mean": 10.439946174621582,
+        "quantiles": [
+          5.478902339935303,
+          8.900656938552856,
+          10.220415592193604,
+          11.451842784881592,
+          18.40895652770996
+        ]
+      }
+    }
+  },
+  "source_test_descriptive_strata": {
+    "curvature": {
+      "source_train_quartile_boundaries": [
+        9.272745847702026,
+        10.601919651031494,
+        12.306887149810791
+      ],
+      "source_test_bins": [
+        {
+          "bin": 0,
+          "counts": [
+            48,
+            123
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.6597222222222222,
+              "ce": 0.860566258430481,
+              "balanced_ce": 0.7172214388847351
+            },
+            "midpoint": {
+              "auc": 0.7464430894308944,
+              "ce": 0.714723527431488,
+              "balanced_ce": 0.615098774433136
+            },
+            "first_order": {
+              "auc": 0.7574525745257452,
+              "ce": 0.720469057559967,
+              "balanced_ce": 0.63126540184021
+            }
+          }
+        },
+        {
+          "bin": 1,
+          "counts": [
+            32,
+            160
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.7777343750000001,
+              "ce": 0.7156417965888977,
+              "balanced_ce": 0.588051438331604
+            },
+            "midpoint": {
+              "auc": 0.8330078125,
+              "ce": 0.6564301252365112,
+              "balanced_ce": 0.5160269737243652
+            },
+            "first_order": {
+              "auc": 0.7480468749999999,
+              "ce": 0.7729533314704895,
+              "balanced_ce": 0.6251304149627686
+            }
+          }
+        },
+        {
+          "bin": 2,
+          "counts": [
+            37,
+            156
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.7567567567567568,
+              "ce": 0.7087035775184631,
+              "balanced_ce": 0.6183749437332153
+            },
+            "midpoint": {
+              "auc": 0.8253638253638255,
+              "ce": 0.6879178881645203,
+              "balanced_ce": 0.5472904443740845
+            },
+            "first_order": {
+              "auc": 0.7435897435897436,
+              "ce": 0.6900111436843872,
+              "balanced_ce": 0.6845711469650269
+            }
+          }
+        },
+        {
+          "bin": 3,
+          "counts": [
+            23,
+            121
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.8131512756018685,
+              "ce": 0.564245879650116,
+              "balanced_ce": 0.5640792846679688
+            },
+            "midpoint": {
+              "auc": 0.8587854832914121,
+              "ce": 0.4838027358055115,
+              "balanced_ce": 0.4577593207359314
+            },
+            "first_order": {
+              "auc": 0.7808120733021919,
+              "ce": 0.6119047999382019,
+              "balanced_ce": 0.6473239660263062
+            }
+          }
+        }
+      ]
+    },
+    "displacement": {
+      "source_train_quartile_boundaries": [
+        9.619255781173706,
+        10.94881534576416,
+        12.666869878768921
+      ],
+      "source_test_bins": [
+        {
+          "bin": 0,
+          "counts": [
+            50,
+            174
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.732183908045977,
+              "ce": 0.7013859152793884,
+              "balanced_ce": 0.6202785968780518
+            },
+            "midpoint": {
+              "auc": 0.8165517241379309,
+              "ce": 0.6883721351623535,
+              "balanced_ce": 0.5538928508758545
+            },
+            "first_order": {
+              "auc": 0.7334482758620688,
+              "ce": 0.7372957468032837,
+              "balanced_ce": 0.6582262516021729
+            }
+          }
+        },
+        {
+          "bin": 1,
+          "counts": [
+            29,
+            132
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.808516196447231,
+              "ce": 0.7279701232910156,
+              "balanced_ce": 0.5631157755851746
+            },
+            "midpoint": {
+              "auc": 0.7502612330198537,
+              "ce": 0.7030543684959412,
+              "balanced_ce": 0.5967696309089661
+            },
+            "first_order": {
+              "auc": 0.7343260188087775,
+              "ce": 0.6679206490516663,
+              "balanced_ce": 0.6086785197257996
+            }
+          }
+        },
+        {
+          "bin": 2,
+          "counts": [
+            29,
+            133
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.7536945812807881,
+              "ce": 0.7762662172317505,
+              "balanced_ce": 0.6482558250427246
+            },
+            "midpoint": {
+              "auc": 0.8102151931553021,
+              "ce": 0.6892781853675842,
+              "balanced_ce": 0.5420336127281189
+            },
+            "first_order": {
+              "auc": 0.7754731656728027,
+              "ce": 0.7181075215339661,
+              "balanced_ce": 0.6127647161483765
+            }
+          }
+        },
+        {
+          "bin": 3,
+          "counts": [
+            32,
+            121
+          ],
+          "arms": {
+            "curvature": {
+              "auc": 0.7680785123966942,
+              "ce": 0.6700815558433533,
+              "balanced_ce": 0.6109496355056763
+            },
+            "midpoint": {
+              "auc": 0.871900826446281,
+              "ce": 0.46822142601013184,
+              "balanced_ce": 0.442562997341156
+            },
+            "first_order": {
+              "auc": 0.7773760330578512,
+              "ce": 0.6788941025733948,
+              "balanced_ce": 0.6681280136108398
+            }
+          }
+        }
+      ]
+    }
+  },
+  "encoder_updates": 0,
+  "head_updates_per_arm": 500,
+  "first_batch_checks": {
+    "vae_repeat_error": 0.0,
+    "strict_identity_repeat_error": 0.0,
+    "shape": [
+      16,
+      3,
+      1024
+    ],
+    "projected_extraction_seconds": 2621.8472464693946,
+    "head_parameters": 2050,
+    "backbone_grad_none": true
+  },
+  "primary": {
+    "comparisons": {
+      "midpoint": {
+        "delta_balanced_ce": -0.07849925756454468,
+        "delta_auc": -0.05772959183673465,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.12855305215543403,
+          -0.02935504713894005
+        ],
+        "supported": false
+      },
+      "first_order": {
+        "delta_balanced_ce": 0.025293052196502686,
+        "delta_auc": -0.00076530612244885,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.0347708771291322,
+          0.08776503727106102
+        ],
+        "supported": false
+      }
+    },
+    "bootstrap_samples": 2000,
+    "groups": 70,
+    "bootstrap_seed": 20261008
+  },
+  "verdict": "not_supported",
+  "limitations": "Frozen CLS encoder path second difference/linear readability only,not reconstructor Hessian or manifold distance;midpoint mixed-image artifacts and amplitude explanations not excluded;single seed,test filename groups not certified identity;reused source/targetdevelopment not independent finaltest;no endtoend causal or novelty claim."
+}
