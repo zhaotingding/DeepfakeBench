@@ -1,0 +1,58 @@
+{
+  "id": "Q15-P01/v1",
+  "run_id": "q15_p01_20261008",
+  "status": "completed",
+  "started_at": "2026-10-08T09:12:00.453350+08:00",
+  "ended_at": "2026-10-08T09:17:23.913613+08:00",
+  "code_commit": "4c792e21484eaa83ea1af990becb021d306264b1",
+  "claim_commit": "479dae16e882df474d30a4c185244bff3bff7fd8",
+  "verdict": "not_supported",
+  "primary": {
+    "comparisons": {
+      "original": {
+        "delta_balanced_ce": -0.18049520254135132,
+        "delta_auc": -0.1679464285714286,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.248358730893316,
+          -0.11267057865059808
+        ],
+        "supported": false
+      },
+      "magnitude": {
+        "delta_balanced_ce": -0.19443213939666748,
+        "delta_auc": -0.1311670918367347,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.259952724750952,
+          -0.12886148498726213
+        ],
+        "supported": false
+      },
+      "permuted": {
+        "delta_balanced_ce": -0.028944015502929688,
+        "delta_auc": -0.018749999999999933,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.11881014728852148,
+          0.059852955216275754
+        ],
+        "supported": false
+      }
+    },
+    "bootstrap_samples": 2000,
+    "groups": 70,
+    "bootstrap_seed": 20261008
+  },
+  "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q15_p01_20261008",
+  "artifact_sha256": {
+    "predictions.json": "101f4d3541598af2a34ebf0cc8d537e87e58cce0e37110e577b1fc31db2ff7a7",
+    "permuted_source_best.pth": "600afae674128fc75059337aa0ab371b137357e2605b35064eb7032b9bdd24d0",
+    "relation_source_best.pth": "03b9aa87c7ea2624c8761cf343d9f286e0875f0fcf9436a9cdb5ac3a1307c5a1",
+    "features.pt": "ad95d501552a1760421a753ea642f6c2616cbf4859d5eff6beb237b0f2df28c7",
+    "original_source_best.pth": "58d4410c4a0fd1019d80be473dd7002e63c9d9af86d600b866d695c4e74a5ef1",
+    "result.json": "f50de94bcb7337629c934f2f28b5483e0932fcc38be075353a303166396e6196",
+    "evaluation_manifest.json": "ac5121d948e23b5c00f36b30e606224380e2ef18a566a04c4dae8c60438e988a",
+    "history.json": "f1fef0194162d26382318ae8a92e3a707ecd4041b7fe5825c907451bee509334",
+    "magnitude_source_best.pth": "3d9b76a6629566666721f0f6d43ccd19c51998f8bc3fef203f11fc48a0159210",
+    "manifest.json": "09c6feb434a12f4d8cb2dfab08fd1b5d9381da40009c62b5a056ade5e474bf10",
+    "metadata.json": "c35642bb576f8ec933aa63d0d9c19dc267f7e2645e667319ee2066ef89cfb387"
+  }
+}

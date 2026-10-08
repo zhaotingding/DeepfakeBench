@@ -1,0 +1,223 @@
+{
+  "id": "Q15-P01/v1",
+  "run_id": "q15_p01_20261008",
+  "status": "completed",
+  "started_at": "2026-10-08T09:12:00.453350+08:00",
+  "ended_at": "2026-10-08T09:17:23.913613+08:00",
+  "code_commit": "4c792e21484eaa83ea1af990becb021d306264b1",
+  "claim_commit": "479dae16e882df474d30a4c185244bff3bff7fd8",
+  "arms": {
+    "relation": {
+      "selected_step": 60,
+      "source_val_balanced_ce": 0.8002816438674927,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/relation_source_best.pth",
+      "checkpoint_sha256": "03b9aa87c7ea2624c8761cf343d9f286e0875f0fcf9436a9cdb5ac3a1307c5a1",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.5444515306122449,
+        "ce": 0.7344030141830444,
+        "balanced_ce": 0.8002816438674927
+      },
+      "source_test": {
+        "auc": 0.5247448979591837,
+        "ce": 0.7774742841720581,
+        "balanced_ce": 0.858885645866394
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.466796875,
+          "ce": 0.9689211845397949,
+          "balanced_ce": 0.9689211845397949
+        },
+        "DFDC": {
+          "auc": 0.490234375,
+          "ce": 0.8401526212692261,
+          "balanced_ce": 0.8401526212692261
+        },
+        "DFDCP": {
+          "auc": 0.3759765625,
+          "ce": 1.0405340194702148,
+          "balanced_ce": 1.0405340194702148
+        }
+      },
+      "target_macro": {
+        "auc": 0.4443359375,
+        "ce": 0.9498692750930786,
+        "balanced_ce": 0.9498692750930786
+      }
+    },
+    "original": {
+      "selected_step": 10,
+      "source_val_balanced_ce": 0.6289657354354858,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/original_source_best.pth",
+      "checkpoint_sha256": "58d4410c4a0fd1019d80be473dd7002e63c9d9af86d600b866d695c4e74a5ef1",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.7183035714285714,
+        "ce": 0.7230827808380127,
+        "balanced_ce": 0.6289657354354858
+      },
+      "source_test": {
+        "auc": 0.6926913265306123,
+        "ce": 0.7264959216117859,
+        "balanced_ce": 0.6783904433250427
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.55078125,
+          "ce": 0.9005193710327148,
+          "balanced_ce": 0.9005194306373596
+        },
+        "DFDC": {
+          "auc": 0.5283203125,
+          "ce": 0.8541692495346069,
+          "balanced_ce": 0.8541691899299622
+        },
+        "DFDCP": {
+          "auc": 0.47265625,
+          "ce": 0.8972561359405518,
+          "balanced_ce": 0.8972561359405518
+        }
+      },
+      "target_macro": {
+        "auc": 0.5172526041666666,
+        "ce": 0.8839815855026245,
+        "balanced_ce": 0.8839815855026245
+      }
+    },
+    "magnitude": {
+      "selected_step": 10,
+      "source_val_balanced_ce": 0.6881804466247559,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/magnitude_source_best.pth",
+      "checkpoint_sha256": "3d9b76a6629566666721f0f6d43ccd19c51998f8bc3fef203f11fc48a0159210",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.6465561224489796,
+        "ce": 0.7037953734397888,
+        "balanced_ce": 0.6881804466247559
+      },
+      "source_test": {
+        "auc": 0.6559119897959184,
+        "ce": 0.7214265465736389,
+        "balanced_ce": 0.6644535064697266
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.59765625,
+          "ce": 0.7092342376708984,
+          "balanced_ce": 0.7092341780662537
+        },
+        "DFDC": {
+          "auc": 0.5009765625,
+          "ce": 0.8520016670227051,
+          "balanced_ce": 0.8520016670227051
+        },
+        "DFDCP": {
+          "auc": 0.453125,
+          "ce": 0.8625874519348145,
+          "balanced_ce": 0.8625874519348145
+        }
+      },
+      "target_macro": {
+        "auc": 0.5172526041666666,
+        "ce": 0.8079411188761393,
+        "balanced_ce": 0.8079410990079244
+      }
+    },
+    "permuted": {
+      "selected_step": 60,
+      "source_val_balanced_ce": 0.8098992109298706,
+      "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/permuted_source_best.pth",
+      "checkpoint_sha256": "600afae674128fc75059337aa0ab371b137357e2605b35064eb7032b9bdd24d0",
+      "strict_reload": true,
+      "total_updates": 500,
+      "source_val": {
+        "auc": 0.5434566326530612,
+        "ce": 0.7878278493881226,
+        "balanced_ce": 0.8098992109298706
+      },
+      "source_test": {
+        "auc": 0.5434948979591836,
+        "ce": 0.7299638986587524,
+        "balanced_ce": 0.8299416303634644
+      },
+      "target_dev": {
+        "Celeb-DF-v2": {
+          "auc": 0.4921875,
+          "ce": 0.8725264668464661,
+          "balanced_ce": 0.8725264668464661
+        },
+        "DFDC": {
+          "auc": 0.599609375,
+          "ce": 0.7633348703384399,
+          "balanced_ce": 0.7633348703384399
+        },
+        "DFDCP": {
+          "auc": 0.470703125,
+          "ce": 0.9052990674972534,
+          "balanced_ce": 0.9052990674972534
+        }
+      },
+      "target_macro": {
+        "auc": 0.5208333333333334,
+        "ce": 0.8470534682273865,
+        "balanced_ce": 0.8470534682273865
+      }
+    }
+  },
+  "encoder_updates": 0,
+  "head_updates_per_arm": 500,
+  "first_batch_checks": {
+    "vae_repeat_error": 0.0,
+    "strict_identity_repeat_error": 0.0,
+    "shape": [
+      16,
+      4,
+      480
+    ],
+    "layers": 25,
+    "patch_tokens": 256,
+    "projected_extraction_seconds": 2523.7760512131035,
+    "edge_count": 480,
+    "backbone_grad_none": true
+  },
+  "primary": {
+    "comparisons": {
+      "original": {
+        "delta_balanced_ce": -0.18049520254135132,
+        "delta_auc": -0.1679464285714286,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.248358730893316,
+          -0.11267057865059808
+        ],
+        "supported": false
+      },
+      "magnitude": {
+        "delta_balanced_ce": -0.19443213939666748,
+        "delta_auc": -0.1311670918367347,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.259952724750952,
+          -0.12886148498726213
+        ],
+        "supported": false
+      },
+      "permuted": {
+        "delta_balanced_ce": -0.028944015502929688,
+        "delta_auc": -0.018749999999999933,
+        "paired_source_component_bootstrap_ce_ci95": [
+          -0.11881014728852148,
+          0.059852955216275754
+        ],
+        "supported": false
+      }
+    },
+    "bootstrap_samples": 2000,
+    "groups": 70,
+    "bootstrap_seed": 20261008
+  },
+  "verdict": "not_supported",
+  "limitations": "Frozen 480edge readout/linear probe only; single fixed permutation and seed;test filename groups not certified identity;source test and192target reuseddevelopment not finaltest;no end-to-end causal gain or novel mechanism claim."
+}
