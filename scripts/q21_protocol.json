@@ -25,8 +25,8 @@
   "evaluation": "source_best and terminal each source700video5600frames,target5876video45232frames;max8 evenly spaced sorted frames;video average logits;Q10 manifests exact;per-domain/source/macro AUC/CE/balancedCE plus frame descriptions",
   "primary": "source_best macrovideoAUC(aligned-permuted)>=.005 and paired domainxlabel2000 bootstrap95lower>0; point<=0 not_supported else inconclusive",
   "bootstrap_seed": 20261010,
-  "retention": "teacherjoint_source_best macroAUC-studentPRD_source_best macroAUC>.005 prohibits claiming basic teacher performance retained; report cost/accuracy tradeoff",
-  "deployment_cost": "sameGPU/same64 source-val frames/CUDA synchronize/four full forward calls last3median, one selected model resident, no optimizer; frozen PRD/original teachers and both source-selected students;VAE/all views included, full peak allocated bytes",
+  "retention": "fixed joint teacher macroAUC minus aligned source-selected student macroAUC>.005 prohibits claiming basic performance retained",
+  "deployment_cost": "same GPU/same64 source-val frames/CUDA synchronize/four full forwards last3median, one selected model resident, no optimizer: aligned/permuted source-selected students and fixed PRD teacher, three models; VAE/all views counted, Torch full peak allocated",
   "budgets": {
     "total_seconds": 172800,
     "budget_precheck": 600,
@@ -39,13 +39,13 @@
     "per_arm_ceiling": 86400,
     "source_plus_backup_bytes": 12884901888
   },
-  "budget_gate": "real8updates each,700sourceval and192 each; estimate1.10*(21576*medianlast6update_with_teacher+(12*700+4*192+2*(5600+45232)+2*192)*student_bs64sec/64)+900 perarm, plus1200group; must<85000 each and<172800 group; no dropped control/shortened epochs",
+  "budget_gate": "Pre-cache real8 online updates: cache=1.10*21576*(teacher_bs16+dummy_original_forward_bs16)+600; each student=1.10*(21576*student_only_update_seconds+evaluation_frames*student_bs64/64)+900; cache<60000,each<54000,each+cache/2+1500<86400,cache+2students+2400<172800. After complete cache, real8 cached updates per arm re-estimate complete pair including actual cache elapsed; same limits. No shortened epochs or dropped controls.",
   "controls": "teacher native192 maxabs<1e-5; teacher fullstate SHA before/after unchanged, allgradNone; student nonzero LoRA and finite CE/KL; exact augmented inputs/complete trace; optimizer only student, no teacher updates",
   "automatic_retry": false,
   "new_teacher_training": false,
   "old_teacher_training_cost": "Q10 old original/joint21576 each separately reported; not retrained/inherited by students; all new teacher forward costs included",
   "authorization": "User continuous finite203 queue execution using existing203 resources only; choose this single published candidate within48h/perarm24h ceilings, no new rent/fees/downloads; overrun preflight stops, no transfer of Q12 budget",
-  "limitations": "Single seed/8frames/repeated development;wrong-label distribution preserves epoch/label/method logits multiset but changes image difficulty/augmentation pairing;negative not equivalence;not VAE physical causality",
+  "limitations": "Single seed/8frames/repeated development;Same-label permuted distribution preserves epoch/label/method logits multiset but changes image difficulty/augmentation pairing;negative not equivalence;not VAE physical causality",
   "teachers": {
     "aligned": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_source_best.pth",
     "permuted": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_source_best.pth"
