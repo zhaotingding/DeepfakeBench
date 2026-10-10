@@ -1,0 +1,66 @@
+{
+  "id": "Q21-T01/v1",
+  "run_id": "q21_t01_20261010",
+  "question": "Is sample-aligned teacher supervision needed beyond epoch-label-method conditional distributions?",
+  "hypothesis": "Aligned fixed Q10 joint teacher outperforms same-layer cross-video permuted soft labels",
+  "alternative": "Teacher conditional soft-target distributions are sufficient; alignment gate fails",
+  "arms": [
+    "aligned",
+    "permuted"
+  ],
+  "teacher_rule": "Both fixed Q10 joint/source_best epoch8; full native model, no new teacher training",
+  "student": "Fresh original-only JointDetector armoriginal [z,0]2048->1024->2 BN/ReLU/dropout.5; CLIP backbone eval but LoRA+head train; VAE never called in student forward",
+  "loss": "CE(student,y)+KL(teacher||student),temperature1,coefficient1,classsum then batchmean; identical augmented source images for teachers and students",
+  "train": {
+    "seed": 3407,
+    "batch_size": 16,
+    "test_batch_size": 64,
+    "workers": 8,
+    "epochs_per_arm": 12,
+    "updates_per_arm": 21576,
+    "adam": "Q10 original lr.0002/betas.9,.999/eps1e-8/wd.0005/amsgradfalse unchanged"
+  },
+  "pairing": "Q10 original21576 complete index/image/headRNG trace for cache and both fresh students; dummy original forward during cache advances head RNG only, zero optimizer steps; cache logits same actual augmentations",
+  "selection": "12 source-val700 central-frame balancedCE minima, earliest tie; no early stopping; dev192 curves2/4/8/12 descriptive only",
+  "evaluation": "source_best and terminal each source700video5600frames,target5876video45232frames;max8 evenly spaced sorted frames;video average logits;Q10 manifests exact;per-domain/source/macro AUC/CE/balancedCE plus frame descriptions",
+  "primary": "source_best macrovideoAUC(aligned-permuted)>=.005 and paired domainxlabel2000 bootstrap95lower>0; point<=0 not_supported else inconclusive",
+  "bootstrap_seed": 20261010,
+  "retention": "teacherjoint_source_best macroAUC-studentPRD_source_best macroAUC>.005 prohibits claiming basic teacher performance retained; report cost/accuracy tradeoff",
+  "deployment_cost": "sameGPU/same64 source-val frames/CUDA synchronize/four full forward calls last3median, one selected model resident, no optimizer; frozen PRD/original teachers and both source-selected students;VAE/all views included, full peak allocated bytes",
+  "budgets": {
+    "total_seconds": 172800,
+    "budget_precheck": 600,
+    "cache": 60000,
+    "paired_smoke": 1200,
+    "formal_per_arm": 54000,
+    "finish": 1200,
+    "nominal_total": 171000,
+    "grace_reserve": 1800,
+    "per_arm_ceiling": 86400,
+    "source_plus_backup_bytes": 12884901888
+  },
+  "budget_gate": "real8updates each,700sourceval and192 each; estimate1.10*(21576*medianlast6update_with_teacher+(12*700+4*192+2*(5600+45232)+2*192)*student_bs64sec/64)+900 perarm, plus1200group; must<85000 each and<172800 group; no dropped control/shortened epochs",
+  "controls": "teacher native192 maxabs<1e-5; teacher fullstate SHA before/after unchanged, allgradNone; student nonzero LoRA and finite CE/KL; exact augmented inputs/complete trace; optimizer only student, no teacher updates",
+  "automatic_retry": false,
+  "new_teacher_training": false,
+  "old_teacher_training_cost": "Q10 old original/joint21576 each separately reported; not retrained/inherited by students; all new teacher forward costs included",
+  "authorization": "User continuous finite203 queue execution using existing203 resources only; choose this single published candidate within48h/perarm24h ceilings, no new rent/fees/downloads; overrun preflight stops, no transfer of Q12 budget",
+  "limitations": "Single seed/8frames/repeated development;wrong-label distribution preserves epoch/label/method logits multiset but changes image difficulty/augmentation pairing;negative not equivalence;not VAE physical causality",
+  "teachers": {
+    "aligned": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_source_best.pth",
+    "permuted": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_source_best.pth"
+  },
+  "teacher_sha256": {
+    "aligned": "2ee070e0b9da850a1a33dd6c9f43f2655d393b3773227049032116c490c5e46f",
+    "permuted": "2ee070e0b9da850a1a33dd6c9f43f2655d393b3773227049032116c490c5e46f"
+  },
+  "teacher_selection_epochs": {
+    "aligned": 8,
+    "permuted": 8
+  },
+  "permutation": "Every epoch,label,method layer: sorted(video_key,trace_position); rotate donors by max single-video records m; >=2videos and2m<=N, bijection/same-layer/cross-video assertions; no target-confidence selection",
+  "output": "/root/DeepfakeBench-prd-common/.state/artifacts/q21_t01_20261010",
+  "backup": "/root/DeepfakeBench-prd-common/.state/backups/q21_t01_20261010",
+  "storage": "Existing 50GB system overlay disk; does not write full group into almost-full100GB data disk; no relocation/deletion of old evidence/new paid resource",
+  "shared_control": "No Q22 control reuse claimed in this Q21-only run; Q22 remains unclaimed"
+}
