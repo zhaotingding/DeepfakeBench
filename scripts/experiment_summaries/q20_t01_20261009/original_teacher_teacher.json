@@ -1,0 +1,8 @@
+{
+  "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/original_source_best.pth",
+  "checkpoint_sha256": "b54fc2c4c2be1d758c3b2babee227dc17d000b26c90160bc3696fa70c486ee16",
+  "source_best_epoch": 10,
+  "native192_max_error": 0.0,
+  "state_sha256": "b246424dc88fa660ac30d076c06c754cf4c8488255a46c30481186c910102eda",
+  "frozen": true
+}

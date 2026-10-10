@@ -1,0 +1,30 @@
+{
+  "original_teacher_student": {
+    "batch_size": 64,
+    "median_seconds": 0.9458426218479872,
+    "peak_allocated_bytes": 2535421440,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval",
+    "memory_scope": "single model and same64 source-val inputs resident, no optimizer/other model"
+  },
+  "prd_teacher_student": {
+    "batch_size": 64,
+    "median_seconds": 0.9469584869220853,
+    "peak_allocated_bytes": 2535421440,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval",
+    "memory_scope": "single model and same64 source-val inputs resident, no optimizer/other model"
+  },
+  "prd_teacher": {
+    "batch_size": 64,
+    "median_seconds": 4.032931219786406,
+    "peak_allocated_bytes": 9704011264,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval",
+    "memory_scope": "single model and same64 source-val inputs resident, no optimizer/other model"
+  },
+  "original_teacher": {
+    "batch_size": 64,
+    "median_seconds": 0.9472917327657342,
+    "peak_allocated_bytes": 2535421440,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval",
+    "memory_scope": "single model and same64 source-val inputs resident, no optimizer/other model"
+  }
+}
