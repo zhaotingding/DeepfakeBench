@@ -1,0 +1,602 @@
+[
+  {
+    "epoch": 1,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 1,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 1,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 1,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 1,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 2,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 2,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 2,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 2,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 2,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 3,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 3,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 3,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 3,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 3,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 4,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 4,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 4,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 4,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 4,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 5,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 5,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 5,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 5,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 5,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 6,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 6,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 6,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 6,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 6,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 7,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 7,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 7,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 7,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 7,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 8,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 8,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 8,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 8,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 8,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 9,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 9,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 9,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 9,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 9,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 10,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 10,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 10,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 10,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 10,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 11,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 11,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 11,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 11,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 11,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 12,
+    "label": 0,
+    "method": 0,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 12,
+    "label": 1,
+    "method": 1,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 12,
+    "label": 1,
+    "method": 2,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 12,
+    "label": 1,
+    "method": 3,
+    "records": 5760,
+    "max_video_records": 8,
+    "videos": 720,
+    "bijection": true,
+    "cross_video": true
+  },
+  {
+    "epoch": 12,
+    "label": 1,
+    "method": 4,
+    "records": 5752,
+    "max_video_records": 8,
+    "videos": 719,
+    "bijection": true,
+    "cross_video": true
+  }
+]

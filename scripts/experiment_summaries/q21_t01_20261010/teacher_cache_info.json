@@ -1,0 +1,17 @@
+{
+  "checkpoint": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_source_best.pth",
+  "checkpoint_sha256": "2ee070e0b9da850a1a33dd6c9f43f2655d393b3773227049032116c490c5e46f",
+  "source_best_epoch": 8,
+  "native192_max_error": 0.0,
+  "state_sha256": "90487234f96acd5148968249ac22ac39f15dd012ebfda72f64969e1d1b8438ab",
+  "frozen": true,
+  "teacher_bs64": {
+    "batch_size": 64,
+    "median_seconds": 4.107446095906198,
+    "peak_allocated_bytes": 11122764800,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval"
+  },
+  "teacher_bs16": 1.094912732951343,
+  "teacher_state_unchanged": true,
+  "teacher_grad_none": true
+}

@@ -1,0 +1,32 @@
+{
+  "0": {
+    "records": 69024,
+    "mean_confidence": 0.9346447968592124,
+    "mean_entropy": 0.17465326276056928,
+    "teacher_error_fraction": 0.0278743625405656
+  },
+  "1": {
+    "records": 69024,
+    "mean_confidence": 0.9549917371990135,
+    "mean_entropy": 0.1115878807121747,
+    "teacher_error_fraction": 0.02912030598052851
+  },
+  "2": {
+    "records": 69024,
+    "mean_confidence": 0.994999710628431,
+    "mean_entropy": 0.016035104973594304,
+    "teacher_error_fraction": 0.0024339360222531293
+  },
+  "3": {
+    "records": 69120,
+    "mean_confidence": 0.9917073676227888,
+    "mean_entropy": 0.02278786555443906,
+    "teacher_error_fraction": 0.005844907407407407
+  },
+  "4": {
+    "records": 69024,
+    "mean_confidence": 0.8638445684014412,
+    "mean_entropy": 0.2887041522556385,
+    "teacher_error_fraction": 0.1535842605470561
+  }
+}

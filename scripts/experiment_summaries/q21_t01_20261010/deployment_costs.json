@@ -1,0 +1,23 @@
+{
+  "aligned_student": {
+    "batch_size": 64,
+    "median_seconds": 0.952128485776484,
+    "peak_allocated_bytes": 2535421440,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval",
+    "memory_scope": "single model and same64 source-val inputs resident, no optimizer/other model"
+  },
+  "permuted_student": {
+    "batch_size": 64,
+    "median_seconds": 0.9535306142643094,
+    "peak_allocated_bytes": 2535421440,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval",
+    "memory_scope": "single model and same64 source-val inputs resident, no optimizer/other model"
+  },
+  "teacher": {
+    "batch_size": 64,
+    "median_seconds": 4.053370783105493,
+    "peak_allocated_bytes": 9704011264,
+    "scope": "entire model forward, includes VAE/all views for PRD teacher; CUDA synchronized, eval",
+    "memory_scope": "single model and same64 source-val inputs resident, no optimizer/other model"
+  }
+}
