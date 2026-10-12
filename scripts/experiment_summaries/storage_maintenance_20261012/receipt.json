@@ -1,0 +1,452 @@
+{
+  "started_at": "2026-10-12T09:57:50.784136+08:00",
+  "status": "completed",
+  "user_authorization": "Delete verified duplicate archived backup weights; no copy to D drive.",
+  "branch": "prd-203-1-seed3407",
+  "before": {
+    "total_bytes": 107374182400,
+    "available_bytes": 1536573440
+  },
+  "entries": [
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n01_d02_20261004/abs_features_head.pt",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n01_d02_20261004/abs_features_head.pt",
+      "sha256": "102a8b90394445381130e96e32f04e6ec4edd9074e0368e336d8fdf9c72b47b7",
+      "bytes": 9996050,
+      "freed_allocated_bytes": 9998336,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n01_d02_20261004/signed_features_head.pt",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n01_d02_20261004/signed_features_head.pt",
+      "sha256": "c8f3730b98c3021becbe6601e0d478057ebf251ac84c9aae1bccd69e0a613e0c",
+      "bytes": 9996098,
+      "freed_allocated_bytes": 9998336,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n01_t02_20261004/abs_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n01_t02_20261004/abs_final.pth",
+      "sha256": "f0974a6bf3324e6cd6c7fd60e96c1cb5525b7090d6dab8ff22ca84f4f259c4f5",
+      "bytes": 1401384250,
+      "freed_allocated_bytes": 1401389056,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n01_t02_20261004/signed_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n01_t02_20261004/signed_final.pth",
+      "sha256": "05d6778571d2772fe97778e9f9d050d6d9235dd86286833e046a7eb6f622b1f7",
+      "bytes": 1401386506,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n01_t04_20261004/abs_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n01_t04_20261004/abs_final.pth",
+      "sha256": "14a6f76285740ce4520f020fd89f4452ed55d21ac926069df5e3e02c3cc369a9",
+      "bytes": 1401384250,
+      "freed_allocated_bytes": 1401389056,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n01_t04_20261004/signed_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n01_t04_20261004/signed_final.pth",
+      "sha256": "10dd5a763e893c0232a5d2dc4d39a3670395aa5d72b33de16b99de2ef1022883",
+      "bytes": 1401386506,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n02_t01_20261003/blur_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n02_t01_20261003/blur_final.pth",
+      "sha256": "27427b618487774d194d3c294a2cd37f9684dc3e8f3e86c0dfb980ef80b1b1c5",
+      "bytes": 1401385515,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/n02_t01_20261003/vae_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/n02_t01_20261003/vae_final.pth",
+      "sha256": "b4f11ef25e9de47dd3047ea6b7d44cac650016f65643e0f712893e0328b91bb4",
+      "bytes": 1401384762,
+      "freed_allocated_bytes": 1401389056,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/p03_t01_20261003/paired_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/p03_t01_20261003/paired_final.pth",
+      "sha256": "eea7cf98a12f96cf7d52c7acb4f738d0bbcec835dc3415f82a07545b251af406",
+      "bytes": 1401386506,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/p03_t01_20261003/rolled_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/p03_t01_20261003/rolled_final.pth",
+      "sha256": "e705f9d43e00a1a93391689bb5e8f086890ed135a4094dda258739b6ab1420a5",
+      "bytes": 1401386506,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q04_t01_20261005/cls24_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q04_t01_20261005/cls24_source_best.pth",
+      "sha256": "1c6d9b2258d557a773306d7dddcd284c5ce7c874db61e0f81de8e3568ed1e8e0",
+      "bytes": 18528,
+      "freed_allocated_bytes": 20480,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q04_t01_20261005/features.pt",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q04_t01_20261005/features.pt",
+      "sha256": "89070a5b87b345339483441b3fd96617a7e095b424c39aab73305808f2191302",
+      "bytes": 63751329,
+      "freed_allocated_bytes": 63758336,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q04_t01_20261005/patch12_mean_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q04_t01_20261005/patch12_mean_source_best.pth",
+      "sha256": "405807a5db8c4933633b1a6c0960c4f1b49e5caad96cf0c6fb8b863eaa14c1e3",
+      "bytes": 18648,
+      "freed_allocated_bytes": 20480,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q04_t01_20261005/patch24_mean_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q04_t01_20261005/patch24_mean_source_best.pth",
+      "sha256": "7915a51ff8e29125dd9ef8011496525d0e9228758457fc79c2be26f4d63bd699",
+      "bytes": 18648,
+      "freed_allocated_bytes": 20480,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t01_20261005/preprocess_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t01_20261005/preprocess_final.pth",
+      "sha256": "e19d3f277af888938f2b18841e2613f73eb99631b68836fd957ee99fa01a3b17",
+      "bytes": 1401389514,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t01_20261005/vae_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t01_20261005/vae_final.pth",
+      "sha256": "84c2b2f31ed3a07c74c3c3a1d705451387a3d092bff6b854c48a90aa30150621",
+      "bytes": 1401384250,
+      "freed_allocated_bytes": 1401389056,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t02_20261005/preprocess_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t02_20261005/preprocess_final.pth",
+      "sha256": "e01a1633bf1faf4f465aeba2a26c92cfb836515c81268d9a398baa868c1b9b97",
+      "bytes": 1401389514,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t02_20261005/vae_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t02_20261005/vae_final.pth",
+      "sha256": "4c6db4f87f66610ecefdf2e0518191c736d10facddf59a53bd113e8bc07f30dd",
+      "bytes": 1401384250,
+      "freed_allocated_bytes": 1401389056,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t03_20261005/increment_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t03_20261005/increment_final.pth",
+      "sha256": "ee6f296b9ae37777da97490dd5a9dc22e93a36f9665f1086540123606f377a48",
+      "bytes": 1401388762,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t04_20261006/frozen_increment_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t04_20261006/frozen_increment_final.pth",
+      "sha256": "79650bb434a668cb12c87c7daa7b72eade98db8e6b0ef1c4f2dfc23a67c88b8c",
+      "bytes": 1401394090,
+      "freed_allocated_bytes": 1401401344,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t05_20261006/stop_pre_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t05_20261006/stop_pre_final.pth",
+      "sha256": "ec33b2e55802d30e64e785de4e75959e7c9213f6ac4c669269acbcae28a1e0ca",
+      "bytes": 1401388010,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q05_t06_20261006/fixed_pre_final.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q05_t06_20261006/fixed_pre_final.pth",
+      "sha256": "fa752d17bee726b05725af4c72665ab454df31e7cb64825850b2ef1442c6bc04",
+      "bytes": 2626949295,
+      "freed_allocated_bytes": 2626957312,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q10_t01_20261006/joint_source_best.pth",
+      "sha256": "2ee070e0b9da850a1a33dd6c9f43f2655d393b3773227049032116c490c5e46f",
+      "bytes": 1401390266,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/joint_terminal.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q10_t01_20261006/joint_terminal.pth",
+      "sha256": "4967113fcc3470cc9b98a6d09f8446eac38ae7b0f17bc577c95ef4cb88ae2364",
+      "bytes": 1401388010,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/original_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q10_t01_20261006/original_source_best.pth",
+      "sha256": "b54fc2c4c2be1d758c3b2babee227dc17d000b26c90160bc3696fa70c486ee16",
+      "bytes": 1401392522,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q10_t01_20261006/original_terminal.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q10_t01_20261006/original_terminal.pth",
+      "sha256": "d131c0fc1a34d6048d075f64b39c4294037cdbd4977768fd4feccbd9c25e7600",
+      "bytes": 1401390266,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q12_t01_20261008_24h_v2/blur_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q12_t01_20261008_24h_v2/blur_source_best.pth",
+      "sha256": "51e6e9504710136b0aba83c91560a074665206a8fc8ebdd51d61b7627bd9ab0a",
+      "bytes": 1401390033,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q12_t01_20261008_24h_v2/blur_terminal.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q12_t01_20261008_24h_v2/blur_terminal.pth",
+      "sha256": "bee6ca148fb397248f579004311814f0a24ba33f6069a6eaa94f406abd19a1f6",
+      "bytes": 1401387774,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q13_t01_20261007/total_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q13_t01_20261007/total_source_best.pth",
+      "sha256": "07d6c7f22c8f85aa14998c7331dcb70fd8fba1bcbb32974c95628b3f9d87f2ad",
+      "bytes": 1401390266,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q13_t01_20261007/total_terminal.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q13_t01_20261007/total_terminal.pth",
+      "sha256": "ec4de7e05e8b16590e6c2d9e7aa5cd10109c9e36985d1cd66b484d4992abd046",
+      "bytes": 1401388010,
+      "freed_allocated_bytes": 1401393152,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/features.pt",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q15_p01_20261008/features.pt",
+      "sha256": "ad95d501552a1760421a753ea642f6c2616cbf4859d5eff6beb237b0f2df28c7",
+      "bytes": 39845025,
+      "freed_allocated_bytes": 39845888,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/magnitude_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q15_p01_20261008/magnitude_source_best.pth",
+      "sha256": "3d9b76a6629566666721f0f6d43ccd19c51998f8bc3fef203f11fc48a0159210",
+      "bytes": 9856,
+      "freed_allocated_bytes": 12288,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/original_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q15_p01_20261008/original_source_best.pth",
+      "sha256": "58d4410c4a0fd1019d80be473dd7002e63c9d9af86d600b866d695c4e74a5ef1",
+      "bytes": 9848,
+      "freed_allocated_bytes": 12288,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/permuted_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q15_p01_20261008/permuted_source_best.pth",
+      "sha256": "600afae674128fc75059337aa0ab371b137357e2605b35064eb7032b9bdd24d0",
+      "bytes": 9848,
+      "freed_allocated_bytes": 12288,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q15_p01_20261008/relation_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q15_p01_20261008/relation_source_best.pth",
+      "sha256": "03b9aa87c7ea2624c8761cf343d9f286e0875f0fcf9436a9cdb5ac3a1307c5a1",
+      "bytes": 9848,
+      "freed_allocated_bytes": 12288,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q16_p01_20261008/curvature_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q16_p01_20261008/curvature_source_best.pth",
+      "sha256": "8d0106e15bf69ad8817f7cf5321e5f833064b286af11a51fea20e6cc73f631d2",
+      "bytes": 18560,
+      "freed_allocated_bytes": 20480,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q16_p01_20261008/features.pt",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q16_p01_20261008/features.pt",
+      "sha256": "df6b76e872406abbf9ba076b0ad3025a3ef9d7c158c08bb92a1ed21751c025b8",
+      "bytes": 63751329,
+      "freed_allocated_bytes": 63754240,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q16_p01_20261008/first_order_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q16_p01_20261008/first_order_source_best.pth",
+      "sha256": "0a2ecdf871075a45a04c7803ea4c2141dfca2a2c72d898c63d9e5ebc9bfb6483",
+      "bytes": 18640,
+      "freed_allocated_bytes": 20480,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q16_p01_20261008/midpoint_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q16_p01_20261008/midpoint_source_best.pth",
+      "sha256": "8877e2b8a3f32829783c37af157c00ef91e78f6dd8a6f1d7856ecf2f2b1188df",
+      "bytes": 18552,
+      "freed_allocated_bytes": 20480,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q20_t01_20261009/original_teacher_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q20_t01_20261009/original_teacher_source_best.pth",
+      "sha256": "e8732f16e48a02beeb3a96d1d5860e8a333a5ad001267285314463c7423d4ace",
+      "bytes": 1401398602,
+      "freed_allocated_bytes": 1401405440,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q20_t01_20261009/original_teacher_terminal.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q20_t01_20261009/original_teacher_terminal.pth",
+      "sha256": "20bf57335da88b7bb57b4283b095068d5281efeec0e8165037ee4e649f10f416",
+      "bytes": 1401396346,
+      "freed_allocated_bytes": 1401401344,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q20_t01_20261009/prd_teacher_source_best.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q20_t01_20261009/prd_teacher_source_best.pth",
+      "sha256": "a093e3d20e48e0dd5384a817f91ca6e85e25d2359b484ff0ba13008f94e70cb2",
+      "bytes": 1401394842,
+      "freed_allocated_bytes": 1401401344,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    },
+    {
+      "source": "/root/autodl-tmp/prd-common/outputs/logs/mechanism/q20_t01_20261009/prd_teacher_terminal.pth",
+      "backup": "/root/autodl-tmp/prd-common/outputs/logs/checkpoint_backups/q20_t01_20261009/prd_teacher_terminal.pth",
+      "sha256": "e9967a439ad8707ccd1df48179c6cd69e20d4085b940a4a0cf00875eab5974f8",
+      "bytes": 1401392522,
+      "freed_allocated_bytes": 1401397248,
+      "verified_byte_equal": true,
+      "original_unchanged": true,
+      "old_path_readable": true
+    }
+  ],
+  "skipped": [],
+  "backup_semantics": "Converted backup paths are aliases to retained source files; no independent second copy remains for these 43 files.",
+  "ended_at": "2026-10-12T10:08:41.243344+08:00",
+  "after": {
+    "total_bytes": 107374182400,
+    "available_bytes": 42188546048
+  },
+  "unchanged_git_dirty": true,
+  "converted_files": 43,
+  "freed_allocated_bytes": 40652148736
+}
