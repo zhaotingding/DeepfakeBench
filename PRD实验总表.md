@@ -6,6 +6,7 @@
 
 | 任务 / 问题 | 负责人 · 资源 | 运行身份 | 状态（北京时间） | 下一动作 / 证据 |
 |---|---|---|---|---|
+| Q24-T01/v1：训练残差辅助、部署只看原图 | 4090 Agent · GPU0 · 对话01a0d3ae-1b19-77a3-bca2-245eec3b7e83 | /home/zhaoting.ding/prd-worktrees/gpu0-q24-20261012；代码45eac1e；task q24_t01_gpu0_20261012；三臂顺序fresh | 10-12用户“开始”批准完整Q24；CPU共同初值/BN/构造RNG、源清单、冻结VAE及16.16GiB预计空间通过，认领待GPU预检 | 三臂各12轮21576、≤48GPUh/每臂≤24h/18GiB/0重试；原主判据与源选点不改，只执行本组。[协议与身份](docs/prd/records/Q24-T01.md) |
 | Q22-T01/v1：VAE vs blur固定教师蒸馏 | 4090 Agent · GPU0/GPU1 · 对话01a0d3ae-1b19-77a3-bca2-245eec3b7e83 | /home/zhaoting.ding/prd-worktrees/gpu0-q22-20261010；精度代码aa57db3；失败归档e6a7903；两个precision task均退出 | 10-10 11:26用户授权的一次禁用TF32预检仍失败：VAE误差.00025999546/blur .00004458427，固定门槛1e-5；0缓存batch/0学生参数更新；旧26与新28文件备份通过 | 一次授权已用完，停止计算、不重试/不放宽门槛/不自动拉其他实验；误差下降但TF32非剩余差异完整解释，不当科学阴性。[失败闭环](docs/prd/records/Q22-T01.md) |
 | Q03-P01：跨重建器准备（非实验） | 203 Agent · 203-1-新，仅准备项，不占计算槽 | `/root/DeepfakeBench-prd-common`；第二权重/正式配置待定 | 10-06 11:18实际SSH：既有权重目录仅CLIP/原VAE；当时可认领池为空，第二重建器前置仍阻塞 | Q05-E02已完整验收归档、原监控已结束；下方新增候选均不依赖第二重建器，可按已有授权查重认领，尚无自动接续。[缺口与证据](docs/prd/records/Q03-P01.md) |
 | N11-T01/v1：源域线性正交化残差校正 | 4090 Agent · GPU1研究槽（CPU复用缓存，无GPU计算） | /home/zhaoting.ding/prd-worktrees/gpu1-n11-20261006；代码 `073171c`；task `n11_t01_gpu1_20261006_verified` | 10-06 06:52实际SSH：verified smoke退出0，正式三头各21576/完整预测exit0，runner1385980仍独立CPU配对/归档，未完整验收 | e/raw r/z冻结同容量完整比较；旧计数预检失败保留；原GPU1下一07:05单次已读回，不改GPU0/203。[协议与实际阶段](docs/prd/records/N11-T01.md) |
@@ -18,7 +19,6 @@ Q12/Q14/Q17/Q18/Q19/Q20/Q21/Q23均已验收归档；本次仅补充候选，不�
 
 | ID / 待回答问题 | 最小对照与交付 | 预算与前置 | 状态 |
 |---|---|---|---|
-| [Q24-T01/v1](docs/prd/plans/2026-10-10-training-only-residual.md)：残差辅助能否改善只看原图的模型？ | 无辅助 / 原图辅助 / 残差辅助三臂，各12轮 | ≤48 GPUh/每臂≤24h/18GiB；独立资源及三臂预算通过 | 可认领，新训练优先 |
 | [Q25-P01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q25-p01)：同教师在线/缓存为何出现轨迹差异？ | CPU代码、状态和源选点审计；必要才前8步两路径重放 | CPU≤2h，可选GPU≤20分钟/2GiB；原版本与缓存可读 | 可认领，KD扩展前置 |
 | [Q26-D01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q26-d01)：Q23反转来自权重还是BN状态？ | 两臂各自2×2交叉＋完整视频排序分解，0训练 | ≤2 GPUh/墙钟6h/4GiB；四原权重和同环境自然对角复现 | 可认领，机制诊断 |
 | [Q26-E01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q26-e01)：统一源统计能否改善固定学生？ | 四端点native vs源训练数据重估BN，0参数更新 | ≤2 GPUh/墙钟6h/4GiB；Q26-D01预定BN门槛通过并验收 | 条件候选，不自动接续 |
