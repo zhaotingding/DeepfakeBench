@@ -10,19 +10,21 @@
 | Q03-P01：跨重建器准备（非实验） | 203 Agent · 203-1-新，仅准备项，不占计算槽 | `/root/DeepfakeBench-prd-common`；第二权重/正式配置待定 | 10-06 11:18实际SSH：既有权重目录仅CLIP/原VAE；当时可认领池为空，第二重建器前置仍阻塞 | Q05-E02已完整验收归档、原监控已结束；下方新增候选均不依赖第二重建器，可按已有授权查重认领，尚无自动接续。[缺口与证据](docs/prd/records/Q03-P01.md) |
 | N11-T01/v1：源域线性正交化残差校正 | 4090 Agent · GPU1研究槽（CPU复用缓存，无GPU计算） | /home/zhaoting.ding/prd-worktrees/gpu1-n11-20261006；代码 `073171c`；task `n11_t01_gpu1_20261006_verified` | 10-06 06:52实际SSH：verified smoke退出0，正式三头各21576/完整预测exit0，runner1385980仍独立CPU配对/归档，未完整验收 | e/raw r/z冻结同容量完整比较；旧计数预检失败保留；原GPU1下一07:05单次已读回，不改GPU0/203。[协议与实际阶段](docs/prd/records/N11-T01.md) |
 
-Q12/Q14/Q17/Q18/Q19/Q20/Q21/Q23/Q24均已验收归档；本次Q24完整验收（主判据inconclusive），本批结束；完整结果见[专属记录](docs/prd/records/Q24-T01.md)，不恢复旧连续运行授权。N11/Q03仍按上方证据等待交接，记录过期不代表资源空闲。203旧输出盘1.54GB为历史值；Q21已另用当时余38.36GB的系统盘（见本项记录）。新认领须重验实际输出路径容量，不能沿用任一旧空间快照。
+Q24已完整验收、主判据inconclusive，本批结束；其余历史见[详细记录](PRD实验详细记录.md)。上方待交接状态保留原核验时间，过期记录不代表资源空闲；新认领现场核验资源和实际输出空间，不沿用旧快照。
 
 ## 可认领探索任务
 
-10-11按Q21/Q23终态更新：**Q24保留为优先完整训练；先用有限诊断解释蒸馏差异与端点反转。** [结果复盘](PRD实验详细记录.md#review-20261011) · [新增协议](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md)。候选不预填负责人，准备运行时自行认领。
+10-13核对共享结果及分支近期记录：**Q24已完成，Q25/Q26仍未执行。优先查辅助监督留下了什么可读信息，再决定补联合训练的无辅助基线。** [本次复盘](PRD实验详细记录.md#review-20261013) · [新协议](docs/prd/plans/2026-10-13-readout-and-joint-control.md)。候选不预填负责人，执行时自行认领。
 
 | ID / 待回答问题 | 最小对照与交付 | 预算与前置 | 状态 |
 |---|---|---|---|
-| [Q25-P01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q25-p01)：同教师在线/缓存为何出现轨迹差异？ | CPU代码、状态和源选点审计；必要才前8步两路径重放 | CPU≤2h，可选GPU≤20分钟/2GiB；原版本与缓存可读 | 可认领，KD扩展前置 |
-| [Q26-D01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q26-d01)：Q23反转来自权重还是BN状态？ | 两臂各自2×2交叉＋完整视频排序分解，0训练 | ≤2 GPUh/墙钟6h/4GiB；四原权重和同环境自然对角复现 | 可认领，机制诊断 |
-| [Q26-E01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q26-e01)：统一源统计能否改善固定学生？ | 四端点native vs源训练数据重估BN，0参数更新 | ≤2 GPUh/墙钟6h/4GiB；Q26-D01预定BN门槛通过并验收 | 条件候选，不自动接续 |
+| [Q27-P01/v1](docs/prd/plans/2026-10-13-readout-and-joint-control.md#q27-p01)：辅助收益留在原图还是联合表示？ | Q18/Q24冻结编码器，原图/联合线性读出；原生头同报 | ≤6 GPUh/CPU2h/10GiB；完整旧权重与清单 | 可认领，优先读出诊断 |
+| [Q26-D01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q26-d01)：Q23反转来自权重还是BN状态？ | 两臂各自2×2交叉＋完整视频排序分解，0训练 | ≤2 GPUh/墙钟6h/4GiB；四原权重和自然对角复现 | 可认领，仍未执行 |
+| [Q25-P01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q25-p01)：同教师在线/缓存为何轨迹不同？ | CPU代码、状态和源选点审计；必要才前8步重放 | CPU≤2h，可选GPU≤20分钟/2GiB；原版本与缓存可读 | 可认领，KD扩展前置 |
+| [Q27-T01/v1](docs/prd/plans/2026-10-13-readout-and-joint-control.md#q27-t01)：联合PRD残差辅助是否胜无辅助？ | fresh联合主头三臂：无辅助/原图辅助/残差辅助 | ≤48 GPUh/18GiB；Q27-P01固定读出门槛通过并验收 | 条件候选，不自动接续 |
+| [Q26-E01/v1](docs/prd/plans/2026-10-11-state-and-transfer-candidates.md#q26-e01)：统一源统计能否改善固定学生？ | 四端点native vs源训练数据重估BN，0参数更新 | ≤2 GPUh/墙钟6h/4GiB；Q26-D01原Q23门槛通过并验收 | 条件候选，不自动接续 |
 
-源val选点与原主结论不改，逐域及terminal完整报告；Adam/batch/seed不扫。先认领发布读回，再核验资源，不因候选发布自动全跑。Q24不受Q25阻塞；暂不追加完整KD教师矩阵或补训Q23第三臂，先核清差异。Q22不自动重试或放宽门槛；旧失败/取消历史保留。完成由所属Agent归档，再移出本池。
+源val选点与原主结论不改，完整报告逐域及terminal；Adam/batch/seed不扫。Q27与Q26-D可独立认领，不受Q25阻塞；新完整KD扩展仍先核清Q25。先认领发布读回，再核验资源；本池不授权自动全跑。Q22不自动重试或放宽门槛，旧失败/取消保留，完成由所属Agent归档后移出。
 
 ## 同步规则
 
