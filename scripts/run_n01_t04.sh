@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd /root/DeepfakeBench-prd-common
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 source /root/prd-common-activate.sh
 mode=$1
 claim=$2

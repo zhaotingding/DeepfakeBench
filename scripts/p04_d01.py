@@ -11,7 +11,7 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path('/root/DeepfakeBench-prd-common')
+ROOT = Path(__file__).resolve().parents[1]
 DATA = Path('/datasets/Deepfake/DeepfakeBench/config/dataset_json')
 DOMAINS = ('Celeb-DF-v2', 'DFDCP', 'DFDC')
 OUT = ROOT/'.state/p04_d01_20261003_a2'

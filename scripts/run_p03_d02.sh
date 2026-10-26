@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd /root/DeepfakeBench-prd-common
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 source /root/prd-common-activate.sh
 test "$(git branch --show-current)" = prd-203-1-seed3407
 claim="$1"

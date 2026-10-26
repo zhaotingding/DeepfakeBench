@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd /root/DeepfakeBench-prd-common
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 test "$(git branch --show-current)" = prd-203-1-seed3407
 test "$(git rev-parse origin/codex/prd-progress)" = "$1"
 exec 9>.state/prd_mechanism_203.lock

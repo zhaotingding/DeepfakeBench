@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd /root/DeepfakeBench-prd-common
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 source /root/prd-common-activate.sh
 q=.state/n02_d01_queue_20261003
 mkdir "$q"

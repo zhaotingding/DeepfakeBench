@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd /root/DeepfakeBench-prd-common
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 source /root/prd-common-activate.sh
 exec 9>.state/prd_training.lock
 flock -n 9
