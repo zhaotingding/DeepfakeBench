@@ -1,0 +1,6 @@
+{
+  "data_root": "/absolute/data-root",
+  "clip_path": "/absolute/pretrained/clip-vit-large-patch14",
+  "vae_path": "/absolute/pretrained/vae_original",
+  "output_root": "/absolute/output-root"
+}

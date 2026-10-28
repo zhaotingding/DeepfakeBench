@@ -1,0 +1,15 @@
+{
+  "status": "draft",
+  "id": null,
+  "epochs": null,
+  "seed": null,
+  "max_wall_seconds": null,
+  "train_manifest": null,
+  "val_manifest": null,
+  "evaluation_manifests": [],
+  "checkpoint_rule": "source_val_video_balanced_ce",
+  "primary_comparison": null,
+  "minimum_useful_gain": null,
+  "allowed_domain_regression": null,
+  "note": "Freeze data/selection/budget/comparisons and obtain approval before formal training. Do not auto-run the whole variant list."
+}

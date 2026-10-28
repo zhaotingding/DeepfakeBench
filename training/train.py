@@ -1,3 +1,6 @@
+if __name__ == "__main__":
+    raise SystemExit("prd-r01 uses scripts/prd_r01.py; legacy target-selected training is disabled in this branch")
+
 # region authorinfo
 
 # author: Zhiyuan Yan

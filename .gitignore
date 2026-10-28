@@ -50,3 +50,6 @@ training/pretrained/*.dat
 
 # zip
 *.zip
+
+# R01 machine-local paths
+/r01.machine.json
