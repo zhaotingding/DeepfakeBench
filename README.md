@@ -1,3 +1,9 @@
+# 当前分支：PRD R01
+
+本分支的新阶段入口是 [README_R01.md](README_R01.md) 与 `scripts/prd_r01.py`。默认只检查；正式训练须另行冻结协议和授权。以下为原项目历史说明，不按旧 `training/train.py` 启动新实验。
+
+---
+
 # DeepfakeBench: A Comprehensive Benchmark of Deepfake Detection (NeurIPS 2023 D&B)
 
 本分支的 PRD 多服务器实验请先阅读 [通用开发基线](docs/PORTABLE_BASELINE.md)：环境安装、数据与权重目录、预检和独立实验分支。下文保留上游说明，不代表当前 PRD 环境版本。
