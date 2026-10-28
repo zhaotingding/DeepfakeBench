@@ -47,14 +47,20 @@ def video_metrics(logits, rows):
         for metric in ["auc", "ce", "balanced_ce"]
     }}
 
+def move_batch(batch, device):
+    images, labels, indices, views = batch
+    return (images.to(device, non_blocking=True), labels.to(device, non_blocking=True), indices,
+            {name: value.to(device, non_blocking=True) for name, value in views.items()})
+
 def evaluate(model, loader, rows, device, deadline=None):
     model.eval()
     logits = np.empty((len(rows), 2), dtype=np.float32)
     with torch.inference_mode():
-        for images, labels, indices in loader:
+        for batch in loader:
+            images, labels, indices, views = move_batch(batch, device)
             if deadline is not None and time.monotonic() > deadline:
                 raise TimeoutError("Approved wall-time budget exhausted during evaluation")
-            result = model(images.to(device, non_blocking=True))["logits"]
+            result = model(images, views)["logits"]
             if not torch.isfinite(result).all():
                 raise ValueError("Nonfinite evaluation logits")
             logits[indices.numpy()] = result.cpu().numpy()
@@ -63,8 +69,8 @@ def evaluate(model, loader, rows, device, deadline=None):
 def run_training(config, protocol, run_id, device):
     from .config import ROOT
     import subprocess
-    if not run_id or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in run_id):
-        raise ValueError("Use a unique simple run_id")
+    if not run_id or any(not (c.isalnum() or c in "-_") for c in run_id):
+        raise ValueError("使用唯一的中文或字母数字运行名称，不含路径分隔符")
     train = load_manifest(protocol["train_manifest"], "source_train")
     val = load_manifest(protocol["val_manifest"], "source_val")
     validate_source_pair(train, val)
@@ -74,6 +80,8 @@ def run_training(config, protocol, run_id, device):
         if manifest.get("role") not in ["target_dev", "source_test"]:
             raise ValueError("Endpoint manifests must be source_test or target_dev")
         targets.append(manifest)
+    from .cache import bind_caches
+    config, cache_identities = bind_caches(config, protocol, [train, val] + targets)
     if len(train["rows"]) % config["train_batch_size"] == 1:
         raise ValueError("BatchNorm head cannot train on a final singleton batch; fix the protocol explicitly")
     if subprocess.check_output(["git", "-C", str(ROOT), "status", "--porcelain", "--untracked-files=normal"], text=True).strip():
@@ -84,7 +92,7 @@ def run_training(config, protocol, run_id, device):
     deadline = started + protocol["max_wall_seconds"]
     code = subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip()
     meta = dict(code_commit=code, config=config, protocol=protocol, run_id=run_id,
-                torch_version=torch.__version__, device=str(device), started_at=time.strftime("%Y-%m-%dT%H:%M:%S%z"))
+                cache_identities=cache_identities, torch_version=torch.__version__, device=str(device), started_at=time.strftime("%Y-%m-%dT%H:%M:%S%z"))
     (out / "metadata.json").write_text(json.dumps(meta, indent=2))
     for name, manifest in [("train", train), ("val", val)]:
         (out / (name + "_manifest.json")).write_text(json.dumps(manifest, ensure_ascii=False))
@@ -104,15 +112,15 @@ def run_training(config, protocol, run_id, device):
             while True:
                 start = time.monotonic()
                 try:
-                    images, labels, _ = next(iterator)
+                    batch = next(iterator)
                 except StopIteration:
                     break
                 waiting += time.monotonic() - start  # 主线程取batch等待，非GPU分段时间。
                 if time.monotonic() > deadline:
                     raise TimeoutError("Approved wall-time budget exhausted")
-                images, labels = images.to(device, non_blocking=True), labels.to(device, non_blocking=True)
+                images, labels, _, views = move_batch(batch, device)
                 optimizer.zero_grad(set_to_none=True)
-                loss = F.cross_entropy(model(images)["logits"], labels)
+                loss = F.cross_entropy(model(images, views)["logits"], labels)
                 if not torch.isfinite(loss):
                     raise ValueError("Nonfinite loss before optimizer update")
                 loss.backward()

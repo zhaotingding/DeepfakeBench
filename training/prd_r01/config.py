@@ -81,4 +81,6 @@ def read_protocol(path):
             raise ValueError(f"{key} must be an absolute path to a frozen manifest")
     if protocol.get("checkpoint_rule") != "source_val_video_balanced_ce":
         raise ValueError("Only the declared source-val rule is supported")
+    if protocol.get("reconstruction_mode") != "cached_paired" or protocol.get("augmentation_protocol") != "paired_float32_v1":
+        raise ValueError("正式协议须明确预计算重构与配对增强，不能隐式沿用旧增强顺序")
     return protocol

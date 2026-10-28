@@ -60,6 +60,7 @@ class LMDBImages(Dataset):
         self.envs = {}
         self.env_keys = {}
         self.transform = None
+        self.caches = {}  # mmap按worker延迟打开。
         self.mean = torch.tensor(config["mean"]).view(3, 1, 1)
         self.std = torch.tensor(config["std"]).view(3, 1, 1)
 
@@ -71,9 +72,11 @@ class LMDBImages(Dataset):
         state["envs"] = {}
         state["env_keys"] = {}  # spawn worker不携带LMDB句柄。
         state["transform"] = None
+        state["caches"] = {}
         return state
 
-    def __getitem__(self, index):
+    def read_pixels(self, index):
+        import hashlib
         import cv2
         import lmdb
         row = self.rows[index]
@@ -98,19 +101,60 @@ class LMDBImages(Dataset):
             raise ValueError(f"Cannot decode: {key}")
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = cv2.resize(image, (self.config["resolution"],) * 2, interpolation=cv2.INTER_CUBIC)
-        if self.augment:
+        return image, hashlib.sha256(raw).hexdigest()  # 原图变化则拒绝旧缓存。
+
+    def __getitem__(self, index):
+        from .cache import read_cache
+        image, source_sha = self.read_pixels(index)
+        row = self.rows[index]
+        paired = self.config.get("augmentation_protocol") == "paired_float32_v1"
+        views = {}
+        if self.config.get("reconstruction_mode") == "cached_paired":
+            for name in dict.fromkeys(self.config.get("responses", [])):
+                if name not in self.caches:
+                    path = self.config.get("reconstruction_caches", {}).get(name)
+                    if path is None:
+                        raise ValueError("缺少缓存目录，禁止回落在线重构：" + name)
+                    self.caches[name] = read_cache(path, self.rows, self.config)
+                values, meta, slots = self.caches[name]
+                slot = slots[index]
+                if meta["entries"][slot]["source_sha256"] != source_sha:
+                    raise ValueError("原图内容变化，缓存已失效")
+                cached = torch.from_numpy(np.array(values[slot], copy=True))
+                if not torch.isfinite(cached).all():
+                    raise ValueError("缓存帧包含非有限数值")
+                views[name] = cached
+        if self.augment and paired:
+            targets = {}
+            for name, value in views.items():
+                pixels = (value * self.std + self.mean).permute(1, 2, 0).numpy()
+                targets["reconstruction_" + name] = pixels.clip(0, 1)  # 增强时统一合法像素范围。
             if self.transform is None:
-                import albumentations as A
-                self.transform = A.Compose([
-                    A.HorizontalFlip(p=0.5), A.Rotate(limit=(-10, 10), p=0.5),
-                    A.GaussianBlur(blur_limit=(3, 7), p=0.5),
-                    A.OneOf([A.RandomBrightnessContrast(brightness_limit=.1, contrast_limit=.1),
-                             A.FancyPCA(), A.HueSaturationValue()], p=.5),
-                    A.ImageCompression(quality_lower=40, quality_upper=100, p=.5),
-                ])  # 已resize到224；省去旧管线中恒等的再次等比resize和PIL往返。
-            image = self.transform(image=image)["image"]
-        tensor = torch.from_numpy(np.ascontiguousarray(image.transpose(2, 0, 1))).float().div_(255)
-        return (tensor - self.mean) / self.std, row["label"], index
+                self.transform = paired_transform(list(targets))
+            original = self.normalize_pixels(image.astype(np.float32) / 255)
+            original = (original * self.std + self.mean).permute(1, 2, 0).numpy().clip(0, 1)
+            augmented = self.transform(image=original, **targets)  # 两路经历相同浮点往返，防止增强放大舍入差。
+            image = augmented["image"]
+            views = {name: self.normalize_pixels(augmented["reconstruction_" + name]) for name in views}
+            tensor = self.normalize_pixels(image)
+        else:
+            if self.augment:
+                if self.transform is None:
+                    import albumentations as A
+                    self.transform = A.Compose([
+                        A.HorizontalFlip(p=0.5), A.Rotate(limit=(-10, 10), p=0.5),
+                        A.GaussianBlur(blur_limit=(3, 7), p=0.5),
+                        A.OneOf([A.RandomBrightnessContrast(brightness_limit=.1, contrast_limit=.1),
+                                 A.FancyPCA(), A.HueSaturationValue()], p=.5),
+                        A.ImageCompression(quality_lower=40, quality_upper=100, p=.5),
+                    ])  # 历史增强仅供显式旧协议。
+                image = self.transform(image=image)["image"]
+            tensor = self.normalize_pixels(image.astype(np.float32) / 255)
+        return tensor, row["label"], index, views
+
+    def normalize_pixels(self, image):
+        tensor = torch.from_numpy(np.ascontiguousarray(image.transpose(2, 0, 1))).float()
+        return (tensor - self.mean) / self.std
 
     def close(self):
         for token in self.env_keys.values():
@@ -119,6 +163,17 @@ class LMDBImages(Dataset):
                 _ENVIRONMENTS.pop(token)[0].close()
         self.envs.clear()
         self.env_keys.clear()
+        self.caches.clear()
+
+def paired_transform(names):
+    import albumentations as A
+    return A.Compose([
+        A.HorizontalFlip(p=.5), A.Rotate(limit=(-10, 10), p=.5),
+        A.GaussianBlur(blur_limit=(3, 7), p=.5),
+        A.OneOf([A.RandomBrightnessContrast(brightness_limit=.1, contrast_limit=.1),
+                 A.HueSaturationValue()], p=.5),
+        A.ImageCompression(quality_lower=40, quality_upper=100, p=.5),
+    ], additional_targets={name: "image" for name in names})  # 同次参数；浮点协议不用仅uint8的FancyPCA。
 
 def make_loader(rows, config, training, seed, device):
     dataset = LMDBImages(rows, config, augment=training)

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "base_commit": "b5fb097740a0815f468faac7d6feac402b29e518",
   "resolution": 224,
   "mean": [
@@ -46,5 +46,7 @@
   "amp": false,
   "source_validation": "each_epoch",
   "target_evaluation": "selected_and_terminal_only",
-  "note": "Preparation baseline, not a paper-exact reproduction or an approved training batch. Rank32 inherited from b5fb097; three-slot head is a new matched comparison."
+  "note": "Preparation baseline, not a paper-exact reproduction or an approved training batch. Rank32 inherited from b5fb097; three-slot head is a new matched comparison.",
+  "reconstruction_mode": "cached_paired",
+  "augmentation_protocol": "paired_float32_v1"
 }

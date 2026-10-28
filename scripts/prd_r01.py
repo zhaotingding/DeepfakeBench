@@ -18,13 +18,14 @@ def main():
     mode.add_argument("--check", action="store_true")
     mode.add_argument("--smoke", action="store_true")
     mode.add_argument("--train", action="store_true")
+    mode.add_argument("--cache-smoke", action="store_true")
     parser.add_argument("--protocol")
     parser.add_argument("--run-id")
     parser.add_argument("--device", default="cuda:0")
     args = parser.parse_args()
     config = read_config(args.machine, args.variant)
     missing = readiness(config)
-    if not args.smoke and not args.train:
+    if not args.smoke and not args.train and not args.cache_smoke:
         print(json.dumps(dict(variant=args.variant, implementation_ready=not missing, missing=missing,
                               formal_training_approved=False, config=config), ensure_ascii=False, indent=2))
         return 2 if missing else 0
@@ -42,9 +43,16 @@ def main():
     device = torch.device(args.device)
     if device.type == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("No CUDA device; no automatic CPU training fallback")
+    if args.cache_smoke:
+        if args.variant != "vae":
+            raise ValueError("--cache-smoke目前只验收VAE公共接口")
+        from prd_r01.cache_smoke import run_cache_smoke
+        print(json.dumps(run_cache_smoke(config, device), ensure_ascii=False, indent=2))
+        return 0
     if args.train:
         print(json.dumps(run_training(config, protocol, args.run_id, device), indent=2))
         return 0
+    config = dict(config, reconstruction_mode="online_after_augment")  # 旧smoke显式验收在线接口。
     torch.set_num_threads(2)
     seed_all(3407)  # 仅接口验收固定随机状态，不预选正式实验seed。
     rows = smoke_rows(config)

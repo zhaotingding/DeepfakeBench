@@ -4,12 +4,13 @@ from torch import nn
 from torch.nn import functional as F
 
 class ResponseModel(nn.Module):
-    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5):
+    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5, cached=False):
         super().__init__()
-        if len(responses) > 2 or any(name not in probes for name in responses):
+        if len(responses) > 2 or (not cached and any(name not in probes for name in responses)):
             raise ValueError("At most two registered response slots are supported")
         self.encoder = encoder
         self.probes = nn.ModuleDict(probes)
+        self.cached = cached
         self.responses = tuple(responses)
         self.head = nn.Sequential(
             nn.Linear(feature_dim * 3, hidden), nn.BatchNorm1d(hidden),
@@ -18,16 +19,21 @@ class ResponseModel(nn.Module):
         for probe in self.probes.values():
             probe.requires_grad_(False)  # 探测算子冻结，编码器仍可训练。
 
-    def forward(self, images):
+    def forward(self, images, reconstructions=None):
+        if self.cached and set(reconstructions or {}) != set(self.responses):
+            raise ValueError("缓存响应不完整或含多余算子")
         z = self.encoder(images)
         responses = {}
         devices = [images.device.index] if images.is_cuda else []
         for name in dict.fromkeys(self.responses):
             # 附加视图不消耗原图/头/下一batch的全局Torch随机序列。
             with torch.random.fork_rng(devices=devices):
-                probe = self.probes[name].eval()
-                with torch.no_grad():
-                    reconstructed = probe(images.detach())
+                if self.cached:
+                    reconstructed = reconstructions[name]  # 跳过算子，但不冻结下游编码器。
+                else:
+                    probe = self.probes[name].eval()
+                    with torch.no_grad():
+                        reconstructed = probe(images.detach())
                 if reconstructed.shape != images.shape:
                     raise ValueError(f"{name} changed the image shape")
                 responses[name] = z - self.encoder(reconstructed.detach())
@@ -79,12 +85,13 @@ def build_model(config, device):
     encoder = CLIPEncoder(config["clip_path"], config["lora"])
     rng = torch.get_rng_state()
     probes = {}
-    if "vae" in config["responses"]:
+    cached = config.get("reconstruction_mode") == "cached_paired"
+    if "vae" in config["responses"] and not cached:
         probes["vae"] = VAEProbe(
             config["vae_path"], config["mean"], config["std"],
             torch.float16 if device.type == "cuda" else torch.float32,
         )
     torch.set_rng_state(rng)
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
-                          config["head"]["hidden"], config["head"]["dropout"])
+                          config["head"]["hidden"], config["head"]["dropout"], cached=cached)
     return model.to(device)

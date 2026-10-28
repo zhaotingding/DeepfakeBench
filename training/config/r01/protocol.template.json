@@ -11,5 +11,8 @@
   "primary_comparison": null,
   "minimum_useful_gain": null,
   "allowed_domain_regression": null,
-  "note": "Freeze data/selection/budget/comparisons and obtain approval before formal training. Do not auto-run the whole variant list."
+  "note": "Freeze data/selection/budget/comparisons and obtain approval before formal training. Do not auto-run the whole variant list.",
+  "reconstruction_caches": {},
+  "reconstruction_mode": "cached_paired",
+  "augmentation_protocol": "paired_float32_v1"
 }
