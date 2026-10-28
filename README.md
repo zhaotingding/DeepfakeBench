@@ -1,4 +1,4 @@
-# 当前分支：PRD R01
+# PRD新阶段公共代码
 
 本分支的新阶段入口是 [README_R01.md](README_R01.md) 与 `scripts/prd_r01.py`。默认只检查；正式训练须另行冻结协议和授权。以下为原项目历史说明，不按旧 `training/train.py` 启动新实验。
 

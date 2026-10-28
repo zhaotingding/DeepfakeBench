@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    raise SystemExit("prd-r01 uses scripts/prd_r01.py; legacy target-selected training is disabled in this branch")
+    raise SystemExit("新阶段使用 scripts/prd_r01.py；本分支已停用旧目标集选点训练入口")
 
 # region authorinfo
 
