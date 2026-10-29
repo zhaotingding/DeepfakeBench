@@ -1,0 +1,160 @@
+{
+  "status": "verified",
+  "time": "2026-10-30T07:01:44.854753+08:00",
+  "supervisor_pid": 3481681,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+  "claim_commit": "bb42adc28e49a2b3c394a04ae37a2f350ebcf842",
+  "training_pid": 3481684,
+  "exit_code": 0,
+  "verification": {
+    "status": "verified",
+    "time": "2026-10-30T07:01:44.840780+08:00",
+    "output": "/home/zhaoting.ding/prd-runs/r01/4090-Restormer恢复重构-20261029-种子3407",
+    "code_commit": "3372483a319e977e106ccde7662e71c285d44e54",
+    "updates": 21576,
+    "independent_metrics_max_error": 1.1102230246251565e-16,
+    "pairing_verified": true,
+    "artifacts_sha256": {
+      "source_val_epoch4.npy": "cf018ccd359959a0dda0f20febb31b7d4a145802d89a14ff9ce9a8853fd7cb94",
+      "terminal_eval0.npy": "ba09c58d93c95ee1b1852a2a5b2f86f11df3da726c5fcddf7c878161a5709b78",
+      "learning_curve.json": "367f4e74eac54a4fef42bc29671a03ed49cc41b306010e530d924d658e46372c",
+      "source_val_epoch11.npy": "1fcce62335b9e45e5dbf2bf6899f92b70934a6cd2a4d04f5144d9ff99edf3bfa",
+      "source_val_epoch3.npy": "d525e12ce24fde2e3c9be9bfb275aac460cc83b894df6998866fd38dab2a586e",
+      "source_val_epoch5.npy": "19c21845127a47d1af50d88c8599e9b9d763fbb20a66d13159c845200d7df2d9",
+      "source_val_epoch6.npy": "9a6f394e94801c0ebf5c1fa39033fccae060a6d043d99a201fa95ed9aa55a37c",
+      "metadata.json": "a82dc36eeb11c84202114f4c3cc4ef96c0ef86fcfd62622518a8906f0a29235c",
+      "source_best_eval1.npy": "f4e56e221302297d9bac546965b6bc6baa3bf29cfab290c5588ca729ea89e9b3",
+      "terminal_eval1.npy": "8f09ec3f1a926140e11e0b3aace5a4fc6b3f6ee6e3f4b1c4cecd822e2fd64701",
+      "source_val_epoch9.npy": "e2046df3528bf1b612afa2ade6b90f020a2c4b79d03f8e24153141a52f776e01",
+      "result.json": "236d2d1ecf4cb018e9399a9c14ad1526bd274c7f4f4dd04bb1b90f02e883a9e0",
+      "source_best.pth": "c5ea16182a246e6382d21876cb58fce14ec0c7d91da7d4184a6522ad9a970baf",
+      "source_val_epoch1.npy": "a700cdbd42772d7f4833a0cbe87c365d55b3345a9685b57fe5b239e35ff303a3",
+      "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+      "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+      "source_val_epoch2.npy": "5931e231dcf1ccfeb7611ecfa1c9bb09ba8d5cb66dc74659901f4b193ace5045",
+      "source_val_epoch8.npy": "01c8e478aee5e09ed8d577b68b9f5d2f865d2b13e28d61773f3708f2a299ed50",
+      "source_val_epoch7.npy": "5f28d7cdb3d9fc47afc6d37918b87be00b4a0626eec228ebef34f491cc97f4a8",
+      "source_val_epoch12.npy": "828aaae2ce073828c9f5ba3538511a3264e6cd64dee0570963ba227b44cb73ee",
+      "terminal.pth": "6a611548a8701549ef0cb86a5f1ab9ce3b2ed5a1efea3fccf836bb485e13cd12",
+      "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+      "complete_result.json": "5c05b07cfedc6f09e14ce4be375d51e6a4664a3ce6dfe5bb73459f82444debdf",
+      "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+      "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+      "source_best_eval0.npy": "0e18151bae915b5b934f643b0e9ce2a517e70e8546f624fdd89b7b5d2ea9e56f",
+      "source_val_epoch10.npy": "a1c1eae273fd063a75373103c96a6e2a1fa23bb790f98af0700278e9354043ee"
+    },
+    "result": {
+      "status": "completed",
+      "optimizer_updates": 21576,
+      "endpoints": {
+        "source_best": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.9928698979591837,
+                  "ce": 0.11523296257759275,
+                  "balanced_ce": 0.08124270216115592,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.9928698979591837,
+                "ce": 0.11523296257759275,
+                "balanced_ce": 0.08124270216115592
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.9096497025776604,
+                  "ce": 0.7045874191326874,
+                  "balanced_ce": 0.5567948790045777,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.8346727757802817,
+                  "ce": 0.6735769379065222,
+                  "balanced_ce": 0.666168191277109,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.8836853978671042,
+                  "ce": 0.6627081046707234,
+                  "balanced_ce": 0.5475323874641824,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.8760026254083488,
+                "ce": 0.6802908205699777,
+                "balanced_ce": 0.5901651525819563
+              }
+            }
+          }
+        ],
+        "terminal": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.9957142857142857,
+                  "ce": 0.06577590988316566,
+                  "balanced_ce": 0.058090270848027675,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.9957142857142857,
+                "ce": 0.06577590988316566,
+                "balanced_ce": 0.058090270848027675
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.8875578321216127,
+                  "ce": 0.7413583173686112,
+                  "balanced_ce": 0.5930843143844655,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.8207732163344053,
+                  "ce": 0.7024670584642853,
+                  "balanced_ce": 0.6955692350533074,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.8973851517637408,
+                  "ce": 0.5846660958201636,
+                  "balanced_ce": 0.4904575604717827,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.8685720667399196,
+                "ce": 0.6761638238843534,
+                "balanced_ce": 0.5930370366365185
+              }
+            }
+          }
+        ]
+      },
+      "source_best_epoch": 8,
+      "peak_allocated_bytes": 14915323904,
+      "elapsed_seconds": 39456.81074409804,
+      "independent_final_test": false,
+      "cache_seconds": 2237.223662222037,
+      "complete_evaluation": true
+    },
+    "scope": "开发评估；缺少本批原图/VAE匹配控制，不宣称相对提点"
+  }
+}
