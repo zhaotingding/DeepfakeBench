@@ -1,0 +1,27 @@
+{
+  "upstream_commit": "3ba01b241669f5ade541ce990f7650a3b8f65318",
+  "files": {
+    "model.py": {
+      "url": "https://api.github.com/repos/CompVis/taming-transformers/contents/taming/modules/diffusionmodules/model.py?ref=3ba01b241669f5ade541ce990f7650a3b8f65318",
+      "sha256": "8c3c03be847e9049b41b5b1cd039332a57a4dbe090b4e35076c91287b7a1b951"
+    },
+    "quantize.py": {
+      "url": "https://api.github.com/repos/CompVis/taming-transformers/contents/taming/modules/vqvae/quantize.py?ref=3ba01b241669f5ade541ce990f7650a3b8f65318",
+      "sha256": "413240a68fba887f05098012a72f9edf5d38ff645f6cab61efd70ef2a9f69d45"
+    },
+    "vqgan_reference.py": {
+      "url": "https://api.github.com/repos/CompVis/taming-transformers/contents/taming/models/vqgan.py?ref=3ba01b241669f5ade541ce990f7650a3b8f65318",
+      "sha256": "e91327d37d752246b532b8c0150128649f5c1aa9fe2f46f54ddc29adacc8a2c5"
+    },
+    "License.txt": {
+      "url": "https://api.github.com/repos/CompVis/taming-transformers/contents/License.txt?ref=3ba01b241669f5ade541ce990f7650a3b8f65318",
+      "sha256": "f6216cce912c447025b8aacfa9ac09634c43815cd8d87762528300e5ddf6b959"
+    }
+  },
+  "official_model_folder": "https://heibox.uni-heidelberg.de/d/8088892a516d4e3baf92/",
+  "checkpoint_url": "https://heibox.uni-heidelberg.de/d/8088892a516d4e3baf92/files/?p=%2Fckpts%2Flast.ckpt&dl=1",
+  "checkpoint_bytes": 957954257,
+  "checkpoint_sha256": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+  "checkpoint_etag": "e064c9c5217c8af730239ae596f26d790d5d3cdc",
+  "config_sha256": "cbd6fa371d07bf5bb960e32186e6e81356accbefdcc722bf94583b6a98bda00c"
+}
