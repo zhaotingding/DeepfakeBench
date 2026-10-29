@@ -18,6 +18,9 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name == "bm3d":
+        from .bm3d_operator import bm3d_spec
+        return bm3d_spec(config)
     if name in {"wavelet", "lowrank"}:
         from .operators import classical_spec
         return classical_spec(config, name)
