@@ -1,0 +1,52 @@
+{
+  "time": "2026-10-29T11:11:50.313589+08:00",
+  "source_parent_counts": {
+    "train": 720,
+    "val": 140,
+    "test": 140
+  },
+  "counts": [
+    {
+      "role": "source_train",
+      "frames": 28768,
+      "videos": 3596
+    },
+    {
+      "role": "source_val",
+      "frames": 700,
+      "videos": 700
+    },
+    {
+      "role": "source_test",
+      "frames": 5600,
+      "videos": 700
+    },
+    {
+      "role": "target_dev",
+      "frames": 165758,
+      "videos": 5876
+    }
+  ],
+  "target_domains": {
+    "Celeb-DF-v2": 16420,
+    "DFDCP": 17222,
+    "DFDC": 132116
+  },
+  "merged_frames": 200826,
+  "two_cache_bytes_estimate": 241839489024,
+  "input_json_sha256": {
+    "FaceForensics++.json": "459fc9891f0bf6e63a1a7d61aed6e96edcc623701d05726b5a225d6fa0cb0b27",
+    "Celeb-DF-v2.json": "919030ca617e6eb78831fd19470ae2f252ba0452a7497e28014f65fa9c34c29d",
+    "DFDCP.json": "fc01695baf1f61079edbe6333b4793c10d252523f0ad8341924fa1e1856c11f6",
+    "DFDC.json": "ce41a6e936c134f9921747252d666288a0569763df8015d5f7bdeb5272c26796"
+  },
+  "manifest_sha256": {
+    "源测试清单.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+    "目标开发清单.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+    "训练清单.json": "95f6e9ca9148648852a75a816b84df6b60e95411065014587eb1034c68cd533f",
+    "wavelet.json": "837162d15d40d005edad6027e89954ed6cbb5d96d6f164fc94a20b262e55cb9b",
+    "lowrank.json": "c73c7c2a4a8e76d1ec05674dc490341064603f06e869fd09e7dd8c227f1d2417",
+    "源验证清单.json": "0cb2c88287d6dcf86b142a55196e8127e2b8af03851c3552eeaf14941b08fa5d"
+  },
+  "clip_weights_sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb"
+}
