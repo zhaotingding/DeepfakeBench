@@ -18,6 +18,9 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name in {"wavelet", "lowrank"}:
+        from .operators import classical_spec
+        return classical_spec(config, name)
     if name != "vae":
         raise ValueError("尚未实现该重构算子的缓存生成：" + name)
     root = Path(config["vae_path"])
@@ -104,6 +107,8 @@ def build_cache(rows, config, probe, destination, spec, device, batch_size=16, m
                     raise ValueError("算子返回形状错误或非有限重构")
                 array[start:start + len(batch)] = reconstructed.float().cpu().numpy()
                 entries.extend(batch_entries)
+                if start == 0 or (start // batch_size) % 100 == 0:
+                    print(json.dumps(dict(stage="cache", frames=len(entries), total=len(rows), elapsed_seconds=time.monotonic()-started)), flush=True)
                 if time.monotonic() - started > max_seconds:
                     raise TimeoutError("缓存生成达到批准时限")
         array.flush()

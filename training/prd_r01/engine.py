@@ -1,5 +1,6 @@
 """共同训练/源验证入口；不沿用旧目标集每轮两次评测和早停。"""
 import json
+import hashlib
 import random
 import time
 from pathlib import Path
@@ -104,6 +105,18 @@ def run_training(config, protocol, run_id, device):
     train_loader = make_loader(train["rows"], config, True, protocol["seed"], device)
     val_loader = make_loader(val["rows"], config, False, protocol["seed"], device)
     curve, best, step = [], float("inf"), 0
+    best_epoch = None
+    trainable = [p for p in model.parameters() if p.requires_grad]
+    initial = hashlib.sha256()
+    for name, parameter in model.named_parameters():
+        if parameter.requires_grad:
+            initial.update(name.encode()); initial.update(parameter.detach().cpu().numpy().tobytes())
+    meta["trainable_initial_sha256"] = initial.hexdigest()
+    meta["trainable_parameters"] = sum(p.numel() for p in trainable)
+    (out / "metadata.json").write_text(json.dumps(meta, indent=2))
+    trace = (out / "batch_trace.jsonl").open("w", buffering=1)
+    if device.type == "cuda":
+        torch.cuda.reset_peak_memory_stats(device)
     try:
         for epoch in range(protocol["epochs"]):
             model.train()
@@ -118,20 +131,26 @@ def run_training(config, protocol, run_id, device):
                 waiting += time.monotonic() - start  # 主线程取batch等待，非GPU分段时间。
                 if time.monotonic() > deadline:
                     raise TimeoutError("Approved wall-time budget exhausted")
-                images, labels, _, views = move_batch(batch, device)
+                images, labels, indices, views = move_batch(batch, device)
+                image_hash = hashlib.sha256(images.detach().cpu().numpy().tobytes()).hexdigest()
+                rng_hash = hashlib.sha256(torch.get_rng_state().numpy().tobytes()).hexdigest()
+                if device.type == "cuda":
+                    rng_hash += ":" + hashlib.sha256(torch.cuda.get_rng_state(device).cpu().numpy().tobytes()).hexdigest()
                 optimizer.zero_grad(set_to_none=True)
                 loss = F.cross_entropy(model(images, views)["logits"], labels)
                 if not torch.isfinite(loss):
                     raise ValueError("Nonfinite loss before optimizer update")
                 loss.backward()
+                grad_norm = torch.nn.utils.clip_grad_norm_(trainable, float("inf"), error_if_nonfinite=True)  # 仅核验，不裁剪有限梯度。
                 optimizer.step()
                 step += 1
-                if step % config["log_every"] == 0:
+                trace.write(json.dumps(dict(step=step, epoch=epoch+1, indices=indices.tolist(), image_sha256=image_hash, rng_sha256=rng_hash)) + "\n")
+                if step == 1 or step % config["log_every"] == 0:
                     value = float(loss.detach())
                     if not np.isfinite(value):
                         raise ValueError("Nonfinite training loss")
                     print(json.dumps(dict(epoch=epoch + 1, step=step, loss=value,
-                                          elapsed_seconds=time.monotonic() - started, host_data_wait_seconds=waiting)), flush=True)
+                                          elapsed_seconds=time.monotonic() - started, host_data_wait_seconds=waiting, gradient_norm=float(grad_norm))), flush=True)
             metrics, logits = evaluate(model, val_loader, val["rows"], device, deadline)
             np.save(out / f"source_val_epoch{epoch + 1}.npy", logits)  # 保存逐样本源验证证据。
             score = metrics["macro"]["balanced_ce"]
@@ -139,6 +158,7 @@ def run_training(config, protocol, run_id, device):
             (out / "learning_curve.json").write_text(json.dumps(curve, indent=2))
             if score < best:
                 best = score
+                best_epoch = epoch + 1
                 torch.save(model.state_dict(), out / "source_best.pth")
             print(json.dumps(curve[-1]), flush=True)
         torch.save(model.state_dict(), out / "terminal.pth")
@@ -153,7 +173,8 @@ def run_training(config, protocol, run_id, device):
                 (out / f"eval{n}_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False))
                 endpoint_results[endpoint].append(dict(role=manifest["role"], metrics=metrics))
                 loader.dataset.close()
-        result = dict(status="completed", optimizer_updates=step, endpoints=endpoint_results,
+        result = dict(status="completed", optimizer_updates=step, endpoints=endpoint_results, source_best_epoch=best_epoch,
+                      peak_allocated_bytes=torch.cuda.max_memory_allocated(device) if device.type == "cuda" else None,
                       elapsed_seconds=time.monotonic() - started, independent_final_test=False)
         (out / "result.json").write_text(json.dumps(result, indent=2))
         return result
@@ -161,5 +182,6 @@ def run_training(config, protocol, run_id, device):
         (out / "failure.json").write_text(json.dumps(dict(status="failed",error=repr(exc),optimizer_updates=step)))
         raise
     finally:
+        trace.close()
         train_loader.dataset.close()
         val_loader.dataset.close()

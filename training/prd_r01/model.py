@@ -4,16 +4,17 @@ from torch import nn
 from torch.nn import functional as F
 
 class ResponseModel(nn.Module):
-    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5, cached=False):
+    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5, cached=False, slots=3):
         super().__init__()
-        if len(responses) > 2 or (not cached and any(name not in probes for name in responses)):
+        if slots not in (2, 3) or len(responses) > slots - 1 or (not cached and any(name not in probes for name in responses)):
             raise ValueError("At most two registered response slots are supported")
+        self.slots = slots  # 单算子用两槽，双响应保留三槽。
         self.encoder = encoder
         self.probes = nn.ModuleDict(probes)
         self.cached = cached
         self.responses = tuple(responses)
         self.head = nn.Sequential(
-            nn.Linear(feature_dim * 3, hidden), nn.BatchNorm1d(hidden),
+            nn.Linear(feature_dim * slots, hidden), nn.BatchNorm1d(hidden),
             nn.ReLU(inplace=True), nn.Dropout(dropout), nn.Linear(hidden, 2),
         )
         for probe in self.probes.values():
@@ -38,7 +39,7 @@ class ResponseModel(nn.Module):
                     raise ValueError(f"{name} changed the image shape")
                 responses[name] = z - self.encoder(reconstructed.detach())
         slots = [responses[name] for name in self.responses]
-        slots += [torch.zeros_like(z)] * (2 - len(slots))
+        slots += [torch.zeros_like(z)] * (self.slots - 1 - len(slots))
         features = torch.cat([z, *slots], dim=1)  # 重复VAE槽复用同一响应，不重复计算或加噪。
         return {"logits": self.head(features), "features": features}
 
@@ -91,7 +92,12 @@ def build_model(config, device):
             config["vae_path"], config["mean"], config["std"],
             torch.float16 if device.type == "cuda" else torch.float32,
         )
+    if not cached:
+        from .operators import build_operator
+        for name in config["responses"]:
+            if name in {"wavelet", "lowrank"}:
+                probes[name] = build_operator(config, name, device)
     torch.set_rng_state(rng)
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
-                          config["head"]["hidden"], config["head"]["dropout"], cached=cached)
+                          config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"])
     return model.to(device)
