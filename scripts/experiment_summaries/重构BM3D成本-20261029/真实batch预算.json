@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "time": "2026-10-29T18:59:02.042881+08:00",
+  "code_commit": "565edea16e67a392964409b33eb936e40d40c045",
+  "updates": 8,
+  "formal_updates": 0,
+  "seconds_per_frame_four_process": 0.1525648787501268,
+  "train_step_median": 0.8487403620092664,
+  "dual_eval64_seconds": 2.9074291110155173,
+  "formal_projection_seconds": 63746.14224237753,
+  "cache_projection_seconds": 5694.938216410484,
+  "budget_pass": false,
+  "required_free_bytes": 19840735641,
+  "peak_reserved_bytes": 16533946368,
+  "reload_max_abs": 0.0,
+  "parallel_max_abs": 0.0,
+  "initial_sha256": "9aa889456c6661e4c09eb03229689f17e2f9766a4e8d09d4c009badf83f133e5"
+}
