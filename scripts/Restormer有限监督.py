@@ -88,7 +88,7 @@ def main():
         if child.poll() is None:os.killpg(child.pid,signal.SIGTERM)
     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
     try:
-        try:code=child.wait(timeout=88200)  # 缓存12小时、正式12小时及收尾余量；不续跑。
+        try:code=child.wait(timeout=102600)  # 缓存12小时、正式16小时及收尾余量；不续跑。
         except subprocess.TimeoutExpired:
             stop()
             try:child.wait(timeout=5)

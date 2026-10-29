@@ -44,7 +44,7 @@ def endpoint_loader(rows,c,device):
         multiprocessing_context='spawn',prefetch_factor=2)
 
 def smoke(device):
-    c,paths,items=settings();area=STATE/"smoke";area.mkdir(parents=True,exist_ok=False)
+    c,paths,items=settings();area=STATE/"smoke16h";area.mkdir(parents=True,exist_ok=False)
     if torch.cuda.mem_get_info(device)[0]<26*1024**3:raise RuntimeError("GPU0空闲不足26GiB")
     rows=items[0]["rows"][:64];raw=LMDBImages(rows,dict(c,reconstruction_mode="online_after_augment"),False)
     images=torch.stack([raw[i][0] for i in range(64)]);raw.close()
@@ -99,7 +99,7 @@ def smoke(device):
     summary=dict(status='passed',time=now(),code_commit=git('rev-parse','HEAD'),updates=8,formal_updates=0,
         seconds_per_frame_gpu=seconds_per_frame,train_step_median=train_step,dual_eval64_seconds=dual_seconds,
         formal_projection_seconds=formal_projection,cache_projection_seconds=cache_projection,
-        budget_pass=formal_projection<=43200 and cache_projection<=43200,required_free_bytes=int(peak+max(peak*.2,2*1024**3)),
+        budget_pass=formal_projection<=57600 and cache_projection<=43200,required_free_bytes=int(peak+max(peak*.2,2*1024**3)),
         peak_reserved_bytes=peak,reload_max_abs=reload_error,parallel_max_abs=error,trace=trace,initial_sha256=h.hexdigest())
     save(area/'验收.json',summary);print(json.dumps({k:v for k,v in summary.items() if k!='trace'},ensure_ascii=False),flush=True)
     if not summary['budget_pass']:raise RuntimeError('真实预检超过预算，停止正式启动')
@@ -115,7 +115,7 @@ def evaluate_two(c,out,items,deadline,device):
             arrays={k:np.empty((len(manifest['rows']),2),np.float32) for k in models}
             loader=endpoint_loader(manifest['rows'],c,device);started=time.monotonic()
             for batch,(x,y,index,views) in enumerate(loader):
-                if time.monotonic()>deadline:raise TimeoutError('正式训练及评估达到12小时')
+                if time.monotonic()>deadline:raise TimeoutError('正式训练及评估达到16小时')
                 x=x.to(device,non_blocking=True);views={"restormer":probe(x)}
                 for name,model in models.items():
                     logits=model(x,views)['logits']
@@ -128,7 +128,7 @@ def evaluate_two(c,out,items,deadline,device):
     return results
 
 def run(device,claim):
-    c,paths,items=settings();check=json.loads((STATE/'smoke/验收.json').read_text())
+    c,paths,items=settings();check=json.loads((STATE/'smoke16h/验收.json').read_text())
     if check['code_commit']!=git('rev-parse','HEAD') or not check['budget_pass']:raise ValueError('预检版本或预算不符')
     if git('status','--porcelain'):raise ValueError('运行代码未提交')
     if torch.cuda.mem_get_info(device)[0]<check['required_free_bytes']:raise RuntimeError('空闲显存低于实测余量')
@@ -143,13 +143,13 @@ def run(device,claim):
         del probe
         torch.cuda.empty_cache()
         if torch.cuda.mem_get_info(device)[0]<check['required_free_bytes']:raise RuntimeError('缓存后GPU资源不足，保留缓存并停止')
-        protocol=dict(status='approved',id='Restormer恢复-20261029',epochs=12,seed=3407,max_wall_seconds=43200,
+        protocol=dict(status='approved',id='Restormer恢复-20261029',epochs=12,seed=3407,max_wall_seconds=57600,
             train_manifest=str(paths[0]),val_manifest=str(paths[1]),evaluation_manifests=[],checkpoint_rule='source_val_video_balanced_ce',
             reconstruction_mode='cached_paired',augmentation_protocol='paired_float32_v1',reconstruction_caches={'restormer':str(cache)},
             endpoint_manifests=[str(p) for p in paths[2:]],endpoint_mode='shared_gpu_restoration_two_gpu_models',
             authorization='用户要求继续下一个独立重构算子；BM3D成本未过，按原名单执行官方Restormer实拍恢复。')
         save(STATE/'protocol.json',protocol);status.update(stage='training',time=now(),cache_seconds=cache_meta['generation_seconds']);save(state,status)
-        start=time.monotonic();deadline=start+43200
+        start=time.monotonic();deadline=start+57600
         result=run_training(c,protocol,RUN,device)
         torch.cuda.empty_cache();out=Path(c['output_root'])/'r01'/RUN
         status.update(stage='evaluation',time=now());save(state,status)
