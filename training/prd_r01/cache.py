@@ -18,6 +18,9 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name == "restormer":
+        from .restormer_operator import restormer_spec
+        return restormer_spec(config)
     if name == "bm3d":
         from .bm3d_operator import bm3d_spec
         return bm3d_spec(config)
