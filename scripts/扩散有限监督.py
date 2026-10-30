@@ -82,7 +82,7 @@ def main():
     info=dict(status='running',time=now(),supervisor_pid=os.getpid(),cwd=str(ROOT),claim_commit=claim)
     log=(STATE/'run.log').open('x')
     child=subprocess.Popen([sys.executable,'-u',str(ROOT/'scripts/运行扩散单项.py'),'run','--claim-commit',claim],
-                           cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+                           cwd=ROOT,env=dict(os.environ,CUDA_VISIBLE_DEVICES='GPU-83850660-4196-4569-27bc-a3f9e72ada01'),stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
     info['training_pid']=child.pid;save(state,info)
     def stop(signum=None,frame=None):
         if child.poll() is None:os.killpg(child.pid,signal.SIGTERM)
@@ -109,7 +109,7 @@ def main():
         else:
             info.update(status='cpu_verification');save(state,info)
             info['verification']=verify();info.update(status='verified',time=now());save(state,info)
-        archive=ROOT/'scripts/experiment_summaries/重构扩散-20261030';archive.mkdir(parents=True,exist_ok=False)
+        archive=ROOT/'scripts/experiment_summaries/重构扩散-20261030-正式';archive.mkdir(parents=True,exist_ok=False)
         save(archive/'完成或失败.json',info)
         subprocess.run(['git','add','--',str(archive.relative_to(ROOT))],cwd=ROOT,check=True)
         subprocess.run(['git','commit','--only','-m','归档扩散重构正式结果','--',str(archive.relative_to(ROOT))],cwd=ROOT,check=True)
