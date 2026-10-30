@@ -14,7 +14,7 @@ def diffusion_spec(config):
     from .cache import file_sha
     manifest=json.loads((ASSETS/'download_manifest.json').read_text())
     assert manifest['revision']==REVISION
-    vae=Path(config['vae_path']);weight=next(vae/n for n in ['diffusion_pytorch_model.bin','diffusion_pytorch_model.safetensors'] if (vae/n).exists())
+    vae=Path(config['vae_path']);weight=next(vae/n for n in ['diffusion_pytorch_model.safetensors','diffusion_pytorch_model.bin'] if (vae/n).exists())
     return dict(operator='diffusion',recipe='sd15-original-vae-mode-ddim50-strength02-v1',resolution=config['resolution'],mean=config['mean'],std=config['std'],storage='normalized-float32-nchw',weights={n:x['sha256'] for n,x in manifest['files'].items()},revision=REVISION,vae_weights_sha256=file_sha(weight),vae_config_sha256=file_sha(vae/'config.json'),internal_resolution=256,internal_batch=1,dtype='float16',latent_scaling=.18215,posterior='mode',scheduler='DDIM',grid_steps=50,strength=.2,timesteps=TIMESTEPS,eta=0.,prompt='',guidance_scale=1.,noise_identity='sha256-round-rgb-uint8/cpu-float32-normal-to-fp16',output_clip=False)
 
 class DiffusionProbe(nn.Module):

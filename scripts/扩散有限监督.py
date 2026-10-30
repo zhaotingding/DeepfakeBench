@@ -88,7 +88,16 @@ def main():
         if child.poll() is None:os.killpg(child.pid,signal.SIGTERM)
     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
     try:
-        try:code=child.wait(timeout=102600)  # 缓存12小时、正式12小时及收尾余量；不续跑。
+        try:
+            launched=time.monotonic()
+            while child.poll() is None:
+                status_file=STATE/'status.json'
+                status=json.loads(status_file.read_text()) if status_file.exists() else {}
+                formal=status.get('formal_started')
+                formal_elapsed=(datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(formal)).total_seconds() if formal else 0
+                if formal_elapsed>43200 or (not formal and time.monotonic()-launched>43200):raise subprocess.TimeoutExpired(child.args,43200)
+                time.sleep(15)
+            code=child.returncode
         except subprocess.TimeoutExpired:
             stop()
             try:child.wait(timeout=5)
