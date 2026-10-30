@@ -33,7 +33,8 @@ def operator_spec(config, name):
         raise FileNotFoundError("缺少本地VAE权重")
     return dict(operator=name, recipe="vae-mode-256-bilinear-v1", resolution=config["resolution"],
                 mean=config["mean"], std=config["std"], storage="normalized-float32-nchw",
-                weights_sha256=file_sha(weight), config_sha256=file_sha(root / "config.json"))
+                weights_sha256=file_sha(weight), config_sha256=file_sha(root / "config.json"),
+                **({"execution":config["vae_inference"]} if "vae_inference" in config else {}))  # 新对照固定内部批次和推理精度；旧身份不变。
 
 def read_cache(path, rows, config, expected_spec=None, verify_file=False):
     root = Path(path).resolve()
