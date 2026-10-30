@@ -10,6 +10,9 @@ VARIANTS = {
     "wavelet": ("clip", ["wavelet"]),
     "lowrank": ("clip", ["lowrank"]),
     "vqgan": ("clip", ["vqgan"]),
+    "mae": ("clip", ["mae"]),
+    "compression": ("clip", ["compression"]),
+    "tv": ("clip", ["tv"]),
     "repeat_vae": ("clip", ["vae", "vae"]),
     "diffusion": ("clip", ["diffusion"]),
     "restoration": ("clip", ["restoration"]),
@@ -47,7 +50,7 @@ def readiness(config):
     if config["backbone"] != "clip":
         missing.append(f"{config['backbone']} adapter and local weights are not prepared")
     for name in dict.fromkeys(config["responses"]):
-        if name not in {"vae", "wavelet", "lowrank", "vqgan"}:
+        if name not in {"vae", "wavelet", "lowrank", "vqgan", "mae", "compression", "tv"}:
             missing.append(f"{name} operator/checkpoint/preprocessing/workpoint is not prepared")
     required = [
         Path(config["data_root"]) / "DeepfakeBench/lmdb/FaceForensics++_lmdb/data.mdb",
