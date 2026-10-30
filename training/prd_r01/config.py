@@ -48,7 +48,7 @@ def readiness(config):
     if config["backbone"] != "clip":
         missing.append(f"{config['backbone']} adapter and local weights are not prepared")
     for name in dict.fromkeys(config["responses"]):
-        if name not in {"vae", "wavelet", "lowrank", "bm3d", "restormer"}:
+        if name not in {"vae", "wavelet", "lowrank", "bm3d", "restormer", "diffusion"}:
             missing.append(f"{name} operator/checkpoint/preprocessing/workpoint is not prepared")
     required = [
         Path(config["data_root"]) / "DeepfakeBench/lmdb/FaceForensics++_lmdb/data.mdb",
