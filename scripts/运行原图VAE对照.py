@@ -183,10 +183,10 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('variant',choices=['original','vae']);p.add_argument('mode',choices=['smoke','run']);p.add_argument('--claim-commit');a=p.parse_args()
     VARIANT=a.variant;STATE=ROOT/'.state/原图VAE对照-20261030'/VARIANT
     RUN='4090-'+('仅原图对照' if VARIANT=='original' else '原VAE对照')+'-20261030-种子3407'
-    expected='GPU-83850660-4196-4569-27bc-a3f9e72ada01' if VARIANT=='original' else 'GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc'
+    expected='GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc' if VARIANT=='original' else 'GPU-83850660-4196-4569-27bc-a3f9e72ada01'
     if os.environ.get('CUDA_VISIBLE_DEVICES')!=expected:raise ValueError('GPU绑定与协议不符')
     import fcntl  # 复用本项目物理GPU槽的排他锁。
-    lock_path=Path.home()/'.cache/prd-locks'/('重构算子并行-gpu0.lock' if VARIANT=='original' else '重构算子探索-gpu1.lock')
+    lock_path=Path.home()/'.cache/prd-locks'/('重构算子探索-gpu1.lock' if VARIANT=='original' else '重构算子并行-gpu0.lock')
     lock_path.parent.mkdir(parents=True,exist_ok=True)
     lock=lock_path.open('a+')
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)  # 不删除或释放旧批次持有的锁。

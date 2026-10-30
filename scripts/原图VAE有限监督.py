@@ -12,8 +12,8 @@ import time
 
 ROOT=Path(__file__).resolve().parents[1]
 STATE=ROOT/'.state/原图VAE对照-20261030'
-ARMS={'original':('GPU-83850660-4196-4569-27bc-a3f9e72ada01','仅原图对照',45000),
-      'vae':('GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc','原VAE对照',88200)}
+ARMS={'original':('GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc','仅原图对照',45000),
+      'vae':('GPU-83850660-4196-4569-27bc-a3f9e72ada01','原VAE对照',88200)}
 
 def now():return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat()
 def save(path,value):
