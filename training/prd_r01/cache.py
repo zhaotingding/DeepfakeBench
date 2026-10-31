@@ -18,6 +18,9 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name in {"colorization", "nlm", "sparse", "e4e"}:
+        from .diverse_operators import spec
+        return spec(config, name)  # 第三批各算子完整身份。
     if name in {"mae", "compression", "tv"}:
         from .next_operators import spec
         return spec(config, name)  # 完整工作点身份，拒绝混用其他缓存。
