@@ -1,0 +1,463 @@
+{
+  "status": "finished_with_user_cancellation",
+  "time": "2026-10-31T21:39:04.992741+08:00",
+  "pid": 1898996,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+  "code_commit": "edfd210b052dfc0d82db6c80f9c87e36f7b20a61",
+  "claim_commit": "431415aea605410e6a52474d514a363d844220b7",
+  "arms": {
+    "e4e": {
+      "status": "verified",
+      "time": "2026-10-31T21:01:24.816797+08:00",
+      "supervisor_pid": 1898996,
+      "training_pid": 1899001,
+      "gpu_uuid": "GPU-83850660-4196-4569-27bc-a3f9e72ada01",
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+      "claim_commit": "431415aea605410e6a52474d514a363d844220b7",
+      "exit_code": 0,
+      "verification": {
+        "status": "verified",
+        "time": "2026-10-31T21:01:24.798161+08:00",
+        "output": "/home/zhaoting.ding/prd-runs/r01/4090-人脸生成反演重构-20261031-种子3407",
+        "code_commit": "edfd210b052dfc0d82db6c80f9c87e36f7b20a61",
+        "updates": 21576,
+        "independent_metrics_max_error": 1.1102230246251565e-16,
+        "pairing_verified": true,
+        "artifacts_sha256": {
+          "source_val_epoch4.npy": "8f89c4a4d92828b88debb3c287ecc6fd9357126b5114da0b41ff2b319747ab66",
+          "terminal_eval0.npy": "f3d447b808d928f199f9e458c797596768a105cf567b3981fd42cb5fd98b7223",
+          "learning_curve.json": "97a4d6e32f664ac01e7279a7c8ef756c390dfb79691294b505c7a5706d98b76c",
+          "source_val_epoch11.npy": "b2d98c36df80078ada3b3a490b466a860a5d4554de475431a5e16c39aa2b9d30",
+          "source_val_epoch3.npy": "094744efd729a636f6c6c16547d9506d5a624b02cc33796d647cce24615f7e47",
+          "source_val_epoch5.npy": "4f6ae45ab5b9263bc9deb018dd89ee9355713c44cec0b15f8bf42d5a6043a169",
+          "source_val_epoch6.npy": "8deaf14948b9cf7c6c982ecdd45c8a2936e517b91cd60bed9359d2f0235e8337",
+          "metadata.json": "17946f90f51d961281a698f1651783d18d21a84f262599b16ce54e238cc49851",
+          "source_best_eval1.npy": "9322c53ac703d4ee264a5111be12ba669b437c416e9265b7398e8281b82ea585",
+          "terminal_eval1.npy": "bee87164f8f49e63f28c7a656524bd9315161b10d81119b6b8c46a7458050f9e",
+          "source_val_epoch9.npy": "b811d2a6cea723d3a403b19bcc54b34426c041d9ad6f4c930b8afb50c8421049",
+          "result.json": "9c22bf9cb359846200892c70447df281873afd42c89b1a32dcba41d0517a0305",
+          "source_best.pth": "ca9085b9f629933013b3c9fdff3633421dc7d862ce3bb89ea6766e9cdafb1c64",
+          "source_val_epoch1.npy": "79c27cdfd7daf8609b1e68b838acca09d99dd6586f5e6fb30a7a464d39e6168f",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+          "source_val_epoch2.npy": "9a187ce5ab87da829756e060cefb866fbd6aa82c69e561b8fc98a76d9db39dba",
+          "source_val_epoch8.npy": "7c80206df56d565d4a84b7b5eba0b348065dba7e8fc83ac6dd49b900464c58b9",
+          "source_val_epoch7.npy": "7f68cc730ef7ed1dae988af9d4eabb5f6341ff15d3278e3a2c111c7a30ce1d23",
+          "source_val_epoch12.npy": "282f82b7a2ed5f75f1acc9b08aacc80cf2cbfc87f269e604c2e56d19d761ccba",
+          "terminal.pth": "7da6a3ced682b618f21698408b38811c3b184b62331cee5081d51cfc7aae90d4",
+          "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+          "complete_result.json": "52e05a33f1ef5ecf48ba1fcd816bdddca015755f57e8b58cbd4ce281b0b5fc8a",
+          "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+          "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+          "source_best_eval0.npy": "6deac702b6282958ccfd0622bf4c09761b9f4c5cb473bf6a70e9603f7e22a520",
+          "source_val_epoch10.npy": "987c702568f86b77757b5bcaed15e37f231c828ad0b6f4ed0a35a5f2474214a2"
+        },
+        "result": {
+          "status": "completed",
+          "optimizer_updates": 21576,
+          "endpoints": {
+            "source_best": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9926275510204082,
+                      "ce": 0.09189971393346584,
+                      "balanced_ce": 0.07872210138454498,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9926275510204082,
+                    "ce": 0.09189971393346584,
+                    "balanced_ce": 0.07872210138454498
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.9047257105089227,
+                      "ce": 0.42617289602253045,
+                      "balanced_ce": 0.3958605119455508,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.843360542876955,
+                      "ce": 0.5632689328482375,
+                      "balanced_ce": 0.5589252016610673,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.8959187858900739,
+                      "ce": 0.427880542264568,
+                      "balanced_ce": 0.4077494008896673,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.8813350130919839,
+                    "ce": 0.47244079037844533,
+                    "balanced_ce": 0.4541783714987618
+                  }
+                }
+              }
+            ],
+            "terminal": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9942474489795918,
+                      "ce": 0.07211748970439988,
+                      "balanced_ce": 0.08569725226435952,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9942474489795918,
+                    "ce": 0.07211748970439988,
+                    "balanced_ce": 0.08569725226435952
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.9022637144745538,
+                      "ce": 0.5820451010715563,
+                      "balanced_ce": 0.48262181741743276,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.841507557587105,
+                      "ce": 0.6060154508835829,
+                      "balanced_ce": 0.6016671573059194,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.9285479901558654,
+                      "ce": 0.36515650076936024,
+                      "balanced_ce": 0.34005076248958466,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.8907730874058414,
+                    "ce": 0.5177390175748331,
+                    "balanced_ce": 0.4747799124043122
+                  }
+                }
+              }
+            ]
+          },
+          "source_best_epoch": 5,
+          "peak_allocated_bytes": 14915323904,
+          "elapsed_seconds": 23038.055689305067,
+          "independent_final_test": false,
+          "cache_seconds": 1168.1483537469758,
+          "complete_evaluation": true
+        },
+        "scope": "本批原图/VAE匹配控制已齐；目标域反复开发；比较源选主端点和固定末轮，不选目标赢家。"
+      }
+    },
+    "sparse": {
+      "status": "cancelled_by_user_outage",
+      "time": "2026-10-31T21:39:04.398780+08:00",
+      "supervisor_pid": 1898996,
+      "training_pid": 3542157,
+      "gpu_uuid": "GPU-83850660-4196-4569-27bc-a3f9e72ada01",
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+      "claim_commit": "431415aea605410e6a52474d514a363d844220b7",
+      "interruption": {
+        "status": "cancelled_by_user_outage",
+        "time": "2026-10-31T21:39:04.398198+08:00",
+        "reason": "stopped_by_user_outage",
+        "run_id": "4090-稀疏字典重构-20261031-种子3407",
+        "output": "/home/zhaoting.ding/prd-runs/r01/4090-稀疏字典重构-20261031-种子3407",
+        "training_pid": 3542157,
+        "code_commit": "edfd210b052dfc0d82db6c80f9c87e36f7b20a61",
+        "formal_started": "2026-10-31T21:05:48.395016+08:00",
+        "cache_seconds": 247.29686536395457,
+        "completed_source_validation_epochs": 2,
+        "trace_count": 4456,
+        "last_confirmed_logged_update": 4400,
+        "exact_completed_optimizer_updates": null,
+        "checkpoint": {
+          "path": "/home/zhaoting.ding/prd-runs/r01/4090-稀疏字典重构-20261031-种子3407/source_best.pth",
+          "sha256": "1c562b5d74fdb494966793802f8349624e76512fd633d4881c0bfe69f1f3a266",
+          "bytes": 1233977234,
+          "readable": true,
+          "tensor_keys": 496,
+          "source_best_epoch_from_curve": 1,
+          "optimizer_state_saved": false,
+          "rng_state_saved": false,
+          "exact_resume_available": false
+        },
+        "complete_result_exists": false,
+        "terminal_exists": false,
+        "automatic_resume": false,
+        "termination": "supervisor SIGTERM handler; not scientific failure",
+        "wall_until_stop_seconds": 1899.105
+      },
+      "exit_code": null,
+      "termination_signal": "SIGTERM",
+      "automatic_resume": false
+    },
+    "colorization": {
+      "status": "verified",
+      "time": "2026-10-31T20:54:07.405729+08:00",
+      "supervisor_pid": 1898996,
+      "training_pid": 1899002,
+      "gpu_uuid": "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc",
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+      "claim_commit": "431415aea605410e6a52474d514a363d844220b7",
+      "exit_code": 0,
+      "verification": {
+        "status": "verified",
+        "time": "2026-10-31T20:54:07.391377+08:00",
+        "output": "/home/zhaoting.ding/prd-runs/r01/4090-灰度上色重构-20261031-种子3407",
+        "code_commit": "edfd210b052dfc0d82db6c80f9c87e36f7b20a61",
+        "updates": 21576,
+        "independent_metrics_max_error": 1.1102230246251565e-16,
+        "pairing_verified": true,
+        "artifacts_sha256": {
+          "source_val_epoch4.npy": "511f8e9c8641429647505b604656a933c12ceb24eecc6ea569f5edd34a64dc05",
+          "terminal_eval0.npy": "6f6a352c70d1dae43a9f9926fb180314bde60aa97698009ea20c045205b8d985",
+          "learning_curve.json": "7e99ef120f11aa9eb711a789529c1c17b6aebafb71f378e87aae270b8d481f5f",
+          "source_val_epoch11.npy": "5b1d90d4509ef8d4949a0f479b338b192e7cd0179c0f7bcae240b24228748b22",
+          "source_val_epoch3.npy": "aa700bc1d22a6c3c4fe80db9ea99a534bb711cf6ba287e25f308e869f458163f",
+          "source_val_epoch5.npy": "b245c946bb10406327fc9e5557425badafbcc6d1223862f31d5e7ce6f3dab449",
+          "source_val_epoch6.npy": "70183630fe6d8f2fc991ecb46f84a68221d0f255cae5aa326906453a3179ba15",
+          "metadata.json": "b235fbe88dda3c6db18d091f26e10da6f62eab14cb32da3b45c902177186e20d",
+          "source_best_eval1.npy": "d452baf3746b42b61682d427bf2679bdf044f11f8c4bf969bf6e80cac831ae91",
+          "terminal_eval1.npy": "4ecddcbb2a3ba275a8c0457be9984ef5306f207d8db0f84d00511ca22713396c",
+          "source_val_epoch9.npy": "dd87c219b27b1221cbb0f462340f005e0be0b2581044c3266842bf7a8a41e6f3",
+          "result.json": "8ccc82614e01538053c650da7d3bb81b2b111d45d60105efe9f211c95618d1f7",
+          "source_best.pth": "d52178babccc185065b61b101215b0bf99d38c2cb6925bd15f13f4e801e14a2e",
+          "source_val_epoch1.npy": "eac2fd21731058f587058ba68e9730f54b9051e867bbb479e14fb792c4e92820",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+          "source_val_epoch2.npy": "10fd644e24a7c92f480ad318885bed2dd5f7ebe27ed807e1afd9ff7d32f36cc5",
+          "source_val_epoch8.npy": "65ea1bb67759bec23fb906acde88c9c39ef602d04246cc9c124c59255e12232c",
+          "source_val_epoch7.npy": "9f916f520e5655bbe4c04bf73bbca1707473497f7d45c1c7c464531514de5c3e",
+          "source_val_epoch12.npy": "6f1fcc0a910810cf9302aa53a0c11fc4293969675f4f978a74559cb436a8522a",
+          "terminal.pth": "ae4d0ea901aeb08ac2a27bf2d2e88054af0d41724cf8c6cd3531b3bb3cfde826",
+          "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+          "complete_result.json": "2b91e7d51b59cb86d80d518497fc8361d122f454f0185d5b2d8058794728cc5d",
+          "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+          "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+          "source_best_eval0.npy": "4c63d27fc6fc9f83f79f00a9585e8936f7edb3e63dc4c65c225bae463fb41731",
+          "source_val_epoch10.npy": "6a8db5c0c6fbd6f736ceade65aa00fe4ae2f78f23c8043a4a53114d9361a9b91"
+        },
+        "result": {
+          "status": "completed",
+          "optimizer_updates": 21576,
+          "endpoints": {
+            "source_best": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9932397959183674,
+                      "ce": 0.10842211744828424,
+                      "balanced_ce": 0.08021325964213563,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9932397959183674,
+                    "ce": 0.10842211744828424,
+                    "balanced_ce": 0.08021325964213563
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.9202081956378056,
+                      "ce": 0.6181983441982803,
+                      "balanced_ce": 0.4998334367649863,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.8337124708549897,
+                      "ce": 0.6285910152129938,
+                      "balanced_ce": 0.6234479858160178,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.9079881050041017,
+                      "ce": 0.4529335594649605,
+                      "balanced_ce": 0.40195019437698387,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.887302923832299,
+                    "ce": 0.5665743062920782,
+                    "balanced_ce": 0.508410538985996
+                  }
+                }
+              }
+            ],
+            "terminal": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9946683673469388,
+                      "ce": 0.07065327927609065,
+                      "balanced_ce": 0.09192692626708754,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9946683673469388,
+                    "ce": 0.07065327927609065,
+                    "balanced_ce": 0.09192692626708754
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.9076834104428289,
+                      "ce": 0.5443142904667139,
+                      "balanced_ce": 0.452498139001167,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.8538324050024094,
+                      "ce": 0.531495670289375,
+                      "balanced_ce": 0.529664568239279,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.9235028712059065,
+                      "ce": 0.33781287623074296,
+                      "balanced_ce": 0.3515160825662167,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.895006228883715,
+                    "ce": 0.471207612328944,
+                    "balanced_ce": 0.4445595966022209
+                  }
+                }
+              }
+            ]
+          },
+          "source_best_epoch": 10,
+          "peak_allocated_bytes": 14915323904,
+          "elapsed_seconds": 22897.22633665905,
+          "independent_final_test": false,
+          "cache_seconds": 871.9939942869823,
+          "complete_evaluation": true
+        },
+        "scope": "本批原图/VAE匹配控制已齐；目标域反复开发；比较源选主端点和固定末轮，不选目标赢家。"
+      }
+    },
+    "nlm": {
+      "status": "cancelled_by_user_outage",
+      "time": "2026-10-31T21:39:04.986415+08:00",
+      "supervisor_pid": 1898996,
+      "training_pid": 3512259,
+      "gpu_uuid": "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc",
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+      "claim_commit": "431415aea605410e6a52474d514a363d844220b7",
+      "interruption": {
+        "status": "cancelled_by_user_outage",
+        "time": "2026-10-31T21:39:04.986061+08:00",
+        "reason": "stopped_by_user_outage",
+        "run_id": "4090-非局部自相似重构-20261031-种子3407",
+        "output": "/home/zhaoting.ding/prd-runs/r01/4090-非局部自相似重构-20261031-种子3407",
+        "training_pid": 3512259,
+        "code_commit": "edfd210b052dfc0d82db6c80f9c87e36f7b20a61",
+        "formal_started": "2026-10-31T21:10:11.628193+08:00",
+        "cache_seconds": 947.8503088559955,
+        "completed_source_validation_epochs": 2,
+        "trace_count": 3821,
+        "last_confirmed_logged_update": 3800,
+        "exact_completed_optimizer_updates": null,
+        "checkpoint": {
+          "path": "/home/zhaoting.ding/prd-runs/r01/4090-非局部自相似重构-20261031-种子3407/source_best.pth",
+          "sha256": "66d50c4567c5cab8eaf5b58489d50ca9fedbed699dc08831b1bcddbc28819362",
+          "bytes": 1233977234,
+          "readable": true,
+          "tensor_keys": 496,
+          "source_best_epoch_from_curve": 2,
+          "optimizer_state_saved": false,
+          "rng_state_saved": false,
+          "exact_resume_available": false
+        },
+        "complete_result_exists": false,
+        "terminal_exists": false,
+        "automatic_resume": false,
+        "termination": "supervisor SIGTERM handler; not scientific failure",
+        "wall_until_stop_seconds": 1635.871823
+      },
+      "exit_code": null,
+      "termination_signal": "SIGTERM",
+      "automatic_resume": false
+    }
+  },
+  "queues": {
+    "GPU-83850660-4196-4569-27bc-a3f9e72ada01": [
+      "e4e",
+      "sparse"
+    ],
+    "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc": [
+      "colorization",
+      "nlm"
+    ]
+  },
+  "outage_stop": {
+    "time": "2026-10-31T21:37:27.500016+08:00",
+    "status": "stopped_by_user_outage",
+    "targets": [
+      {
+        "pid": 1898996,
+        "uid": 1007,
+        "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+        "cmdline": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-worktrees/重构算子探索/scripts/重构第三批有限监督.py 431415aea605410e6a52474d514a363d844220b7 e4e sparse colorization nlm ",
+        "pgid": 1898996,
+        "start_ticks": "61523335"
+      },
+      {
+        "pid": 3542157,
+        "uid": 1007,
+        "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+        "cmdline": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-worktrees/重构算子探索/scripts/运行重构第三批.py sparse run --claim-commit 431415aea605410e6a52474d514a363d844220b7 ",
+        "pgid": 3542157,
+        "start_ticks": "63947184"
+      },
+      {
+        "pid": 3512259,
+        "uid": 1007,
+        "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+        "cmdline": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-worktrees/重构算子探索/scripts/运行重构第三批.py nlm run --claim-commit 431415aea605410e6a52474d514a363d844220b7 ",
+        "pgid": 3512259,
+        "start_ticks": "63903444"
+      }
+    ],
+    "remaining": [],
+    "signal": "SIGTERM to verified supervisor; its existing handler stopped own child groups",
+    "automatic_resume": false
+  },
+  "automatic_resume": false,
+  "archive_recovered_after_supervisor_stop": true
+}

@@ -1,0 +1,43 @@
+{
+  "status": "cancelled_by_user_outage",
+  "time": "2026-10-31T21:39:04.986415+08:00",
+  "supervisor_pid": 1898996,
+  "training_pid": 3512259,
+  "gpu_uuid": "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc",
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+  "claim_commit": "431415aea605410e6a52474d514a363d844220b7",
+  "interruption": {
+    "status": "cancelled_by_user_outage",
+    "time": "2026-10-31T21:39:04.986061+08:00",
+    "reason": "stopped_by_user_outage",
+    "run_id": "4090-非局部自相似重构-20261031-种子3407",
+    "output": "/home/zhaoting.ding/prd-runs/r01/4090-非局部自相似重构-20261031-种子3407",
+    "training_pid": 3512259,
+    "code_commit": "edfd210b052dfc0d82db6c80f9c87e36f7b20a61",
+    "formal_started": "2026-10-31T21:10:11.628193+08:00",
+    "cache_seconds": 947.8503088559955,
+    "completed_source_validation_epochs": 2,
+    "trace_count": 3821,
+    "last_confirmed_logged_update": 3800,
+    "exact_completed_optimizer_updates": null,
+    "checkpoint": {
+      "path": "/home/zhaoting.ding/prd-runs/r01/4090-非局部自相似重构-20261031-种子3407/source_best.pth",
+      "sha256": "66d50c4567c5cab8eaf5b58489d50ca9fedbed699dc08831b1bcddbc28819362",
+      "bytes": 1233977234,
+      "readable": true,
+      "tensor_keys": 496,
+      "source_best_epoch_from_curve": 2,
+      "optimizer_state_saved": false,
+      "rng_state_saved": false,
+      "exact_resume_available": false
+    },
+    "complete_result_exists": false,
+    "terminal_exists": false,
+    "automatic_resume": false,
+    "termination": "supervisor SIGTERM handler; not scientific failure",
+    "wall_until_stop_seconds": 1635.871823
+  },
+  "exit_code": null,
+  "termination_signal": "SIGTERM",
+  "automatic_resume": false
+}
