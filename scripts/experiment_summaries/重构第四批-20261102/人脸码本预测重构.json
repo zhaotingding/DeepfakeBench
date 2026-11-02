@@ -1,0 +1,10 @@
+{
+  "status": "failed",
+  "time": "2026-11-02T09:14:27.905257+08:00",
+  "supervisor_pid": 1869409,
+  "training_pid": 1869414,
+  "gpu_uuid": "GPU-83850660-4196-4569-27bc-a3f9e72ada01",
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+  "claim_commit": "618f0ad77c4489b243f24e0795d9b319431bfafd",
+  "exit_code": 1
+}
