@@ -18,6 +18,9 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name == "codeformer":
+        from .generative_operators import spec
+        return spec(config, name)
     if name == "diffusion":
         from .diffusion_operator import diffusion_spec
         return diffusion_spec(config)  # 固定权重、调度、图像噪声和预处理身份。
