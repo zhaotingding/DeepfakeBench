@@ -18,6 +18,21 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name in {"codeformer", "superresolution"}:
+        from .generative_operators import spec
+        return spec(config, name)  # 新算子的冻结资产、精度与输入工作点。
+    if name in {"colorization", "nlm", "sparse", "e4e"}:
+        from .diverse_operators import spec
+        return spec(config, name)  # 第三批各算子完整身份。
+    if name in {"mae", "compression", "tv"}:
+        from .next_operators import spec
+        return spec(config, name)  # 完整工作点身份，拒绝混用其他缓存。
+    if name == "vqgan":
+        from .vqgan_operator import vqgan_spec
+        return vqgan_spec(config)
+    if name in {"wavelet", "lowrank"}:
+        from .operators import classical_spec
+        return classical_spec(config, name)
     if name != "vae":
         raise ValueError("尚未实现该重构算子的缓存生成：" + name)
     root = Path(config["vae_path"])
@@ -27,7 +42,8 @@ def operator_spec(config, name):
         raise FileNotFoundError("缺少本地VAE权重")
     return dict(operator=name, recipe="vae-mode-256-bilinear-v1", resolution=config["resolution"],
                 mean=config["mean"], std=config["std"], storage="normalized-float32-nchw",
-                weights_sha256=file_sha(weight), config_sha256=file_sha(root / "config.json"))
+                weights_sha256=file_sha(weight), config_sha256=file_sha(root / "config.json"),
+                **({"execution":config["vae_inference"]} if "vae_inference" in config else {}))  # 新对照固定内部批次和推理精度；旧身份不变。
 
 def read_cache(path, rows, config, expected_spec=None, verify_file=False):
     root = Path(path).resolve()
@@ -104,6 +120,8 @@ def build_cache(rows, config, probe, destination, spec, device, batch_size=16, m
                     raise ValueError("算子返回形状错误或非有限重构")
                 array[start:start + len(batch)] = reconstructed.float().cpu().numpy()
                 entries.extend(batch_entries)
+                if start == 0 or (start // batch_size) % 100 == 0:
+                    print(json.dumps(dict(stage="cache", frames=len(entries), total=len(rows), elapsed_seconds=time.monotonic()-started)), flush=True)
                 if time.monotonic() - started > max_seconds:
                     raise TimeoutError("缓存生成达到批准时限")
         array.flush()

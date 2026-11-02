@@ -22,7 +22,7 @@
     ]
   },
   "head": {
-    "slots": 3,
+    "slots": 2,
     "hidden": 1024,
     "dropout": 0.5
   },
@@ -46,7 +46,17 @@
   "amp": false,
   "source_validation": "each_epoch",
   "target_evaluation": "selected_and_terminal_only",
-  "note": "Preparation baseline, not a paper-exact reproduction or an approved training batch. Rank32 inherited from b5fb097; three-slot head is a new matched comparison.",
+  "note": "2026-10-29小波与低秩：固定两槽signed总残差，缓存配对增强；不改Adam/LoRA/batch。",
   "reconstruction_mode": "cached_paired",
-  "augmentation_protocol": "paired_float32_v1"
+  "augmentation_protocol": "paired_float32_v1",
+  "operators": {
+    "wavelet": {
+      "family": "haar",
+      "levels": 1,
+      "detail_gain": 0.5
+    },
+    "lowrank": {
+      "rank": 32
+    }
+  }
 }

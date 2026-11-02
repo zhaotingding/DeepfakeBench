@@ -1,0 +1,5 @@
+# 官方源与适配
+
+CodeFormer b33cc7d：只改包内相对导入、标准logging入口并去掉全局注册装饰器，网络计算不变。BasicSR 8d56e3a：RRDBNet原网络，去掉全局注册；arch_util仅摘取原default_init_weights、make_layer、pixel_unshuffle，避免加载未使用的DCN/torchvision扩展。许可证及固定来源hash随附。
+
+权重从官方GitHub v0.1.0发布资产下载，下载失败不换非官方模型。具体输入恢复流程、冻结精度和工作点见generative_operators.py；不声明新增人脸对齐或原官方uint8文件输出完全等价。

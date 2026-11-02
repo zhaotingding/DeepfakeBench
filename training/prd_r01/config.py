@@ -5,8 +5,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 BASE = "b5fb097740a0815f468faac7d6feac402b29e518"
 VARIANTS = {
+    "vqgan_sr_mean": ("clip", ["vqgan", "superresolution"]),
+    "codeformer": ("clip", ["codeformer"]),
+    "superresolution": ("clip", ["superresolution"]),
+    "colorization": ("clip", ["colorization"]),
+    "nlm": ("clip", ["nlm"]),
+    "sparse": ("clip", ["sparse"]),
+    "e4e": ("clip", ["e4e"]),
     "original": ("clip", []),
     "vae": ("clip", ["vae"]),
+    "wavelet": ("clip", ["wavelet"]),
+    "lowrank": ("clip", ["lowrank"]),
+    "vqgan": ("clip", ["vqgan"]),
+    "mae": ("clip", ["mae"]),
+    "compression": ("clip", ["compression"]),
+    "tv": ("clip", ["tv"]),
     "repeat_vae": ("clip", ["vae", "vae"]),
     "diffusion": ("clip", ["diffusion"]),
     "restoration": ("clip", ["restoration"]),
@@ -37,6 +50,7 @@ def read_config(machine_file, variant):
         config[key] = str(path.resolve())  # 不按主机名猜数据路径或回落到NAS。
     config["variant"] = variant
     config["backbone"], config["responses"] = VARIANTS[variant]
+    if variant=="vqgan_sr_mean":config["response_fusion"]="mean"  # 本批固定等权、两槽头。
     return config
 
 def readiness(config):
@@ -44,7 +58,7 @@ def readiness(config):
     if config["backbone"] != "clip":
         missing.append(f"{config['backbone']} adapter and local weights are not prepared")
     for name in dict.fromkeys(config["responses"]):
-        if name != "vae":
+        if name not in {"vae", "wavelet", "lowrank", "vqgan", "mae", "compression", "tv", "colorization", "nlm", "sparse", "e4e", "codeformer", "superresolution"}:
             missing.append(f"{name} operator/checkpoint/preprocessing/workpoint is not prepared")
     required = [
         Path(config["data_root"]) / "DeepfakeBench/lmdb/FaceForensics++_lmdb/data.mdb",
