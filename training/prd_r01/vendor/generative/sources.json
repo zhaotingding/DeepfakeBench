@@ -1,0 +1,185 @@
+{
+  "revisions": {
+    "codeformer": "b33cc7d639d6545bfcccc7e0bc6ae51f24e79c2b",
+    "realesrgan": "a4abfb2979a7bbff3f69f58f58ae324608821e27",
+    "basicsr": "8d56e3a045f9fb3e1d8872f92ee4a4f07f886b0a"
+  },
+  "files": {
+    "codeformer/basicsr/archs/codeformer_arch.py": {
+      "url": "https://raw.githubusercontent.com/sczhou/CodeFormer/b33cc7d639d6545bfcccc7e0bc6ae51f24e79c2b/basicsr/archs/codeformer_arch.py",
+      "sha256": "dfccf9e9e6cd58b933301350e956418d1ffb15bb601ef5ce16d6dda3f01d020a",
+      "bytes": 11117,
+      "imports": [
+        "import math",
+        "import numpy as np",
+        "import torch",
+        "from torch import nn, Tensor",
+        "import torch.nn.functional as F",
+        "from typing import Optional, List",
+        "from basicsr.archs.vqgan_arch import *",
+        "from basicsr.utils import get_root_logger",
+        "from basicsr.utils.registry import ARCH_REGISTRY"
+      ]
+    },
+    "codeformer/basicsr/archs/vqgan_arch.py": {
+      "url": "https://raw.githubusercontent.com/sczhou/CodeFormer/b33cc7d639d6545bfcccc7e0bc6ae51f24e79c2b/basicsr/archs/vqgan_arch.py",
+      "sha256": "5ef00125ce448e34c9c02655bdebff5dca51589597c7c43a0b4bf2326d32e8cb",
+      "bytes": 15428,
+      "imports": [
+        "import numpy as np",
+        "import torch",
+        "import torch.nn as nn",
+        "import torch.nn.functional as F",
+        "import copy",
+        "from basicsr.utils import get_root_logger",
+        "from basicsr.utils.registry import ARCH_REGISTRY"
+      ]
+    },
+    "codeformer/basicsr/archs/arch_util.py": {
+      "url": "https://raw.githubusercontent.com/sczhou/CodeFormer/b33cc7d639d6545bfcccc7e0bc6ae51f24e79c2b/basicsr/archs/arch_util.py",
+      "sha256": "24b2556d3091c8a1600ac92f98c3cb268d937af9af7f0e368c0c02635d0afffb",
+      "bytes": 11431,
+      "imports": [
+        "import collections.abc",
+        "import math",
+        "import torch",
+        "import torchvision",
+        "import warnings",
+        "from distutils.version import LooseVersion",
+        "from itertools import repeat",
+        "from torch import nn as nn",
+        "from torch.nn import functional as F",
+        "from torch.nn import init as init",
+        "from torch.nn.modules.batchnorm import _BatchNorm",
+        "from basicsr.ops.dcn import ModulatedDeformConvPack, modulated_deform_conv",
+        "from basicsr.utils import get_root_logger"
+      ]
+    },
+    "codeformer/basicsr/utils/registry.py": {
+      "url": "https://raw.githubusercontent.com/sczhou/CodeFormer/b33cc7d639d6545bfcccc7e0bc6ae51f24e79c2b/basicsr/utils/registry.py",
+      "sha256": "21c23bd3bf727eb2decd99035120fc47316db92486d73116cca18e9fa8b6c854",
+      "bytes": 2185,
+      "imports": []
+    },
+    "codeformer/inference_codeformer.py": {
+      "url": "https://raw.githubusercontent.com/sczhou/CodeFormer/b33cc7d639d6545bfcccc7e0bc6ae51f24e79c2b/inference_codeformer.py",
+      "sha256": "9b74db650fac5de4427ca5bf10a66538f41224e10611ad6d5fb54949d4ce1512",
+      "bytes": 12691,
+      "imports": [
+        "import os",
+        "import cv2",
+        "import argparse",
+        "import glob",
+        "import torch",
+        "from torchvision.transforms.functional import normalize",
+        "from basicsr.utils import imwrite, img2tensor, tensor2img",
+        "from basicsr.utils.download_util import load_file_from_url",
+        "from basicsr.utils.misc import gpu_is_available, get_device",
+        "from facelib.utils.face_restoration_helper import FaceRestoreHelper",
+        "from facelib.utils.misc import is_gray",
+        "from basicsr.utils.registry import ARCH_REGISTRY"
+      ]
+    },
+    "codeformer/LICENSE": {
+      "url": "https://raw.githubusercontent.com/sczhou/CodeFormer/b33cc7d639d6545bfcccc7e0bc6ae51f24e79c2b/LICENSE",
+      "sha256": "cfd654022bdc44fdd809670d50239bcb1ebf2f4a661dca7e328f93c269538246",
+      "bytes": 1717,
+      "imports": []
+    },
+    "basicsr/basicsr/archs/rrdbnet_arch.py": {
+      "url": "https://raw.githubusercontent.com/XPixelGroup/BasicSR/8d56e3a045f9fb3e1d8872f92ee4a4f07f886b0a/basicsr/archs/rrdbnet_arch.py",
+      "sha256": "6aa8eb3f77e918b90eeff4ebfaf8745abe0c40eb8fcc03abbc1928693d70ab58",
+      "bytes": 4621,
+      "imports": [
+        "import torch",
+        "from torch import nn as nn",
+        "from torch.nn import functional as F",
+        "from basicsr.utils.registry import ARCH_REGISTRY",
+        "from .arch_util import default_init_weights, make_layer, pixel_unshuffle"
+      ]
+    },
+    "basicsr/basicsr/archs/arch_util.py": {
+      "url": "https://raw.githubusercontent.com/XPixelGroup/BasicSR/8d56e3a045f9fb3e1d8872f92ee4a4f07f886b0a/basicsr/archs/arch_util.py",
+      "sha256": "be2cec6482fba5455cc1f03ff40da84a89e27feadf886018a4fa7b97b8a1bb55",
+      "bytes": 11348,
+      "imports": [
+        "import collections.abc",
+        "import math",
+        "import torch",
+        "import torchvision",
+        "import warnings",
+        "from distutils.version import LooseVersion",
+        "from itertools import repeat",
+        "from torch import nn as nn",
+        "from torch.nn import functional as F",
+        "from torch.nn import init as init",
+        "from torch.nn.modules.batchnorm import _BatchNorm",
+        "from basicsr.ops.dcn import ModulatedDeformConvPack, modulated_deform_conv",
+        "from basicsr.utils import get_root_logger"
+      ]
+    },
+    "basicsr/basicsr/utils/registry.py": {
+      "url": "https://raw.githubusercontent.com/XPixelGroup/BasicSR/8d56e3a045f9fb3e1d8872f92ee4a4f07f886b0a/basicsr/utils/registry.py",
+      "sha256": "6b4705b017fe4589d29603592defa6bf58c70c8936666d9c82de8485b2e4d0b5",
+      "bytes": 2477,
+      "imports": []
+    },
+    "basicsr/LICENSE.txt": {
+      "url": "https://raw.githubusercontent.com/XPixelGroup/BasicSR/8d56e3a045f9fb3e1d8872f92ee4a4f07f886b0a/LICENSE.txt",
+      "sha256": "5447872f21ddc29dc0dc060d5c885513c01c904e9da9931bba69898a6fb4d415",
+      "bytes": 11350,
+      "imports": []
+    },
+    "realesrgan/realesrgan/utils.py": {
+      "url": "https://raw.githubusercontent.com/xinntao/Real-ESRGAN/a4abfb2979a7bbff3f69f58f58ae324608821e27/realesrgan/utils.py",
+      "sha256": "185df0ef68f96891bdbb99280aac5b8b62fd4e4baac74bad37f53cf408668db1",
+      "bytes": 12605,
+      "imports": [
+        "import cv2",
+        "import math",
+        "import numpy as np",
+        "import os",
+        "import queue",
+        "import threading",
+        "import torch",
+        "from basicsr.utils.download_util import load_file_from_url",
+        "from torch.nn import functional as F"
+      ]
+    },
+    "realesrgan/inference_realesrgan.py": {
+      "url": "https://raw.githubusercontent.com/xinntao/Real-ESRGAN/a4abfb2979a7bbff3f69f58f58ae324608821e27/inference_realesrgan.py",
+      "sha256": "389af1172b8ae830dc940283a5e7197d05ab6d9ec15c673bb383c03d957f84bf",
+      "bytes": 7745,
+      "imports": [
+        "import argparse",
+        "import cv2",
+        "import glob",
+        "import os",
+        "from basicsr.archs.rrdbnet_arch import RRDBNet",
+        "from basicsr.utils.download_util import load_file_from_url",
+        "from realesrgan import RealESRGANer",
+        "from realesrgan.archs.srvgg_arch import SRVGGNetCompact"
+      ]
+    },
+    "realesrgan/LICENSE": {
+      "url": "https://raw.githubusercontent.com/xinntao/Real-ESRGAN/a4abfb2979a7bbff3f69f58f58ae324608821e27/LICENSE",
+      "sha256": "4a699ec4863d96a91fc265948a0c90033f7e8735d515524dcf3444736406e0c2",
+      "bytes": 1519,
+      "imports": []
+    }
+  },
+  "weights": {
+    "codeformer.pth": {
+      "url": "https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth",
+      "bytes": 376637898,
+      "sha256": "1009e537e0c2a07d4cabce6355f53cb66767cd4b4297ec7a4a64ca4b8a5684b7",
+      "download_seconds": 49.202999999999975
+    },
+    "RealESRGAN_x4plus.pth": {
+      "url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth",
+      "bytes": 67040989,
+      "sha256": "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1",
+      "download_seconds": 13.343999999999937
+    }
+  }
+}

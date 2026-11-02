@@ -18,6 +18,9 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name in {"codeformer", "superresolution"}:
+        from .generative_operators import spec
+        return spec(config, name)  # 新算子的冻结资产、精度与输入工作点。
     if name in {"colorization", "nlm", "sparse", "e4e"}:
         from .diverse_operators import spec
         return spec(config, name)  # 第三批各算子完整身份。
