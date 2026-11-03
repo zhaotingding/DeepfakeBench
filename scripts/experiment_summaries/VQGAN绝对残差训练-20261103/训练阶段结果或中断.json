@@ -1,0 +1,66 @@
+{
+  "status": "training_verified_pending_evaluation",
+  "time": "2026-11-03T20:11:53.163860+08:00",
+  "pid": 2924215,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+  "run_id": "4090-VQGAN绝对残差-20261103-种子3407",
+  "claim_commit": "8a8003104fbc0c46ab4a1f97f7ded972fe0f090a",
+  "code_commit": "8ff4ce93c10dc21221dfbd1d0b510c48c0d2f366",
+  "gpu_uuid": "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc",
+  "power_cutoff": "2026-11-03T22:00:00+08:00",
+  "max_wall_seconds": 43200,
+  "complete_evaluation": false,
+  "training_pid": 2924250,
+  "exit_code": 0,
+  "verification": {
+    "status": "training_verified_pending_evaluation",
+    "time": "2026-11-03T20:11:53.155732+08:00",
+    "run_id": "4090-VQGAN绝对残差-20261103-种子3407",
+    "output": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN绝对残差-20261103-种子3407",
+    "code_commit": "8ff4ce93c10dc21221dfbd1d0b510c48c0d2f366",
+    "epochs": 12,
+    "optimizer_updates": 21576,
+    "source_best_epoch": 8,
+    "weights": {
+      "source_best": {
+        "path": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN绝对残差-20261103-种子3407/source_best.pth",
+        "bytes": 1233977234,
+        "sha256": "042d3930c09df40eb7089210bc65a4adc2aa39a27205ea152fa48f017c7daf53"
+      },
+      "terminal": {
+        "path": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN绝对残差-20261103-种子3407/terminal.pth",
+        "bytes": 1233977234,
+        "sha256": "d2e7a003ad40f994982730192a7f74fed33cde1ad547014400c5dd56567e10f9"
+      }
+    },
+    "artifacts_sha256": {
+      "source_val_epoch4.npy": "f7ff79756c7055b71a392308595512409fd8426e899ce3c159ce43b7247cec90",
+      "learning_curve.json": "12b0611ae19ae54c5daf945b8d8bd8a0a50b2211d580baf1b1107b1b33dbf7e9",
+      "source_val_epoch11.npy": "03780185f86e4ffb9258d41c473b678fc2f51dafe198baf72dd7269897298b12",
+      "source_val_epoch3.npy": "189ed8ffaa47aa324775f97c8f255c13e57c084c4b8b48cd3d4b02711c07ecf8",
+      "source_val_epoch5.npy": "502d20287fe70715aff826e4d9dd917651ad3f00904bf3b58033a0a0656158b4",
+      "source_val_epoch6.npy": "13833518ca238da61c9994071c27ddd15d23bc1bb8eecc4fd85c906878b2858f",
+      "metadata.json": "ff4d8e33f305de2e45796d0d5af3a281c22ce72a7d9f083bb1dc83871861d877",
+      "source_val_epoch9.npy": "3e88a88bf6efdc470eb1b93c45470bf947e37ef452920de2cc175a62ff324f29",
+      "result.json": "330ba847cf3d2dda5498eef7ea5a09ca860ad162941a7780a2d78e75a04132c7",
+      "source_val_epoch1.npy": "60f2a30cb612608480364de80ca445f194713688ba1c1986c352e226d28867e1",
+      "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+      "source_val_epoch2.npy": "206f2c5a184e67bbd06f153081820aec083d250c1d0e064a5099c65078f19bdf",
+      "source_val_epoch8.npy": "9bfae967877e42a4da69558c83e6d0d69e94fc601de4dc42248b7791620aafba",
+      "source_val_epoch7.npy": "0a2587117a35763b0aab4ba3d2dd0bfbd1bc9bdbbec16556bcb05abbc39d2cc9",
+      "source_val_epoch12.npy": "d5d98b5482517f803d83ded7ab73c6234adfffcba10f027f72601e99609d4afd",
+      "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+      "training_stage_complete.json": "30f4ba8f06116690b6e8a1ffc4bece30b8339917481efb2b7876a646f775c236",
+      "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+      "source_val_epoch10.npy": "ce6322ab5dee1d547ceab71cc2af9f5ab195b8191e9f9ae9d1f2ad9f45131895"
+    },
+    "trainable_initial_sha256": "9aa889456c6661e4c09eb03229689f17e2f9766a4e8d09d4c009badf83f133e5",
+    "trace_sha256": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+    "pairing_verified": true,
+    "source_validation_independent_max_error": 1.1102230246251565e-16,
+    "complete_evaluation": false,
+    "source_test_pending": true,
+    "target_evaluation_pending": true,
+    "scope": "仅完整训练和源验证验收；尚无源测试及三目标完整帧/视频指标，不能宣称实验全部完成。"
+  }
+}
