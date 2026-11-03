@@ -1,0 +1,168 @@
+{
+  "status": "verified",
+  "time": "2026-11-04T07:11:47.585879+08:00",
+  "supervisor_pid": 1076320,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+  "claim_commit": "f2d2daa5c65f56a1823fd7df7328ce3872d61744",
+  "code_commit": "cb3aa1091fd2b663cb82ca89665031fbd211b74b",
+  "max_seconds": 43200,
+  "power_cutoff": null,
+  "training_pid": 1076332,
+  "exit_code": 0,
+  "verification": {
+    "status": "verified",
+    "time": "2026-11-04T07:11:47.570219+08:00",
+    "output": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN归一化特征差-20261104-种子3407",
+    "code_commit": "cb3aa1091fd2b663cb82ca89665031fbd211b74b",
+    "updates": 21576,
+    "independent_metrics_max_error": 1.1102230246251565e-16,
+    "pairing_verified": true,
+    "artifacts_sha256": {
+      "source_val_epoch4.npy": "97acaee0d0fb80361c8f743179f7032ab1a429f245a20c840035b6c3c11511d8",
+      "terminal_eval0.npy": "4063c1e38fcf6908e4d5310c91aeefdfd93e12a0a8028cb5029fb9dd733f8c05",
+      "learning_curve.json": "fd6f066efbc2e39228546fc0e490e7949cb9de44ad542dee2e25dad23555a65b",
+      "source_val_epoch11.npy": "98f51a93313bf8a56b641d1e3618151fd516f02eb28c43e71e35835696279be3",
+      "source_val_epoch3.npy": "6684031b5994fa4f900ee4d5d814ad84f403a3ee2946fc8895e654f29e2ff473",
+      "source_val_epoch5.npy": "38177fbacf6b4a626887fa7da86e71273df8011d67492cbcf4d4ef5d150ae7b1",
+      "source_val_epoch6.npy": "dbb41c80d5eec3ed358fa99e30dc2df5b4856f6c3d8363acb6e0ad99177b7464",
+      "metadata.json": "8b186f0f27052533c80ea887176da25ed24f1d1adb83c0f18e5aece3db0a8354",
+      "source_best_eval1.npy": "f3d8b301049d3b4c49adf8440c423b26ed0ea1bac365830c518c6999dac90c1c",
+      "terminal_eval1.npy": "c64bc6a7c6dbf05d617aebb6113211d356d0ba401f8f21c9d43dab049cf3fffb",
+      "source_val_epoch9.npy": "f342d0f7e5a450bc5712aaf0243531618bc1ba0a1d6b2683298809ffa6422b11",
+      "result.json": "f8a6fa00576438f4107f0150841b6930a37e939ea0060521f90faa6a720f2b76",
+      "source_best.pth": "0d3f93a78105e8f0c6ec7d777a0a2e9693623d6f412604df5fc001c74b607bc7",
+      "source_val_epoch1.npy": "0e4e47557ab85d01c30a9b6b5e5275050db8d399bcc6a5d9f88793ed0e4a0cfb",
+      "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+      "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+      "source_val_epoch2.npy": "5c94fde8ba134b78ff1a04944483c8ca9a8f5f15c44d7332d9284fceaf354c7a",
+      "source_val_epoch8.npy": "d00a309caf6236f60efe1c67a2c062b744330c6a195c94c881d88586990cc26e",
+      "source_val_epoch7.npy": "2ec93571945fee14a4f37fcdb163d058d70b8d1ac20c714ce9f3ee6abad0b917",
+      "source_val_epoch12.npy": "191035c44a18d5cedd2a0317e451cd91bbb14e7fa88d4ef85242b89c34dfaae0",
+      "terminal.pth": "65ee7ae5e350f4723412da1897576d673d869d03ed0d8c04f7e96c2252fcdb77",
+      "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+      "complete_result.json": "9f58f6eb6001270c8076d098da66d17920547e24e80869c86951928b22a29a2e",
+      "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+      "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+      "source_best_eval0.npy": "4ed11e28b87da6edbdfc04a6a442ee0f8e4b06dcdbd4108ce39086c791eb1d90",
+      "source_val_epoch10.npy": "5383a0eff59f7c8a0e2c3400d0ddca0e7dc909017a170128ac76f7c5f39e8abb"
+    },
+    "result": {
+      "status": "completed",
+      "optimizer_updates": 21576,
+      "endpoints": {
+        "source_best": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.9915561224489796,
+                  "ce": 0.08277679089392077,
+                  "balanced_ce": 0.07943059928121546,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.9915561224489796,
+                "ce": 0.08277679089392077,
+                "balanced_ce": 0.07943059928121546
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.9023132848645075,
+                  "ce": 0.5229870817282661,
+                  "balanced_ce": 0.4413684822560832,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.8230914369043862,
+                  "ce": 0.6154037890277388,
+                  "balanced_ce": 0.6137452167350612,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.9315217391304348,
+                  "ce": 0.31855135338503443,
+                  "balanced_ce": 0.351331203713275,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.8856421536331095,
+                "ce": 0.48564740804701306,
+                "balanced_ce": 0.46881496756813984
+              }
+            }
+          }
+        ],
+        "terminal": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.9928443877551021,
+                  "ce": 0.09283959834188493,
+                  "balanced_ce": 0.07642174903354436,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.9928443877551021,
+                "ce": 0.09283959834188493,
+                "balanced_ce": 0.07642174903354436
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.9302379378717778,
+                  "ce": 0.5254472453395229,
+                  "balanced_ce": 0.4262923949357826,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.8394777358790786,
+                  "ce": 0.6190970976614933,
+                  "balanced_ce": 0.6135682888953569,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.9268970467596391,
+                  "ce": 0.3959943129756772,
+                  "balanced_ce": 0.3563957729132501,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.8988709068368319,
+                "ce": 0.5135128853255645,
+                "balanced_ce": 0.46541881891479653
+              }
+            }
+          }
+        ]
+      },
+      "source_best_epoch": 9,
+      "peak_allocated_bytes": 14915454976,
+      "elapsed_seconds": 25615.208190109,
+      "independent_final_test": false,
+      "cache_seconds": 633.6319121950073,
+      "cache_reused": true,
+      "new_cache_generation_seconds": 0,
+      "cache_reuse_verification_seconds": 8.303170478000538,
+      "residual": "normalized_feature_diff",
+      "normalization_epsilon": 1e-06,
+      "complete_evaluation": true
+    },
+    "scope": "同协议VQGAN有符号残差为匹配对照；源选主端点及末轮完整报告，仍属开发评估"
+  }
+}
