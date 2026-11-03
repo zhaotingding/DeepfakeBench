@@ -1,0 +1,27 @@
+{
+  "status": "finished_with_errors",
+  "time": "2026-11-03T08:40:56.567244+08:00",
+  "pid": 1476681,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+  "code_commit": "3a8bfd5ebccb5851c8450b5bedfe2aabf08e573b",
+  "claim_commit": "27e5085ee7bbf59d0d3d5f9c145caeb0eff92f24",
+  "arms": {
+    "bm3d": {
+      "status": "failed",
+      "time": "2026-11-03T08:40:56.560162+08:00",
+      "supervisor_pid": 1476681,
+      "training_pid": 1476687,
+      "gpu_uuid": "GPU-83850660-4196-4569-27bc-a3f9e72ada01",
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+      "claim_commit": "27e5085ee7bbf59d0d3d5f9c145caeb0eff92f24",
+      "exit_code": -15
+    }
+  },
+  "queues": {
+    "GPU-83850660-4196-4569-27bc-a3f9e72ada01": [
+      "bm3d"
+    ]
+  },
+  "power_cutoff": "2026-11-03T22:00:00+08:00",
+  "restart_from_pretrained": true
+}
