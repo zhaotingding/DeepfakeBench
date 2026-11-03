@@ -1,0 +1,28 @@
+{
+  "status": "finished_with_errors",
+  "time": "2026-11-03T11:32:36.387720+08:00",
+  "pid": 1476682,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/多响应融合",
+  "code_commit": "ef4b4177d3bc2ce7efa866a7ab52ac6ebe4756d2",
+  "claim_commit": "27e5085ee7bbf59d0d3d5f9c145caeb0eff92f24",
+  "arms": {
+    "vqgan_sr_mean": {
+      "status": "archive_failed",
+      "time": "2026-11-03T11:32:36.275456+08:00",
+      "supervisor_pid": 1476682,
+      "training_pid": 1476688,
+      "gpu_uuid": "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc",
+      "cwd": "/home/zhaoting.ding/prd-worktrees/多响应融合",
+      "claim_commit": "27e5085ee7bbf59d0d3d5f9c145caeb0eff92f24",
+      "exit_code": 0,
+      "error": "FileNotFoundError(2, 'No such file or directory')"
+    }
+  },
+  "queues": {
+    "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc": [
+      "vqgan_sr_mean"
+    ]
+  },
+  "power_cutoff": "2026-11-03T22:00:00+08:00",
+  "restart_from_pretrained": true
+}
