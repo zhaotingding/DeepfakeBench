@@ -1,0 +1,186 @@
+{
+  "status": "verified",
+  "time": "2026-11-04T02:08:09.339947+08:00",
+  "pid": 1076338,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+  "code_commit": "a5075ea2069771ca3e69da15e46f04594ff7936a",
+  "claim_commit": "f2d2daa5c65f56a1823fd7df7328ce3872d61744",
+  "run_id": "4090-VQGAN绝对残差-20261103-种子3407",
+  "new_training_updates": 0,
+  "max_seconds": 28800,
+  "computation_pid": 1076349,
+  "exit_code": 0,
+  "stop_reason": null,
+  "verification": {
+    "status": "verified",
+    "time": "2026-11-04T02:08:07.999935+08:00",
+    "output": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN绝对残差-20261103-种子3407",
+    "code_commit": "8ff4ce93c10dc21221dfbd1d0b510c48c0d2f366",
+    "updates": 21576,
+    "independent_metrics_max_error": 1.1102230246251565e-16,
+    "pairing_verified": true,
+    "artifacts_sha256": {
+      "source_val_epoch4.npy": "f7ff79756c7055b71a392308595512409fd8426e899ce3c159ce43b7247cec90",
+      "terminal_eval0.npy": "6b6fa34331e1106554c1eba64396b5a2a99897eab1f43a773af6c9b972d3fa9a",
+      "learning_curve.json": "12b0611ae19ae54c5daf945b8d8bd8a0a50b2211d580baf1b1107b1b33dbf7e9",
+      "source_val_epoch11.npy": "03780185f86e4ffb9258d41c473b678fc2f51dafe198baf72dd7269897298b12",
+      "source_val_epoch3.npy": "189ed8ffaa47aa324775f97c8f255c13e57c084c4b8b48cd3d4b02711c07ecf8",
+      "source_val_epoch5.npy": "502d20287fe70715aff826e4d9dd917651ad3f00904bf3b58033a0a0656158b4",
+      "source_val_epoch6.npy": "13833518ca238da61c9994071c27ddd15d23bc1bb8eecc4fd85c906878b2858f",
+      "metadata.json": "ff4d8e33f305de2e45796d0d5af3a281c22ce72a7d9f083bb1dc83871861d877",
+      "source_best_eval1.npy": "3798f7acf0fbada85dd916789e3fc3136713f7e9d2046dedb690bd46c2838543",
+      "evaluation_metadata.json": "461ac098cb4272aa45ca5c354e15012886cb1683ebac030050fa38bde8ad53ab",
+      "terminal_eval1.npy": "a9495b1fd94b691c660d953c9068dcedffc23342cf5490974e4a76e9418ca051",
+      "source_val_epoch9.npy": "3e88a88bf6efdc470eb1b93c45470bf947e37ef452920de2cc175a62ff324f29",
+      "result.json": "330ba847cf3d2dda5498eef7ea5a09ca860ad162941a7780a2d78e75a04132c7",
+      "source_best.pth": "042d3930c09df40eb7089210bc65a4adc2aa39a27205ea152fa48f017c7daf53",
+      "source_val_epoch1.npy": "60f2a30cb612608480364de80ca445f194713688ba1c1986c352e226d28867e1",
+      "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+      "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+      "source_val_epoch2.npy": "206f2c5a184e67bbd06f153081820aec083d250c1d0e064a5099c65078f19bdf",
+      "source_val_epoch8.npy": "9bfae967877e42a4da69558c83e6d0d69e94fc601de4dc42248b7791620aafba",
+      "source_val_epoch7.npy": "0a2587117a35763b0aab4ba3d2dd0bfbd1bc9bdbbec16556bcb05abbc39d2cc9",
+      "source_val_epoch12.npy": "d5d98b5482517f803d83ded7ab73c6234adfffcba10f027f72601e99609d4afd",
+      "terminal.pth": "d2e7a003ad40f994982730192a7f74fed33cde1ad547014400c5dd56567e10f9",
+      "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+      "complete_result.json": "72a7988c52958494c02aac3deb85c6eab665605aff080888e2dc656bcd02e3ad",
+      "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+      "training_stage_complete.json": "30f4ba8f06116690b6e8a1ffc4bece30b8339917481efb2b7876a646f775c236",
+      "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+      "source_best_eval0.npy": "5213bd8fb5dd5f3c4b550f5c9c93d72b608595ed2135856082cd897e825b420c",
+      "source_val_epoch10.npy": "ce6322ab5dee1d547ceab71cc2af9f5ab195b8191e9f9ae9d1f2ad9f45131895"
+    },
+    "result": {
+      "status": "completed",
+      "optimizer_updates": 21576,
+      "endpoints": {
+        "source_best": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.9933801020408163,
+                  "ce": 0.08173509266119207,
+                  "balanced_ce": 0.06887593177672618,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.9933801020408163,
+                "ce": 0.08173509266119207,
+                "balanced_ce": 0.06887593177672618
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.925925313945803,
+                  "ce": 0.5219373675394238,
+                  "balanced_ce": 0.4295672750561229,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.864679095241238,
+                  "ce": 0.5466675648037992,
+                  "balanced_ce": 0.5420238682115291,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.9054655455291223,
+                  "ce": 0.4497051712584572,
+                  "balanced_ce": 0.4079110458059346,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.8986899849053879,
+                "ce": 0.5061033678672268,
+                "balanced_ce": 0.45983406302452884
+              }
+            }
+          }
+        ],
+        "terminal": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.994170918367347,
+                  "ce": 0.06969355634992995,
+                  "balanced_ce": 0.08891320636223857,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.994170918367347,
+                "ce": 0.06969355634992995,
+                "balanced_ce": 0.08891320636223857
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.9012557832121613,
+                  "ce": 0.5508472745602576,
+                  "balanced_ce": 0.46729001424811806,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.8537611641550048,
+                  "ce": 0.5688917845343615,
+                  "balanced_ce": 0.5677227284432051,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.9077727645611158,
+                  "ce": 0.37474409022524785,
+                  "balanced_ce": 0.4216104786246418,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.8875965706427605,
+                "ce": 0.49816104977328896,
+                "balanced_ce": 0.4855410737719883
+              }
+            }
+          }
+        ]
+      },
+      "source_best_epoch": 8,
+      "peak_allocated_bytes": 14915454976,
+      "elapsed_seconds": 25061.11547154197,
+      "independent_final_test": false,
+      "complete_evaluation": true,
+      "residual": "absolute_diff",
+      "training_code_commit": "8ff4ce93c10dc21221dfbd1d0b510c48c0d2f366",
+      "evaluation_code_commit": "a5075ea2069771ca3e69da15e46f04594ff7936a",
+      "evaluation_claim_commit": "f2d2daa5c65f56a1823fd7df7328ce3872d61744",
+      "evaluation_seconds": 7403.219646060985,
+      "evaluation_training_updates": 0,
+      "checkpoint_sha256": {
+        "source_best": "042d3930c09df40eb7089210bc65a4adc2aa39a27205ea152fa48f017c7daf53",
+        "terminal": "d2e7a003ad40f994982730192a7f74fed33cde1ad547014400c5dd56567e10f9"
+      },
+      "cache_seconds": 633.6319121950073,
+      "cache_reused": true,
+      "new_cache_generation_seconds": 0,
+      "cache_reuse_verification_seconds": 10.167826507997233,
+      "training_seconds": 17657.895825480984,
+      "cost_note": "训练与本次完整评估分列；原VQ缓存生成和原训练缓存核验各计一次；预检不计正式成本"
+    },
+    "scope": "既有绝对残差第8轮/第12轮两权重完整评估；0新训练，目标仍为开发域。",
+    "evaluation_code_commit": "a5075ea2069771ca3e69da15e46f04594ff7936a",
+    "evaluation_training_updates": 0,
+    "training_result_commit": "48dd05410da84593a6d95732240eed21b0682900",
+    "original_training_artifacts_unchanged": true
+  }
+}
