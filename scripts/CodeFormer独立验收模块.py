@@ -28,7 +28,7 @@ def sha(path):
 
 def verify():
     import numpy as np
-    spec=importlib.util.spec_from_file_location('paired_verifier',ROOT/'scripts/CodeFormer指标验收模块.py')
+    spec=importlib.util.spec_from_file_location('paired_verifier',ROOT/'scripts/独立视频指标.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     metrics=module.independent_metrics  # 复用已登记的独立秩和AUC实现，不调用训练指标函数。
     machine=json.loads((ROOT/'r01.machine.json').read_text(encoding="utf-8"));out=Path(machine['output_root'])/'r01'/RUN
