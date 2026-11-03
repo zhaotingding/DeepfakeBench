@@ -18,6 +18,9 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    if name == "vqgan":
+        from .vqgan_operator import vqgan_spec
+        return vqgan_spec(config)  # 仅补VQGAN注册，保留原并行工作树各算子。
     if name == "codeformer":
         from .generative_operators import spec
         return spec(config, name)

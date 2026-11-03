@@ -4,10 +4,13 @@ from torch import nn
 from torch.nn import functional as F
 
 class ResponseModel(nn.Module):
-    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5, cached=False, slots=3):
+    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5, cached=False, slots=3, residual="signed_diff"):
         super().__init__()
         if slots not in (2, 3) or len(responses) > slots - 1 or (not cached and any(name not in probes for name in responses)):
             raise ValueError("At most two registered response slots are supported")
+        if residual not in {"signed_diff", "normalized_feature_diff"}:
+            raise ValueError(f"Unsupported residual: {residual}")  # 不把新模式隐式当作原差分。
+        self.residual = residual  # 映射切换不增加参数或消耗初始化随机数。
         self.slots = slots  # 单算子用两槽，双响应保留三槽。
         self.encoder = encoder
         self.probes = nn.ModuleDict(probes)
@@ -37,7 +40,13 @@ class ResponseModel(nn.Module):
                         reconstructed = probe(images.detach())
                 if reconstructed.shape != images.shape:
                     raise ValueError(f"{name} changed the image shape")
-                responses[name] = z - self.encoder(reconstructed.detach())
+                z_reconstructed = self.encoder(reconstructed.detach())  # 两次编码共享可训练权重。
+                if self.residual == "normalized_feature_diff":
+                    z_unit = z / (torch.linalg.vector_norm(z, dim=1, keepdim=True) + 1e-6)  # 分别归一化两端，ε固定且零向量输出为零。
+                    zr_unit = z_reconstructed / (torch.linalg.vector_norm(z_reconstructed, dim=1, keepdim=True) + 1e-6)
+                    responses[name] = z_unit - zr_unit  # 不是先求差再把残差单位化。
+                else:
+                    responses[name] = z - z_reconstructed  # 原有符号差路径保持。
         slots = [responses[name] for name in self.responses]
         slots += [torch.zeros_like(z)] * (self.slots - 1 - len(slots))
         features = torch.cat([z, *slots], dim=1)  # 重复VAE槽复用同一响应，不重复计算或加噪。
@@ -99,5 +108,6 @@ def build_model(config, device):
                 probes[name] = build_operator(config, name, device)
     torch.set_rng_state(rng)
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
-                          config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"])
+                          config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"],
+                          residual=config.get("residual", "signed_diff"))  # 新模式必须显式来自科学配置。
     return model.to(device)
