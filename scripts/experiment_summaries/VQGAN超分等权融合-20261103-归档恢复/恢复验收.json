@@ -1,0 +1,174 @@
+{
+  "status": "verified_after_archive_recovery",
+  "time": "2026-11-03T12:01:16.357094+08:00",
+  "original_archive_commit": "8f8bf3d477f7842f4f1696e6c0e2f1697d5cc829",
+  "verification_code_commit": "be2eebaebca0936a0331e429a7351fe94025a52d",
+  "compute_exit_code": 0,
+  "previous_error": "FileNotFoundError(2, 'No such file or directory')",
+  "root_cause": "指标模块导入时读取旧小波低秩配置；新融合工作树未包含无关旧配置。提取原独立指标函数，AST保持一致。",
+  "verification": {
+    "status": "verified",
+    "time": "2026-11-03T12:01:16.340698+08:00",
+    "output": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN超分等权响应融合-20261103-种子3407",
+    "code_commit": "ef4b4177d3bc2ce7efa866a7ab52ac6ebe4756d2",
+    "updates": 21576,
+    "independent_metrics_max_error": 1.1102230246251565e-16,
+    "pairing_verified": true,
+    "artifacts_sha256": {
+      "source_val_epoch4.npy": "291ad61549da675e57671bbe064caac485b9c4ee277da6205052d691d4815f91",
+      "terminal_eval0.npy": "ecea80bc31867f59868223e5ff6e037939c524f678c1eb3e713e67ff7f7e6883",
+      "learning_curve.json": "17654a29af9ad1759df0860a20673370fddc2e0ef857314ef8768e1bdd21c6f3",
+      "source_val_epoch11.npy": "82a974ab4f57465c5cf86677cc9972c4df53f81b498b6fa6effaf55069275997",
+      "source_val_epoch3.npy": "88e00e74a47d1340528fbac33af124145ffc11789bb1799daa0b6fd5842fd56a",
+      "source_val_epoch5.npy": "f8ff8afaf55116556e73e28b7bc5064dc11465da51e557be430e2e27e1f8b689",
+      "source_val_epoch6.npy": "8cc3d696d6aa71d1418771d8b49c4a2df54b9b4c89a325f6c232a6bce9d364f7",
+      "metadata.json": "48dd31b6f1ef6b480c11de8d05baddb59df0253c2863d97aedc8d76e6cab149c",
+      "source_best_eval1.npy": "611e1c34e6d9fda1f16b0addff517082feebc6353a69e6bb37dab063507c4bef",
+      "terminal_eval1.npy": "d697b1bfc4abcd96ef94e3b8d8061835a914bf96ff97bac49be5864526f960c9",
+      "source_val_epoch9.npy": "38e017cd652c39eb0be24efe572dc1e32634569c0a6e008d9fca7265f0bf9c87",
+      "result.json": "c032f6a268b80a2547e034db5b253f0e74fb15c58b998862c8f71d0464e08fc7",
+      "source_best.pth": "0157004a6a4014fe638bbbd70b85489cbb0828d738297aa795f92d129cb313e1",
+      "source_val_epoch1.npy": "8b7426801c3a2e55405e77c2d3c90e1ed6ec9b53d69e30eaa5bf06c5ed51aad3",
+      "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+      "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+      "source_val_epoch2.npy": "e54ee154c03915e75d4ce952d6cd7ef780040be18fec8884416152bfa43a7a15",
+      "source_val_epoch8.npy": "563a6b28495d8483bb0f8073780e8080566a61ee65d71361d753a192442adc98",
+      "source_val_epoch7.npy": "4ea45f318009882212f8fa00fae52a9d2464e3f66466fe3a71c5eb5b8c73327c",
+      "source_val_epoch12.npy": "636dd206b540f4d5ad0675487206e231459e0d81079ff6c810e58ed37c866f01",
+      "terminal.pth": "db03e79db08dfaf3f4a7d79cf42e8fd06aab3d04337c6cd0845da88c0e2bf54a",
+      "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+      "complete_result.json": "7d2b9fc54bf8a3078b7eea6b89bde2aadd686b8376cbae8b93fe23060b632901",
+      "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+      "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+      "source_best_eval0.npy": "25257a238bc9028939fcaf36594a5dbce446c1c8edc9ca4c32fa4ebf97f20ebb",
+      "source_val_epoch10.npy": "ec67786c4ecd0113486272c214d6c8c0020098ba2e29a6050fd6a215e8bdceb0"
+    },
+    "result": {
+      "status": "completed",
+      "optimizer_updates": 21576,
+      "endpoints": {
+        "source_best": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.9950892857142858,
+                  "ce": 0.06571338223509333,
+                  "balanced_ce": 0.06799432206539849,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.9950892857142858,
+                "ce": 0.06571338223509333,
+                "balanced_ce": 0.06799432206539849
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.9223397224058162,
+                  "ce": 0.4373989611281223,
+                  "balanced_ce": 0.3815618384689877,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.8641126039343391,
+                  "ce": 0.5111767589139368,
+                  "balanced_ce": 0.510004534271352,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.9223748974569319,
+                  "ce": 0.33741184518659184,
+                  "balanced_ce": 0.3624650018386012,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.9029424079323624,
+                "ce": 0.42866252174288366,
+                "balanced_ce": 0.41801045819298027
+              }
+            }
+          }
+        ],
+        "terminal": [
+          {
+            "role": "source_test",
+            "metrics": {
+              "domains": {
+                "FaceForensics++": {
+                  "auc": 0.9944132653061225,
+                  "ce": 0.07457163702731155,
+                  "balanced_ce": 0.10122076543880362,
+                  "videos": 700
+                }
+              },
+              "macro": {
+                "auc": 0.9944132653061225,
+                "ce": 0.07457163702731155,
+                "balanced_ce": 0.10122076543880362
+              }
+            }
+          },
+          {
+            "role": "target_dev",
+            "metrics": {
+              "domains": {
+                "Celeb-DF-v2": {
+                  "auc": 0.9126239259748843,
+                  "ce": 0.47712245578987383,
+                  "balanced_ce": 0.41123566405752005,
+                  "videos": 518
+                },
+                "DFDC": {
+                  "auc": 0.846959290556881,
+                  "ce": 0.5660555491885141,
+                  "balanced_ce": 0.5639140753497933,
+                  "videos": 4704
+                },
+                "DFDCP": {
+                  "auc": 0.9123256767842494,
+                  "ce": 0.355142298986714,
+                  "balanced_ce": 0.3800389826138007,
+                  "videos": 654
+                }
+              },
+              "macro": {
+                "auc": 0.8906362977720049,
+                "ce": 0.4661067679883673,
+                "balanced_ce": 0.451729574007038
+              }
+            }
+          }
+        ]
+      },
+      "source_best_epoch": 10,
+      "peak_allocated_bytes": 21620393984,
+      "elapsed_seconds": 40710.62657073399,
+      "independent_final_test": false,
+      "cache_seconds": 1213.1526496410079,
+      "new_cache_generation_seconds": 0,
+      "cache_reused": true,
+      "historical_cache_seconds": {
+        "vqgan": 633.6319121950073,
+        "superresolution": 579.5207374460006
+      },
+      "cache_reuse_verification_seconds": 21.84851699299179,
+      "cache_cost_attribution": "两份既有缓存复用；增量生成成本0，独立方法总成本各归属一次",
+      "complete_evaluation": true,
+      "response_fusion": "equal_mean"
+    },
+    "scope": "匹配原图、VQGAN和超分单支控制齐全；等权响应联合训练的开发评估，源选和末轮都保留。",
+    "archive_recovery_code_commit": "be2eebaebca0936a0331e429a7351fe94025a52d",
+    "additional_training_updates": 0,
+    "additional_gpu_inference": 0
+  },
+  "new_training_updates": 0,
+  "new_gpu_inference": 0
+}
