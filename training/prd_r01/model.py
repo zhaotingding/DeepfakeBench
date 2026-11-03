@@ -4,10 +4,13 @@ from torch import nn
 from torch.nn import functional as F
 
 class ResponseModel(nn.Module):
-    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5, cached=False, slots=3):
+    def __init__(self, encoder, feature_dim, probes, responses, hidden=1024, dropout=0.5, cached=False, slots=3, residual="signed_diff"):
         super().__init__()
         if slots not in (2, 3) or len(responses) > slots - 1 or (not cached and any(name not in probes for name in responses)):
             raise ValueError("At most two registered response slots are supported")
+        if residual not in {"signed_diff", "absolute_diff"}:
+            raise ValueError(f"Unsupported residual: {residual}")  # 拒绝把未知模式当作有符号差。
+        self.residual = residual  # 保存响应定义，不增加模型参数或消耗随机数。
         self.slots = slots  # 单算子用两槽，双响应保留三槽。
         self.encoder = encoder
         self.probes = nn.ModuleDict(probes)
@@ -37,7 +40,8 @@ class ResponseModel(nn.Module):
                         reconstructed = probe(images.detach())
                 if reconstructed.shape != images.shape:
                     raise ValueError(f"{name} changed the image shape")
-                responses[name] = z - self.encoder(reconstructed.detach())
+                difference = z - self.encoder(reconstructed.detach())  # 两次编码共享可训练权重，冻结重构图输入。
+                responses[name] = difference.abs() if self.residual == "absolute_diff" else difference  # 绝对值仅去除符号，默认有符号路径不变。
         slots = [responses[name] for name in self.responses]
         slots += [torch.zeros_like(z)] * (self.slots - 1 - len(slots))
         features = torch.cat([z, *slots], dim=1)  # 重复VAE槽复用同一响应，不重复计算或加噪。
@@ -99,5 +103,6 @@ def build_model(config, device):
                 probes[name] = build_operator(config, name, device)
     torch.set_rng_state(rng)
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
-                          config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"])
+                          config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"],
+                          residual=config.get("residual", "signed_diff"))  # 明确传递配置，旧配置保持默认行为。
     return model.to(device)
