@@ -1,0 +1,1169 @@
+{
+  "status": "partial_seven_domains",
+  "checked_at": "2026-11-05T07:16:55.876659+08:00",
+  "source_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+  "claim": "dcb0d56200034f628508cf979e78dfd30f48a67d",
+  "runs": {
+    "4090-VQGAN码本重构-20261029-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-VQGAN码本重构-20261029-种子3407",
+        "train_code": "8feaf3995c8ba8335cbca9f522bf85fad3a1a41b",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "b282be0ff5e26cdc3788e5ff22e5a1059b5f3f2dda63025ffb8edf117a834915",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "5567dd59d88386054720b336add709c1221c8948f7198a35d024a619b9045687",
+          "terminal_eval1.npy": "64bd37775546996d997140fe1f7fc821cdf4a80f35232325abf648544ff7aa3e"
+        },
+        "verification": "c31e20aada4aa4912c122dbeeb0433957ec729f5246bce209c324a7254aeaa79"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 2786247,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39481,
+        "exit": 0,
+        "ended": "2026-11-05T01:12:49+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "fb4295f7c745019ec800fecec089dff28a9bcfb9ce9056c7baa9e9be78fafb52",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.8447933021386866,
+            "video_auc": 0.9002546689303905,
+            "frame_ce": 0.6932331651542523,
+            "video_ce": 0.42889277832060274
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "203b1bb84d678f10385025e4a151432196a40bebebb3297da61a0259c3ee382e",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9828538560601896,
+            "video_auc": 0.9925031236984589,
+            "frame_ce": 0.18152414696285887,
+            "video_ce": 0.11334817772163665
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "147aed1ba4ed7ee61533d6fde8cf17665bb97c17244a599717d59061dad05f11",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.80850485765205,
+            "video_auc": 0.9096938775510204,
+            "frame_ce": 1.0107878207664307,
+            "video_ce": 0.6166042609743625
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "3042c05c346a5cb05167d37ca6c27b935a2d321cabe522ab4a622abd47c9cc33",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9328309402876482,
+            "video_auc": 0.9747483732539772,
+            "frame_ce": 0.5989357969657783,
+            "video_ce": 0.33765194543745447
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8770332476604719,
+            "video_auc": 0.9421183079973562,
+            "frame_ce": 0.6846887035230155,
+            "video_ce": 0.4221724637384007
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8781259252177311,
+            "video_auc": 0.9203650533223955,
+            "frame_ce": 0.5628240054107352,
+            "video_ce": 0.40630027027440985
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.8237803323141225,
+            "video_auc": 0.8632311340584592,
+            "frame_ce": 0.7225618311588323,
+            "video_ce": 0.4787319800688039
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-仅原图对照-20261030-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-仅原图对照-20261030-种子3407",
+        "train_code": "a13e190f75d1e89d8f7ce60ef4a42a59280989df",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "6ccd659dcc6a0330a97660ee1bee876bac33ca621b54a74d072f6d661e845654",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "9031f5f2a8389507347f353598020b6f29a126a907b2148f807749400054ecba",
+          "terminal_eval1.npy": "601fa5ded065405440af1386bb2146b9ab864f52cd730c217ed111c0df8dcd1d"
+        },
+        "verification": "b991c97be9ec35c329579d6ba48e986e6e9919571c184f6ffccfbb79f99ea6cc"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2786248,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T00:10:24+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "1523e1eef865e9ac237edde198d06d81c5b5ba027d2d6b0f2a888a9f8a13ad4f",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.8253194398036637,
+            "video_auc": 0.8870967741935484,
+            "frame_ce": 0.8991436085702684,
+            "video_ce": 0.559860341854392
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "941ac6da2d93dac180b07b7dc209c7f25ee1bda21d3e1b1d86308e0d98987d33",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9864865877978198,
+            "video_auc": 0.9958350687213662,
+            "frame_ce": 0.13351391157438788,
+            "video_ce": 0.08025524502797257
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "153cef59f8bcef3a77a9b2fd7ab0dc369908de248bd9c53fca56aefc21f29564",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.8161290108721502,
+            "video_auc": 0.9100510204081631,
+            "frame_ce": 1.0804200431728133,
+            "video_ce": 0.6218169662892663
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "95c81d4712823a5b8e4f4a0a59f956625b12d93d5979c669a6503cd699839eb3",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9293645204101564,
+            "video_auc": 0.9716736840024511,
+            "frame_ce": 0.8044876726029697,
+            "video_ce": 0.4227519554336828
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8444879069460921,
+            "video_auc": 0.9157964309319234,
+            "frame_ce": 1.0750294165553198,
+            "video_ce": 0.6672453059003262
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8562806341139115,
+            "video_auc": 0.903937653814602,
+            "frame_ce": 0.718278242690679,
+            "video_ce": 0.47409738778300187
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.7985656538249613,
+            "video_auc": 0.8348380400811134,
+            "frame_ce": 0.9474252463944169,
+            "video_ce": 0.6140943839983676
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-VQGAN原图辅助监督-20261104-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-VQGAN原图辅助监督-20261104-种子3407",
+        "train_code": "1f75610b7d72ef458cc7affd74adfd5eebc75c82",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "67c71c046afb96467d1c57f0ba37c0a15f21b1223a31df0c484561a2b4aa86e8",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "049f4498b0add567185d5ff16033b03438df1ac1d05615d038d91a23b523fa38",
+          "terminal_eval1.npy": "c58b8710449430ce3d17c7d63c540abd0a3059629a930cdf1e9a734774785841"
+        },
+        "verification": "7ae075b3de73d46b7b5e566c83c67cba4b8896471a23bccf45c168a9f4d10bc4"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2902060,
+        "started": "2026-11-05T00:10:24+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T01:46:43+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "b728842f01bcb1927d3929e308cafd82b1b796e6ddffb85e6d59afe67b3a2a8d",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.843582542178783,
+            "video_auc": 0.8879456706281834,
+            "frame_ce": 0.6690634401865018,
+            "video_ce": 0.4380588656033245
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "4dbd387be4a4588004bd42b8aa3e31f799749d360baa2d550a27b20cfbe9ac05",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9792021734748108,
+            "video_auc": 0.9929196168263223,
+            "frame_ce": 0.26856262933974084,
+            "video_ce": 0.16857959486401447
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "0a4d4a31a39407576cffa720a4253b2d4ce3afc6abfa54c00ca50848598b5d91",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.7989073915477956,
+            "video_auc": 0.8610714285714285,
+            "frame_ce": 0.9694273406524119,
+            "video_ce": 0.6329649491910387
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "1aa62684b637c6971b921f2df19f287d326b60d9c4ea8475b298491421261a45",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9380833256763175,
+            "video_auc": 0.9775274538661836,
+            "frame_ce": 0.5419899425948831,
+            "video_ce": 0.2918593501540926
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8612658082904969,
+            "video_auc": 0.920142101784534,
+            "frame_ce": 0.6556146855829165,
+            "video_ce": 0.41493497818416486
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8904882598921422,
+            "video_auc": 0.9320036915504513,
+            "frame_ce": 0.44750472251579987,
+            "video_ce": 0.32964026213461806
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.8366983538261228,
+            "video_auc": 0.868623017483842,
+            "frame_ce": 0.7087352907402441,
+            "video_ce": 0.45945389324805813
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-学习压缩重构-20261030-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-学习压缩重构-20261030-种子3407",
+        "train_code": "5f262c6bafae669748d2d34a8a92a667517547e5",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "ebd678da6708195786e2fdbc792fefd79dba0a701fe12d9ad5e176c26dada8ec",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "ab712af49258ee7db13f57f336638bd88d2897aaeb4a2bcf17b46056f722e81f",
+          "terminal_eval1.npy": "60f871a2ee0b5b189a422711c58cb02d122d1d919900b4266df3f8430370ebf5"
+        },
+        "verification": "6453fffd1c39e533d458fb12ee6a5b0d32b4e7261ee73bb0a4547466fc97dae6"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3190462,
+        "started": "2026-11-05T01:12:49+08:00",
+        "launch_free_mib": 36350,
+        "exit": 0,
+        "ended": "2026-11-05T02:37:43+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "fa597ae95bdcf772c79e659ba5cd7e021739ab130c6ab8ec4ce82e3245f28eae",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.8676270179870207,
+            "video_auc": 0.9176570458404075,
+            "frame_ce": 0.6410872501285381,
+            "video_ce": 0.4119106508086737
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "cb497299454d1cd80c3fdaf59c351d379e99c77e14c3ea3149727fb9dc948bf2",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9876523773109622,
+            "video_auc": 0.9945855893377759,
+            "frame_ce": 0.16521210933876376,
+            "video_ce": 0.10968838671008127
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "8b2b5d1ad324931f2701d92a9bc774399298e565f6a2308e5c9688e29028b298",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.825334456283574,
+            "video_auc": 0.9070918367346938,
+            "frame_ce": 0.9623036480754834,
+            "video_ce": 0.5930255988486096
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "68077d4a818e41ff3695cc287a22c8f0700396aac3bb2c04a834c39ad54197da",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9301836000307497,
+            "video_auc": 0.969563990734601,
+            "frame_ce": 0.6490973382713006,
+            "video_ce": 0.36359323732309273
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8913560201660736,
+            "video_auc": 0.9479676140118969,
+            "frame_ce": 0.648706853122659,
+            "video_ce": 0.3983563288474074
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8609220827216484,
+            "video_auc": 0.900871616078753,
+            "frame_ce": 0.6262244072203834,
+            "video_ce": 0.46664057642460816
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.8143429367103766,
+            "video_auc": 0.8498271867007442,
+            "frame_ce": 0.7937166147502276,
+            "video_ce": 0.5403600486794987
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-VQGAN残差辅助监督-20261104-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-VQGAN残差辅助监督-20261104-种子3407",
+        "train_code": "1f75610b7d72ef458cc7affd74adfd5eebc75c82",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "521daaa3e3cc62bab5664116ab13f6ad5654f0ed359ce344d643f215e5df63da",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "71b4aeeb76fdbe579c8a3d9f27fbf96aa4cb35d9f845604775b0013381fa24ff",
+          "terminal_eval1.npy": "0bde9a8bbb1734056c0689d71c4007751ad840d0b94a6b639fda26f626d831ff"
+        },
+        "verification": "51687a64122e64c18b03a7c43b1e4faf3086ab16ed785186446ce89ac9dff547"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3349069,
+        "started": "2026-11-05T01:46:43+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T03:39:28+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "396c88daf38f3d5cfa3bb75a16344bfa0048d84679d56edab13420aaabbe8272",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.8250781908825109,
+            "video_auc": 0.8735144312393888,
+            "frame_ce": 0.7281650653322203,
+            "video_ce": 0.45654283145559604
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "8147926cbc63e877c3f0c014ea6d2d9cc21d7ef3987709fa483e2bb5e9ca1e5f",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9802217707338934,
+            "video_auc": 0.9950020824656394,
+            "frame_ce": 0.2847493073602028,
+            "video_ce": 0.15101377978121053
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "9fca9f6709a2d6bd8b7410b435fee3f1ec20cb398842c7ae3164c8450f18e18d",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.7822696784343656,
+            "video_auc": 0.8589795918367347,
+            "frame_ce": 1.04798903545481,
+            "video_ce": 0.6430893146672828
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "3a1f25fb5267e5d54ccdb7bf6f42cb1b32aa433c08703ebea3b995c698016a02",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9175335564922469,
+            "video_auc": 0.9635637643109622,
+            "frame_ce": 0.710822124728169,
+            "video_ce": 0.428006882608805
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8745112692763938,
+            "video_auc": 0.9310145406477199,
+            "frame_ce": 0.6078938827875497,
+            "video_ce": 0.3763282803215348
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8664238757626445,
+            "video_auc": 0.9082649712879409,
+            "frame_ce": 0.511452373980255,
+            "video_ce": 0.369378318503342
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.8247020314432779,
+            "video_auc": 0.8593660468652671,
+            "frame_ce": 0.6898996335110542,
+            "video_ce": 0.4647893914516978
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-降采样超分重构-20261102-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-降采样超分重构-20261102-种子3407",
+        "train_code": "5744b9def26afb4c4d017128cd0312ea7ed8d08d",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "ae3a252cdc8650aeac4f33a0370d42fd42ccf889c0d6065e2c1c3d44872cc42a",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "e129c207d9ce4a3193bcffe080b2e5af93d444b4f8119f4b2b33c69cd5a504ed",
+          "terminal_eval1.npy": "58d3a5d04f49c2787ecf7efe8673d960fb682b9bf8741f1a28ff84071e335012"
+        },
+        "verification": "16025d6d69a1a5b2841cc17661779adb28d33bc4e4f5c30993c63fe3a8a52a28"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3585052,
+        "started": "2026-11-05T02:37:43+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T04:28:00+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "23a7776391641b2e78d556141611528124d7064b664cfc8cd90d58ccf69fff29",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.8073513405656405,
+            "video_auc": 0.8488964346349747,
+            "frame_ce": 0.8343316246095326,
+            "video_ce": 0.5549267126276064
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "1bde0543399ccc299e5db068aac9a3cd00dcfaa1081d08ea39213c1581b9504d",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9837497521812217,
+            "video_auc": 0.9958350687213661,
+            "frame_ce": 0.1791434727779076,
+            "video_ce": 0.12124075041608524
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "2a21beacbb08d65aa6eb45f83d3046dd70bea326be96e6d4dc79b24b14490f41",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.7997890081774285,
+            "video_auc": 0.8728061224489797,
+            "frame_ce": 0.9465326566983985,
+            "video_ce": 0.6207969557821028
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "a215f03073bc555e583edaae1835559850d19d53f27d6d133bd6bb23a11b9ea1",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.8996538673812944,
+            "video_auc": 0.950406035088476,
+            "frame_ce": 0.97984758469239,
+            "video_ce": 0.5758009981113512
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.847929715302491,
+            "video_auc": 0.9039656311962988,
+            "frame_ce": 0.7607115509978981,
+            "video_ce": 0.49421785207923874
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8680748919309764,
+            "video_auc": 0.9119257588187037,
+            "frame_ce": 0.5712738820267325,
+            "video_ce": 0.39823979253453684
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.7904639565640255,
+            "video_auc": 0.8248341254507928,
+            "frame_ce": 0.823830679518129,
+            "video_ce": 0.5467011643930985
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-原VAE对照-20261030-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-原VAE对照-20261030-种子3407",
+        "train_code": "a13e190f75d1e89d8f7ce60ef4a42a59280989df",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "7a157537be21403cffdbf553b937d2ecd03c82000f44c27f565b9e2f73e730b4",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "7f82a10449d290f5646ae7c1a9915d158e5a45f4197b6bb1f508c0ad4eccc85b",
+          "terminal_eval1.npy": "5ec4ffc8aa70682b009bc94cdcf6db013eb1749079e687e2d0bc2f5cebcb0d9c"
+        },
+        "verification": "49c67f71cfb7674b9c5fc81f1809d2aa8ff3352a96aeeeab8f6320b844c3d2cf"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3873802,
+        "started": "2026-11-05T03:39:28+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T05:26:03+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "3d401ce21c1be0732d4e7c5b49f50fd5fe83147dbec5c2837a969c0066851b2d",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.7854135999886471,
+            "video_auc": 0.8463497453310695,
+            "frame_ce": 1.1087234910801516,
+            "video_ce": 0.7482213949036871
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "e67cd9fff81cdf1e6fcc3b3d79b3f9d504bfbef2ee32bee1881b0a02285945a5",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9870076319853659,
+            "video_auc": 0.9983340274885465,
+            "frame_ce": 0.1259734904606407,
+            "video_ce": 0.07259217975916307
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "2fe8de79495d2a4f06100002e5a0f294ac06a3c2d91e81c1df26dda67bf698bd",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.7975301973572088,
+            "video_auc": 0.8782653061224489,
+            "frame_ce": 1.291264151855682,
+            "video_ce": 0.8490274164582318
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "c12f9d0ed6a915cda86aa89052eaeb7153444d773e15470ffaf9bc5c74c45fdf",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9096146629523547,
+            "video_auc": 0.9556937458556387,
+            "frame_ce": 1.1960591852531282,
+            "video_ce": 0.6844514151995323
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8226777299986819,
+            "video_auc": 0.893473231989425,
+            "frame_ce": 1.2770232208318644,
+            "video_ce": 0.8373551182676249
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8735617759576007,
+            "video_auc": 0.9230209187858901,
+            "frame_ce": 0.6593345153654736,
+            "video_ce": 0.49041836952837053
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.7795695804412508,
+            "video_auc": 0.8198711336245047,
+            "frame_ce": 0.9550955107255812,
+            "video_ce": 0.6341106101984932
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-VQGAN超分等权响应融合-20261103-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-VQGAN超分等权响应融合-20261103-种子3407",
+        "train_code": "ef4b4177d3bc2ce7efa866a7ab52ac6ebe4756d2",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "48dd31b6f1ef6b480c11de8d05baddb59df0253c2863d97aedc8d76e6cab149c",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "db03e79db08dfaf3f4a7d79cf42e8fd06aab3d04337c6cd0845da88c0e2bf54a",
+          "terminal_eval1.npy": "d697b1bfc4abcd96ef94e3b8d8061835a914bf96ff97bac49be5864526f960c9"
+        },
+        "verification": "711dc3b35a0913b9eaf7b2f88882ea869abf9ab12f1b857aee5d22e44f88aca3"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 4102273,
+        "started": "2026-11-05T04:28:00+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T06:23:29+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "ac624241b8bc1a4c04a30515a3b0556c0f3fbfcd86c9017fc950c8df0966a120",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.7931550671519167,
+            "video_auc": 0.8391341256366723,
+            "frame_ce": 0.9088347693350948,
+            "video_ce": 0.5674582490220363
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "339bb26462831edd079d960c055fb4277eee5090f4ab124dd31fb51901bbff81",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9845590158554038,
+            "video_auc": 0.9958350687213661,
+            "frame_ce": 0.26264993550736504,
+            "video_ce": 0.15350841291939016
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "07cce34b53cab6152648895dd1059e54f8deca50a8709f0e1efd6a5c3574cfdc",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.8217393755513376,
+            "video_auc": 0.8935714285714286,
+            "frame_ce": 0.9121978231933212,
+            "video_ce": 0.5308343065549581
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "17295f6bed931f2f8049b1761efc5531f8bd70933e425e1a5ed68b007234acbe",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.91287895434167,
+            "video_auc": 0.9594153597889588,
+            "frame_ce": 0.8139531573875309,
+            "video_ce": 0.45960637476548455
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8504133386055095,
+            "video_auc": 0.9108889623265036,
+            "frame_ce": 0.7548553449543048,
+            "video_ce": 0.45724889710650923
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.856920149998456,
+            "video_auc": 0.906357670221493,
+            "frame_ce": 0.533727103198866,
+            "video_ce": 0.3751505495367745
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.809804619422998,
+            "video_auc": 0.8415185872614495,
+            "frame_ce": 0.7707961299004673,
+            "video_ce": 0.5101841563470404
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-VQGAN归一化特征差-20261104-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-VQGAN归一化特征差-20261104-种子3407",
+        "train_code": "cb3aa1091fd2b663cb82ca89665031fbd211b74b",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "8b186f0f27052533c80ea887176da25ed24f1d1adb83c0f18e5aece3db0a8354",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "65ee7ae5e350f4723412da1897576d673d869d03ed0d8c04f7e96c2252fcdb77",
+          "terminal_eval1.npy": "c64bc6a7c6dbf05d617aebb6113211d356d0ba401f8f21c9d43dab049cf3fffb"
+        },
+        "verification": "8fb9e49edad9df7debaa1b7d5723c6462f09b024b01f8ba90606ba671a990a6d"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 181081,
+        "started": "2026-11-05T05:26:03+08:00",
+        "launch_free_mib": 45373,
+        "exit": 0,
+        "ended": "2026-11-05T06:20:15+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "8e4c433abdd634552ed229c7c67ba7ac915856391f50e9ddcda4f0e49fc8b782",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.8305185475696859,
+            "video_auc": 0.879032258064516,
+            "frame_ce": 0.7964424932937179,
+            "video_ce": 0.5287073518287988
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "8fb23b0449d7719b5eb300f60aa6585bfd4d9b87ce198eec3f567dea1b9d9765",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.984940115321115,
+            "video_auc": 0.9958350687213662,
+            "frame_ce": 0.15459814006529995,
+            "video_ce": 0.09388591666465941
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "097730d37280d19d68fa7ad22f12c34e8adbcbdbc5da644f24425fa9e4643cf7",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.8100254114348018,
+            "video_auc": 0.8917857142857144,
+            "frame_ce": 1.1387894512770396,
+            "video_ce": 0.7036607379158667
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "f7a6c80bb75285a4bf06a148aa8ee625afff998870a20145a302296f7d5a7188",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9225301397390204,
+            "video_auc": 0.9649214076362269,
+            "frame_ce": 0.8777773519487542,
+            "video_ce": 0.49844769687513263
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8772186223144853,
+            "video_auc": 0.9338565763384006,
+            "frame_ce": 0.7700551511633371,
+            "video_ce": 0.4774951937541253
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8830573062545516,
+            "video_auc": 0.9253794093519279,
+            "frame_ce": 0.5552112644068431,
+            "video_ce": 0.39033496067339424
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.798475733548935,
+            "video_auc": 0.8384523377937216,
+            "frame_ce": 0.835945933229854,
+            "video_ce": 0.5510532067108819
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    },
+    "4090-MAE遮挡重构-20261030-种子3407": {
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-MAE遮挡重构-20261030-种子3407",
+        "train_code": "5f262c6bafae669748d2d34a8a92a667517547e5",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "e54d4957c93106df140598503b8c6fdf30ec40e0d2e45c1898afd788f9f25ab5",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "94a9b856bc280b8a52b15a3fa66029c77fe52083d0a4dbacd3fa62c4511729a8",
+          "terminal_eval1.npy": "eb8d459e2f362a1b076530e768d005624a6d8027afe669f76e558003612fa7ac"
+        },
+        "verification": "dc2ef8872a5c827cb4b8ff9707989d3e0350f8922733d8813ab322edb398d8f5"
+      },
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 451579,
+        "started": "2026-11-05T06:23:29+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T07:06:24+08:00"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "715492a87a7d50bccf17119b83b136dd3a2b79473709b03ed6f407bd9cb259d5",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.8490517111257037,
+            "video_auc": 0.9061969439728353,
+            "frame_ce": 0.7896504476239982,
+            "video_ce": 0.5193701315970012
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "ba8501f46e579a3868143b03ad3e715c090b6b8f75536ead3b16c64fa61acb36",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9856781571279345,
+            "video_auc": 0.9950020824656394,
+            "frame_ce": 0.19687746727517444,
+            "video_ce": 0.12068400951534367
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "132df4d334e73d40bc568e2089a17316362248ea9eebb4191f8ca15f4e30e919",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.7772328268941399,
+            "video_auc": 0.8703061224489796,
+            "frame_ce": 1.243664115159245,
+            "video_ce": 0.7651069107814259
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "5f94d1c5c4c276818a74d8a090011b5ece29927af3215281cd495db0c93930c0",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9281459626025255,
+            "video_auc": 0.9702684198325543,
+            "frame_ce": 0.6941578312992084,
+            "video_ce": 0.37487505378786307
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8565314683010413,
+            "video_auc": 0.9253304692663582,
+            "frame_ce": 0.9967490735923806,
+            "video_ce": 0.6349618235453847
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8711243092811564,
+            "video_auc": 0.9201189499589827,
+            "frame_ce": 0.5974573525244065,
+            "video_ce": 0.4137096210411803
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.8142172741118061,
+            "video_auc": 0.8503815634472975,
+            "frame_ce": 0.803295082174588,
+            "video_ce": 0.5316989689570234
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      }
+    }
+  },
+  "meaning": "仅归档已经通过四个新增域的方案；末轮原三域复用；未完成八域。"
+}
