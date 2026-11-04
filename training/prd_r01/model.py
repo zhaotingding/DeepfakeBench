@@ -8,7 +8,7 @@ class ResponseModel(nn.Module):
         super().__init__()
         if slots not in (2, 3) or len(responses) > slots - 1 or (not cached and any(name not in probes for name in responses)):
             raise ValueError("At most two registered response slots are supported")
-        if residual not in {"signed_diff", "normalized_feature_diff"}:
+        if residual not in {"signed_diff", "normalized_feature_diff", "unit_residual"}:
             raise ValueError(f"Unsupported residual: {residual}")  # 不把新模式隐式当作原差分。
         self.residual = residual  # 映射切换不增加参数或消耗初始化随机数。
         self.slots = slots  # 单算子用两槽，双响应保留三槽。
@@ -45,6 +45,10 @@ class ResponseModel(nn.Module):
                     z_unit = z / (torch.linalg.vector_norm(z, dim=1, keepdim=True) + 1e-6)  # 分别归一化两端，ε固定且零向量输出为零。
                     zr_unit = z_reconstructed / (torch.linalg.vector_norm(z_reconstructed, dim=1, keepdim=True) + 1e-6)
                     responses[name] = z_unit - zr_unit  # 不是先求差再把残差单位化。
+                elif self.residual == "unit_residual":
+                    difference = z - z_reconstructed  # 先计算两个共享编码器输出的有符号差。
+                    magnitude = torch.linalg.vector_norm(difference, dim=1, keepdim=True)  # 每个样本独立计算残差长度。
+                    responses[name] = difference / (magnitude + 1e-6)  # 零残差保持零，原图槽仍使用未归一化的z。
                 else:
                     responses[name] = z - z_reconstructed  # 原有符号差路径保持。
         slots = [responses[name] for name in self.responses]

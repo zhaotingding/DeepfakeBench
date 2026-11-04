@@ -16,6 +16,10 @@ STATE=ROOT/'.state/VQGAN归一化特征差-20261104'
 RUN='4090-VQGAN归一化特征差-20261104-种子3407'
 MAX_FORMAL_SECONDS=43200  # 独立监督从启动起最多12小时，0自动重试。
 
+
+RESIDUAL_MODE = 'normalized_feature_diff'  # 直接执行05入口时保持既有协议。
+TASK_NAMES = {'normalized_feature_diff': 'VQGAN归一化特征差', 'unit_residual': 'VQGAN单位方向残差'}
+
 def now():return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat()
 
 def save(path,value):
@@ -34,7 +38,7 @@ def verify():
     metrics=module.independent_metrics  # 复用已登记的独立秩和AUC实现，不调用训练指标函数。
     machine=json.loads((ROOT/'r01.machine.json').read_text(encoding="utf-8"));out=Path(machine['output_root'])/'r01'/RUN
     result=json.loads((out/'complete_result.json').read_text(encoding="utf-8"));meta=json.loads((out/'metadata.json').read_text(encoding="utf-8"))
-    if meta.get('config',{}).get('residual')!='normalized_feature_diff' or meta.get('protocol',{}).get('residual')!='normalized_feature_diff' or result.get('residual')!='normalized_feature_diff':raise ValueError('模型配置、冻结协议或完整结果不是归一化特征差')
+    if meta.get('config',{}).get('residual')!=RESIDUAL_MODE or meta.get('protocol',{}).get('residual')!=RESIDUAL_MODE or result.get('residual')!=RESIDUAL_MODE:raise ValueError('模型配置、冻结协议或完整结果与本项残差模式不符')
     if any(value.get('normalization_epsilon')!=1e-6 for value in [meta['config'],meta['protocol'],result]):raise ValueError('归一化ε与固定协议不符')  # 不允许结果口径漏记固定ε。
     if not result.get('complete_evaluation') or result['optimizer_updates']!=21576:raise ValueError('训练或完整评估未完成')
     if set(result['endpoints'])!={'source_best','terminal'}:raise ValueError('缺少权重端点')
@@ -77,19 +81,24 @@ def verify():
     save(STATE/'verification.json',report)
     return report
 
-def main():
+def main(residual_mode='normalized_feature_diff'):
+    global RESIDUAL_MODE, STATE, RUN
+    task_name = TASK_NAMES[residual_mode]
+    RESIDUAL_MODE = residual_mode
+    STATE = ROOT / '.state' / (task_name + '-20261104')  # 每个模式的预检、锁外状态与归档独立。
+    RUN = '4090-' + task_name + '-20261104-种子3407'
     claim=sys.argv[1]
     if len(claim)!=40:raise ValueError('缺本地正式认领提交')
     if subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip():raise ValueError('运行代码未提交')
     check=json.loads((STATE/'smoke/验收.json').read_text(encoding='utf-8'))
     code_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
-    if check['code_commit']!=code_commit or not check['budget_pass']:raise ValueError('预检版本/预算不符')
+    if check['code_commit']!=code_commit or check['residual'] != RESIDUAL_MODE or check['normalization_epsilon'] != 1e-6 or not check['budget_pass']:raise ValueError('预检版本/预算不符')
     if check['formal_projection_seconds']+60>MAX_FORMAL_SECONDS:raise ValueError('预估超12小时预算')
     state=STATE/'supervisor.json'
     if state.exists():raise FileExistsError('已有监督证据，不自动重试')
     info=dict(status='running',time=now(),supervisor_pid=os.getpid(),cwd=str(ROOT),claim_commit=claim,code_commit=code_commit,max_seconds=MAX_FORMAL_SECONDS,power_cutoff=None)
     log=(STATE/'run.log').open('x',encoding='utf-8')
-    child=subprocess.Popen([sys.executable,'-u',str(ROOT/'scripts/运行VQGAN归一化特征差.py'),'run','--claim-commit',claim],
+    child=subprocess.Popen([sys.executable,'-u',str(ROOT/'scripts'/('运行'+task_name+'.py')),'run','--claim-commit',claim],
                            cwd=ROOT,env=dict(os.environ,CUDA_VISIBLE_DEVICES='GPU-83850660-4196-4569-27bc-a3f9e72ada01',PYTHONUTF8='1',PYTHONIOENCODING='utf-8'),stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
     info['training_pid']=child.pid;save(state,info)
     def stop(signum=None,frame=None):
@@ -109,10 +118,10 @@ def main():
         else:
             info.update(status='cpu_verification');save(state,info)
             info['verification']=verify();info.update(status='verified',time=now());save(state,info)
-        archive=ROOT/'scripts/experiment_summaries/VQGAN归一化特征差-20261104';archive.mkdir(parents=True,exist_ok=False)
+        archive=ROOT/'scripts/experiment_summaries'/STATE.name;archive.mkdir(parents=True,exist_ok=False)
         save(archive/'完成或失败.json',info)
         subprocess.run(['git','add','--',str(archive.relative_to(ROOT))],cwd=ROOT,check=True)
-        subprocess.run(['git','commit','--only','-m','归档VQGAN归一化特征差结果','--',str(archive.relative_to(ROOT))],cwd=ROOT,check=True)
+        subprocess.run(['git','commit','--only','-m','归档'+task_name+'结果','--',str(archive.relative_to(ROOT))],cwd=ROOT,check=True)
         commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
         (STATE/'result_commit.txt').write_text(commit+'\n',encoding='utf-8');info.update(result_commit=commit);save(state,info)
         if code!=0:return code  # 终态证据归档后保留原取消/失败分类。

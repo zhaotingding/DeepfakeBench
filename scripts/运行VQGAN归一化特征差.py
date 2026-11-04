@@ -28,6 +28,10 @@ FULL_CACHE=Path.home()/"prd-runs/重构缓存-20261029/VQGAN码本-训练验证"
 INPUTS=Path.home()/"prd-inputs/重构算子首批-20261029"
 RUN="4090-VQGAN归一化特征差-20261104-种子3407"
 
+
+RESIDUAL_MODE = 'normalized_feature_diff'  # 直接执行05入口时保持既有协议。
+TASK_NAMES = {'normalized_feature_diff': 'VQGAN归一化特征差', 'unit_residual': 'VQGAN单位方向残差'}
+
 def now():return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat()
 def save(p,x):
     p.parent.mkdir(parents=True,exist_ok=True);t=p.with_suffix(p.suffix+".tmp");t.write_text(json.dumps(x,ensure_ascii=False,indent=2),encoding="utf-8");t.replace(p)
@@ -35,7 +39,7 @@ def git(*args):return subprocess.check_output(["git","-C",str(ROOT),*args],text=
 def settings():
     c=read_config(ROOT/"r01.machine.json","vqgan")
     c["normalization_epsilon"]=1e-6  # 科学配置明确固定ε，与模型公式相同。
-    c["residual"]="normalized_feature_diff"  # 本项分别归一化两端特征后相减，原图直通保持。
+    c["residual"] = RESIDUAL_MODE  # 05与06由入口选择，原图直通保持。
     c["vqgan_weights"]=str(Path.home()/".cache/prd-models/vqgan-imagenet-f16-1024/last.ckpt")
     c["vqgan_weights_sha256"]='e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71'
     paths=[INPUTS/(n+".json") for n in ["训练清单","源验证清单","源测试清单","目标开发清单"]]
@@ -94,8 +98,15 @@ def smoke(device):
     with torch.inference_mode():
         z=model.encoder(x);zr=model.encoder(views['vqgan']);features=model(x,views)['features']
         torch.testing.assert_close(features[:,:1024],z,atol=1e-6,rtol=0)
-        expected=z/(torch.linalg.vector_norm(z,dim=1,keepdim=True)+1e-6)-zr/(torch.linalg.vector_norm(zr,dim=1,keepdim=True)+1e-6)
-        torch.testing.assert_close(features[:,1024:],expected,atol=1e-6,rtol=0)  # 真实BS64核对分别归一化公式。
+        endpoint_difference = z / (z.norm(dim=1, keepdim=True) + 1e-6) - zr / (zr.norm(dim=1, keepdim=True) + 1e-6)
+        if RESIDUAL_MODE == 'unit_residual':
+            difference = z - zr
+            expected = difference / (difference.norm(dim=1, keepdim=True) + 1e-6)
+            if torch.allclose(expected, endpoint_difference, atol=1e-6, rtol=0):
+                raise ValueError('预检样本无法区分单位方向残差和两端归一化特征差')
+        else:
+            expected = endpoint_difference
+        torch.testing.assert_close(features[:,1024:],expected,atol=1e-6,rtol=0)  # 独立重算真实BS64的预期响应。
         formula_error=float((features[:,1024:]-expected).abs().max())
         if not torch.isfinite(expected).all():raise ValueError('归一化响应非有限')
     eval_loader=endpoint_loader(rows,c,device)
@@ -112,7 +123,7 @@ def smoke(device):
     formal_projection=(21576*train_step+12*700/64*dual_seconds+(5600+165758)*seconds_per_frame+(5600+165758)/64*dual_seconds)*1.2+600
     cache_projection=60  # 复用完整图像缓存，只预留读回核验。
     available=MAX_FORMAL_SECONDS
-    summary=dict(status='passed',time=now(),residual='normalized_feature_diff',normalization_epsilon=1e-6,formula_max_abs=formula_error,full_cache_audit=full_cache_audit,quantization_audit=quantization_audit,code_commit=git('rev-parse','HEAD'),updates=8,formal_updates=0,
+    summary=dict(status='passed',time=now(),residual=RESIDUAL_MODE,normalization_epsilon=1e-6,formula_max_abs=formula_error,full_cache_audit=full_cache_audit,quantization_audit=quantization_audit,code_commit=git('rev-parse','HEAD'),updates=8,formal_updates=0,
         seconds_per_frame_gpu=seconds_per_frame,train_step_median=train_step,dual_eval64_seconds=dual_seconds,
         formal_projection_seconds=formal_projection,cache_projection_seconds=cache_projection,
         available_seconds_at_preflight=available,power_cutoff=None,budget_pass=formal_projection+cache_projection<=MAX_FORMAL_SECONDS,required_free_bytes=int(peak+max(peak*.2,2*1024**3)),
@@ -146,12 +157,12 @@ def evaluate_two(c,out,items,deadline,device):
 
 def run(device,claim):
     c,paths,items=settings();check=json.loads((STATE/'smoke/验收.json').read_text(encoding="utf-8"))
-    if check['code_commit']!=git('rev-parse','HEAD') or not check['budget_pass']:raise ValueError('预检版本或预算不符')
+    if check['code_commit']!=git('rev-parse','HEAD') or check['residual'] != RESIDUAL_MODE or check['normalization_epsilon'] != 1e-6 or not check['budget_pass']:raise ValueError('预检模式、版本或预算不符')
     if git('status','--porcelain'):raise ValueError('运行代码未提交')
     if torch.cuda.mem_get_info(device)[0]<check['required_free_bytes']:raise RuntimeError('空闲显存低于实测余量')
     if shutil.disk_usage(ROOT).free<12*1024**3:raise OSError('结果盘空间不足')
     if (STATE/'status.json').exists():raise FileExistsError('已有正式状态，不自动重试')
-    status=dict(stage='cache_verification',pid=os.getpid(),cwd=str(ROOT),time=now(),claim_commit=claim,code_commit=git('rev-parse','HEAD'),run_id=RUN,residual='normalized_feature_diff')
+    status=dict(stage='cache_verification',pid=os.getpid(),cwd=str(ROOT),time=now(),claim_commit=claim,code_commit=git('rev-parse','HEAD'),run_id=RUN,residual=RESIDUAL_MODE)
     state=STATE/'status.json';save(state,status)
     try:
         started=time.monotonic()
@@ -160,24 +171,29 @@ def run(device,claim):
         del values
         reuse_seconds=time.monotonic()-started
         if torch.cuda.mem_get_info(device)[0]<check['required_free_bytes']:raise RuntimeError('缓存核验后显存不足')
-        protocol=dict(status='approved',id='VQGAN归一化特征差-20261104',epochs=12,seed=3407,max_wall_seconds=MAX_FORMAL_SECONDS,
+        protocol=dict(status='approved',id=STATE.name,epochs=12,seed=3407,max_wall_seconds=MAX_FORMAL_SECONDS,
             train_manifest=str(paths[0]),val_manifest=str(paths[1]),evaluation_manifests=[],checkpoint_rule='source_val_video_balanced_ce',
             reconstruction_mode='cached_paired',augmentation_protocol='paired_float32_v1',reconstruction_caches={'vqgan':str(FULL_CACHE)},
-            endpoint_manifests=[str(p) for p in paths[2:]],endpoint_mode='shared_gpu_restoration_two_gpu_models',residual='normalized_feature_diff',normalization_epsilon=1e-6,power_cutoff=None,
-            authorization='用户已明确要求立即启动VQGAN归一化特征差；GPU0，12小时完整训练评估，0自动重试；本轮取消原停电时限。')
+            endpoint_manifests=[str(p) for p in paths[2:]],endpoint_mode='shared_gpu_restoration_two_gpu_models',residual=RESIDUAL_MODE,normalization_epsilon=1e-6,power_cutoff=None,
+            authorization=f'用户已授权{TASK_NAMES[RESIDUAL_MODE]}。GPU0，12小时完整训练评估，0自动重试。')
         save(STATE/'protocol.json',protocol);status.update(stage='training',time=now(),formal_started=now(),cache_reused=True,cache_verification_seconds=reuse_seconds,historical_cache_seconds=cache_meta['generation_seconds']);save(state,status)
         start=time.monotonic();deadline=start+protocol['max_wall_seconds']
         result=run_training(c,protocol,RUN,device)
         torch.cuda.empty_cache();out=Path(c['output_root'])/'r01'/RUN
         status.update(stage='evaluation',time=now());save(state,status)
         result['endpoints']=evaluate_two(c,out,items[2:],deadline,device)
-        result.update(elapsed_seconds=time.monotonic()-start,cache_seconds=cache_meta['generation_seconds'],cache_reused=True,new_cache_generation_seconds=0,cache_reuse_verification_seconds=reuse_seconds,residual='normalized_feature_diff',normalization_epsilon=1e-6,complete_evaluation=True)
+        result.update(elapsed_seconds=time.monotonic()-start,cache_seconds=cache_meta['generation_seconds'],cache_reused=True,new_cache_generation_seconds=0,cache_reuse_verification_seconds=reuse_seconds,residual=RESIDUAL_MODE,normalization_epsilon=1e-6,complete_evaluation=True)
         save(out/'complete_result.json',result)
         status.update(stage='compute_finished',time=now(),result=result);save(state,status)
     except BaseException as exc:
         status.update(stage='failed',time=now(),error=repr(exc));save(state,status);raise
 
-def main():
+def main(residual_mode='normalized_feature_diff'):
+    global RESIDUAL_MODE, STATE, RUN
+    task_name = TASK_NAMES[residual_mode]
+    RESIDUAL_MODE = residual_mode
+    STATE = ROOT / '.state' / (task_name + '-20261104')  # 每个模式的预检、锁外状态与归档独立。
+    RUN = '4090-' + task_name + '-20261104-种子3407'
     import fcntl  # 同一并行入口仅允许一个本项目GPU0任务。
     if os.environ.get('CUDA_VISIBLE_DEVICES')!='GPU-83850660-4196-4569-27bc-a3f9e72ada01':raise ValueError('须明确绑定物理GPU0')
     lock_path=Path.home()/'.cache/prd-locks/重构算子并行-gpu0.lock'
