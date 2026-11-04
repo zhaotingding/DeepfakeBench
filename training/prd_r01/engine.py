@@ -6,9 +6,9 @@ import time
 from pathlib import Path
 import numpy as np
 import torch
-from torch.nn import functional as F
 from .data import load_manifest, validate_source_pair, make_loader
 from .model import build_model
+from .auxiliary_supervision import training_loss, trainable_identity
 
 def seed_all(seed):
     random.seed(seed)
@@ -81,6 +81,11 @@ def run_training(config, protocol, run_id, device):
         if manifest.get("role") not in ["target_dev", "source_test"]:
             raise ValueError("Endpoint manifests must be source_test or target_dev")
         targets.append(manifest)
+    auxiliary_input = config.get("auxiliary_input", "none")
+    auxiliary_lambda = config.get("auxiliary_lambda", 1.0)
+    if auxiliary_input != "none":
+        if protocol.get("auxiliary_input") != auxiliary_input or protocol.get("auxiliary_lambda") != auxiliary_lambda or auxiliary_lambda != 1.0:
+            raise ValueError("辅助输入及损失系数须与冻结协议一致，本批固定系数1")
     from .cache import bind_caches
     config, cache_identities = bind_caches(config, protocol, [train, val] + targets)
     if len(train["rows"]) % config["train_batch_size"] == 1:
@@ -107,12 +112,7 @@ def run_training(config, protocol, run_id, device):
     curve, best, step = [], float("inf"), 0
     best_epoch = None
     trainable = [p for p in model.parameters() if p.requires_grad]
-    initial = hashlib.sha256()
-    for name, parameter in model.named_parameters():
-        if parameter.requires_grad:
-            initial.update(name.encode()); initial.update(parameter.detach().cpu().numpy().tobytes())
-    meta["trainable_initial_sha256"] = initial.hexdigest()
-    meta["trainable_parameters"] = sum(p.numel() for p in trainable)
+    meta.update(trainable_identity(model))  # 全部参数与共同主路径、辅助头分别记录初值。
     (out / "metadata.json").write_text(json.dumps(meta, indent=2))
     trace = (out / "batch_trace.jsonl").open("w", buffering=1)
     if device.type == "cuda":
@@ -137,7 +137,8 @@ def run_training(config, protocol, run_id, device):
                 if device.type == "cuda":
                     rng_hash += ":" + hashlib.sha256(torch.cuda.get_rng_state(device).cpu().numpy().tobytes()).hexdigest()
                 optimizer.zero_grad(set_to_none=True)
-                loss = F.cross_entropy(model(images, views)["logits"], labels)
+                output = model(images, views)
+                loss, main_ce, auxiliary_ce = training_loss(output, labels, auxiliary_input, auxiliary_lambda)
                 if not torch.isfinite(loss):
                     raise ValueError("Nonfinite loss before optimizer update")
                 loss.backward()
@@ -149,8 +150,11 @@ def run_training(config, protocol, run_id, device):
                     value = float(loss.detach())
                     if not np.isfinite(value):
                         raise ValueError("Nonfinite training loss")
-                    print(json.dumps(dict(epoch=epoch + 1, step=step, loss=value,
-                                          elapsed_seconds=time.monotonic() - started, host_data_wait_seconds=waiting, gradient_norm=float(grad_norm))), flush=True)
+                    entry = dict(epoch=epoch + 1, step=step, loss=value, elapsed_seconds=time.monotonic() - started,
+                                 host_data_wait_seconds=waiting, gradient_norm=float(grad_norm))
+                    if auxiliary_ce is not None:
+                        entry.update(main_ce=float(main_ce.detach()), auxiliary_ce=float(auxiliary_ce.detach()), auxiliary_lambda=auxiliary_lambda)
+                    print(json.dumps(entry), flush=True)
             metrics, logits = evaluate(model, val_loader, val["rows"], device, deadline)
             np.save(out / f"source_val_epoch{epoch + 1}.npy", logits)  # 保存逐样本源验证证据。
             score = metrics["macro"]["balanced_ce"]
