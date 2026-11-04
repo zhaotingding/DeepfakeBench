@@ -1,0 +1,360 @@
+{
+  "status": "verified",
+  "time": "2026-11-04T23:31:09.482846+08:00",
+  "pid": 3353657,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子探索",
+  "gpu": "GPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc",
+  "code_commit": "1f75610b7d72ef458cc7affd74adfd5eebc75c82",
+  "claim_commit": "e28ae930dd7deeb9a8bcf012d5e270af246a86ea",
+  "arms": {
+    "original_aux": {
+      "status": "verified",
+      "time": "2026-11-04T15:18:24.727339+08:00",
+      "training_pid": 3353664,
+      "exit_code": 0,
+      "stop_reason": null,
+      "verification": {
+        "status": "verified",
+        "time": "2026-11-04T15:18:24.712577+08:00",
+        "output": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN原图辅助监督-20261104-种子3407",
+        "code_commit": "1f75610b7d72ef458cc7affd74adfd5eebc75c82",
+        "claim_commit": "e28ae930dd7deeb9a8bcf012d5e270af246a86ea",
+        "arm": "original_aux",
+        "updates": 21576,
+        "independent_metrics_max_error": 2.220446049250313e-16,
+        "pairing_verified": true,
+        "identity": {
+          "trainable_initial_sha256": "638556a87a97f53563e1cb933da5adec7d0892be217a956f22f4de3cb91db048",
+          "trainable_parameters": 5250052,
+          "main_trainable_initial_sha256": "9aa889456c6661e4c09eb03229689f17e2f9766a4e8d09d4c009badf83f133e5",
+          "main_trainable_parameters": 5248002,
+          "auxiliary_initial_sha256": "e8e9413fd8c8238d87f0205a3c73eaf40f12c21c91be83f09ec4e56ee890d653",
+          "auxiliary_parameters": 2050
+        },
+        "artifacts_sha256": {
+          "source_val_epoch4.npy": "ee5b7d6e7d9210423ef5143897d5ce86208996025954b3ab34ad9886f873fef1",
+          "terminal_eval0.npy": "0bdd06ba41f3036825383d40064bc20547704722e197bbe293a2a20baed87b23",
+          "learning_curve.json": "5081b62ab3fbe644a115742ec61763e9820493aa1480ed92eb87059a39d4d34c",
+          "source_val_epoch11.npy": "97c0546784a709124a15c07ac3c6ccba8c9a0a8e861c260aeb4b8c725ea001a8",
+          "source_val_epoch3.npy": "4ccd47137c58faa74278bd9bc7b1ab09edd3f675f848e1f7aa9421eb401e54e1",
+          "source_val_epoch5.npy": "a6be2d8da68de82ecbb27679ce83eee61c2b0738d733850f19eb9e4e8b6dc791",
+          "source_val_epoch6.npy": "a65299c32d0f2cc51cebcc13fe4b1379d268de2a17efdf5d51c03d13cd82bfe6",
+          "metadata.json": "67c71c046afb96467d1c57f0ba37c0a15f21b1223a31df0c484561a2b4aa86e8",
+          "source_best_eval1.npy": "2072f7c06ca49ca14cd6723d355ea57f2aa038b8f7103f30358f72c75cd790c1",
+          "terminal_eval1.npy": "c58b8710449430ce3d17c7d63c540abd0a3059629a930cdf1e9a734774785841",
+          "source_val_epoch9.npy": "f91309e77dd9c5dab55c73e5b2626d2f2498d1b5f44422b390e62a54fdd65ba1",
+          "result.json": "a7b62fdcc38aa9112ae23248ab44f4d1dcce9ddde5e6b9ac6a5882b3d0e7ee2f",
+          "source_best.pth": "bc00e6f69014ddaafe9a8b80b5064eb7198f5459d60f3891dba22e86e7e63731",
+          "source_val_epoch1.npy": "b2e646a3e52a00d51d8143f5d27799d60df7def21b40b4773ca463c1b805a908",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+          "source_val_epoch2.npy": "91a66bff3cf17d0fd9fdbbe6cead7dd3d32278b110ff57806cbf62dfe3012de0",
+          "source_val_epoch8.npy": "647bba4170f4aa050b1a84f1bff860df45d9e3d05c0a4a5e7124578023c38655",
+          "source_val_epoch7.npy": "a5fdb7907aeb5fc7bc44523dcd220a2391bdd3111c63e2f51c394de8462e612e",
+          "source_val_epoch12.npy": "70286e440cfa3b1f85930ba63793653c063f55ead5c1f84c3546e204ab25bd56",
+          "terminal.pth": "049f4498b0add567185d5ff16033b03438df1ac1d05615d038d91a23b523fa38",
+          "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+          "complete_result.json": "52d5fc4516f1038db012fc15f3b9dff3207699c327216de21146d96be282f9d6",
+          "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+          "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+          "source_best_eval0.npy": "93c136ed934248c7f82d8e3f709d35cb05b160b6c1ccf26858808a92e4e6fe39",
+          "source_val_epoch10.npy": "5d4b3e5eb08764405651589a9f36b69364cfc7f646c9606c420dbd57d4cdc1d9"
+        },
+        "result": {
+          "status": "completed",
+          "optimizer_updates": 21576,
+          "endpoints": {
+            "source_best": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9917474489795918,
+                      "ce": 0.09549590230613918,
+                      "balanced_ce": 0.0733216062144327,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9917474489795918,
+                    "ce": 0.09549590230613918,
+                    "balanced_ce": 0.0733216062144327
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.9172670191672176,
+                      "ce": 0.5060778087564649,
+                      "balanced_ce": 0.4182255658884698,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.8288783996484969,
+                      "ce": 0.5957939464420464,
+                      "balanced_ce": 0.593330586759679,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.9190422477440524,
+                      "ce": 0.4251800362414218,
+                      "balanced_ce": 0.38125695121245545,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.8883958888532556,
+                    "ce": 0.509017263813311,
+                    "balanced_ce": 0.4642710346202015
+                  }
+                }
+              }
+            ],
+            "terminal": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9947959183673469,
+                      "ce": 0.06752126124747417,
+                      "balanced_ce": 0.08993896973158676,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9947959183673469,
+                    "ce": 0.06752126124747417,
+                    "balanced_ce": 0.08993896973158676
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.9161929940515532,
+                      "ce": 0.4307872764947701,
+                      "balanced_ce": 0.38229247212669604,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.8753335798435413,
+                      "ce": 0.5027954562716053,
+                      "balanced_ce": 0.5036351888125559,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.9348954060705496,
+                      "ce": 0.3050435503511372,
+                      "balanced_ce": 0.3426753062680467,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9088073266552147,
+                    "ce": 0.4128754277058375,
+                    "balanced_ce": 0.40953432240243287
+                  }
+                }
+              }
+            ]
+          },
+          "source_best_epoch": 9,
+          "peak_allocated_bytes": 14915622912,
+          "elapsed_seconds": 23038.032010155002,
+          "independent_final_test": false,
+          "cache_seconds": 633.6319121950073,
+          "cache_reused": true,
+          "new_cache_generation_seconds": 0,
+          "cache_reuse_verification_seconds": 8.27888516098028,
+          "residual": "signed_diff",
+          "auxiliary_input": "original_aux",
+          "auxiliary_lambda": 1.0,
+          "complete_evaluation": true
+        },
+        "scope": "同协议主头部署；与无辅助VQGAN和另一辅助臂作配对开发评估。"
+      }
+    },
+    "residual_aux": {
+      "status": "verified",
+      "time": "2026-11-04T23:31:09.482337+08:00",
+      "training_pid": 729041,
+      "exit_code": 0,
+      "stop_reason": null,
+      "verification": {
+        "status": "verified",
+        "time": "2026-11-04T23:31:09.474613+08:00",
+        "output": "/home/zhaoting.ding/prd-runs/r01/4090-VQGAN残差辅助监督-20261104-种子3407",
+        "code_commit": "1f75610b7d72ef458cc7affd74adfd5eebc75c82",
+        "claim_commit": "e28ae930dd7deeb9a8bcf012d5e270af246a86ea",
+        "arm": "residual_aux",
+        "updates": 21576,
+        "independent_metrics_max_error": 2.220446049250313e-16,
+        "pairing_verified": true,
+        "identity": {
+          "trainable_initial_sha256": "638556a87a97f53563e1cb933da5adec7d0892be217a956f22f4de3cb91db048",
+          "trainable_parameters": 5250052,
+          "main_trainable_initial_sha256": "9aa889456c6661e4c09eb03229689f17e2f9766a4e8d09d4c009badf83f133e5",
+          "main_trainable_parameters": 5248002,
+          "auxiliary_initial_sha256": "e8e9413fd8c8238d87f0205a3c73eaf40f12c21c91be83f09ec4e56ee890d653",
+          "auxiliary_parameters": 2050
+        },
+        "artifacts_sha256": {
+          "source_val_epoch4.npy": "d706ebc86de0e690cd7f0551b5ffc41064c11b58de44a1f1d7816fd059413807",
+          "terminal_eval0.npy": "2dfb1ec25ed802a670c0f039c3ed8cce3e0af8006a51b402da631df5d8c1062f",
+          "learning_curve.json": "5129f9620f28dbef32b936902c10133af4024c59c8219f846b91aa81857ac38b",
+          "source_val_epoch11.npy": "bb5449608b41427d60a2121a5aaca762942eee839496dd98db451aa5568d58b4",
+          "source_val_epoch3.npy": "dbde243a20ceed422c657d830cad17105156189141d30a4664dfc7033bc23fe4",
+          "source_val_epoch5.npy": "92bdf7e6caa9395a9c6b347e8137b0985e088342920a667449af3bc60074ee3f",
+          "source_val_epoch6.npy": "93f67891edab1de19557aa3d4bc733c0bcc6ed2b54ec2f74dad4121e32f95a08",
+          "metadata.json": "521daaa3e3cc62bab5664116ab13f6ad5654f0ed359ce344d643f215e5df63da",
+          "source_best_eval1.npy": "64ee722a5676defb61d25373331c55961d5873394ce07db1122bcdc8813c6cc5",
+          "terminal_eval1.npy": "0bde9a8bbb1734056c0689d71c4007751ad840d0b94a6b639fda26f626d831ff",
+          "source_val_epoch9.npy": "f429df1e389092d1e31ce6e63ee74bf2c423dae8d01bcd6558e17ee93a92d17d",
+          "result.json": "586b96ca0abfa263a5aa01cb0762dbe8486fe30f03b98ae878608d62943f9013",
+          "source_best.pth": "7d4c6c8e17c3b990e9431ed1377f9c2777c124ee53541fcbe9697059f253aadb",
+          "source_val_epoch1.npy": "395e2d49ea0e3a6d2119f3a0fe7b7ada81e6432d79c548c50dd04919bb097ae8",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "train_manifest.json": "17c07901afcaffa550e1af600252980c1783470418cf0ae705632b4963a646a4",
+          "source_val_epoch2.npy": "e8e5fb5863e0d471c77077b7c2bf514dacadff9b1d6409a9a22dba5551127757",
+          "source_val_epoch8.npy": "5645d02a23a958383e6760d29bcb5379b4aa506eb1984a3de47981ce4623fc66",
+          "source_val_epoch7.npy": "badca7bddfd723ca34b8651f9eb6c9787c67959d19a5a6ca94ff516663d7de3f",
+          "source_val_epoch12.npy": "b9752cac99cd48e98772bca71187546aefcc2153d29b5885d0ca470f1412c050",
+          "terminal.pth": "71b4aeeb76fdbe579c8a3d9f27fbf96aa4cb35d9f845604775b0013381fa24ff",
+          "eval0_manifest.json": "39598267491e82d43205ba775b2f953e2b6e12d4a08c7eecbc42155b92529afd",
+          "complete_result.json": "ef7456e975aca5acef4fb9ad77e4d4180c231db22144c550a88ac715de860144",
+          "batch_trace.jsonl": "6041ac84270ca91720d7e45f152f053466bed22d40091ad9f388488fc63583ea",
+          "val_manifest.json": "0062961f751877ed2d256930bb2bd63e5ef22adb26b101285c136b3f38cf3f28",
+          "source_best_eval0.npy": "4b66c2c905e8e1247565e0217f74fff2177e870b0a1a6eb61c15f095cb755c3e",
+          "source_val_epoch10.npy": "223c95dfd4307819e1fd017512db4f2bf8eb7e7d0aac8aab311965d511e3679a"
+        },
+        "result": {
+          "status": "completed",
+          "optimizer_updates": 21576,
+          "endpoints": {
+            "source_best": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9939540816326531,
+                      "ce": 0.09161179264878976,
+                      "balanced_ce": 0.07130523969337858,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9939540816326531,
+                    "ce": 0.09161179264878976,
+                    "balanced_ce": 0.07130523969337858
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.8924818241903503,
+                      "ce": 0.6901175031334186,
+                      "balanced_ce": 0.5607031078643547,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.8455764225341671,
+                      "ce": 0.6320934936427692,
+                      "balanced_ce": 0.6260114256521948,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.894093519278097,
+                      "ce": 0.4745285257253201,
+                      "balanced_ce": 0.4297759901237205,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.8773839220008716,
+                    "ce": 0.5989131741671693,
+                    "balanced_ce": 0.5388301745467566
+                  }
+                }
+              }
+            ],
+            "terminal": [
+              {
+                "role": "source_test",
+                "metrics": {
+                  "domains": {
+                    "FaceForensics++": {
+                      "auc": 0.9957908163265307,
+                      "ce": 0.06543901514132235,
+                      "balanced_ce": 0.09263487235959877,
+                      "videos": 700
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9957908163265307,
+                    "ce": 0.06543901514132235,
+                    "balanced_ce": 0.09263487235959877
+                  }
+                }
+              },
+              {
+                "role": "target_dev",
+                "metrics": {
+                  "domains": {
+                    "Celeb-DF-v2": {
+                      "auc": 0.933393919365499,
+                      "ce": 0.359282092562122,
+                      "balanced_ce": 0.33099533879018994,
+                      "videos": 518
+                    },
+                    "DFDC": {
+                      "auc": 0.8657943580503513,
+                      "ce": 0.4986662379691481,
+                      "balanced_ce": 0.4992671618494997,
+                      "videos": 4704
+                    },
+                    "DFDCP": {
+                      "auc": 0.9131767842493848,
+                      "ce": 0.3564031922208871,
+                      "balanced_ce": 0.3942548446353302,
+                      "videos": 654
+                    }
+                  },
+                  "macro": {
+                    "auc": 0.9041216872217449,
+                    "ce": 0.4047838409173858,
+                    "balanced_ce": 0.4081724484250066
+                  }
+                }
+              }
+            ]
+          },
+          "source_best_epoch": 10,
+          "peak_allocated_bytes": 14915622912,
+          "elapsed_seconds": 29544.134585888998,
+          "independent_final_test": false,
+          "cache_seconds": 633.6319121950073,
+          "cache_reused": true,
+          "new_cache_generation_seconds": 0,
+          "cache_reuse_verification_seconds": 14.837430942017818,
+          "residual": "signed_diff",
+          "auxiliary_input": "residual_aux",
+          "auxiliary_lambda": 1.0,
+          "complete_evaluation": true
+        },
+        "scope": "同协议主头部署；与无辅助VQGAN和另一辅助臂作配对开发评估。"
+      }
+    }
+  },
+  "active_arm": null
+}
