@@ -235,7 +235,11 @@ def forward(model, ops, config, rows, device):
             x = x.to(device,non_blocking=True)
             views = {k:v.to(device) for k,v in views.items()}
             for key,probe in ops.items():
-                views[key] = probe(x)
+                if key in ("wavelet", "lowrank"):
+                    # 首批原始全域缓存用16张一批做恢复，分类头仍保持64张。
+                    views[key] = torch.cat([probe(part) for part in x.split(16)])
+                else:
+                    views[key] = probe(x)
             z = model(x,views)["logits"].float().cpu().numpy()
             if z.shape != (len(x),2) or not np.isfinite(z).all():
                 raise ValueError("预测形状/数值异常")
