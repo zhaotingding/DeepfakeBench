@@ -132,11 +132,13 @@ def new_manifest(domain, data_root):
 
 def metrics(logits, rows):
     from sklearn.metrics import roc_auc_score
+    import torch
     if logits.shape != (len(rows),2) or logits.dtype != np.float32 or not np.isfinite(logits).all():
         raise ValueError("预测与完整清单不匹配")
     z = logits.astype(np.float64)
     logp = z - np.logaddexp(z[:,0],z[:,1])[:,None]
-    probs = np.exp(logp[:,1])
+    # 域内帧AUC复用已发布的FP32正类概率；视频分数为这些概率的FP64算术平均。
+    probs = torch.softmax(torch.from_numpy(np.ascontiguousarray(logits)), dim=1)[:,1].double().numpy()
     y = np.array([r["label"] for r in rows])
     videos = {}
     for row, p in zip(rows, probs):
