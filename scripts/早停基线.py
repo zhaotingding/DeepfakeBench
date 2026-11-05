@@ -203,6 +203,10 @@ def formal(args,config,data,state,device):
     if args.resume:
         old=json.loads((out/"metadata.json").read_text())
         if old["identity"]!=identity or old["code_commit"]!=metadata["code_commit"]:raise ValueError("恢复身份变化")
+        if old["max_training_seconds"]!=metadata["max_training_seconds"] or old["max_evaluation_seconds"]!=metadata["max_evaluation_seconds"]:
+            raise ValueError("恢复不能隐式更改预算")
+        if (out/"evaluation_started.json").exists():
+            raise ValueError("训练恢复入口不重启评估；保留已有评估产物供独立恢复")
     else:
         fresh.save_json(out/"metadata.json",metadata)
         for name,item in data.items():fresh.save_json(out/(name+"_manifest.json"),item)
@@ -210,6 +214,7 @@ def formal(args,config,data,state,device):
                                            run_id=args.run_id,code_commit=metadata["code_commit"],claim_commit=args.claim_commit))
     try:
         model,progress=fresh.train(config,data,out,state,device,identity,args.train_hours*3600,args.resume)
+        fresh.save_json(out/"evaluation_started.json",dict(time=fresh.now(),best_sha256=fresh.file_sha(out/"best.pt"),max_seconds=args.eval_hours*3600))
         result=fresh.final_evaluation(model,config,data,out,state,device,args.eval_hours*3600)
         print(json.dumps(dict(status="verified",best_epoch=progress["best_epoch"],stop_reason=progress["stop_reason"],
                               main=result["macro"]),ensure_ascii=False),flush=True)
@@ -240,7 +245,8 @@ def main():
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     if args.mode=="smoke":preflight(config,data,state/"smoke",device)
     else:
-        if not args.run_id:raise ValueError("缺明确运行名")
+        if not args.run_id or any(not (c.isalnum() or c in "-_") for c in args.run_id):
+            raise ValueError("运行名只能含中文、字母、数字和连接号")
         formal(args,config,data,state,device)
 
 
