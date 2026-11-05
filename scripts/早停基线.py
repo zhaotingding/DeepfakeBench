@@ -34,6 +34,10 @@ def settings(variant):
     config["head"]={"hidden":1024,"dropout":0.5,"slots":2}
     config["optimizer"]={"lr":2e-4,"betas":[0.9,0.999],"eps":1e-8,"weight_decay":0.0005}
     config["numerics"]={"deterministic_algorithms":True,"cuda_matmul_tf32":False,"cudnn_tf32":False,"cublas_workspace":":4096:8"}
+    config["source_validation"]="official_fixed_val_frame_auc_every_epoch"
+    config["target_evaluation"]="best_only_after_training_stops"
+    config["note"]="本批源验证AUC五轮未创新高早停，最多30轮，训练前新初始化，增强后在线重构。"
+    config.pop("operators",None)
     return config
 
 
