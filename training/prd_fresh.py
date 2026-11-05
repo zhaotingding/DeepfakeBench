@@ -26,7 +26,7 @@ PHYSICAL = {"DeepFakeDetection": "FaceForensics++"}
 LABELS = {"FaceForensics++": {"FF-real": 0, "FF-DF": 1, "FF-F2F": 1, "FF-FS": 1, "FF-NT": 1},
           "Celeb-DF-v1": {"CelebDFv1_real": 0, "CelebDFv1_fake": 1},
           "Celeb-DF-v2": {"CelebDFv2_real": 0, "CelebDFv2_fake": 1},
-          "DFDC": {"DFDC_real": 0, "DFDC_fake": 1},
+          "DFDC": {"DFDC_Real": 0, "DFDC_Fake": 1},
           "DFDCP": {"DFDCP_Real": 0, "DFDCP_FakeA": 1, "DFDCP_FakeB": 1},
           "DeepFakeDetection": {"DFD_real": 0, "DFD_fake": 1},
           "UADFV": {"UADFV_Real": 0, "UADFV_Fake": 1}}
