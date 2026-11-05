@@ -1,0 +1,621 @@
+{
+  "reason": "用户要求切换到预训练起点、验证早停和新主测试协议，旧协议剩余计算主动取消",
+  "authorized_at": "2026-11-05T17:30:24.249957+08:00",
+  "stage": "cancel_verified",
+  "targets": [
+    {
+      "pid": 2856168,
+      "uid": 1007,
+      "starttime": "26239156",
+      "ppid": 1869408,
+      "pgrp": 2856168,
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+      "command": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-worktrees/重构算子并行/scripts/八域第八域接续.py wait dcb0d56200034f628508cf979e78dfd30f48a67d "
+    },
+    {
+      "pid": 2852145,
+      "uid": 1007,
+      "starttime": "26234723",
+      "ppid": 2852143,
+      "pgrp": 2852143,
+      "cwd": "/home/zhaoting.ding/prd-inputs/df1-precheck-20261104",
+      "command": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-inputs/df1-precheck-20261104/generate_df1_v2.py build --workers 12 "
+    },
+    {
+      "pid": 1837884,
+      "uid": 1007,
+      "starttime": "30302304",
+      "ppid": 2786234,
+      "pgrp": 1837884,
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+      "command": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-worktrees/重构算子并行/scripts/八域末轮评估.py run --run 4090-扩散去噪重构-20261030-种子3407 --domains Celeb-DF-v1 UADFV FaceShifter DeepFakeDetection "
+    }
+  ],
+  "diffusion_group_members": [
+    {
+      "pid": 1837884,
+      "uid": 1007,
+      "starttime": "30302304",
+      "ppid": 2786234,
+      "pgrp": 1837884,
+      "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+      "command": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-worktrees/重构算子并行/scripts/八域末轮评估.py run --run 4090-扩散去噪重构-20261030-种子3407 --domains Celeb-DF-v1 UADFV FaceShifter DeepFakeDetection "
+    }
+  ],
+  "four_before": {
+    "started": "2026-11-04T23:45:04+08:00",
+    "pid": 2786234,
+    "code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+    "claim": "dcb0d56200034f628508cf979e78dfd30f48a67d",
+    "domains": [
+      "Celeb-DF-v1",
+      "UADFV",
+      "FaceShifter",
+      "DeepFakeDetection"
+    ],
+    "rows": {
+      "4090-VQGAN码本重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 2786247,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39481,
+        "exit": 0,
+        "ended": "2026-11-05T01:12:49+08:00"
+      },
+      "4090-仅原图对照-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2786248,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T00:10:24+08:00"
+      },
+      "4090-VQGAN原图辅助监督-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2902060,
+        "started": "2026-11-05T00:10:24+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T01:46:43+08:00"
+      },
+      "4090-学习压缩重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3190462,
+        "started": "2026-11-05T01:12:49+08:00",
+        "launch_free_mib": 36350,
+        "exit": 0,
+        "ended": "2026-11-05T02:37:43+08:00"
+      },
+      "4090-VQGAN残差辅助监督-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3349069,
+        "started": "2026-11-05T01:46:43+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T03:39:28+08:00"
+      },
+      "4090-降采样超分重构-20261102-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3585052,
+        "started": "2026-11-05T02:37:43+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T04:28:00+08:00"
+      },
+      "4090-原VAE对照-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3873802,
+        "started": "2026-11-05T03:39:28+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T05:26:03+08:00"
+      },
+      "4090-VQGAN超分等权响应融合-20261103-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 4102273,
+        "started": "2026-11-05T04:28:00+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T06:23:29+08:00"
+      },
+      "4090-VQGAN归一化特征差-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 181081,
+        "started": "2026-11-05T05:26:03+08:00",
+        "launch_free_mib": 45373,
+        "exit": 0,
+        "ended": "2026-11-05T06:20:15+08:00"
+      },
+      "4090-灰度上色重构-20261031-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 436524,
+        "started": "2026-11-05T06:20:15+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T07:29:43+08:00"
+      },
+      "4090-MAE遮挡重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 451579,
+        "started": "2026-11-05T06:23:29+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T07:06:24+08:00"
+      },
+      "4090-人脸生成反演重构-20261031-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 656639,
+        "started": "2026-11-05T07:06:24+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T08:07:56+08:00"
+      },
+      "4090-VQGAN绝对残差-20261103-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 768169,
+        "started": "2026-11-05T07:29:43+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T08:13:02+08:00"
+      },
+      "4090-低秩重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 950369,
+        "started": "2026-11-05T08:07:56+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T09:59:10+08:00"
+      },
+      "4090-小波重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 974801,
+        "started": "2026-11-05T08:13:02+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T08:37:35+08:00"
+      },
+      "4090-TV变分重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1092294,
+        "started": "2026-11-05T08:37:35+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T09:26:01+08:00"
+      },
+      "4090-非局部自相似重构-20261101-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1321978,
+        "started": "2026-11-05T09:26:01+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T11:12:46+08:00"
+      },
+      "4090-稀疏字典重构-20261101-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 1479009,
+        "started": "2026-11-05T09:59:10+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T11:17:36+08:00"
+      },
+      "4090-VQGAN单位方向残差-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1816911,
+        "started": "2026-11-05T11:12:46+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T12:37:57+08:00"
+      },
+      "4090-扩散去噪重构-20261030-种子3407": {
+        "stage": "running",
+        "gpu": 0,
+        "pid": 1837884,
+        "started": "2026-11-05T11:17:36+08:00",
+        "launch_free_mib": 34184
+      },
+      "4090-Restormer恢复重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2213463,
+        "started": "2026-11-05T12:37:57+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T15:43:29+08:00"
+      },
+      "4090-BM3D低复杂度重构-20261103-种子3407": {
+        "stage": "failed",
+        "gpu": 1,
+        "pid": 3083776,
+        "started": "2026-11-05T15:43:29+08:00",
+        "launch_free_mib": 39813,
+        "exit": 1,
+        "ended": "2026-11-05T15:43:39+08:00"
+      },
+      "4090-人脸码本预测重构-20261102-修复一次-种子3407": {
+        "stage": "running",
+        "gpu": 1,
+        "pid": 3084976,
+        "started": "2026-11-05T15:43:39+08:00",
+        "launch_free_mib": 39813
+      }
+    },
+    "checked": "2026-11-05T15:43:39+08:00"
+  },
+  "asset_before": {
+    "stage": "generating",
+    "time": "2026-11-05T17:30:14.946050+08:00",
+    "pid": 2852145,
+    "workers": 12,
+    "total": 48676,
+    "completed": 25186,
+    "frames": 582962,
+    "zero_videos": 2540,
+    "resumed": 0
+  },
+  "waiter_before": {
+    "pid": 2856168,
+    "created": "2026-11-05T00:00:25+08:00",
+    "four_claim": "dcb0d56200034f628508cf979e78dfd30f48a67d",
+    "supervisor_code": "a81c5069c03f3a3de2b484aedbdfdb6cceafc6d2",
+    "inference_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+    "stage": "waiting",
+    "gpu_started": false,
+    "rows": {},
+    "wait_reason": "四域队列未终态",
+    "checked": "2026-11-05T17:29:54+08:00",
+    "has_df1_full_publication": false
+  },
+  "preserve": [
+    "全部已验证七域结果",
+    "权重、预测及分块",
+    "已提交DF1 LMDB事务及原视频",
+    "人脸码本预测在途直到正常收口",
+    "原四域监督"
+  ],
+  "signals": [
+    {
+      "pid": 2856168,
+      "action": "SIGTERM",
+      "time": "2026-11-05T17:30:24.259727+08:00"
+    },
+    {
+      "pid": 2852145,
+      "action": "SIGTERM",
+      "time": "2026-11-05T17:30:24.260282+08:00"
+    },
+    {
+      "pid": 1837884,
+      "action": "SIGTERM_group",
+      "time": "2026-11-05T17:30:24.260772+08:00"
+    }
+  ],
+  "sent_complete": "2026-11-05T17:30:24.261093+08:00",
+  "verified_at": "2026-11-05T17:33:20.342781+08:00",
+  "exit_processes": [
+    2856168,
+    2852143,
+    2852145,
+    2852150,
+    2852151,
+    2852154,
+    2852155,
+    2852156,
+    2852157,
+    2852158,
+    2852159,
+    2852160,
+    2852161,
+    2852162,
+    2852164,
+    2852165,
+    1837884
+  ],
+  "df1_committed": {
+    "videos": 25187,
+    "frames": 582963,
+    "zero_videos": 2540,
+    "data_bytes": 49306124288
+  },
+  "four_after": {
+    "started": "2026-11-04T23:45:04+08:00",
+    "pid": 2786234,
+    "code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+    "claim": "dcb0d56200034f628508cf979e78dfd30f48a67d",
+    "domains": [
+      "Celeb-DF-v1",
+      "UADFV",
+      "FaceShifter",
+      "DeepFakeDetection"
+    ],
+    "rows": {
+      "4090-VQGAN码本重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 2786247,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39481,
+        "exit": 0,
+        "ended": "2026-11-05T01:12:49+08:00"
+      },
+      "4090-仅原图对照-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2786248,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T00:10:24+08:00"
+      },
+      "4090-VQGAN原图辅助监督-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2902060,
+        "started": "2026-11-05T00:10:24+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T01:46:43+08:00"
+      },
+      "4090-学习压缩重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3190462,
+        "started": "2026-11-05T01:12:49+08:00",
+        "launch_free_mib": 36350,
+        "exit": 0,
+        "ended": "2026-11-05T02:37:43+08:00"
+      },
+      "4090-VQGAN残差辅助监督-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3349069,
+        "started": "2026-11-05T01:46:43+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T03:39:28+08:00"
+      },
+      "4090-降采样超分重构-20261102-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3585052,
+        "started": "2026-11-05T02:37:43+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T04:28:00+08:00"
+      },
+      "4090-原VAE对照-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3873802,
+        "started": "2026-11-05T03:39:28+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T05:26:03+08:00"
+      },
+      "4090-VQGAN超分等权响应融合-20261103-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 4102273,
+        "started": "2026-11-05T04:28:00+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T06:23:29+08:00"
+      },
+      "4090-VQGAN归一化特征差-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 181081,
+        "started": "2026-11-05T05:26:03+08:00",
+        "launch_free_mib": 45373,
+        "exit": 0,
+        "ended": "2026-11-05T06:20:15+08:00"
+      },
+      "4090-灰度上色重构-20261031-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 436524,
+        "started": "2026-11-05T06:20:15+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T07:29:43+08:00"
+      },
+      "4090-MAE遮挡重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 451579,
+        "started": "2026-11-05T06:23:29+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T07:06:24+08:00"
+      },
+      "4090-人脸生成反演重构-20261031-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 656639,
+        "started": "2026-11-05T07:06:24+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T08:07:56+08:00"
+      },
+      "4090-VQGAN绝对残差-20261103-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 768169,
+        "started": "2026-11-05T07:29:43+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T08:13:02+08:00"
+      },
+      "4090-低秩重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 950369,
+        "started": "2026-11-05T08:07:56+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T09:59:10+08:00"
+      },
+      "4090-小波重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 974801,
+        "started": "2026-11-05T08:13:02+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T08:37:35+08:00"
+      },
+      "4090-TV变分重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1092294,
+        "started": "2026-11-05T08:37:35+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T09:26:01+08:00"
+      },
+      "4090-非局部自相似重构-20261101-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1321978,
+        "started": "2026-11-05T09:26:01+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T11:12:46+08:00"
+      },
+      "4090-稀疏字典重构-20261101-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 1479009,
+        "started": "2026-11-05T09:59:10+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T11:17:36+08:00"
+      },
+      "4090-VQGAN单位方向残差-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1816911,
+        "started": "2026-11-05T11:12:46+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T12:37:57+08:00"
+      },
+      "4090-扩散去噪重构-20261030-种子3407": {
+        "stage": "failed",
+        "gpu": 0,
+        "pid": 1837884,
+        "started": "2026-11-05T11:17:36+08:00",
+        "launch_free_mib": 34184,
+        "exit": -15,
+        "ended": "2026-11-05T17:30:24+08:00"
+      },
+      "4090-Restormer恢复重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2213463,
+        "started": "2026-11-05T12:37:57+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T15:43:29+08:00"
+      },
+      "4090-BM3D低复杂度重构-20261103-种子3407": {
+        "stage": "failed",
+        "gpu": 1,
+        "pid": 3083776,
+        "started": "2026-11-05T15:43:29+08:00",
+        "launch_free_mib": 39813,
+        "exit": 1,
+        "ended": "2026-11-05T15:43:39+08:00"
+      },
+      "4090-人脸码本预测重构-20261102-修复一次-种子3407": {
+        "stage": "running",
+        "gpu": 1,
+        "pid": 3084976,
+        "started": "2026-11-05T15:43:39+08:00",
+        "launch_free_mib": 39813
+      }
+    },
+    "checked": "2026-11-05T17:30:24+08:00"
+  },
+  "asset_after": {
+    "stage": "failed",
+    "time": "2026-11-05T17:30:45.963331+08:00",
+    "exception": "RuntimeError('received termination request; no more clips scheduled')"
+  },
+  "formal_exit": {
+    "tmux": "prd-df1-assets-20261104",
+    "supervisor_pid": 2852143,
+    "compute_pid": 2852145,
+    "started": "2026-11-04T23:59:41.152918+08:00",
+    "argv": [
+      "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python",
+      "-u",
+      "/home/zhaoting.ding/prd-inputs/df1-precheck-20261104/generate_df1_v2.py",
+      "build",
+      "--workers",
+      "12"
+    ],
+    "script_sha256": "bfcbe07e262477af41ea18dc6d3f4aa505925b8d7088eb626ead8d67992763af",
+    "max_workers": 12,
+    "soft_cap_gib": 180,
+    "absolute_cap_gib": 200,
+    "map_limit_gib": 164,
+    "status": "/home/zhaoting.ding/disk/zhaoting.ding/prd-evaluation-assets/DF1-end-to-end-20261104/asset-full-v1/status.json",
+    "sole_lmdb_path": "/var/tmp/prd-df1-assets-1007/asset-full-v1/lmdb",
+    "no_automatic_retry": true,
+    "exit": 1,
+    "finished": "2026-11-05T17:30:46.366049+08:00"
+  },
+  "waiter_after": {
+    "pid": 2856168,
+    "created": "2026-11-05T00:00:25+08:00",
+    "four_claim": "dcb0d56200034f628508cf979e78dfd30f48a67d",
+    "supervisor_code": "a81c5069c03f3a3de2b484aedbdfdb6cceafc6d2",
+    "inference_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+    "stage": "supervision_error",
+    "gpu_started": false,
+    "rows": {},
+    "wait_reason": "四域队列未终态",
+    "checked": "2026-11-05T17:29:54+08:00",
+    "has_df1_full_publication": false,
+    "ended": "2026-11-05T17:30:24+08:00",
+    "error": "KeyboardInterrupt('监督收到终止信号')"
+  },
+  "semantic_status": "主动切换协议取消；脚本自带failed/error字符串不作为算法失败",
+  "retained_running": {
+    "queue_pid": 2786234,
+    "codeformer_pid": 3084976
+  },
+  "gpu0_free_mib_verified_at_1731": 39811,
+  "other_gpu_pids_preserved": [
+    1536013,
+    1536014
+  ],
+  "bm3d_failure": {
+    "category": "工程依赖失败",
+    "time": "2026-11-05T15:43:39+08:00",
+    "exit_code": 1,
+    "cause": "DataLoader worker: OpenBLAS library not found",
+    "log": "/home/zhaoting.ding/prd-runs/末轮八域补评估-20261104/queue-four/4090-BM3D低复杂度重构-20261103-种子3407.log",
+    "log_sha256": "e5f6fcecb023629bb110d28de1de7b691a9d82351b14bc034c80986229d4c6f8",
+    "retry": false
+  }
+}
