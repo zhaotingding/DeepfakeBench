@@ -140,7 +140,8 @@ def frozen_identity(config):
 def compact_state(model):
     names = {name for name,p in model.named_parameters() if p.requires_grad}
     names.update(name for name,_ in model.named_buffers())
-    full = model.state_dict()
+    full = dict(model.named_parameters())
+    full.update(dict(model.named_buffers()))  # 包含未持久化的 position_ids 缓冲区。
     return {name: full[name].detach().cpu().clone() for name in sorted(names)}
 
 
@@ -148,7 +149,8 @@ def load_compact(model, state):
     expected = compact_state(model)
     if set(expected) != set(state):
         raise ValueError("紧凑权重键与当前模型不匹配")
-    current = model.state_dict()
+    current = dict(model.named_parameters())
+    current.update(dict(model.named_buffers()))
     with torch.no_grad():
         for name,value in state.items():
             if expected[name].shape != value.shape or expected[name].dtype != value.dtype:
