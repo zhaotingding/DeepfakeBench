@@ -16,7 +16,7 @@ from sklearn.metrics import roc_auc_score
 from scipy.stats import rankdata
 
 from prd_r01.data import LMDBImages, validate_source_pair
-from prd_r01.engine import seed_all
+from prd_r01.engine import seed_all as seed_common
 from prd_r01.model import build_model
 from prd_r01.auxiliary_supervision import trainable_identity
 
@@ -30,6 +30,12 @@ LABELS = {"FaceForensics++": {"FF-real": 0, "FF-DF": 1, "FF-F2F": 1, "FF-FS": 1,
           "DFDCP": {"DFDCP_Real": 0, "DFDCP_FakeA": 1, "DFDCP_FakeB": 1},
           "DeepFakeDetection": {"DFD_real": 0, "DFD_fake": 1},
           "UADFV": {"UADFV_Real": 0, "UADFV_Fake": 1}}
+
+
+def seed_all(seed):
+    seed_common(seed)
+    torch.use_deterministic_algorithms(True)
+    torch.backends.cudnn.allow_tf32 = False
 
 
 def now():

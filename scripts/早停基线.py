@@ -2,7 +2,7 @@
 """仅原图与经典 PRD 的验证早停训练入口。"""
 import os
 os.environ.update(OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1",
-                  HF_HUB_OFFLINE="1", TOKENIZERS_PARALLELISM="false")
+                  HF_HUB_OFFLINE="1", TOKENIZERS_PARALLELISM="false", CUBLAS_WORKSPACE_CONFIG=":4096:8")
 import argparse
 import copy
 import gc
@@ -33,6 +33,7 @@ def settings(variant):
     config["lora"]={"rank":16,"alpha":16,"dropout":0.05,"target_modules":["q_proj","v_proj"]}
     config["head"]={"hidden":1024,"dropout":0.5,"slots":2}
     config["optimizer"]={"lr":2e-4,"betas":[0.9,0.999],"eps":1e-8,"weight_decay":0.0005}
+    config["numerics"]={"deterministic_algorithms":True,"cuda_matmul_tf32":False,"cudnn_tf32":False,"cublas_workspace":":4096:8"}
     return config
 
 
@@ -135,6 +136,8 @@ def preflight(config,data,state,device):
             if isinstance(value,torch.Tensor):
                 other=opt.state_dict()["state"][key][name]
                 optimizer_error=max(optimizer_error,float((value.cpu()-other.cpu()).abs().max()))
+    fresh.save_json(state/"resume_comparison.json",dict(parameter_error=param_error,optimizer_error=optimizer_error,
+                    loss_error=max(abs(a-b) for a,b in zip(actual_loss,expected_loss))))
     if param_error>1e-6 or optimizer_error>1e-6 or max(abs(a-b) for a,b in zip(actual_loss,expected_loss))>1e-6:
         raise ValueError("中断恢复没有复现未中断的训练轨迹")
     stream.dataset.close();opt.zero_grad(set_to_none=True)
