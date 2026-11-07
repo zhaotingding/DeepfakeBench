@@ -114,6 +114,9 @@ def build_model(config, device):
         for name in config["responses"]:
             if name in {"wavelet", "lowrank"}:
                 probes[name] = build_operator(config, name, device)
+    if "vqgan" in config["responses"] and not cached:
+        from .vqgan_operator import VQGANProbe  # 复用原已核验的逐图 FP32 码本恢复路径。
+        probes["vqgan"] = VQGANProbe(config)  # 冻结算子；恢复后的图像仍由可训练共享 CLIP 编码。
     torch.set_rng_state(rng)
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
                           config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"],
