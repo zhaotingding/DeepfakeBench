@@ -122,7 +122,7 @@ def execute(plan_file,claim):
             smoke=read(ROOT/".state/早停码本重构-20261107"/name/"smoke/preflight.json")
             assert smoke["status"]=="passed" and smoke["code_commit"]==code
             free=int(subprocess.check_output(["nvidia-smi","-i",str(arm["gpu"]),"--query-gpu=memory.free","--format=csv,noheader,nounits"],text=True).strip())*1024**2
-            required=int(smoke["peak_reserved_bytes"]+max(.2*smoke["peak_reserved_bytes"],2*1024**3))
+            required=int(smoke["peak_reserved_bytes"]+2*1024**3)  # 与计算入口一致，真实 BS32/64 峰值之外固定保留 2GiB。
             if free<required:raise RuntimeError("当前空闲显存小于真实预检峰值加余量")
             env=dict(os.environ,CUDA_VISIBLE_DEVICES=str(arm["gpu"]),CUDA_DEVICE_ORDER="PCI_BUS_ID")
             cmd=[sys.executable,"-u",str(ROOT/"scripts/早停基线.py"),name,"run","--claim-commit",claim,
