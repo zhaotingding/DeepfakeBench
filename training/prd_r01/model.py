@@ -117,7 +117,10 @@ def build_model(config, device):
     if "vqgan" in config["responses"] and not cached:
         from .vqgan_operator import VQGANProbe  # 复用原已核验的逐图 FP32 码本恢复路径。
         probes["vqgan"] = VQGANProbe(config)  # 冻结算子；恢复后的图像仍由可训练共享 CLIP 编码。
-    torch.set_rng_state(rng)
+    if "superresolution" in config["responses"] and not cached:
+        from .generative_operators import GenerativeProbe  # 复用已冻结的 Real-ESRGAN 降采样恢复。
+        probes["superresolution"] = GenerativeProbe(config, "superresolution")
+    torch.set_rng_state(rng)  # 算子构造的随机初始化不得改变共同主头初值。
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
                           config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"],
                           residual=config.get("residual", "signed_diff"),

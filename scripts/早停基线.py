@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""仅原图、经典 PRD 与冻结码本重构的验证早停训练入口。"""
+"""仅原图、经典 PRD 与冻结重构算子的验证早停训练入口。"""
 import os
 os.environ.update(OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1",
                   HF_HUB_OFFLINE="1", TOKENIZERS_PARALLELISM="false", CUBLAS_WORKSPACE_CONFIG=":4096:8")
@@ -43,6 +43,10 @@ def settings(variant):
         config["vqgan_weights"] = str(Path.home()/".cache/prd-models/vqgan-imagenet-f16-1024/last.ckpt")
         config["vqgan_weights_sha256"] = "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71"
         config["operator_recipe"] = vqgan_spec(config)  # native224、FP32、内部逐图、不裁剪输出。
+    if variant == "superresolution":
+        from prd_r01.generative_operators import ASSETS, WEIGHTS, spec
+        config["superresolution_weights"] = str(ASSETS / WEIGHTS[variant][0])  # 与旧超分使用同一官方资产。
+        config["operator_recipe"] = spec(config, variant)  # FP32 抗混叠 56、反射补边、逐图 FP16 ×4。
     return config
 
 
@@ -102,10 +106,18 @@ def preflight(config,data,state,device):
     assert initial["trainable_parameters"]==3675138
     assert initial["trainable_initial_sha256"]=="aaa440a41a2f1e8cab40f8c0be19e3479c0b22880256d6e4ca96eee2c0b1fe7e"  # 与首批共同 CLIP/LoRA/主头初值一致。
     probe_audit = None
+    reconstruction_audit = None
     if config["variant"] == "vqgan":
         audit_loader = fresh.loader(val, config)
         audit_image = next(iter(audit_loader))[0][:1].to(device)
         probe_audit = model.probes["vqgan"].audit_quantization(audit_image)  # 独立最近邻验证实际码字路径。
+        audit_loader.dataset.close()
+        del audit_loader, audit_image
+    if config["variant"] == "superresolution":
+        audit_loader = fresh.loader(val, config)
+        audit_image = next(iter(audit_loader))[0][:1].to(device)
+        reconstruction_audit = model.probes["superresolution"].audit(audit_image)
+        assert reconstruction_audit["frozen"] and reconstruction_audit["mean_absolute_rgb_change"] > 0
         audit_loader.dataset.close()
         del audit_loader, audit_image
     opt=fresh.optimizer_for(model,config)
@@ -191,6 +203,8 @@ def preflight(config,data,state,device):
                  complete_best_evaluation_projection_seconds=eval_frames/64*eval_seconds*1.2+600,
                  peak_reserved_bytes=torch.cuda.max_memory_reserved(device),cpu_rule_tests=cpu_tests(),
                  input_counts={k:len(v["rows"]) for k,v in data.items()})
+    if reconstruction_audit is not None:
+        summary["reconstruction_audit"] = reconstruction_audit
     fresh.save_json(state/"preflight.json",summary)
     print(json.dumps(summary,ensure_ascii=False),flush=True)
 
@@ -204,15 +218,19 @@ def formal(args,config,data,state,device):
     if not args.claim_commit or len(args.claim_commit)!=40:raise ValueError("需要正式认领SHA")
     if args.train_hours is None or args.eval_hours is None or min(args.train_hours,args.eval_hours)<=0:
         raise ValueError("需要按真实预检固定训练和评估时间预算")
+    if config["variant"] == "superresolution" and (args.train_hours > 105 or args.eval_hours > 5):
+        raise ValueError("降采样超分预算不得超过105小时训练与5小时终测")
     if git("status","--porcelain"):raise ValueError("运行代码须已提交")
     check=json.loads((state/"smoke/preflight.json").read_text(encoding="utf8"))
     if check["status"]!="passed" or check["code_commit"]!=git("rev-parse","HEAD"):
         raise ValueError("预检版本不符")
+    if config["variant"] == "superresolution" and check["variant"] != config["variant"]:
+        raise ValueError("降采样超分须通过本方案真实预检")
     if args.train_hours*3600<check["thirty_epoch_upper_projection_seconds"] or args.eval_hours*3600<check["complete_best_evaluation_projection_seconds"]:
         raise ValueError("正式预算不足以覆盖预登记的最大运行")
     if torch.cuda.mem_get_info(device)[0]<check["peak_reserved_bytes"]+2*1024**3:
         raise ValueError("当前显存低于实测峰值加2GiB")
-    out=Path(config["output_root"])/("早停码本重构-20261107" if config["variant"]=="vqgan" else "早停基线-20261105")/args.run_id
+    out=Path(config["output_root"])/fresh.RECONSTRUCTION_RUN_FAMILIES.get(config["variant"], "早停基线-20261105")/args.run_id
     if args.resume:
         if not out.is_dir():raise FileNotFoundError("运行目录不存在")
     else:
@@ -249,14 +267,14 @@ def formal(args,config,data,state,device):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("variant",choices=["original","vae","vqgan"])
+    parser.add_argument("variant",choices=["original","vae","vqgan","superresolution"])
     parser.add_argument("mode",choices=["manifest","smoke","run"])
     parser.add_argument("--claim-commit");parser.add_argument("--run-id")
     parser.add_argument("--train-hours",type=float);parser.add_argument("--eval-hours",type=float)
     parser.add_argument("--resume",action="store_true")
     args=parser.parse_args()
     config=settings(args.variant);data=manifests(config)
-    state=ROOT/(".state/早停码本重构-20261107" if args.variant=="vqgan" else ".state/早停基线-20261105")/args.variant
+    state=ROOT/".state"/fresh.RECONSTRUCTION_RUN_FAMILIES.get(args.variant, "早停基线-20261105")/args.variant
     if args.mode=="manifest":
         print(json.dumps({k:{"frames":len(v["rows"]),"videos":len({r["video_id"] for r in v["rows"]}),"source_sha256":v["source_sha256"]} for k,v in data.items()},ensure_ascii=False));return
     if not os.environ.get("CUDA_VISIBLE_DEVICES") or torch.cuda.device_count()!=1:

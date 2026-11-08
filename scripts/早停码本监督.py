@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""有符号码本重构的单项有限早停监督与独立归档。"""
+"""有符号码本与降采样超分的单项早停监督与独立归档。"""
 import os
 os.environ.update(OMP_NUM_THREADS="1",OPENBLAS_NUM_THREADS="1",MKL_NUM_THREADS="1",PYTHONUTF8="1")
 import argparse
@@ -22,16 +22,26 @@ import torch
 import prd_fresh as fresh
 
 
+SUPERVISOR_FAMILIES = {
+    "vqgan": "早停码本监督-20261107",
+    "superresolution": "早停超分监督-20261109",
+}
+LABELS = {
+    "vqgan": "VQGAN无辅助监督码本重构",
+    "superresolution": "降采样超分重构",
+}
+
+
 def read(path):
     return json.loads(Path(path).read_text(encoding="utf8"))
 
 
 def verify(arm,state,code):
-    out=Path.home()/"prd-runs/早停码本重构-20261107"/arm["run_id"]
+    out=Path.home()/"prd-runs"/fresh.RECONSTRUCTION_RUN_FAMILIES[arm["variant"]]/arm["run_id"]
     meta=read(out/"metadata.json");result=read(out/"training_result.json")
     final=read(out/"complete_result.json");curve=read(out/"learning_curve.json")
     assert meta["code_commit"]==code and final["status"]=="verified"
-    assert meta["config"]["variant"]=="vqgan" and meta["config"]["residual"]=="signed_diff"
+    assert meta["config"]["variant"]==arm["variant"] and meta["config"]["residual"]=="signed_diff"
     assert meta["config"]["reconstruction_mode"]=="online_after_augment"
     assert final["new_updates_during_evaluation"]==0
     for path,digest in meta["identity"]["base_weights"].items():
@@ -102,9 +112,15 @@ def execute(plan_file,claim):
         raise ValueError("认领或代码版本错误")
     if subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True).strip():
         raise ValueError("工作树未提交")
-    if len(plan["arms"])!=1 or plan["arms"][0]["variant"]!="vqgan" or plan["arms"][0]["gpu"] not in (0,1):
-        raise ValueError("本监督只接受已批准的有符号码本重构单项")
-    state=ROOT/".state/早停码本监督-20261107";state.mkdir(parents=True,exist_ok=True)
+    if len(plan["arms"])!=1 or plan["arms"][0]["variant"] not in SUPERVISOR_FAMILIES or plan["arms"][0]["gpu"] not in (0,1):
+        raise ValueError("本监督只接受单项已批准重构方案")
+    arm=plan["arms"][0]
+    variant=arm["variant"]
+    if variant=="superresolution" and not (0<arm["train_hours"]<=105 and 0<arm["eval_hours"]<=5):
+        raise ValueError("降采样超分预算不得超过105小时训练与5小时终测")
+    run_family=fresh.RECONSTRUCTION_RUN_FAMILIES[variant]  # 各方案隔离状态、预检与结果。
+    state=ROOT/".state"/SUPERVISOR_FAMILIES[variant]
+    state.mkdir(parents=True,exist_ok=True)
     lock=(state/"supervisor.lock").open("a")
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     if (state/"supervisor.json").exists():raise RuntimeError("已有状态，拒绝重复派发")
@@ -119,8 +135,10 @@ def execute(plan_file,claim):
         name=arm["variant"];entry=dict(status="preparing",gpu=arm["gpu"],run_id=arm["run_id"])
         update(name,entry)
         try:
-            smoke=read(ROOT/".state/早停码本重构-20261107"/name/"smoke/preflight.json")
+            smoke=read(ROOT/".state"/run_family/name/"smoke/preflight.json")
             assert smoke["status"]=="passed" and smoke["code_commit"]==code
+            if name=="superresolution":
+                assert smoke["variant"]==name  # 资源与吞吐证据须来自同一冻结算子。
             free=int(subprocess.check_output(["nvidia-smi","-i",str(arm["gpu"]),"--query-gpu=memory.free","--format=csv,noheader,nounits"],text=True).strip())*1024**2
             required=int(smoke["peak_reserved_bytes"]+2*1024**3)  # 与计算入口一致，真实 BS32/64 峰值之外固定保留 2GiB。
             if free<required:raise RuntimeError("当前空闲显存小于真实预检峰值加余量")
@@ -140,7 +158,7 @@ def execute(plan_file,claim):
                     raise TimeoutError("本臂外层保护时限耗尽")
             entry.update(exit_code=rc,ended=fresh.now())
             if rc:raise RuntimeError(f"计算退出{rc}")
-            proof=verify(arm,ROOT/".state/早停码本重构-20261107"/name,code)
+            proof=verify(arm,ROOT/".state"/run_family/name,code)
             entry.update(status="verified",verification=proof)
         except BaseException as error:
             entry.update(status="failed",ended=fresh.now(),error=repr(error))
@@ -151,15 +169,15 @@ def execute(plan_file,claim):
     successful=[v for v in snap["arms"].values() if v["status"]=="verified"]
     snap["status"]="verified" if len(successful)==1 else "finished_with_errors"
     snap["time"]=fresh.now()
-    archive=ROOT/"scripts/experiment_summaries/早停码本重构-20261107"
+    archive=ROOT/"scripts/experiment_summaries"/run_family
     archive.mkdir(parents=True,exist_ok=True)
     for name,value in snap["arms"].items():
-        label="VQGAN无辅助监督码本重构"
+        label=LABELS[name]
         fresh.save_json(archive/(label+".json"),value)
     fresh.save_json(archive/"批次.json",snap)
     rel=str(archive.relative_to(ROOT))
     subprocess.run(["git","add","--",rel],cwd=ROOT,check=True)
-    subprocess.run(["git","commit","--only","-m","归档有符号码本重构早停结果","--",rel],cwd=ROOT,check=True)
+    subprocess.run(["git","commit","--only","-m","归档"+LABELS[variant]+"早停结果","--",rel],cwd=ROOT,check=True)
     snap["result_commit"]=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
     (state/"result_commit.txt").write_text(snap["result_commit"]+"\n",encoding="utf8")
     fresh.save_json(state/"supervisor.json",snap)

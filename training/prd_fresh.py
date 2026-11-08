@@ -136,12 +136,22 @@ def loader(rows, config, epoch=0, training=False, offset=0):
             num_workers=0, pin_memory=True, generator=torch.Generator().manual_seed(900000 + epoch))
 
 
+RECONSTRUCTION_RUN_FAMILIES = {
+    "vqgan": "早停码本重构-20261107",  # 保留已验收运行的既有路径。
+    "superresolution": "早停降采样超分-20261109",
+}
+
+
 def frozen_identity(config):
     paths = [Path(config["clip_path"]) / "model.safetensors", Path(config["clip_path"]) / "config.json"]
     if config["variant"] == "vae":
         paths += [Path(config["vae_path"]) / "diffusion_pytorch_model.bin", Path(config["vae_path"]) / "config.json"]
     if config["variant"] == "vqgan":
         paths += [Path(config["vqgan_weights"]), Path(__file__).parent/"prd_r01/vendor/vqgan/model.yaml"]  # 紧凑权重必须绑定外部码本与结构。
+    if config["variant"] == "superresolution":
+        paths.append(Path(config["superresolution_weights"]))  # 紧凑权重依赖冻结超分资产和算子源码。
+        source_root = Path(__file__).parent / "prd_r01"
+        paths += [source_root / name for name in ("generative_operators.py", "vendor/generative/rrdbnet_arch.py", "vendor/generative/arch_util.py")]
     return {str(p): file_sha(p) for p in paths}
 
 
