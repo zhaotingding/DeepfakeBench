@@ -110,7 +110,10 @@ def build_model(config, device):
         for name in config["responses"]:
             if name in {"wavelet", "lowrank"}:
                 probes[name] = build_operator(config, name, device)
-    torch.set_rng_state(rng)
+    if "vqgan" in config["responses"] and not cached:
+        from .vqgan_operator import VQGANProbe  # 与新有符号对照共用增强后的逐图 FP32 码本路径。
+        probes["vqgan"] = VQGANProbe(config)
+    torch.set_rng_state(rng)  # 冻结重构器构造不得改变共同主头初值。
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
                           config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"],
                           residual=config.get("residual", "signed_diff"))  # 新模式必须显式来自科学配置。
