@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""VQGAN 单位方向残差的单项早停监督与独立归档。"""
+"""VQGAN 残差实验的单项早停监督与独立归档。"""
 import os
 os.environ.update(OMP_NUM_THREADS="1",OPENBLAS_NUM_THREADS="1",MKL_NUM_THREADS="1",PYTHONUTF8="1")
 import argparse
@@ -22,8 +22,12 @@ import torch
 import prd_fresh as fresh
 
 
-SUPERVISOR_FAMILIES = {"vqgan_unit_residual": "早停单位方向监督-20261109"}
-LABELS = {"vqgan_unit_residual": "VQGAN单位方向残差"}
+SUPERVISOR_FAMILIES = {
+    "vqgan_unit_residual": "早停单位方向监督-20261109",
+    "vqgan_absolute_residual": "早停绝对值监督-20261110",
+}
+LABELS = {"vqgan_unit_residual": "VQGAN单位方向残差", "vqgan_absolute_residual": "VQGAN绝对值残差"}
+RESIDUALS = {"vqgan_unit_residual": "unit_residual", "vqgan_absolute_residual": "absolute_diff"}
 
 
 def read(path):
@@ -35,7 +39,7 @@ def verify(arm,state,code):
     meta=read(out/"metadata.json");result=read(out/"training_result.json")
     final=read(out/"complete_result.json");curve=read(out/"learning_curve.json")
     assert meta["code_commit"]==code and final["status"]=="verified"
-    assert meta["config"]["variant"]==arm["variant"] and meta["config"]["residual"]=="unit_residual"
+    assert meta["config"]["variant"]==arm["variant"] and meta["config"]["residual"]==RESIDUALS[arm["variant"]]
     assert meta["config"]["reconstruction_mode"]=="online_after_augment"
     assert final["new_updates_during_evaluation"]==0
     for path,digest in meta["identity"]["base_weights"].items():
@@ -61,11 +65,14 @@ def verify(arm,state,code):
         for count,line in enumerate(stream,1):
             row=json.loads(line);assert row["step"]==count
         assert count==expected_steps
-    baseline=Path.home()/"prd-runs/早停基线-20261105/4090-经典PRD原图加VAE-源验证早停-20261105-种子3407"
+    if arm["variant"] == "vqgan_absolute_residual":
+        baseline = Path.home()/"prd-runs/早停码本重构-20261107/4090-VQGAN有符号码本重构-源验证早停-20261107-种子3407"
+    else:
+        baseline = Path.home()/"prd-runs/早停基线-20261105/4090-经典PRD原图加VAE-源验证早停-20261105-种子3407"
     paired=0
     with (out/"batch_trace.jsonl").open() as this_trace,(baseline/"batch_trace.jsonl").open() as baseline_trace:
         for current,reference in zip(this_trace,baseline_trace):
-            assert json.loads(current)==json.loads(reference), "共同训练区间输入与经典PRD不匹配"
+            assert json.loads(current)==json.loads(reference), "共同训练区间输入与指定对照不匹配"
             paired+=1
     assert paired==min(expected_steps,read(baseline/"training_result.json")["updates"])
     init=read(out/"initialization.json")
@@ -107,11 +114,11 @@ def execute(plan_file,claim):
     if subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True).strip():
         raise ValueError("工作树未提交")
     if len(plan["arms"])!=1 or plan["arms"][0]["variant"] not in SUPERVISOR_FAMILIES or plan["arms"][0]["gpu"]!=1:
-        raise ValueError("本监督只接受 GPU1 的单位方向残差单项")
+        raise ValueError("本监督只接受 GPU1 的一个残差方案")
     arm=plan["arms"][0]
     variant=arm["variant"]
     if not (0<arm["train_hours"]<=105 and 0<arm["eval_hours"]<=5):
-        raise ValueError("单位方向残差预算不得超过105小时训练与5小时终测")
+        raise ValueError("残差实验预算不得超过105小时训练与5小时终测")
     run_family=fresh.RECONSTRUCTION_RUN_FAMILIES[variant]  # 各方案隔离状态、预检与结果。
     state=ROOT/".state"/SUPERVISOR_FAMILIES[variant]
     state.mkdir(parents=True,exist_ok=True)
@@ -136,7 +143,11 @@ def execute(plan_file,claim):
             required=int(smoke["peak_reserved_bytes"]+2*1024**3)  # 与计算入口一致，真实 BS32/64 峰值之外固定保留 2GiB。
             if free<required:raise RuntimeError("当前空闲显存小于真实预检峰值加余量")
             env=dict(os.environ,CUDA_VISIBLE_DEVICES=str(arm["gpu"]),CUDA_DEVICE_ORDER="PCI_BUS_ID")
-            cmd=[sys.executable,"-u",str(ROOT/"scripts/早停基线.py"),name,"run","--claim-commit",claim,
+            if name == "vqgan_absolute_residual":
+                entrypoint = [str(ROOT/"scripts/VQGAN绝对值残差早停.py")]  # 实际GPU子进程使用方案名入口。
+            else:
+                entrypoint = [str(ROOT/"scripts/早停基线.py"), name]
+            cmd=[sys.executable,"-u",*entrypoint,"run","--claim-commit",claim,
                  "--run-id",arm["run_id"],"--train-hours",str(arm["train_hours"]),"--eval-hours",str(arm["eval_hours"])]
             with (state/(name+".log")).open("x",encoding="utf8") as log:
                 process=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)

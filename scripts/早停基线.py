@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""VQGAN 单位方向残差的验证早停训练入口。"""
+"""VQGAN 残差实验共用的验证早停训练入口。"""
 import os
 os.environ.update(OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1",
                   HF_HUB_OFFLINE="1", TOKENIZERS_PARALLELISM="false", CUBLAS_WORKSPACE_CONFIG=":4096:8")
@@ -26,12 +26,12 @@ def git(*args):
 
 
 def settings(variant):
-    unit_direction = variant == "vqgan_unit_residual"
-    config = read_config(ROOT/"r01.machine.json", "vqgan" if unit_direction else variant)  # 共用同一个码本重构器。
+    residual = {"vqgan_unit_residual": "unit_residual", "vqgan_absolute_residual": "absolute_diff"}.get(variant)
+    config = read_config(ROOT/"r01.machine.json", "vqgan" if residual else variant)  # 共用同一个码本重构器。
     config["variant"] = variant  # 与有符号对照分开记录端点及权重身份。
     config.update(train_batch_size=32,test_batch_size=64,workers=0,persistent_workers=False,
                   augmentation_protocol="legacy_uint8_online_v1",reconstruction_mode="online_after_augment",
-                  reconstruction_caches={},residual="unit_residual" if unit_direction else "signed_diff")
+                  reconstruction_caches={},residual=residual or "signed_diff")
     config["lora"]={"rank":16,"alpha":16,"dropout":0.05,"target_modules":["q_proj","v_proj"]}
     config["head"]={"hidden":1024,"dropout":0.5,"slots":2}
     config["optimizer"]={"lr":2e-4,"betas":[0.9,0.999],"eps":1e-8,"weight_decay":0.0005}
@@ -40,7 +40,7 @@ def settings(variant):
     config["target_evaluation"]="best_only_after_training_stops"
     config["note"]="本批源验证AUC五轮未创新高早停，最多30轮，训练前新初始化，增强后在线重构。"
     config.pop("operators",None)
-    if variant in {"vqgan", "vqgan_unit_residual"}:
+    if variant in {"vqgan", "vqgan_unit_residual", "vqgan_absolute_residual"}:
         from prd_r01.vqgan_operator import vqgan_spec  # 记录原码本工作点，不复用增强前的旧缓存。
         config["vqgan_weights"] = str(Path.home()/".cache/prd-models/vqgan-imagenet-f16-1024/last.ckpt")
         config["vqgan_weights_sha256"] = "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71"
@@ -105,7 +105,8 @@ def preflight(config,data,state,device):
     assert initial["trainable_initial_sha256"]=="aaa440a41a2f1e8cab40f8c0be19e3479c0b22880256d6e4ca96eee2c0b1fe7e"  # 与首批共同 CLIP/LoRA/主头初值一致。
     probe_audit = None
     unit_direction_audit = None
-    if config["variant"] == "vqgan_unit_residual":
+    absolute_audit = None
+    if config["variant"] in {"vqgan_unit_residual", "vqgan_absolute_residual"}:
         audit_loader = fresh.loader(val, config)
         audit_image = next(iter(audit_loader))[0][:1].to(device)
         probe_audit = model.probes["vqgan"].audit_quantization(audit_image)  # 独立最近邻验证实际码字路径。
@@ -114,13 +115,22 @@ def preflight(config,data,state,device):
             original = model.encoder(audit_image)
             reconstruction = model.encoder(model.probes["vqgan"](audit_image))
             difference = original - reconstruction
-            expected = difference / (difference.norm(p=2, dim=1, keepdim=True) + 1e-6)
+            if config["residual"] == "absolute_diff":
+                expected = torch.where(difference < 0, -difference, difference)  # 独立核对逐坐标取绝对值。
+            else:
+                expected = difference / (difference.norm(p=2, dim=1, keepdim=True) + 1e-6)
             actual = model(audit_image, {})["features"]
             original_error = float((actual[:, :original.shape[1]] - original).abs().max())
             response_error = float((actual[:, original.shape[1]:] - expected).abs().max())
             assert original_error == 0 and response_error == 0 and float(difference.norm()) > 0
-            unit_direction_audit = dict(original_slot_max_abs=original_error, response_max_abs=response_error,
-                                        epsilon=1e-6, feature_axis=1, raw_difference_norm=float(difference.norm()))
+            if config["residual"] == "absolute_diff":
+                absolute_audit = dict(original_slot_max_abs=original_error, response_max_abs=response_error,
+                                      raw_difference_norm=float(difference.norm()),
+                                      negative_coordinates=int((difference < 0).sum()), positive_coordinates=int((difference > 0).sum()))
+                assert absolute_audit["negative_coordinates"] > 0 and absolute_audit["positive_coordinates"] > 0
+            else:
+                unit_direction_audit = dict(original_slot_max_abs=original_error, response_max_abs=response_error,
+                                            epsilon=1e-6, feature_axis=1, raw_difference_norm=float(difference.norm()))
         audit_loader.dataset.close()
         del audit_loader, audit_image
     opt=fresh.optimizer_for(model,config)
@@ -208,6 +218,8 @@ def preflight(config,data,state,device):
                  input_counts={k:len(v["rows"]) for k,v in data.items()})
     if unit_direction_audit is not None:
         summary["unit_direction_audit"] = unit_direction_audit
+    if absolute_audit is not None:
+        summary["absolute_audit"] = absolute_audit
     fresh.save_json(state/"preflight.json",summary)
     print(json.dumps(summary,ensure_ascii=False),flush=True)
 
@@ -221,14 +233,14 @@ def formal(args,config,data,state,device):
     if not args.claim_commit or len(args.claim_commit)!=40:raise ValueError("需要正式认领SHA")
     if args.train_hours is None or args.eval_hours is None or min(args.train_hours,args.eval_hours)<=0:
         raise ValueError("需要按真实预检固定训练和评估时间预算")
-    if config["variant"] == "vqgan_unit_residual" and (args.train_hours > 105 or args.eval_hours > 5):
-        raise ValueError("单位方向残差预算不得超过105小时训练与5小时终测")
+    if args.train_hours > 105 or args.eval_hours > 5:
+        raise ValueError("残差实验预算不得超过105小时训练与5小时终测")
     if git("status","--porcelain"):raise ValueError("运行代码须已提交")
     check=json.loads((state/"smoke/preflight.json").read_text(encoding="utf8"))
     if check["status"]!="passed" or check["code_commit"]!=git("rev-parse","HEAD"):
         raise ValueError("预检版本不符")
-    if config["variant"] == "vqgan_unit_residual" and check["variant"] != config["variant"]:
-        raise ValueError("单位方向残差须通过本方案真实预检")
+    if check["variant"] != config["variant"]:
+        raise ValueError("残差实验须通过本方案真实预检")
     if args.train_hours*3600<check["thirty_epoch_upper_projection_seconds"] or args.eval_hours*3600<check["complete_best_evaluation_projection_seconds"]:
         raise ValueError("正式预算不足以覆盖预登记的最大运行")
     if torch.cuda.mem_get_info(device)[0]<check["peak_reserved_bytes"]+2*1024**3:
@@ -268,9 +280,12 @@ def formal(args,config,data,state,device):
         raise
 
 
-def main():
+def main(fixed_variant=None):
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("variant",choices=["vqgan_unit_residual"])
+    if fixed_variant is None:
+        parser.add_argument("variant",choices=["vqgan_unit_residual"])  # 保留原方案入口。
+    else:
+        parser.set_defaults(variant=fixed_variant)  # 方案命名入口在计算进程中直接绑定变体。
     parser.add_argument("mode",choices=["manifest","smoke","run"])
     parser.add_argument("--claim-commit");parser.add_argument("--run-id")
     parser.add_argument("--train-hours",type=float);parser.add_argument("--eval-hours",type=float)
@@ -281,7 +296,7 @@ def main():
     if args.mode=="manifest":
         print(json.dumps({k:{"frames":len(v["rows"]),"videos":len({r["video_id"] for r in v["rows"]}),"source_sha256":v["source_sha256"]} for k,v in data.items()},ensure_ascii=False));return
     if os.environ.get("CUDA_DEVICE_ORDER") != "PCI_BUS_ID" or os.environ.get("CUDA_VISIBLE_DEVICES") != "1" or torch.cuda.device_count()!=1:
-        raise RuntimeError("单位方向残差本轮只允许按 PCI 顺序显式绑定 GPU1")
+        raise RuntimeError("本轮残差实验只允许按 PCI 顺序显式绑定 GPU1")
     import fcntl
     device=torch.device("cuda:0");torch.set_num_threads(1)
     uuid=torch.cuda.get_device_properties(device).uuid

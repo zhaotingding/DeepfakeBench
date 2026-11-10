@@ -140,6 +140,7 @@ RECONSTRUCTION_RUN_FAMILIES = {
     "vqgan": "早停码本重构-20261107",  # 保留已验收运行的既有路径。
     "superresolution": "早停降采样超分-20261109",
     "vqgan_unit_residual": "早停单位方向残差-20261109",
+    "vqgan_absolute_residual": "早停绝对值残差-20261110",
 }
 
 
@@ -147,7 +148,7 @@ def frozen_identity(config):
     paths = [Path(config["clip_path"]) / "model.safetensors", Path(config["clip_path"]) / "config.json"]
     if config["variant"] == "vae":
         paths += [Path(config["vae_path"]) / "diffusion_pytorch_model.bin", Path(config["vae_path"]) / "config.json"]
-    if config["variant"] in {"vqgan", "vqgan_unit_residual"}:
+    if config["variant"] in {"vqgan", "vqgan_unit_residual", "vqgan_absolute_residual"}:
         paths += [Path(config["vqgan_weights"]), Path(__file__).parent/"prd_r01/vendor/vqgan/model.yaml"]  # 紧凑权重必须绑定外部码本与结构。
     if config["variant"] == "superresolution":
         paths.append(Path(config["superresolution_weights"]))  # 紧凑权重依赖冻结超分资产和算子源码。
