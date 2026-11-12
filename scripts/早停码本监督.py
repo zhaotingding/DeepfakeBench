@@ -25,9 +25,10 @@ import prd_fresh as fresh
 SUPERVISOR_FAMILIES = {
     "vqgan_unit_residual": "早停单位方向监督-20261109",
     "vqgan_absolute_residual": "早停绝对值监督-20261110",
+    "vqgan_original_aux": "早停原图辅助监督器-20261112",
 }
-LABELS = {"vqgan_unit_residual": "VQGAN单位方向残差", "vqgan_absolute_residual": "VQGAN绝对值残差"}
-RESIDUALS = {"vqgan_unit_residual": "unit_residual", "vqgan_absolute_residual": "absolute_diff"}
+LABELS = {"vqgan_original_aux": "VQGAN原图辅助监督", "vqgan_unit_residual": "VQGAN单位方向残差", "vqgan_absolute_residual": "VQGAN绝对值残差"}
+RESIDUALS = {"vqgan_original_aux": "signed_diff", "vqgan_unit_residual": "unit_residual", "vqgan_absolute_residual": "absolute_diff"}
 
 
 def read(path):
@@ -65,7 +66,7 @@ def verify(arm,state,code):
         for count,line in enumerate(stream,1):
             row=json.loads(line);assert row["step"]==count
         assert count==expected_steps
-    if arm["variant"] == "vqgan_absolute_residual":
+    if arm["variant"] in {"vqgan_absolute_residual", "vqgan_original_aux"}:
         baseline = Path.home()/"prd-runs/早停码本重构-20261107/4090-VQGAN有符号码本重构-源验证早停-20261107-种子3407"
     else:
         baseline = Path.home()/"prd-runs/早停基线-20261105/4090-经典PRD原图加VAE-源验证早停-20261105-种子3407"
@@ -76,7 +77,14 @@ def verify(arm,state,code):
             paired+=1
     assert paired==min(expected_steps,read(baseline/"training_result.json")["updates"])
     init=read(out/"initialization.json")
-    assert init["trainable_initial_sha256"]==read(baseline/"initialization.json")["trainable_initial_sha256"]
+    assert init["main_trainable_initial_sha256"]==read(baseline/"initialization.json")["main_trainable_initial_sha256"]
+    if arm["variant"] == "vqgan_original_aux":
+        assert meta["config"]["auxiliary_input"] == "original_aux" and meta["config"]["auxiliary_lambda"] == 1.0
+        assert init["auxiliary_parameters"] == 2050 and init["trainable_parameters"] == 3677188
+        smoke = read(ROOT/".state"/fresh.RECONSTRUCTION_RUN_FAMILIES[arm["variant"]]/arm["variant"]/"smoke/preflight.json")
+        assert init == smoke["initialization"]
+        assert smoke["auxiliary_audit"]["status"] == "passed" and smoke["activation_checkpoint_parity"]["status"] == "passed"
+        assert final["inference_head"] == "joint_main_only"
     for name,digest in meta["identity"]["manifests"].items():
         assert digest==read(baseline/"metadata.json")["identity"]["manifests"][name]  # 所有源和目标清单保持首批身份。
     best=torch.load(out/"best.pt",map_location="cpu",weights_only=True)
@@ -143,7 +151,9 @@ def execute(plan_file,claim):
             required=int(smoke["peak_reserved_bytes"]+2*1024**3)  # 与计算入口一致，真实 BS32/64 峰值之外固定保留 2GiB。
             if free<required:raise RuntimeError("当前空闲显存小于真实预检峰值加余量")
             env=dict(os.environ,CUDA_VISIBLE_DEVICES=str(arm["gpu"]),CUDA_DEVICE_ORDER="PCI_BUS_ID")
-            if name == "vqgan_absolute_residual":
+            if name == "vqgan_original_aux":
+                entrypoint = [str(ROOT/"scripts/VQGAN原图辅助监督早停.py")]
+            elif name == "vqgan_absolute_residual":
                 entrypoint = [str(ROOT/"scripts/VQGAN绝对值残差早停.py")]  # 实际GPU子进程使用方案名入口。
             else:
                 entrypoint = [str(ROOT/"scripts/早停基线.py"), name]
@@ -194,4 +204,5 @@ if __name__=="__main__":
     args=parser.parse_args()
     torch.set_num_threads(1)
     sys.exit(execute(args.plan,args.claim))
+
 
