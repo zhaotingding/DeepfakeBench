@@ -30,7 +30,8 @@ def settings(variant):
     config = read_config(ROOT/"r01.machine.json", "vqgan" if residual or variant == "vqgan_original_aux" else variant)  # 共用同一个码本重构器。
     if variant == "vqgan_original_aux":
         config.update(auxiliary_input="original_aux", auxiliary_lambda=1.0,
-                      activation_checkpointing="clip_transformer_nonreentrant_preserve_rng_v1")
+                      activation_checkpointing="clip_even_layers_nonreentrant_preserve_rng_v1",
+                      activation_checkpoint_layers=list(range(0,24,2)))
     config["variant"] = variant  # 与有符号对照分开记录端点及权重身份。
     config.update(train_batch_size=32,test_batch_size=64,workers=0,persistent_workers=False,
                   augmentation_protocol="legacy_uint8_online_v1",reconstruction_mode="online_after_augment",

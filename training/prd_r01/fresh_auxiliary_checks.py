@@ -6,7 +6,7 @@ import numpy as np
 import torch
 from .auxiliary_supervision import training_loss, trainable_identity
 
-MEMORY_MODE = "clip_transformer_nonreentrant_preserve_rng_v1"
+MEMORY_MODE = "clip_even_layers_nonreentrant_preserve_rng_v1"
 
 
 def auxiliary_audit(model, config, rows, device):
@@ -111,7 +111,7 @@ def checkpoint_parity(config, rows, device):
                 buffers[name]=max(buffers.get(name,0.),_difference(a["model"][name],b["model"][name]))
     assert max(buffers.values(),default=0.)==0
     assert max(errors.values())<=1e-6, errors
-    return dict(status="passed",mode=MEMORY_MODE,batch_size=4,steps=2,formal_updates=0,
+    return dict(status="passed",mode=MEMORY_MODE,checkpoint_layer_indices=list(range(0,24,2)),batch_size=4,steps=2,formal_updates=0,
                 tolerance=1e-6,max_absolute_errors=errors,mutable_buffer_max_error=max(buffers.values(),default=0.),
                 image_sha256=[hashlib.sha256(image.numpy().tobytes()).hexdigest() for image,_ in inputs],
                 initialization=captures[0]["initialization"])

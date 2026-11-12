@@ -85,13 +85,23 @@ class CLIPEncoder(nn.Module):
         ))
 
         if activation_checkpointing is not None:
-            if activation_checkpointing != "clip_transformer_nonreentrant_preserve_rng_v1":
+            if activation_checkpointing not in {"clip_transformer_nonreentrant_preserve_rng_v1", "clip_even_layers_nonreentrant_preserve_rng_v1"}:
                 raise ValueError("未知激活重算实现")
             from functools import partial
             from torch.utils.checkpoint import checkpoint
             vision.encoder.gradient_checkpointing = True
-            vision.encoder._gradient_checkpointing_func = partial(
-                checkpoint, use_reentrant=False, preserve_rng_state=True)
+            if activation_checkpointing == "clip_even_layers_nonreentrant_preserve_rng_v1":
+                if len(vision.encoder.layers) != 24:
+                    raise ValueError("隔层激活重算只适用于本协议24层CLIP")
+                selected = frozenset(id(layer) for index,layer in enumerate(vision.encoder.layers) if index % 2 == 0)
+                def recompute_selected(function, *args, **kwargs):
+                    if id(function.__self__) in selected:
+                        return checkpoint(function, *args, use_reentrant=False, preserve_rng_state=True, **kwargs)
+                    return function(*args, **kwargs)
+                vision.encoder._gradient_checkpointing_func = recompute_selected
+            else:
+                vision.encoder._gradient_checkpointing_func = partial(
+                    checkpoint, use_reentrant=False, preserve_rng_state=True)
         self.activation_checkpointing = activation_checkpointing
 
     def forward(self, images):
