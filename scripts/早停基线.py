@@ -47,6 +47,14 @@ def settings(variant):
         from prd_r01.generative_operators import ASSETS, WEIGHTS, spec
         config["superresolution_weights"] = str(ASSETS / WEIGHTS[variant][0])  # 与旧超分使用同一官方资产。
         config["operator_recipe"] = spec(config, variant)  # FP32 抗混叠 56、反射补边、逐图 FP16 ×4。
+    if variant == "compression":
+        from prd_r01.next_operators import MODEL_DIR, spec
+        import compressai
+        if compressai.__version__ != "1.2.8":raise ValueError("学习压缩实现版本变化")
+        config["compression_weights"] = str(MODEL_DIR / "bmshj2018-factorized-prior-3-5c6f152b.pth.tar")
+        config["operator_recipe"] = spec(config, variant)
+        assert config["operator_recipe"]["weights_sha256"] == "5c6f152b2597de5e0f9143e8173d8c0529310aec523d07e9e9ced96825621d82"
+        config["activation_checkpointing"] = "clip_transformer_nonreentrant_preserve_rng_v1"
     return config
 
 
@@ -99,6 +107,10 @@ def cpu_tests():
 def preflight(config,data,state,device):
     state.mkdir(parents=True,exist_ok=False)
     identity=model_identity(config,data)
+    if config.get("activation_checkpointing"):
+        parity=json.loads((state.parent/"checkpoint_parity.json").read_text(encoding="utf8"))
+        assert parity["status"]=="passed" and parity["code_commit"]==git("rev-parse","HEAD")
+        assert parity["implementation"]==config["activation_checkpointing"]
     fresh.save_json(state/"identity.json",identity)
     rows=selected(data["train"]["rows"],256);val=selected(data["val"]["rows"],64)
     fresh.seed_all(3407);model=fresh.build(config,device)
@@ -118,6 +130,14 @@ def preflight(config,data,state,device):
         audit_image = next(iter(audit_loader))[0][:1].to(device)
         reconstruction_audit = model.probes["superresolution"].audit(audit_image)
         assert reconstruction_audit["frozen"] and reconstruction_audit["mean_absolute_rgb_change"] > 0
+        audit_loader.dataset.close()
+        del audit_loader, audit_image
+    if config["variant"] == "compression":
+        audit_loader = fresh.loader(val, config)
+        audit_image = next(iter(audit_loader))[0][:1].to(device)
+        reconstruction_audit = model.probes["compression"].audit(audit_image)
+        assert reconstruction_audit["actual_rounding"] and not reconstruction_audit["bitstream_claim"]
+        assert not any(p.requires_grad for p in model.probes["compression"].parameters())
         audit_loader.dataset.close()
         del audit_loader, audit_image
     opt=fresh.optimizer_for(model,config)
@@ -203,6 +223,9 @@ def preflight(config,data,state,device):
                  complete_best_evaluation_projection_seconds=eval_frames/64*eval_seconds*1.2+600,
                  peak_reserved_bytes=torch.cuda.max_memory_reserved(device),cpu_rule_tests=cpu_tests(),
                  input_counts={k:len(v["rows"]) for k,v in data.items()})
+    if config.get("activation_checkpointing"):
+        summary["activation_checkpointing"] = config["activation_checkpointing"]
+        summary["checkpoint_parity"] = parity
     if reconstruction_audit is not None:
         summary["reconstruction_audit"] = reconstruction_audit
     fresh.save_json(state/"preflight.json",summary)
@@ -218,13 +241,13 @@ def formal(args,config,data,state,device):
     if not args.claim_commit or len(args.claim_commit)!=40:raise ValueError("需要正式认领SHA")
     if args.train_hours is None or args.eval_hours is None or min(args.train_hours,args.eval_hours)<=0:
         raise ValueError("需要按真实预检固定训练和评估时间预算")
-    if config["variant"] == "superresolution" and (args.train_hours > 105 or args.eval_hours > 5):
+    if config["variant"] in {"superresolution","compression"} and (args.train_hours > 105 or args.eval_hours > 5):
         raise ValueError("降采样超分预算不得超过105小时训练与5小时终测")
     if git("status","--porcelain"):raise ValueError("运行代码须已提交")
     check=json.loads((state/"smoke/preflight.json").read_text(encoding="utf8"))
     if check["status"]!="passed" or check["code_commit"]!=git("rev-parse","HEAD"):
         raise ValueError("预检版本不符")
-    if config["variant"] == "superresolution" and check["variant"] != config["variant"]:
+    if config["variant"] in {"superresolution","compression"} and check["variant"] != config["variant"]:
         raise ValueError("降采样超分须通过本方案真实预检")
     if args.train_hours*3600<check["thirty_epoch_upper_projection_seconds"] or args.eval_hours*3600<check["complete_best_evaluation_projection_seconds"]:
         raise ValueError("正式预算不足以覆盖预登记的最大运行")
@@ -265,10 +288,12 @@ def formal(args,config,data,state,device):
         raise
 
 
-def main():
+def main(fixed_variant=None):
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("variant",choices=["original","vae","vqgan","superresolution"])
-    parser.add_argument("mode",choices=["manifest","smoke","run"])
+    if fixed_variant is None:
+        parser.add_argument("variant",choices=["original","vae","vqgan","superresolution","compression"])
+    else:parser.set_defaults(variant=fixed_variant)
+    parser.add_argument("mode",choices=["manifest","checkpoint-parity","smoke","run"])
     parser.add_argument("--claim-commit");parser.add_argument("--run-id")
     parser.add_argument("--train-hours",type=float);parser.add_argument("--eval-hours",type=float)
     parser.add_argument("--resume",action="store_true")
@@ -279,13 +304,22 @@ def main():
         print(json.dumps({k:{"frames":len(v["rows"]),"videos":len({r["video_id"] for r in v["rows"]}),"source_sha256":v["source_sha256"]} for k,v in data.items()},ensure_ascii=False));return
     if not os.environ.get("CUDA_VISIBLE_DEVICES") or torch.cuda.device_count()!=1:
         raise RuntimeError("必须显式绑定单一GPU")
+    if args.variant=="compression" and (os.environ.get("CUDA_VISIBLE_DEVICES")!="0" or os.environ.get("CUDA_DEVICE_ORDER")!="PCI_BUS_ID"):
+        raise RuntimeError("学习型压缩本批须显式绑定物理GPU0")
     import fcntl
     device=torch.device("cuda:0");torch.set_num_threads(1)
+    if args.variant=="compression" and args.mode in {"checkpoint-parity","smoke"}:
+        free,total=torch.cuda.mem_get_info(device)
+        if free<10*1024**3:raise RuntimeError("有界技术预检至少需要10GiB空闲显存")
+        torch.cuda.set_per_process_memory_fraction(min(.95,(free-2*1024**3)/total),device)
     uuid=torch.cuda.get_device_properties(device).uuid
     lockroot=Path.home()/".cache/prd-locks";lockroot.mkdir(parents=True,exist_ok=True)
     lock=(lockroot/("早停基线-"+str(uuid)+".lock")).open("a")
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-    if args.mode=="smoke":preflight(config,data,state/"smoke",device)
+    if args.mode=="checkpoint-parity":
+        from prd_checkpointing import verify_checkpoint_parity
+        verify_checkpoint_parity(config,data,state,device,git("rev-parse","HEAD"))
+    elif args.mode=="smoke":preflight(config,data,state/"smoke",device)
     else:
         if not args.run_id or any(not (c.isalnum() or c in "-_") for c in args.run_id):
             raise ValueError("运行名只能含中文、字母、数字和连接号")
@@ -294,4 +328,3 @@ def main():
 
 if __name__=="__main__":
     main()
-

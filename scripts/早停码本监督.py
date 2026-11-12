@@ -25,10 +25,12 @@ import prd_fresh as fresh
 SUPERVISOR_FAMILIES = {
     "vqgan": "早停码本监督-20261107",
     "superresolution": "早停超分监督-20261109",
+    "compression": "早停学习压缩监督-20261112",
 }
 LABELS = {
     "vqgan": "VQGAN无辅助监督码本重构",
     "superresolution": "降采样超分重构",
+    "compression": "学习型压缩重构",
 }
 
 
@@ -116,7 +118,7 @@ def execute(plan_file,claim):
         raise ValueError("本监督只接受单项已批准重构方案")
     arm=plan["arms"][0]
     variant=arm["variant"]
-    if variant=="superresolution" and not (0<arm["train_hours"]<=105 and 0<arm["eval_hours"]<=5):
+    if variant in {"superresolution","compression"} and not (0<arm["train_hours"]<=105 and 0<arm["eval_hours"]<=5):
         raise ValueError("降采样超分预算不得超过105小时训练与5小时终测")
     run_family=fresh.RECONSTRUCTION_RUN_FAMILIES[variant]  # 各方案隔离状态、预检与结果。
     state=ROOT/".state"/SUPERVISOR_FAMILIES[variant]
@@ -137,7 +139,7 @@ def execute(plan_file,claim):
         try:
             smoke=read(ROOT/".state"/run_family/name/"smoke/preflight.json")
             assert smoke["status"]=="passed" and smoke["code_commit"]==code
-            if name=="superresolution":
+            if name in {"superresolution","compression"}:
                 assert smoke["variant"]==name  # 资源与吞吐证据须来自同一冻结算子。
             free=int(subprocess.check_output(["nvidia-smi","-i",str(arm["gpu"]),"--query-gpu=memory.free","--format=csv,noheader,nounits"],text=True).strip())*1024**2
             required=int(smoke["peak_reserved_bytes"]+2*1024**3)  # 与计算入口一致，真实 BS32/64 峰值之外固定保留 2GiB。
@@ -145,6 +147,9 @@ def execute(plan_file,claim):
             env=dict(os.environ,CUDA_VISIBLE_DEVICES=str(arm["gpu"]),CUDA_DEVICE_ORDER="PCI_BUS_ID")
             cmd=[sys.executable,"-u",str(ROOT/"scripts/早停基线.py"),name,"run","--claim-commit",claim,
                  "--run-id",arm["run_id"],"--train-hours",str(arm["train_hours"]),"--eval-hours",str(arm["eval_hours"])]
+            if name=="compression":
+                assert arm["gpu"]==0, "学习型压缩本批固定GPU0"
+                cmd=[sys.executable,"-u",str(ROOT/"scripts/学习型压缩重构早停.py"),*cmd[4:]]
             with (state/(name+".log")).open("x",encoding="utf8") as log:
                 process=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
                 entry.update(status="running",compute_pid=process.pid,started=fresh.now(),required_free_bytes=required)
@@ -190,4 +195,3 @@ if __name__=="__main__":
     args=parser.parse_args()
     torch.set_num_threads(1)
     sys.exit(execute(args.plan,args.claim))
-

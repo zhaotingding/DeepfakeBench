@@ -61,7 +61,7 @@ class ResponseModel(nn.Module):
         return output
 
 class CLIPEncoder(nn.Module):
-    def __init__(self, path, lora):
+    def __init__(self, path, lora, activation_checkpointing=None):
         super().__init__()
         from transformers import CLIPModel
         from peft import LoraConfig, get_peft_model
@@ -72,6 +72,15 @@ class CLIPEncoder(nn.Module):
             r=lora["rank"], lora_alpha=lora["alpha"], lora_dropout=lora["dropout"],
             target_modules=lora["target_modules"], bias="none",
         ))
+
+        if activation_checkpointing is not None:
+            if activation_checkpointing != "clip_transformer_nonreentrant_preserve_rng_v1":
+                raise ValueError("未知的CLIP激活检查点实现")
+            import functools
+            from torch.utils.checkpoint import checkpoint
+            vision.encoder.gradient_checkpointing = True
+            vision.encoder._gradient_checkpointing_func = functools.partial(
+                checkpoint, use_reentrant=False, preserve_rng_state=True)
 
     def forward(self, images):
         return self.backbone(images)["pooler_output"]
@@ -100,7 +109,7 @@ def build_model(config, device):
     if missing:
         raise ValueError("; ".join(missing))  # 不把未实现的扩散/DINO偷偷替换成VAE/CLIP。
     # 固定构造次序，使三种已支持配置的编码器与分类头初值相同。
-    encoder = CLIPEncoder(config["clip_path"], config["lora"])
+    encoder = CLIPEncoder(config["clip_path"], config["lora"], config.get("activation_checkpointing"))
     rng = torch.get_rng_state()
     probes = {}
     cached = config.get("reconstruction_mode") == "cached_paired"
@@ -120,6 +129,9 @@ def build_model(config, device):
     if "superresolution" in config["responses"] and not cached:
         from .generative_operators import GenerativeProbe  # 复用已冻结的 Real-ESRGAN 降采样恢复。
         probes["superresolution"] = GenerativeProbe(config, "superresolution")
+    if "compression" in config["responses"] and not cached:
+        from .next_operators import NextProbe
+        probes["compression"] = NextProbe(config, "compression")
     torch.set_rng_state(rng)  # 算子构造的随机初始化不得改变共同主头初值。
     model = ResponseModel(encoder, encoder.feature_dim, probes, config["responses"],
                           config["head"]["hidden"], config["head"]["dropout"], cached=cached, slots=config["head"]["slots"],

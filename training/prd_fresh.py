@@ -139,6 +139,7 @@ def loader(rows, config, epoch=0, training=False, offset=0):
 RECONSTRUCTION_RUN_FAMILIES = {
     "vqgan": "早停码本重构-20261107",  # 保留已验收运行的既有路径。
     "superresolution": "早停降采样超分-20261109",
+    "compression": "早停学习型压缩-20261112",
 }
 
 
@@ -152,6 +153,8 @@ def frozen_identity(config):
         paths.append(Path(config["superresolution_weights"]))  # 紧凑权重依赖冻结超分资产和算子源码。
         source_root = Path(__file__).parent / "prd_r01"
         paths += [source_root / name for name in ("generative_operators.py", "vendor/generative/rrdbnet_arch.py", "vendor/generative/arch_util.py")]
+    if config["variant"] == "compression":
+        paths += [Path(config["compression_weights"]), Path(__file__).parent/"prd_r01/next_operators.py"]
     return {str(p): file_sha(p) for p in paths}
 
 
@@ -356,4 +359,3 @@ def final_evaluation(model,config,manifests,out,state,device,seconds):
     save_json(out/"complete_result.json",complete)
     save_json(state/"status.json",dict(stage="verified",time=now(),pid=os.getpid(),best_sha256=best_hash))
     return complete
-
