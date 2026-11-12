@@ -1,0 +1,119 @@
+{
+  "requested_at": "2026-11-12T10:36:22.405462+08:00",
+  "reason": "user_requested_termination",
+  "user_instruction": "先不跑实验了，先腾出位置，实验终止",
+  "processes_before": [
+    {
+      "pid": 2875521,
+      "argv": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u scripts/早停码本监督.py .state/早停学习型压缩-20261112/plan.json 32bbaf22d4fbe06b849d81852ba3eab3ed87b572 ",
+      "pgid": 2875521
+    },
+    {
+      "pid": 2875589,
+      "argv": "/home/zhaoting.ding/miniconda3/envs/PRD/bin/python -u /home/zhaoting.ding/prd-worktrees/重构算子探索/scripts/学习型压缩重构早停.py run --claim-commit 32bbaf22d4fbe06b849d81852ba3eab3ed87b572 --run-id 4090-学习型压缩重构-源验证早停-20261112-种子3407 --train-hours 105 --eval-hours 5 ",
+      "pgid": 2875589
+    }
+  ],
+  "run_id": "4090-学习型压缩重构-源验证早停-20261112-种子3407",
+  "resume_or_restart_authorized": false,
+  "process_after": {
+    "2875521": {
+      "exists": false,
+      "argv": ""
+    },
+    "2875589": {
+      "exists": false,
+      "argv": ""
+    }
+  },
+  "gpu_apps_after": "GPU-83850660-4196-4569-27bc-a3f9e72ada01, 2827884, 27344 MiB\nGPU-c3093e18-2d2f-8eb8-be80-f5802f43bdcc, 2827885, 27340 MiB\n",
+  "gpu_free_after": "0, 21157 MiB\n1, 21161 MiB\n",
+  "last_logged_successful_step": {
+    "stage": "training",
+    "epoch": 1,
+    "step": 200,
+    "loss": 0.3246408700942993,
+    "gradient_norm": 3.669851541519165,
+    "elapsed_seconds": 547.5836004610173
+  },
+  "trace_rows": 200,
+  "retained_files": [
+    {
+      "name": "DFDCP_manifest.json",
+      "bytes": 3073362
+    },
+    {
+      "name": "initialization.json",
+      "bytes": 343
+    },
+    {
+      "name": "last_resume.pt",
+      "bytes": 44373876
+    },
+    {
+      "name": "metadata.json",
+      "bytes": 8236
+    },
+    {
+      "name": "DeepFakeDetection_manifest.json",
+      "bytes": 27621463
+    },
+    {
+      "name": "train_manifest.json",
+      "bytes": 29042883
+    },
+    {
+      "name": "source_test_manifest.json",
+      "bytes": 5660082
+    },
+    {
+      "name": "DFDC_manifest.json",
+      "bytes": 20081895
+    },
+    {
+      "name": "Celeb-DF-v1_manifest.json",
+      "bytes": 566997
+    },
+    {
+      "name": "Celeb-DF-v2_manifest.json",
+      "bytes": 3007475
+    },
+    {
+      "name": "batch_trace.jsonl",
+      "bytes": 69497
+    },
+    {
+      "name": "UADFV_manifest.json",
+      "bytes": 458974
+    },
+    {
+      "name": "val_manifest.json",
+      "bytes": 5651311
+    }
+  ],
+  "complete_result_exists": false,
+  "status": "cancelled_by_user",
+  "verified_at": "2026-11-12T10:37:04.231219+08:00",
+  "resume_top_keys": [
+    "schema",
+    "model",
+    "optimizer",
+    "progress",
+    "rng",
+    "identity",
+    "torch_version"
+  ],
+  "resume_progress": {
+    "next_epoch": 1,
+    "offset": 6400,
+    "updates": 200,
+    "best_auc": -1.0,
+    "best_epoch": null,
+    "bad_epochs": 0,
+    "curve": [],
+    "training_complete": false,
+    "stop_reason": null,
+    "elapsed_seconds": 547.583625409985
+  },
+  "resume_sha256": "87d865949b099e458c52f8604e42b355efd3505c0ded35b38a2183624df30b67"
+}
