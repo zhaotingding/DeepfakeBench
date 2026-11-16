@@ -32,6 +32,24 @@ LABELS = {"FaceForensics++": {"FF-real": 0, "FF-DF": 1, "FF-F2F": 1, "FF-FS": 1,
           "UADFV": {"UADFV_Real": 0, "UADFV_Fake": 1}}
 
 
+def baseline_settings(root, variant):
+    """构造各方案共用的早停协议，机器路径与方法注册仍取当前工作树。"""
+    from prd_r01.config import read_config
+    config = read_config(root/"r01.machine.json",variant)
+    config.update(train_batch_size=32,test_batch_size=64,workers=0,persistent_workers=False,
+                  augmentation_protocol="legacy_uint8_online_v1",reconstruction_mode="online_after_augment",
+                  reconstruction_caches={},residual="signed_diff")
+    config["lora"]={"rank":16,"alpha":16,"dropout":0.05,"target_modules":["q_proj","v_proj"]}
+    config["head"]={"hidden":1024,"dropout":0.5,"slots":2}
+    config["optimizer"]={"lr":2e-4,"betas":[0.9,0.999],"eps":1e-8,"weight_decay":0.0005}
+    config["numerics"]={"deterministic_algorithms":True,"cuda_matmul_tf32":False,"cudnn_tf32":False,"cublas_workspace":":4096:8"}
+    config["source_validation"]="official_fixed_val_frame_auc_every_epoch"
+    config["target_evaluation"]="best_only_after_training_stops"
+    config["note"]="本批源验证AUC五轮未创新高早停，最多30轮，训练前新初始化，增强后在线重构。"
+    config.pop("operators",None)
+    return config
+
+
 def seed_all(seed):
     seed_common(seed)
     torch.use_deterministic_algorithms(True)
@@ -137,8 +155,9 @@ def loader(rows, config, epoch=0, training=False, offset=0):
 
 
 RECONSTRUCTION_RUN_FAMILIES = {
-    "vqgan": "早停码本重构-20261107",  # 保留已验收运行的既有路径。
+    "vqgan": "早停码本重构-20261107",
     "superresolution": "早停降采样超分-20261109",
+    "compression": "早停学习型压缩-20261112",
     "vqgan_sr_mean": "早停等权响应融合-20261110",
 }
 
@@ -147,12 +166,15 @@ def frozen_identity(config):
     paths = [Path(config["clip_path"]) / "model.safetensors", Path(config["clip_path"]) / "config.json"]
     if config["variant"] == "vae":
         paths += [Path(config["vae_path"]) / "diffusion_pytorch_model.bin", Path(config["vae_path"]) / "config.json"]
+    # 仅合并既有方案的资产身份；各工作树继续保存自己的模型与算子实现。
     if config["variant"] in {"vqgan", "vqgan_sr_mean"}:
-        paths += [Path(config["vqgan_weights"]), Path(__file__).parent/"prd_r01/vendor/vqgan/model.yaml"]  # 紧凑权重必须绑定外部码本与结构。
+        paths += [Path(config["vqgan_weights"]), Path(__file__).parent/"prd_r01/vendor/vqgan/model.yaml"]
     if config["variant"] in {"superresolution", "vqgan_sr_mean"}:
-        paths.append(Path(config["superresolution_weights"]))  # 紧凑权重依赖冻结超分资产和算子源码。
+        paths.append(Path(config["superresolution_weights"]))
         source_root = Path(__file__).parent / "prd_r01"
         paths += [source_root / name for name in ("generative_operators.py", "vendor/generative/rrdbnet_arch.py", "vendor/generative/arch_util.py")]
+    if config["variant"] == "compression":
+        paths += [Path(config["compression_weights"]), Path(__file__).parent/"prd_r01/next_operators.py"]
     return {str(p): file_sha(p) for p in paths}
 
 
