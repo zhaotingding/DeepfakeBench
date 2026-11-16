@@ -17,7 +17,6 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/"training"))
 import numpy as np
 import torch
-from prd_r01.config import read_config
 import prd_fresh as fresh
 
 
@@ -26,18 +25,7 @@ def git(*args):
 
 
 def settings(variant):
-    config = read_config(ROOT/"r01.machine.json",variant)
-    config.update(train_batch_size=32,test_batch_size=64,workers=0,persistent_workers=False,
-                  augmentation_protocol="legacy_uint8_online_v1",reconstruction_mode="online_after_augment",
-                  reconstruction_caches={},residual="signed_diff")
-    config["lora"]={"rank":16,"alpha":16,"dropout":0.05,"target_modules":["q_proj","v_proj"]}
-    config["head"]={"hidden":1024,"dropout":0.5,"slots":2}
-    config["optimizer"]={"lr":2e-4,"betas":[0.9,0.999],"eps":1e-8,"weight_decay":0.0005}
-    config["numerics"]={"deterministic_algorithms":True,"cuda_matmul_tf32":False,"cudnn_tf32":False,"cublas_workspace":":4096:8"}
-    config["source_validation"]="official_fixed_val_frame_auc_every_epoch"
-    config["target_evaluation"]="best_only_after_training_stops"
-    config["note"]="本批源验证AUC五轮未创新高早停，最多30轮，训练前新初始化，增强后在线重构。"
-    config.pop("operators",None)
+    config = fresh.baseline_settings(ROOT, variant)
     return config
 
 
