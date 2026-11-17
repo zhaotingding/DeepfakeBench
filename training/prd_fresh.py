@@ -18,7 +18,7 @@ from scipy.stats import rankdata
 from prd_r01.data import LMDBImages, validate_source_pair
 from prd_r01.engine import seed_all as seed_common
 from prd_r01.model import build_model
-from prd_r01.auxiliary_supervision import trainable_identity
+from prd_r01.auxiliary_supervision import trainable_identity, training_loss
 
 MAIN_DOMAINS = ("Celeb-DF-v2", "DFDC", "DeepFakeDetection", "UADFV")
 EXTRA_DOMAINS = ("Celeb-DF-v1", "DFDCP")
@@ -159,6 +159,9 @@ RECONSTRUCTION_RUN_FAMILIES = {
     "superresolution": "早停降采样超分-20261109",
     "compression": "早停学习型压缩-20261112",
     "vqgan_sr_mean": "早停等权响应融合-20261110",
+    "vqgan_unit_residual": "早停单位方向残差-20261109",
+    "vqgan_absolute_residual": "早停绝对值残差-20261110",
+    "vqgan_original_aux": "早停原图辅助监督-20261112",
 }
 
 
@@ -167,7 +170,7 @@ def frozen_identity(config):
     if config["variant"] == "vae":
         paths += [Path(config["vae_path"]) / "diffusion_pytorch_model.bin", Path(config["vae_path"]) / "config.json"]
     # 仅合并既有方案的资产身份；各工作树继续保存自己的模型与算子实现。
-    if config["variant"] in {"vqgan", "vqgan_sr_mean"}:
+    if config["variant"] in {"vqgan", "vqgan_sr_mean", "vqgan_unit_residual", "vqgan_absolute_residual", "vqgan_original_aux"}:
         paths += [Path(config["vqgan_weights"]), Path(__file__).parent/"prd_r01/vendor/vqgan/model.yaml"]
     if config["variant"] in {"superresolution", "vqgan_sr_mean"}:
         paths.append(Path(config["superresolution_weights"]))
@@ -288,7 +291,12 @@ def train_step(model, optimizer, batch, device):
     model.train(); x=x.to(device);y=y.to(device)
     image_sha=hashlib.sha256(x.detach().cpu().numpy().tobytes()).hexdigest()
     optimizer.zero_grad(set_to_none=True)
-    loss=torch.nn.functional.cross_entropy(model(x,{})["logits"],y)
+    if getattr(model, "auxiliary_input", "none") == "none":
+        loss=torch.nn.functional.cross_entropy(model(x,{})["logits"],y)
+    else:
+        output = model(x,{})
+        loss, main_ce, auxiliary_ce = training_loss(output, y, model.auxiliary_input, 1.0)
+        model.last_loss_components = dict(main_ce=float(main_ce.detach()), auxiliary_ce=float(auxiliary_ce.detach()))
     if not torch.isfinite(loss):raise ValueError("训练loss非有限")
     loss.backward()
     trainable=[p for p in model.parameters() if p.requires_grad]
@@ -326,7 +334,7 @@ def train(config, manifests, out, state, device, identity, seconds, resume=False
                     p["offset"]+=len(idx);p["updates"]+=1
                     log.write(json.dumps(dict(epoch=epoch,step=p["updates"],indices=idx,image_sha256=image_hash))+"\n")
                     if p["updates"]==1 or p["updates"]%100==0:
-                        print(json.dumps(dict(stage="training",epoch=epoch,step=p["updates"],loss=loss,gradient_norm=grad,elapsed_seconds=previous_elapsed+time.monotonic()-start)),flush=True)
+                        print(json.dumps(dict(stage="training",epoch=epoch,step=p["updates"],loss=loss,gradient_norm=grad,**(model.last_loss_components if getattr(model,"auxiliary_input","none")!="none" else {}),elapsed_seconds=previous_elapsed+time.monotonic()-start)),flush=True)
                     if p["updates"]%100==0:
                         p["elapsed_seconds"]=previous_elapsed+time.monotonic()-start
                         log.flush();os.fsync(log.fileno())
@@ -376,6 +384,8 @@ def final_evaluation(model,config,manifests,out,state,device,seconds):
                   macro={k:float(np.mean([results[d]["metrics"][k] for d in MAIN_DOMAINS])) for k in
                          ("frame_auc","video_auc","frame_ce","video_ce")},
                   best_sha256=best_hash,new_updates_during_evaluation=0)
+    if config.get("auxiliary_input", "none") != "none":
+        complete["inference_head"] = "joint_main_only"
     save_json(out/"complete_result.json",complete)
     save_json(state/"status.json",dict(stage="verified",time=now(),pid=os.getpid(),best_sha256=best_hash))
     return complete
