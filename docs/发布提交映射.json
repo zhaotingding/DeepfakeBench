@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "purpose": "待发布历史剔除原始运行片段；仅结果JSON的指定字段变化，训练代码和其余指标保持。旧实验记录继续使用原运行提交号，通过本表定位净化后的等价源码。",
+  "removed_fields": [
+    {
+      "path": "scripts/experiment_summaries/重构BM3D成本-20261029/真实batch预算.json",
+      "field": "trace",
+      "removed_items": 8
+    },
+    {
+      "path": "scripts/experiment_summaries/末轮八域补评估-20261104/用户协议切换取消-20261105.json",
+      "field": "asset_after/traceback",
+      "removed_items": 448
+    }
+  ],
+  "unchanged_protected_refs": [
+    "main",
+    "prd-4090",
+    "prd-203-1"
+  ],
+  "mappings": [
+    {
+      "original": "04194e535536530ab2fc982432a3400a0a198248",
+      "published_equivalent": "9c871f991a5866e1491ec102e57f84a1bdf1f385"
+    },
+    {
+      "original": "f97c406cf39f19ee4f6215dcaecb778d496fbd2f",
+      "published_equivalent": "937c535b5a943e1a5e68c979df772c14bce6fb36"
+    },
+    {
+      "original": "61da84a710ef4c2875e524b94a049824e4dbffba",
+      "published_equivalent": "6f058523769d9c411e3f8847814cca5c9c66abb5"
+    },
+    {
+      "original": "3372483a319e977e106ccde7662e71c285d44e54",
+      "published_equivalent": "2c88352a972054b596df9125244627aa6e19d7d4"
+    },
+    {
+      "original": "d2b65cb2cefedef61ccb85cb1afb3420c6a3033f",
+      "published_equivalent": "cc76e4cf2dcfc2be208832ca19c94f917c8f680d"
+    },
+    {
+      "original": "96571974f6c102e0228df1eeacbce7e61920cc31",
+      "published_equivalent": "3016b2d31a01818c0e75641e3577b14e772262b7"
+    },
+    {
+      "original": "5705a8e37469d6ce49b9cd0617917edb8da83dbc",
+      "published_equivalent": "5ae11a8c3bc8d0e7bc42232775e436b0fed4b40e"
+    },
+    {
+      "original": "ef9424dcbaa3ede45683d482a3eb7ced58dfd328",
+      "published_equivalent": "06937428692613199a930ed24eae23389c535a92"
+    },
+    {
+      "original": "0e8aae3ee0a576dcdb3c3d0ee10a78f73d976774",
+      "published_equivalent": "4d429f18040b0292c1dde875b9a1a88fc80438db"
+    },
+    {
+      "original": "9fda5af19a0ca330401fd645f6c4b08f9a016513",
+      "published_equivalent": "791a3379c53421bc98fa66c8d820354d2306a230"
+    },
+    {
+      "original": "1552795b59418537920857ec61e8ed7144b74bbc",
+      "published_equivalent": "882b42c9928f7ae2676bbda8af2f09bf11dbc1ff"
+    },
+    {
+      "original": "184d9c9fe075d2e0106b1aa323fcfb6a3b5c701f",
+      "published_equivalent": "42e26e304ba65f6186075b58a789d5e2baa2d7ec"
+    },
+    {
+      "original": "3a8bfd5ebccb5851c8450b5bedfe2aabf08e573b",
+      "published_equivalent": "cc18ea5da9c442541c75372e8d6117668a885855"
+    },
+    {
+      "original": "ef2cf93221df59ba49f2405a12a9811804664201",
+      "published_equivalent": "14908457f2463d793b6c04223015c663ad4a9824"
+    },
+    {
+      "original": "3e34c124532296b614abf0a68a0c2b53a6ae48e7",
+      "published_equivalent": "4af120fb6cac38e68dd717780ef31054a11888de"
+    },
+    {
+      "original": "41b795110409628f84602fcd8de724f3aeb55f90",
+      "published_equivalent": "66ca314b86ffff1ab0eccbb44176517649341d01"
+    },
+    {
+      "original": "cb3aa1091fd2b663cb82ca89665031fbd211b74b",
+      "published_equivalent": "a05053faec0e72f8517237dfdc04505ac1552656"
+    },
+    {
+      "original": "47924fb5add02ce08fdb12a7c451c069d1ad4bf8",
+      "published_equivalent": "8e511e431343c73c2ee5096f59d473b73ccf01da"
+    },
+    {
+      "original": "373c042a563e54b058f546aabe7a464ac908f63e",
+      "published_equivalent": "8294ffcbfa4a5b8cf5ab750dba130b8a0f7b8014"
+    },
+    {
+      "original": "96c9fdc5279e0fee10f6066a462530d549786a8b",
+      "published_equivalent": "50d82072a4bf443c9cd291b801f2a51c25c6306b"
+    },
+    {
+      "original": "a041f627b8b06696c7cf015d76a57e7076f8dda8",
+      "published_equivalent": "0d7eab0075d3a0c42b3578a9136862ac7f9f6d36"
+    },
+    {
+      "original": "8eef5d2d51f5de56a714476b56526740d6b35680",
+      "published_equivalent": "44ea95f2b2240d88821f77fd41bdb9b811fb4617"
+    },
+    {
+      "original": "46e6fec6c8fc22caeac81b57b4837847c8145485",
+      "published_equivalent": "25a4b4771eefb09c560b796574eedf2bdb45edc2"
+    },
+    {
+      "original": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+      "published_equivalent": "cbc285141a861a00feec3b2636f9e2e0f5152764"
+    },
+    {
+      "original": "a81c5069c03f3a3de2b484aedbdfdb6cceafc6d2",
+      "published_equivalent": "d934e4c4813167a5ba4b633be6d6301dec430044"
+    },
+    {
+      "original": "a5c863ad18b83f5518038bbec7a0f0553372535a",
+      "published_equivalent": "c16fffe028e929404bbbe7b2f65b7295c00d5c4d"
+    },
+    {
+      "original": "9102684ccb4a0721851e2fd79cfac6ee73d78cce",
+      "published_equivalent": "f340923b4eb61fcacab355ed800b0d344a2d9aca"
+    },
+    {
+      "original": "c90c4fdc1533b4d5fad7df79021f6f221acd90ff",
+      "published_equivalent": "98f4735d11860183c3a11924d37a92dd92be0450"
+    },
+    {
+      "original": "fefc23c7f7688a8ec0afa3524a1442d19a4dde7f",
+      "published_equivalent": "5d07fe7bdb4b45a632871e23f9d33f5f1fd8d789"
+    },
+    {
+      "original": "801e60f7265e467034b709f01b5b059027b544e5",
+      "published_equivalent": "a23f9e6dd685ef3af5cddf7aaea601fa0a7494e0"
+    },
+    {
+      "original": "5988c10e9fb8988d35698a7d5ebd7549cc5b3b55",
+      "published_equivalent": "65157ae8accb184c91bbee76b3f61b9cf93a24a9"
+    },
+    {
+      "original": "33244c215481ef98e1c32940d35e98532716c6c8",
+      "published_equivalent": "6f5fd6f5015e5e79c407ba91ee5ecc05048229e1"
+    },
+    {
+      "original": "82b60fbc1f99205fdd75e38697d507706fb50efa",
+      "published_equivalent": "235c8c8b65bfd93b41b98d42645c9e5c19c68cb8"
+    },
+    {
+      "original": "90c2a16334de06417568935ece4e51b198e4ce47",
+      "published_equivalent": "8ba7d6e222cf0e186f657b4447942116cef1c1f5"
+    },
+    {
+      "original": "32fef31919ade91b122668c68396b98d634e6a87",
+      "published_equivalent": "6ca93cdb0c3478b673fd6399cd4f983d185631da"
+    },
+    {
+      "original": "db448cf3f991795cee9be17fea47d6295467725f",
+      "published_equivalent": "5a364f99fc01ad97cade2141412134cf996fa203"
+    },
+    {
+      "original": "ab8baff9f75110afa41fd89332305ea611d9aaa8",
+      "published_equivalent": "28a574444276b579b224ef2b0671908e6e280447"
+    },
+    {
+      "original": "21258a084dd9c5ecdc6e20e0df00dc3dac1f0003",
+      "published_equivalent": "e40d5112737e23b5ff3359d363cb277ec91e70fe"
+    },
+    {
+      "original": "4f527e9901337211112b06d39224c6f196cc8737",
+      "published_equivalent": "9a592c7f390e1c0e31208e81cf64776762f18f48"
+    }
+  ],
+  "sanitized_branch_heads": {
+    "公共基线": "d295ccfb3b27847f1c5ef40b8af3084ac77aac3e",
+    "4090-重构算子探索": "9a592c7f390e1c0e31208e81cf64776762f18f48",
+    "4090-多响应融合": "f47b400973aa910097b6895127805d7364806cf8",
+    "4090-视觉表征探索": "ef79fdbff7a28acf6fec0fe4ec7ccc539acab5b4"
+  },
+  "note": "此表记录净化历史截止点，后续仅README/映射文件的文档提交不包含新的训练行为；不改写旧checkpoint身份。"
+}
