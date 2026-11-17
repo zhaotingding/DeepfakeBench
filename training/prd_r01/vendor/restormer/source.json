@@ -1,0 +1,21 @@
+{
+  "upstream_commit": "68dc6ac472db26f16361150cb7a96a1bc87da93f",
+  "files": {
+    "restormer_arch.py": {
+      "url": "https://api.github.com/repos/swz30/Restormer/contents/basicsr/models/archs/restormer_arch.py?ref=68dc6ac472db26f16361150cb7a96a1bc87da93f",
+      "sha256": "3be243fa3c8e2cb2c9459eeac062b04d6084dbcc328292dae1c3e52ba6f7434a"
+    },
+    "LICENSE.md": {
+      "url": "https://api.github.com/repos/swz30/Restormer/contents/LICENSE.md?ref=68dc6ac472db26f16361150cb7a96a1bc87da93f",
+      "sha256": "2b93776512924bc095ec5d97a79d76cf1ab401ae641d1ae1f46e94f1c53a2e59"
+    },
+    "RealDenoising_Restormer.yml": {
+      "url": "https://api.github.com/repos/swz30/Restormer/contents/Denoising/Options/RealDenoising_Restormer.yml?ref=68dc6ac472db26f16361150cb7a96a1bc87da93f",
+      "sha256": "697bf6402c58d22e1f7314f1f87fbed2a5de6f5f912ae9dcc96bba203b3b5b32"
+    }
+  },
+  "weight_url": "https://github.com/swz30/Restormer/releases/download/v1.0/real_denoising.pth",
+  "weight_sha256": "4cae18bed8a291b9a5deeeab48756bbe6f61fcf7f31a4cca0969b24608601387",
+  "weight_bytes": 104611957,
+  "release_asset_id": 61004273
+}

@@ -18,6 +18,16 @@ def row_key(row):
     return (row["domain"], row["key"])  # 原LMDB键不做斜杠规范化。
 
 def operator_spec(config, name):
+    # 保留并行探索得到的历史重构器；既有缓存身份分支不变。
+    if name == "diffusion":
+        from .diffusion_operator import diffusion_spec
+        return diffusion_spec(config)
+    if name == "restormer":
+        from .restormer_operator import restormer_spec
+        return restormer_spec(config)
+    if name == "bm3d":
+        from .bm3d_operator import bm3d_spec
+        return bm3d_spec(config)
     if name in {"codeformer", "superresolution"}:
         from .generative_operators import spec
         return spec(config, name)  # 新算子的冻结资产、精度与输入工作点。

@@ -1,0 +1,23 @@
+{
+  "stage": "cpu_cost_preflight",
+  "frames": 8,
+  "formal_updates": 0,
+  "new_checkpoints": 0,
+  "package_versions": {
+    "bm3d": "3.0.9",
+    "PyWavelets": "1.8.0",
+    "numpy": "1.23.5",
+    "scipy": "1.10.1",
+    "torch": "2.5.1+cu124"
+  },
+  "sigma": 0.09803921568627451,
+  "profile": "np",
+  "colorspace": "opp",
+  "threads": 1,
+  "seconds_per_frame_median": 1.3302976280101575,
+  "repeated_max_abs": 0.0,
+  "sequential_train_val_hours": 10.889225139500923,
+  "four_process_train_val_hours_ideal": 2.7223062848752306,
+  "four_process_one_full_eval_hours_ideal": 15.830357009761428,
+  "note": "四进程投影只是假设，不代替真实并发吞吐验收。"
+}

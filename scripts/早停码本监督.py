@@ -26,13 +26,21 @@ SUPERVISOR_FAMILIES = {
     "vqgan": "早停码本监督-20261107",
     "superresolution": "早停超分监督-20261109",
     "compression": "早停学习压缩监督-20261112",
+    "vqgan_unit_residual": "早停单位方向监督-20261109",
+    "vqgan_absolute_residual": "早停绝对值监督-20261110",
+    "vqgan_original_aux": "早停原图辅助监督器-20261112",
 }
 LABELS = {
     "vqgan": "VQGAN无辅助监督码本重构",
     "superresolution": "降采样超分重构",
     "compression": "学习型压缩重构",
+    "vqgan_unit_residual": "VQGAN单位方向残差",
+    "vqgan_absolute_residual": "VQGAN绝对值残差",
+    "vqgan_original_aux": "VQGAN原图辅助监督",
 }
 
+
+RESIDUALS = {"vqgan_original_aux": "signed_diff", "vqgan_unit_residual": "unit_residual", "vqgan_absolute_residual": "absolute_diff"}
 
 def read(path):
     return json.loads(Path(path).read_text(encoding="utf8"))
@@ -43,7 +51,7 @@ def verify(arm,state,code):
     meta=read(out/"metadata.json");result=read(out/"training_result.json")
     final=read(out/"complete_result.json");curve=read(out/"learning_curve.json")
     assert meta["code_commit"]==code and final["status"]=="verified"
-    assert meta["config"]["variant"]==arm["variant"] and meta["config"]["residual"]=="signed_diff"
+    assert meta["config"]["variant"]==arm["variant"] and meta["config"]["residual"]==RESIDUALS.get(arm["variant"],"signed_diff")
     assert meta["config"]["reconstruction_mode"]=="online_after_augment"
     assert final["new_updates_during_evaluation"]==0
     for path,digest in meta["identity"]["base_weights"].items():
@@ -69,7 +77,10 @@ def verify(arm,state,code):
         for count,line in enumerate(stream,1):
             row=json.loads(line);assert row["step"]==count
         assert count==expected_steps
-    baseline=Path.home()/"prd-runs/早停基线-20261105/4090-经典PRD原图加VAE-源验证早停-20261105-种子3407"
+    if arm["variant"] in {"vqgan_absolute_residual", "vqgan_original_aux"}:
+        baseline = Path.home()/"prd-runs/早停码本重构-20261107/4090-VQGAN有符号码本重构-源验证早停-20261107-种子3407"
+    else:
+        baseline = Path.home()/"prd-runs/早停基线-20261105/4090-经典PRD原图加VAE-源验证早停-20261105-种子3407"
     paired=0
     with (out/"batch_trace.jsonl").open() as this_trace,(baseline/"batch_trace.jsonl").open() as baseline_trace:
         for current,reference in zip(this_trace,baseline_trace):
@@ -77,7 +88,17 @@ def verify(arm,state,code):
             paired+=1
     assert paired==min(expected_steps,read(baseline/"training_result.json")["updates"])
     init=read(out/"initialization.json")
-    assert init["trainable_initial_sha256"]==read(baseline/"initialization.json")["trainable_initial_sha256"]
+    if arm["variant"] in RESIDUALS:
+        assert init["main_trainable_initial_sha256"]==read(baseline/"initialization.json")["main_trainable_initial_sha256"]
+    else:
+        assert init["trainable_initial_sha256"]==read(baseline/"initialization.json")["trainable_initial_sha256"]
+    if arm["variant"] == "vqgan_original_aux":
+        assert meta["config"]["auxiliary_input"] == "original_aux" and meta["config"]["auxiliary_lambda"] == 1.0
+        assert init["auxiliary_parameters"] == 2050 and init["trainable_parameters"] == 3677188
+        smoke = read(ROOT/".state"/fresh.RECONSTRUCTION_RUN_FAMILIES[arm["variant"]]/arm["variant"]/"smoke/preflight.json")
+        assert init == smoke["initialization"]
+        assert smoke["auxiliary_audit"]["status"] == "passed" and smoke["activation_checkpoint_parity"]["status"] == "passed"
+        assert final["inference_head"] == "joint_main_only"
     for name,digest in meta["identity"]["manifests"].items():
         assert digest==read(baseline/"metadata.json")["identity"]["manifests"][name]  # 所有源和目标清单保持首批身份。
     best=torch.load(out/"best.pt",map_location="cpu",weights_only=True)
@@ -118,7 +139,9 @@ def execute(plan_file,claim):
         raise ValueError("本监督只接受单项已批准重构方案")
     arm=plan["arms"][0]
     variant=arm["variant"]
-    if variant in {"superresolution","compression"} and not (0<arm["train_hours"]<=105 and 0<arm["eval_hours"]<=5):
+    if variant in RESIDUALS and arm["gpu"] != 1:
+        raise ValueError("残差方案只接受GPU1")
+    if variant in ({"superresolution","compression"} | RESIDUALS.keys()) and not (0<arm["train_hours"]<=105 and 0<arm["eval_hours"]<=5):
         raise ValueError("降采样超分预算不得超过105小时训练与5小时终测")
     run_family=fresh.RECONSTRUCTION_RUN_FAMILIES[variant]  # 各方案隔离状态、预检与结果。
     state=ROOT/".state"/SUPERVISOR_FAMILIES[variant]
@@ -139,7 +162,7 @@ def execute(plan_file,claim):
         try:
             smoke=read(ROOT/".state"/run_family/name/"smoke/preflight.json")
             assert smoke["status"]=="passed" and smoke["code_commit"]==code
-            if name in {"superresolution","compression"}:
+            if name in ({"superresolution","compression"} | RESIDUALS.keys()):
                 assert smoke["variant"]==name  # 资源与吞吐证据须来自同一冻结算子。
             free=int(subprocess.check_output(["nvidia-smi","-i",str(arm["gpu"]),"--query-gpu=memory.free","--format=csv,noheader,nounits"],text=True).strip())*1024**2
             required=int(smoke["peak_reserved_bytes"]+2*1024**3)  # 与计算入口一致，真实 BS32/64 峰值之外固定保留 2GiB。
@@ -150,6 +173,11 @@ def execute(plan_file,claim):
             if name=="compression":
                 assert arm["gpu"]==0, "学习型压缩本批固定GPU0"
                 cmd=[sys.executable,"-u",str(ROOT/"scripts/学习型压缩重构早停.py"),*cmd[4:]]
+            if name in RESIDUALS:
+                entrypoints = {"vqgan_unit_residual": "VQGAN单位方向残差早停.py",
+                               "vqgan_absolute_residual": "VQGAN绝对值残差早停.py",
+                               "vqgan_original_aux": "VQGAN原图辅助监督早停.py"}
+                cmd=[sys.executable,"-u",str(ROOT/"scripts"/entrypoints[name]),*cmd[4:]]
             with (state/(name+".log")).open("x",encoding="utf8") as log:
                 process=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
                 entry.update(status="running",compute_pid=process.pid,started=fresh.now(),required_free_bytes=required)

@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "time": "2026-10-30T23:03:02.022469+08:00",
+  "supervisor_pid": 2213234,
+  "cwd": "/home/zhaoting.ding/prd-worktrees/重构算子并行",
+  "claim_commit": "be5e89e467b51240736a191c4a02bd197ba4c7bb",
+  "training_pid": 2213237,
+  "exit_code": 1
+}

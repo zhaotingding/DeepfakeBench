@@ -1,0 +1,479 @@
+{
+  "status": "old_batch_terminal",
+  "checked_at": "2026-11-05T17:54:07.634472+08:00",
+  "runs": {
+    "4090-Restormer恢复重构-20261029-种子3407": {
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2213463,
+        "started": "2026-11-05T12:37:57+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T15:43:29+08:00"
+      },
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-Restormer恢复重构-20261029-种子3407",
+        "train_code": "3372483a319e977e106ccde7662e71c285d44e54",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "a82dc36eeb11c84202114f4c3cc4ef96c0ef86fcfd62622518a8906f0a29235c",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "6a611548a8701549ef0cb86a5f1ab9ce3b2ed5a1efea3fccf836bb485e13cd12",
+          "terminal_eval1.npy": "8f09ec3f1a926140e11e0b3aace5a4fc6b3f6ee6e3f4b1c4cecd822e2fd64701"
+        },
+        "verification": "7f75a2eacf129f14cd97fbf658fd5e52941cfe93c229441aacad0f464881b53a"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "6222886347e74b8bdeae74d1d288737031276a09ce55c8287d0354a5d6555daa",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.7956974265491643,
+            "video_auc": 0.8450764006791172,
+            "frame_ce": 0.8831836704117659,
+            "video_ce": 0.593661266142279
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "bc0f0e57a3500ca8b080bc2f630bc646b1652a4c9b8733296887e0ccb799c52c",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9804323125698682,
+            "video_auc": 0.9933361099541858,
+            "frame_ce": 0.19415224259538194,
+            "video_ce": 0.12415444443072794
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "eaabc45d47eef3b1e4941a7455a8f3dde13185cc94b8edbdc5735cd6bd85941d",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.7791217490308897,
+            "video_auc": 0.8530102040816326,
+            "frame_ce": 1.2253461918729462,
+            "video_ce": 0.7968856705983638
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "34a1427053b67c3db40de23cda0acf48cba3ff60002c7685f45605451cf83f98",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.91613237885333,
+            "video_auc": 0.962162992673578,
+            "frame_ce": 0.8264581902922301,
+            "video_ce": 0.46894564853776954
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8243364224990115,
+            "video_auc": 0.8931262392597489,
+            "frame_ce": 0.9778802520110403,
+            "video_ce": 0.6470788143890255
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8519579779550464,
+            "video_auc": 0.8911915504511896,
+            "frame_ce": 0.7110611417673505,
+            "video_ce": 0.5580139175712294
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.7826949965797959,
+            "video_auc": 0.8133162524059607,
+            "frame_ce": 0.9153783364398687,
+            "video_ce": 0.6155608293179874
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      },
+      "cpu_recomputed": true
+    },
+    "4090-人脸码本预测重构-20261102-修复一次-种子3407": {
+      "queue_result": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3084976,
+        "started": "2026-11-05T15:43:39+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T17:46:25+08:00"
+      },
+      "identity": {
+        "endpoint": "terminal",
+        "run_id": "4090-人脸码本预测重构-20261102-修复一次-种子3407",
+        "train_code": "1552795b59418537920857ec61e8ed7144b74bbc",
+        "eval_code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+        "old_artifacts": {
+          "metadata.json": "750a1fe655784d48c1287b40e264b138832cf30624fae48926ee74c7459f35b7",
+          "eval1_manifest.json": "1df443e1067a4faee6b1befe33568b56967f0a706d1d9321870a2e687c46eec5",
+          "terminal.pth": "59c1b6ae79c9eb678d5ab250ebf1eca0d4952571adc52140f72a51222e041b7c",
+          "terminal_eval1.npy": "164a1784a43fa7f2b0082210be309d97e0ee86615547808cb902061e58601f72"
+        },
+        "verification": "9e193acb2a0e43dafab1d2e1d61debec6dfd9f1d50f4080531a226c435c0782c"
+      },
+      "new_domains": {
+        "Celeb-DF-v1": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "dcc0689ea9b471b5f2826040cfaf61caf71a684d3840e7f4b026b5fd65b9dcab",
+          "terminal_logits_sha256": "66155185cb5679a0cc79b0d26acf5fcde8651d3f1449c48f2c0136996e44e8e6",
+          "metrics": {
+            "frames": 3136,
+            "videos": 100,
+            "frame_auc": 0.7876216081627283,
+            "video_auc": 0.8293718166383701,
+            "frame_ce": 0.8590951164255489,
+            "video_ce": 0.5228250705066824
+          }
+        },
+        "UADFV": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "074c1a300afb495fd374090d4f34639a5f78411d01a9f4eb36b3a2ca1fd25b2c",
+          "terminal_logits_sha256": "f5090ab4bcc043490eb27608ba7275b685c838dc65b9245d70bb5b508e9b351c",
+          "metrics": {
+            "frames": 3099,
+            "videos": 98,
+            "frame_auc": 0.9773485306637211,
+            "video_auc": 0.9933361099541858,
+            "frame_ce": 0.2957544300073536,
+            "video_ce": 0.1735148795836498
+          }
+        },
+        "FaceShifter": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "e09f0ad0715a38cfef5efe4fdb14fc5fb50e1942956dcc4fdab4c3ce53267018",
+          "terminal_logits_sha256": "7f147d199154ce1609f84b8c1aad4569d4ee584a6354575ff45e1e1433eb9449",
+          "metrics": {
+            "frames": 8958,
+            "videos": 280,
+            "frame_auc": 0.7703670688461511,
+            "video_auc": 0.828265306122449,
+            "frame_ce": 1.1503225992469315,
+            "video_ce": 0.7586177087638705
+          }
+        },
+        "DeepFakeDetection": {
+          "status": "verified",
+          "source": "new_forward",
+          "manifest": "d8e30e43c6d797ca637d284031ed5c9dbbb03a0490ff2d0a2f0210b8dd4bd612",
+          "terminal_logits_sha256": "6a933f5bd6e660a2a26578121a0ff71c23f819f8e28967c734b37c0f1f2e1d98",
+          "metrics": {
+            "frames": 102541,
+            "videos": 3429,
+            "frame_auc": 0.9124302562473643,
+            "video_auc": 0.952687343098302,
+            "frame_ce": 0.860764076115892,
+            "video_ce": 0.4972026830382287
+          }
+        }
+      },
+      "old_domains": {
+        "source": "archived_terminal_logits",
+        "metrics": {
+          "Celeb-DF-v2": {
+            "frames": 16420,
+            "videos": 518,
+            "frame_auc": 0.8159110896928958,
+            "video_auc": 0.8757766027759417,
+            "frame_ce": 0.8307644823991356,
+            "video_ce": 0.5058836023940958
+          },
+          "DFDCP": {
+            "frames": 17222,
+            "videos": 654,
+            "frame_auc": 0.8226728117552369,
+            "video_auc": 0.8679963084495489,
+            "frame_ce": 0.858903601041092,
+            "video_ce": 0.5738900455936058
+          },
+          "DFDC": {
+            "frames": 132116,
+            "videos": 4704,
+            "frame_auc": 0.7746699160176924,
+            "video_auc": 0.8099120609488957,
+            "frame_ce": 0.9102300348939482,
+            "video_ce": 0.579727517470608
+          }
+        },
+        "preflight_replay": {
+          "Celeb-DF-v2": 0.0,
+          "DFDCP": 0.0,
+          "DFDC": 0.0
+        }
+      },
+      "cpu_recomputed": true
+    }
+  },
+  "total_seven_domain_completed": 21,
+  "user_cancelled": [
+    "扩散去噪剩余评测",
+    "DeeperForensics旧定义资产生成",
+    "第八域自动接续"
+  ],
+  "engineering_failed": {
+    "method": "BM3D低复杂度重构",
+    "reason": "OpenBLAS library not found",
+    "auto_retry": false
+  },
+  "queue_state": {
+    "started": "2026-11-04T23:45:04+08:00",
+    "pid": 2786234,
+    "code": "16da0bf27401c4f90f260a35a16455b25bb1d1af",
+    "claim": "dcb0d56200034f628508cf979e78dfd30f48a67d",
+    "domains": [
+      "Celeb-DF-v1",
+      "UADFV",
+      "FaceShifter",
+      "DeepFakeDetection"
+    ],
+    "rows": {
+      "4090-VQGAN码本重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 2786247,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39481,
+        "exit": 0,
+        "ended": "2026-11-05T01:12:49+08:00"
+      },
+      "4090-仅原图对照-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2786248,
+        "started": "2026-11-04T23:45:04+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T00:10:24+08:00"
+      },
+      "4090-VQGAN原图辅助监督-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2902060,
+        "started": "2026-11-05T00:10:24+08:00",
+        "launch_free_mib": 39477,
+        "exit": 0,
+        "ended": "2026-11-05T01:46:43+08:00"
+      },
+      "4090-学习压缩重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3190462,
+        "started": "2026-11-05T01:12:49+08:00",
+        "launch_free_mib": 36350,
+        "exit": 0,
+        "ended": "2026-11-05T02:37:43+08:00"
+      },
+      "4090-VQGAN残差辅助监督-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3349069,
+        "started": "2026-11-05T01:46:43+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T03:39:28+08:00"
+      },
+      "4090-降采样超分重构-20261102-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 3585052,
+        "started": "2026-11-05T02:37:43+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T04:28:00+08:00"
+      },
+      "4090-原VAE对照-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3873802,
+        "started": "2026-11-05T03:39:28+08:00",
+        "launch_free_mib": 36348,
+        "exit": 0,
+        "ended": "2026-11-05T05:26:03+08:00"
+      },
+      "4090-VQGAN超分等权响应融合-20261103-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 4102273,
+        "started": "2026-11-05T04:28:00+08:00",
+        "launch_free_mib": 36349,
+        "exit": 0,
+        "ended": "2026-11-05T06:23:29+08:00"
+      },
+      "4090-VQGAN归一化特征差-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 181081,
+        "started": "2026-11-05T05:26:03+08:00",
+        "launch_free_mib": 45373,
+        "exit": 0,
+        "ended": "2026-11-05T06:20:15+08:00"
+      },
+      "4090-灰度上色重构-20261031-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 436524,
+        "started": "2026-11-05T06:20:15+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T07:29:43+08:00"
+      },
+      "4090-MAE遮挡重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 451579,
+        "started": "2026-11-05T06:23:29+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T07:06:24+08:00"
+      },
+      "4090-人脸生成反演重构-20261031-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 656639,
+        "started": "2026-11-05T07:06:24+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T08:07:56+08:00"
+      },
+      "4090-VQGAN绝对残差-20261103-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 768169,
+        "started": "2026-11-05T07:29:43+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T08:13:02+08:00"
+      },
+      "4090-低秩重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 950369,
+        "started": "2026-11-05T08:07:56+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T09:59:10+08:00"
+      },
+      "4090-小波重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 974801,
+        "started": "2026-11-05T08:13:02+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T08:37:35+08:00"
+      },
+      "4090-TV变分重构-20261030-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1092294,
+        "started": "2026-11-05T08:37:35+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T09:26:01+08:00"
+      },
+      "4090-非局部自相似重构-20261101-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1321978,
+        "started": "2026-11-05T09:26:01+08:00",
+        "launch_free_mib": 48510,
+        "exit": 0,
+        "ended": "2026-11-05T11:12:46+08:00"
+      },
+      "4090-稀疏字典重构-20261101-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 0,
+        "pid": 1479009,
+        "started": "2026-11-05T09:59:10+08:00",
+        "launch_free_mib": 48509,
+        "exit": 0,
+        "ended": "2026-11-05T11:17:36+08:00"
+      },
+      "4090-VQGAN单位方向残差-20261104-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 1816911,
+        "started": "2026-11-05T11:12:46+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T12:37:57+08:00"
+      },
+      "4090-扩散去噪重构-20261030-种子3407": {
+        "stage": "failed",
+        "gpu": 0,
+        "pid": 1837884,
+        "started": "2026-11-05T11:17:36+08:00",
+        "launch_free_mib": 34184,
+        "exit": -15,
+        "ended": "2026-11-05T17:30:24+08:00"
+      },
+      "4090-Restormer恢复重构-20261029-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 2213463,
+        "started": "2026-11-05T12:37:57+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T15:43:29+08:00"
+      },
+      "4090-BM3D低复杂度重构-20261103-种子3407": {
+        "stage": "failed",
+        "gpu": 1,
+        "pid": 3083776,
+        "started": "2026-11-05T15:43:29+08:00",
+        "launch_free_mib": 39813,
+        "exit": 1,
+        "ended": "2026-11-05T15:43:39+08:00"
+      },
+      "4090-人脸码本预测重构-20261102-修复一次-种子3407": {
+        "stage": "verified_new_four",
+        "gpu": 1,
+        "pid": 3084976,
+        "started": "2026-11-05T15:43:39+08:00",
+        "launch_free_mib": 39813,
+        "exit": 0,
+        "ended": "2026-11-05T17:46:25+08:00"
+      }
+    },
+    "checked": "2026-11-05T17:46:25+08:00",
+    "ended": "2026-11-05T17:46:25+08:00",
+    "stage": "finished_with_gaps"
+  },
+  "processes_exited": true,
+  "owned_gpu_locks_released": true,
+  "cancellation_receipt": "/home/zhaoting.ding/prd-runs/末轮八域补评估-20261104/用户切换基准取消-20261105.json",
+  "cancellation_sha256": "5ed08e0e04a97ad26e071306cdaaa0cbacbc4b3b1d2de76b094fb110e3b0f798"
+}

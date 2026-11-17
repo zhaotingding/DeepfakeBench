@@ -24,9 +24,21 @@ def git(*args):
     return subprocess.check_output(["git","-C",str(ROOT),*args],text=True).strip()
 
 
+RESIDUAL_VARIANTS = {"vqgan_unit_residual", "vqgan_absolute_residual", "vqgan_original_aux"}
+
+
 def settings(variant):
-    config = fresh.baseline_settings(ROOT, variant)
-    if variant == "vqgan":
+    config = fresh.baseline_settings(ROOT, "vqgan" if variant in RESIDUAL_VARIANTS else variant)
+    config["variant"] = variant
+    if variant == "vqgan_unit_residual":
+        config["residual"] = "unit_residual"
+    elif variant == "vqgan_absolute_residual":
+        config["residual"] = "absolute_diff"
+    elif variant == "vqgan_original_aux":
+        config.update(auxiliary_input="original_aux", auxiliary_lambda=1.0,
+                      activation_checkpointing="clip_even_layers_nonreentrant_preserve_rng_v1",
+                      activation_checkpoint_layers=list(range(0,24,2)))
+    if variant == "vqgan" or variant in RESIDUAL_VARIANTS:
         from prd_r01.vqgan_operator import vqgan_spec  # 记录原码本工作点，不复用增强前的旧缓存。
         config["vqgan_weights"] = str(Path.home()/".cache/prd-models/vqgan-imagenet-f16-1024/last.ckpt")
         config["vqgan_weights_sha256"] = "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71"
@@ -95,7 +107,7 @@ def cpu_tests():
 def preflight(config,data,state,device):
     state.mkdir(parents=True,exist_ok=False)
     identity=model_identity(config,data)
-    if config.get("activation_checkpointing"):
+    if config.get("activation_checkpointing") == "clip_transformer_nonreentrant_preserve_rng_v1":
         parity=json.loads((state.parent/"checkpoint_parity.json").read_text(encoding="utf8"))
         assert parity["status"]=="passed" and parity["code_commit"]==git("rev-parse","HEAD")
         assert parity["implementation"]==config["activation_checkpointing"]
@@ -103,8 +115,19 @@ def preflight(config,data,state,device):
     rows=selected(data["train"]["rows"],256);val=selected(data["val"]["rows"],64)
     fresh.seed_all(3407);model=fresh.build(config,device)
     initial=fresh.trainable_identity(model)
-    assert initial["trainable_parameters"]==3675138
-    assert initial["trainable_initial_sha256"]=="aaa440a41a2f1e8cab40f8c0be19e3479c0b22880256d6e4ca96eee2c0b1fe7e"  # 与首批共同 CLIP/LoRA/主头初值一致。
+    if config["variant"] == "vqgan_original_aux":
+        assert initial["auxiliary_parameters"] == 2050 and initial["trainable_parameters"] == 3677188
+    else:
+        assert initial["trainable_parameters"]==3675138
+    assert initial["main_trainable_parameters"] == 3675138
+    assert initial["main_trainable_initial_sha256"]=="aaa440a41a2f1e8cab40f8c0be19e3479c0b22880256d6e4ca96eee2c0b1fe7e"  # 与首批共同 CLIP/LoRA/主头初值一致。
+    auxiliary_audit = None
+    memory_parity = None
+    unit_direction_audit = None
+    absolute_audit = None
+    if config["variant"] == "vqgan_original_aux":
+        from prd_r01.fresh_auxiliary_checks import auxiliary_audit as check_auxiliary
+        auxiliary_audit = check_auxiliary(model, config, val, device)
     probe_audit = None
     reconstruction_audit = None
     if config["variant"] == "vqgan":
@@ -128,6 +151,41 @@ def preflight(config,data,state,device):
         assert not any(p.requires_grad for p in model.probes["compression"].parameters())
         audit_loader.dataset.close()
         del audit_loader, audit_image
+    if config["variant"] in {"vqgan_unit_residual", "vqgan_absolute_residual"}:
+        audit_loader = fresh.loader(val, config)
+        audit_image = next(iter(audit_loader))[0][:1].to(device)
+        probe_audit = model.probes["vqgan"].audit_quantization(audit_image)  # 独立最近邻验证实际码字路径。
+        model.eval()
+        with torch.inference_mode():
+            original = model.encoder(audit_image)
+            reconstruction = model.encoder(model.probes["vqgan"](audit_image))
+            difference = original - reconstruction
+            if config["residual"] == "absolute_diff":
+                expected = torch.where(difference < 0, -difference, difference)  # 独立核对逐坐标取绝对值。
+            else:
+                expected = difference / (difference.norm(p=2, dim=1, keepdim=True) + 1e-6)
+            actual = model(audit_image, {})["features"]
+            original_error = float((actual[:, :original.shape[1]] - original).abs().max())
+            response_error = float((actual[:, original.shape[1]:] - expected).abs().max())
+            assert original_error == 0 and response_error == 0 and float(difference.norm()) > 0
+            if config["residual"] == "absolute_diff":
+                absolute_audit = dict(original_slot_max_abs=original_error, response_max_abs=response_error,
+                                      raw_difference_norm=float(difference.norm()),
+                                      negative_coordinates=int((difference < 0).sum()), positive_coordinates=int((difference > 0).sum()))
+                assert absolute_audit["negative_coordinates"] > 0 and absolute_audit["positive_coordinates"] > 0
+            else:
+                unit_direction_audit = dict(original_slot_max_abs=original_error, response_max_abs=response_error,
+                                            epsilon=1e-6, feature_axis=1, raw_difference_norm=float(difference.norm()))
+        audit_loader.dataset.close()
+        del audit_loader, audit_image
+    if config["variant"] == "vqgan_original_aux":
+        del model
+        gc.collect();torch.cuda.empty_cache()
+        from prd_r01.fresh_auxiliary_checks import checkpoint_parity
+        memory_parity = checkpoint_parity(config, rows, device)
+        fresh.save_json(state/"activation_checkpoint_parity.json", memory_parity)
+        fresh.seed_all(3407);model=fresh.build(config,device)
+        assert fresh.trainable_identity(model) == initial
     opt=fresh.optimizer_for(model,config)
     torch.cuda.reset_peak_memory_stats(device)
     steps=[];images=[]
@@ -211,9 +269,17 @@ def preflight(config,data,state,device):
                  complete_best_evaluation_projection_seconds=eval_frames/64*eval_seconds*1.2+600,
                  peak_reserved_bytes=torch.cuda.max_memory_reserved(device),cpu_rule_tests=cpu_tests(),
                  input_counts={k:len(v["rows"]) for k,v in data.items()})
-    if config.get("activation_checkpointing"):
+    if config.get("activation_checkpointing") == "clip_transformer_nonreentrant_preserve_rng_v1":
         summary["activation_checkpointing"] = config["activation_checkpointing"]
         summary["checkpoint_parity"] = parity
+    if config["variant"] in RESIDUAL_VARIANTS:
+        summary.update(auxiliary_audit=auxiliary_audit, activation_checkpoint_parity=memory_parity)
+    if unit_direction_audit is not None:
+        summary["unit_direction_audit"] = unit_direction_audit
+    if absolute_audit is not None:
+        summary["absolute_audit"] = absolute_audit
+    if config["variant"] == "vqgan_original_aux":
+        assert memory_parity["status"] == "passed"
     if reconstruction_audit is not None:
         summary["reconstruction_audit"] = reconstruction_audit
     fresh.save_json(state/"preflight.json",summary)
@@ -229,13 +295,13 @@ def formal(args,config,data,state,device):
     if not args.claim_commit or len(args.claim_commit)!=40:raise ValueError("需要正式认领SHA")
     if args.train_hours is None or args.eval_hours is None or min(args.train_hours,args.eval_hours)<=0:
         raise ValueError("需要按真实预检固定训练和评估时间预算")
-    if config["variant"] in {"superresolution","compression"} and (args.train_hours > 105 or args.eval_hours > 5):
+    if config["variant"] in ({"superresolution","compression"} | RESIDUAL_VARIANTS) and (args.train_hours > 105 or args.eval_hours > 5):
         raise ValueError("降采样超分预算不得超过105小时训练与5小时终测")
     if git("status","--porcelain"):raise ValueError("运行代码须已提交")
     check=json.loads((state/"smoke/preflight.json").read_text(encoding="utf8"))
     if check["status"]!="passed" or check["code_commit"]!=git("rev-parse","HEAD"):
         raise ValueError("预检版本不符")
-    if config["variant"] in {"superresolution","compression"} and check["variant"] != config["variant"]:
+    if config["variant"] in ({"superresolution","compression"} | RESIDUAL_VARIANTS) and check["variant"] != config["variant"]:
         raise ValueError("降采样超分须通过本方案真实预检")
     if args.train_hours*3600<check["thirty_epoch_upper_projection_seconds"] or args.eval_hours*3600<check["complete_best_evaluation_projection_seconds"]:
         raise ValueError("正式预算不足以覆盖预登记的最大运行")
@@ -279,13 +345,15 @@ def formal(args,config,data,state,device):
 def main(fixed_variant=None):
     parser=argparse.ArgumentParser(description=__doc__)
     if fixed_variant is None:
-        parser.add_argument("variant",choices=["original","vae","vqgan","superresolution","compression"])
+        parser.add_argument("variant",choices=["original","vae","vqgan","superresolution","compression",*sorted(RESIDUAL_VARIANTS)])
     else:parser.set_defaults(variant=fixed_variant)
     parser.add_argument("mode",choices=["manifest","checkpoint-parity","smoke","run"])
     parser.add_argument("--claim-commit");parser.add_argument("--run-id")
     parser.add_argument("--train-hours",type=float);parser.add_argument("--eval-hours",type=float)
     parser.add_argument("--resume",action="store_true")
     args=parser.parse_args()
+    if args.variant in RESIDUAL_VARIANTS and args.mode == "checkpoint-parity":
+        parser.error("残差方案在smoke内执行其专属激活重算核验")
     config=settings(args.variant);data=manifests(config)
     state=ROOT/".state"/fresh.RECONSTRUCTION_RUN_FAMILIES.get(args.variant, "早停基线-20261105")/args.variant
     if args.mode=="manifest":
@@ -294,6 +362,8 @@ def main(fixed_variant=None):
         raise RuntimeError("必须显式绑定单一GPU")
     if args.variant=="compression" and (os.environ.get("CUDA_VISIBLE_DEVICES")!="0" or os.environ.get("CUDA_DEVICE_ORDER")!="PCI_BUS_ID"):
         raise RuntimeError("学习型压缩本批须显式绑定物理GPU0")
+    if args.variant in RESIDUAL_VARIANTS and (os.environ.get("CUDA_VISIBLE_DEVICES")!="1" or os.environ.get("CUDA_DEVICE_ORDER")!="PCI_BUS_ID"):
+        raise RuntimeError("残差方案只允许按PCI顺序显式绑定GPU1")
     import fcntl
     device=torch.device("cuda:0");torch.set_num_threads(1)
     if args.variant=="compression" and args.mode in {"checkpoint-parity","smoke"}:
@@ -307,7 +377,12 @@ def main(fixed_variant=None):
     if args.mode=="checkpoint-parity":
         from prd_checkpointing import verify_checkpoint_parity
         verify_checkpoint_parity(config,data,state,device,git("rev-parse","HEAD"))
-    elif args.mode=="smoke":preflight(config,data,state/"smoke",device)
+    elif args.mode=="smoke":
+        if args.variant == "vqgan_original_aux":
+            free,total=torch.cuda.mem_get_info(device)
+            if free < 12*1024**3:raise RuntimeError("激活重算预检当前空闲显存不足12GiB")
+            torch.cuda.set_per_process_memory_fraction((free-2*1024**3)/total,device)
+        preflight(config,data,state/"smoke",device)
     else:
         if not args.run_id or any(not (c.isalnum() or c in "-_") for c in args.run_id):
             raise ValueError("运行名只能含中文、字母、数字和连接号")

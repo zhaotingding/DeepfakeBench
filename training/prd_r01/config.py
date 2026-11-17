@@ -5,6 +5,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 BASE = "b5fb097740a0815f468faac7d6feac402b29e518"
 VARIANTS = {
+    "bm3d": ("clip", ["bm3d"]),
+    "restormer": ("clip", ["restormer"]),
     "codeformer": ("clip", ["codeformer"]),
     "superresolution": ("clip", ["superresolution"]),
     "colorization": ("clip", ["colorization"]),
@@ -56,7 +58,7 @@ def readiness(config):
     if config["backbone"] != "clip":
         missing.append(f"{config['backbone']} adapter and local weights are not prepared")
     for name in dict.fromkeys(config["responses"]):
-        if name not in {"vae", "wavelet", "lowrank", "vqgan", "mae", "compression", "tv", "colorization", "nlm", "sparse", "e4e", "codeformer", "superresolution"}:
+        if name not in {"vae", "wavelet", "lowrank", "vqgan", "mae", "compression", "tv", "colorization", "nlm", "sparse", "e4e", "codeformer", "superresolution", "bm3d", "restormer", "diffusion"}:
             missing.append(f"{name} operator/checkpoint/preprocessing/workpoint is not prepared")
     required = [
         Path(config["data_root"]) / "DeepfakeBench/lmdb/FaceForensics++_lmdb/data.mdb",

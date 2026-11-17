@@ -8,9 +8,9 @@ class ResponseModel(nn.Module):
         super().__init__()
         if slots not in (2, 3) or len(responses) > slots - 1 or (not cached and any(name not in probes for name in responses)):
             raise ValueError("At most two registered response slots are supported")
-        if residual not in {"signed_diff", "absolute_diff"}:
-            raise ValueError(f"Unsupported residual: {residual}")  # 拒绝把未知模式当作有符号差。
-        self.residual = residual  # 保存响应定义，不增加模型参数或消耗随机数。
+        if residual not in {"signed_diff", "normalized_feature_diff", "unit_residual", "absolute_diff"}:
+            raise ValueError(f"Unsupported residual: {residual}")  # 不把新模式隐式当作原差分。
+        self.residual = residual  # 映射切换不增加参数或消耗初始化随机数。
         self.slots = slots  # 单算子用两槽，双响应保留三槽。
         self.encoder = encoder
         self.probes = nn.ModuleDict(probes)
@@ -49,15 +49,26 @@ class ResponseModel(nn.Module):
                         reconstructed = probe(images.detach())
                 if reconstructed.shape != images.shape:
                     raise ValueError(f"{name} changed the image shape")
-                difference = z - self.encoder(reconstructed.detach())  # 两次编码共享可训练权重，冻结重构图输入。
-                responses[name] = difference.abs() if self.residual == "absolute_diff" else difference  # 绝对值仅去除符号，默认有符号路径不变。
+                z_reconstructed = self.encoder(reconstructed.detach())  # 两次编码共享可训练权重。
+                if self.residual == "normalized_feature_diff":
+                    z_unit = z / (torch.linalg.vector_norm(z, dim=1, keepdim=True) + 1e-6)  # 分别归一化两端，ε固定且零向量输出为零。
+                    zr_unit = z_reconstructed / (torch.linalg.vector_norm(z_reconstructed, dim=1, keepdim=True) + 1e-6)
+                    responses[name] = z_unit - zr_unit  # 不是先求差再把残差单位化。
+                elif self.residual == "unit_residual":
+                    difference = z - z_reconstructed  # 先计算两个共享编码器输出的有符号差。
+                    magnitude = torch.linalg.vector_norm(difference, dim=1, keepdim=True)  # 每个样本独立计算残差长度。
+                    responses[name] = difference / (magnitude + 1e-6)  # 零残差保持零，原图槽仍使用未归一化的z。
+                elif self.residual == "absolute_diff":
+                    responses[name] = (z - z_reconstructed).abs()  # 复用旧逐坐标绝对值定义。
+                else:
+                    responses[name] = z - z_reconstructed  # 原有符号差路径保持。
         slots = [responses[name] for name in self.responses]
         slots += [torch.zeros_like(z)] * (self.slots - 1 - len(slots))
         features = torch.cat([z, *slots], dim=1)  # 重复VAE槽复用同一响应，不重复计算或加噪。
         output = {"logits": self.head(features), "features": features}
         if self.training and self.auxiliary_head is not None:
             auxiliary_features = z if self.auxiliary_input == "original_aux" else slots[0]
-            output["auxiliary_logits"] = self.auxiliary_head(auxiliary_features)  # 保留辅助CE到共享编码器的梯度。
+            output["auxiliary_logits"] = self.auxiliary_head(auxiliary_features)
         return output
 
 class CLIPEncoder(nn.Module):
@@ -74,13 +85,24 @@ class CLIPEncoder(nn.Module):
         ))
 
         if activation_checkpointing is not None:
-            if activation_checkpointing != "clip_transformer_nonreentrant_preserve_rng_v1":
-                raise ValueError("未知的CLIP激活检查点实现")
-            import functools
+            if activation_checkpointing not in {"clip_transformer_nonreentrant_preserve_rng_v1", "clip_even_layers_nonreentrant_preserve_rng_v1"}:
+                raise ValueError("未知激活重算实现")
+            from functools import partial
             from torch.utils.checkpoint import checkpoint
             vision.encoder.gradient_checkpointing = True
-            vision.encoder._gradient_checkpointing_func = functools.partial(
-                checkpoint, use_reentrant=False, preserve_rng_state=True)
+            if activation_checkpointing == "clip_even_layers_nonreentrant_preserve_rng_v1":
+                if len(vision.encoder.layers) != 24:
+                    raise ValueError("隔层激活重算只适用于本协议24层CLIP")
+                selected = frozenset(id(layer) for index,layer in enumerate(vision.encoder.layers) if index % 2 == 0)
+                def recompute_selected(function, *args, **kwargs):
+                    if id(function.__self__) in selected:
+                        return checkpoint(function, *args, use_reentrant=False, preserve_rng_state=True, **kwargs)
+                    return function(*args, **kwargs)
+                vision.encoder._gradient_checkpointing_func = recompute_selected
+            else:
+                vision.encoder._gradient_checkpointing_func = partial(
+                    checkpoint, use_reentrant=False, preserve_rng_state=True)
+        self.activation_checkpointing = activation_checkpointing
 
     def forward(self, images):
         return self.backbone(images)["pooler_output"]

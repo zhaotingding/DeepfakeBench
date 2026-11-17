@@ -1,0 +1,147 @@
+{
+  "status": "verified",
+  "gpu": 1,
+  "run_id": "4090-VQGAN单位方向残差-源验证早停-20261109-种子3407",
+  "compute_pid": 1097862,
+  "started": "2026-11-09T14:41:26+08:00",
+  "required_free_bytes": 32692502528,
+  "exit_code": 0,
+  "ended": "2026-11-10T15:39:37+08:00",
+  "verification": {
+    "status": "verified",
+    "time": "2026-11-10T15:39:41+08:00",
+    "run_id": "4090-VQGAN单位方向残差-源验证早停-20261109-种子3407",
+    "code": "5988c10e9fb8988d35698a7d5ebd7549cc5b3b55",
+    "updates": 46683,
+    "epochs": 13,
+    "best_epoch": 8,
+    "stop_reason": "early_stopping_patience_5",
+    "artifact_sha256": {
+      "best.pt": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2",
+      "last_resume.pt": "054085c7c8da0726041f86778da9a85995af827f86d2becc4e8e961caf2963d9",
+      "metadata.json": "5549fe60e88b4756b751988345672ca56b520a8b2e078322023c3d6db0e38447",
+      "training_result.json": "2c3f4e776da333a9e5220ed9dc7407c3e495339ba38b7cacf7832729a786b08b",
+      "complete_result.json": "95075595caa1cd7fba855d273826ffe8e612482adec2a77c2c53544d970517c7",
+      "batch_trace.jsonl": "f4dc9ffaa1968665a66f6a97f305204eb96d12304d103933a3549e319472965d",
+      "learning_curve.json": "c03812a1d5aea3ff5eea725edf8b33856dec1fa93d1247139f37b77f1d7ac71f",
+      "initialization.json": "befc723c34603a2d65b404d7daec0a4cfa5b94c18c4b18a7273f748bfa87b20c"
+    },
+    "domains": {
+      "source_test": {
+        "metrics": {
+          "frame_auc": 0.9848551777061605,
+          "video_auc": 0.9925382653061224,
+          "frame_ce": 0.18027817618834266,
+          "video_ce": 0.10983923675137855,
+          "frames": 22388,
+          "videos": 700,
+          "independent_auc_error": 1.1102230246251565e-16
+        },
+        "prediction_sha256": "8f8c2dec949dff3206f536f9d7e27957b3c6939717784afadd900ea5f1b8a322",
+        "manifest_sha256": "f4c23155a70b8c61c505c8f6b1ddf44e8a3960cd013dc008e06ef49614a1fe14",
+        "best_sha256": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2"
+      },
+      "Celeb-DF-v2": {
+        "metrics": {
+          "frame_auc": 0.8371807697377093,
+          "video_auc": 0.9105750165234633,
+          "frame_ce": 1.1344385151928627,
+          "video_ce": 0.6836591449219577,
+          "frames": 16420,
+          "videos": 518,
+          "independent_auc_error": 0.0
+        },
+        "prediction_sha256": "b4c35e2a9e92cf5efb502368d1ed596416e88a31ce32a11fb0dd1d75999ca237",
+        "manifest_sha256": "a31408254138ec425e9739a644adc86ed5c15da73397f83298ccd9b8125f9b93",
+        "best_sha256": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2"
+      },
+      "DFDC": {
+        "metrics": {
+          "frame_auc": 0.8224779570233584,
+          "video_auc": 0.8578721588417757,
+          "frame_ce": 0.845211774600048,
+          "video_ce": 0.5636212690239988,
+          "frames": 132116,
+          "videos": 4704,
+          "independent_auc_error": 1.1102230246251565e-16
+        },
+        "prediction_sha256": "032ca85f6bee2bf84d75beed88120475bdd2878b55ea5b6487197625a8f2e907",
+        "manifest_sha256": "c1362d696b3cb35033b9c07887831d00d38d58eedea7c9a3a8b596f3ce98ba62",
+        "best_sha256": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2"
+      },
+      "DeepFakeDetection": {
+        "metrics": {
+          "frame_auc": 0.9278789320298353,
+          "video_auc": 0.9691443881979374,
+          "frame_ce": 1.108718732681243,
+          "video_ce": 0.5701364328489108,
+          "frames": 102541,
+          "videos": 3429,
+          "independent_auc_error": 1.1102230246251565e-16
+        },
+        "prediction_sha256": "96494c42c90249dc22f99dbd48979464d92faa9f5e0d0c61ac7cff95f7836902",
+        "manifest_sha256": "b496bacf248c7e5943caa9e7ac21b156fff697353d83b9c56d5fd07f7a5b2e96",
+        "best_sha256": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2"
+      },
+      "UADFV": {
+        "metrics": {
+          "frame_auc": 0.9908569448401214,
+          "video_auc": 0.9979175343606831,
+          "frame_ce": 0.10434726157223058,
+          "video_ce": 0.061364023442893906,
+          "frames": 3099,
+          "videos": 98,
+          "independent_auc_error": 0.0
+        },
+        "prediction_sha256": "ee5b1a303c63432bd0c24d44d3fad8977d4f3be3a4fe1de22443f4763a4621e8",
+        "manifest_sha256": "565d83f426b095ba137074db167636f107056df6fc406a9c17147e96f39cbc39",
+        "best_sha256": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2"
+      },
+      "Celeb-DF-v1": {
+        "metrics": {
+          "frame_auc": 0.8060599492818221,
+          "video_auc": 0.8764855687606112,
+          "frame_ce": 1.0184957514590482,
+          "video_ce": 0.6048615791143098,
+          "frames": 3136,
+          "videos": 100,
+          "independent_auc_error": 0.0
+        },
+        "prediction_sha256": "ec3d0d522b994f8c73ae08eb6050249ddaba5f10cc6e9975f5fd658f7e019fc6",
+        "manifest_sha256": "d2178d1fe1635dc6c02079e5d6ceb605648416f13d2c7a5e3a2b7f023b2ecf6e",
+        "best_sha256": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2"
+      },
+      "DFDCP": {
+        "metrics": {
+          "frame_auc": 0.8762597836477481,
+          "video_auc": 0.90233798195242,
+          "frame_ce": 0.6626407240571949,
+          "video_ce": 0.47575948495285314,
+          "frames": 17222,
+          "videos": 654,
+          "independent_auc_error": 0.0
+        },
+        "prediction_sha256": "7b0547c1dee527f5f6f2163220ba71858ea6274c559bb207600c5be85bfbde38",
+        "manifest_sha256": "4371ef95f4b708abc7e30d542c19c5b016aa34702995328103595548e0cbc299",
+        "best_sha256": "a642033cc301c347fbb71f2f91136df239c6b44530871a43fae65a96c80050f2"
+      }
+    },
+    "macro": {
+      "frame_auc": 0.8945986509077561,
+      "video_auc": 0.9338772744809648,
+      "frame_ce": 0.7981790710115961,
+      "video_ce": 0.46969521755944027
+    },
+    "initialization": {
+      "trainable_initial_sha256": "aaa440a41a2f1e8cab40f8c0be19e3479c0b22880256d6e4ca96eee2c0b1fe7e",
+      "trainable_parameters": 3675138,
+      "main_trainable_initial_sha256": "aaa440a41a2f1e8cab40f8c0be19e3479c0b22880256d6e4ca96eee2c0b1fe7e",
+      "main_trainable_parameters": 3675138,
+      "auxiliary_initial_sha256": null,
+      "auxiliary_parameters": 0
+    },
+    "training_elapsed": 82869.22041192406,
+    "resume_scope": "training_only",
+    "paired_common_updates": 46683
+  }
+}
