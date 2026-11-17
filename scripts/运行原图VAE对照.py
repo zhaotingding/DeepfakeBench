@@ -40,7 +40,7 @@ def save(p,x):
     p.parent.mkdir(parents=True,exist_ok=True);t=p.with_suffix(p.suffix+".tmp");t.write_text(json.dumps(x,ensure_ascii=False,indent=2));t.replace(p)
 def git(*args):return subprocess.check_output(["git","-C",str(ROOT),*args],text=True).strip()
 def settings():
-    c=read_config(ROOT/"r01.machine.json",VARIANT)
+    c=read_config(ROOT/"machine.local.json",VARIANT)
     if VARIANT=="vae":c["vae_inference"]={"internal_batch":1,"dtype":"float16","posterior":"mode","output_clip":None}  # 固定原VAE执行身份。
     paths=[INPUTS/(n+".json") for n in ["训练清单","源验证清单","源测试清单","目标开发清单"]]
     return c,paths,[load_manifest(p) for p in paths]

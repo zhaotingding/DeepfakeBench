@@ -52,7 +52,7 @@ def compare_metrics(actual,expected):
 def verify_arm(arm,code,claim,smoke):
     import numpy as np
     from 绝对残差独立指标 import independent_metrics  # 此纯CPU模块无需已结束实验的配置。
-    s=STATE/arm;name=f'4090-VQGAN{ARMS[arm]}-20261104-种子3407';out=Path(report(ROOT/'r01.machine.json')['output_root'])/'r01'/name
+    s=STATE/arm;name=f'4090-VQGAN{ARMS[arm]}-20261104-种子3407';out=Path(report(ROOT/'machine.local.json')['output_root'])/'r01'/name
     meta=report(out/'metadata.json');result=report(out/'complete_result.json');received=report(s/'status.json')
     if received['stage']!='compute_finished' or received['result']!=result or meta['code_commit']!=code or received['claim_commit']!=claim or meta['run_id']!=name or received['run_id']!=name:
         raise ValueError('计算退出/代码/认领不符')

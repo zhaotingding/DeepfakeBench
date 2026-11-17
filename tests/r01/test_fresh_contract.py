@@ -21,7 +21,7 @@ class FreshContractTests(unittest.TestCase):
                          reconstruction_mode="cached_paired")
         with patch("prd_r01.config.read_config", return_value=inherited.copy()) as read:
             config = fresh.baseline_settings(ROOT, "vqgan_sr_mean")
-        read.assert_called_once_with(ROOT / "r01.machine.json", "vqgan_sr_mean")
+        read.assert_called_once_with(ROOT / "machine.local.json", "vqgan_sr_mean")
         self.assertEqual(config["response_fusion"], "mean")
         self.assertEqual(config["clip_path"], "/assets/clip")
         self.assertEqual(config["seed"], 3407)

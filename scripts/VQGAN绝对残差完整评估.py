@@ -35,7 +35,7 @@ def sha(path):
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
 
 def inputs():
-    machine=read(ROOT/'r01.machine.json');out=Path(machine['output_root'])/'r01'/RUN
+    machine=read(ROOT/'machine.local.json');out=Path(machine['output_root'])/'r01'/RUN
     meta=read(out/'metadata.json');result=read(out/'result.json');training=read(TRAIN_STATE/'training_verification.json')
     if meta['code_commit']!=TRAIN_CODE or meta['config']['residual']!='absolute_diff' or result['optimizer_updates']!=21576:raise ValueError('原训练身份不符')
     if training['status']!='training_verified_pending_evaluation' or training['source_best_epoch']!=8 or not training['pairing_verified']:raise ValueError('原训练未验收')

@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT / "training"))
 def main():
     from prd_r01.config import read_config, readiness, read_protocol, VARIANTS
     parser = argparse.ArgumentParser()
-    parser.add_argument("--machine", default=str(ROOT / "r01.machine.json"))
+    parser.add_argument("--machine", default=str(ROOT / "machine.local.json"))
     parser.add_argument("--variant", choices=VARIANTS, default="original")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--check", action="store_true")

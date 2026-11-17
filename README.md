@@ -26,13 +26,21 @@ git status --short
 |---|---|
 | [scripts/早停基线.py](scripts/早停基线.py) | 仅原图、经典PRD等方案的共同入口；具体实验使用本目录已提供的具名脚本 |
 | [training/prd_fresh.py](training/prd_fresh.py) | 公共配置、数据加载、训练、完整状态恢复、最佳点选择与评测 |
-| r01.machine.json | 当前机器的数据、预训练权重、输出路径；实际运行仍读取此文件，保持Git忽略 |
-| [r01.machine.example.json](r01.machine.example.json) | 不含真实机器路径的配置模板 |
+| machine.local.json | 当前机器的数据、预训练权重、输出路径；实际运行仍读取此文件，保持Git忽略 |
+| [machine.example.json](machine.example.json) | 不含真实机器路径的配置模板 |
 | [requirements-prd.txt](requirements-prd.txt) | 已记录的PRD运行环境依赖；不等于新机器已完成安装验收 |
 | tests/r01/ | 公共规则与方法的CPU测试 |
 | scripts/experiment_summaries/ | 可发布的必要结果摘要，不存训练权重或原始逐步日志 |
 
-旧scripts/prd_r01.py和training/train.py属于历史实现，当前正式实验不从它们启动。r01.machine.json和training/prd_r01模块仍被调用，旧名称不是删除依据。Dockerfile和install.sh保留为上游环境参考，不自动用于重装当前PRD环境。
+旧scripts/prd_r01.py和training/train.py属于历史实现，当前正式实验不从它们启动。本机路径由machine.local.json读取，内部兼容模块与历史记录按原版本保留。Dockerfile和install.sh保留为上游环境参考，不自动用于重装当前PRD环境。
+
+## VS Code 与 PRD 环境
+
+4090的四个研究目录均有本机.vscode/settings.json；“PRD-当前研究”和“PRD-历史入口”工作区也配置了同一PRD终端profile。新建终端使用“PRD（自动激活）”，启动时执行真实conda activate PRD；已有终端不强制切换。
+
+解释器为/home/zhaoting.ding/miniconda3/envs/PRD/bin/python。共同初始化脚本位于~/prd-worktrees/.vscode/activate-prd.bash，本机VS Code配置保持Git忽略。python.terminal.activateEnvironment=false用于关闭扩展按旧选择重复激活，真正激活由明确的终端profile完成。
+
+新建或重建工作树不会自动继承这些被忽略的机器配置，需按本地服务器入口记录补齐。machine.local.json保存实际路径，machine.example.json是可提交模板。
 
 ## 当前比较协议
 
@@ -50,7 +58,7 @@ git status --short
 
 同一方向复用工作树，用独立run-id区分运行；只有并发修改不同代码时才增加隔离目录。运行期间不修改运行文件或切换分支。工作树共享环境、数据和GPU，资源检查与任务授权仍须单独完成。
 
-本机r01.machine.json、.state、数据集、权重和原始日志不纳入Git。历史产物迁移关系与完整实验记录在Windows本地dev；已发布摘要中的原始运行片段已经剔除，必要指标、结论及产物哈希保留。历史记录中的原代码提交号通过本地发布映射追溯，不改写旧运行身份。
+本机machine.local.json、.state、数据集、权重和原始日志不纳入Git。历史产物迁移关系与完整实验记录在Windows本地dev；已发布摘要中的原始运行片段已经剔除，必要指标、结论及产物哈希保留。历史记录中的原代码提交号通过本地发布映射追溯，不改写旧运行身份。
 
 现有环境中的CPU合同检查：
 ```bash

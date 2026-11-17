@@ -17,7 +17,7 @@ def main():
     if target.exists():raise FileExistsError('已有冻结字典，不覆盖或重新挑选')
     manifest=Path.home()/'prd-inputs/重构算子首批-20261029/训练清单.json'
     rows=load_manifest(manifest)['rows'];ids=rng.choice(len(rows),2048,replace=False)
-    c=read_config(ROOT/'r01.machine.json','original');data=LMDBImages(rows,dict(c,reconstruction_mode='online_after_augment'),False)
+    c=read_config(ROOT/'machine.local.json','original');data=LMDBImages(rows,dict(c,reconstruction_mode='online_after_augment'),False)
     patches=[];samples=[]
     for idx in ids:
         rgb,sha=data.read_pixels(int(idx));light=rgb2lab(rgb)[:,:,0].astype(np.float32)/100

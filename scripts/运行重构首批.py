@@ -20,7 +20,7 @@ sys.path.insert(0, str(ROOT / "training"))
 BATCH = json.loads((ROOT / "training/config/r01/小波低秩-20261029.json").read_text())
 INPUTS = Path.home() / "prd-inputs/重构算子首批-20261029"
 STATE = ROOT / ".state/重构算子首批-20261029"
-MACHINE = ROOT / "r01.machine.json"
+MACHINE = ROOT / "machine.local.json"
 NAMES = BATCH["display_names"]
 
 def now():

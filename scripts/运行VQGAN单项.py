@@ -31,7 +31,7 @@ def save(p,x):
     p.parent.mkdir(parents=True,exist_ok=True);t=p.with_suffix(p.suffix+".tmp");t.write_text(json.dumps(x,ensure_ascii=False,indent=2));t.replace(p)
 def git(*args):return subprocess.check_output(["git","-C",str(ROOT),*args],text=True).strip()
 def settings():
-    c=read_config(ROOT/"r01.machine.json","vqgan")
+    c=read_config(ROOT/"machine.local.json","vqgan")
     c["vqgan_weights"]=str(Path.home()/".cache/prd-models/vqgan-imagenet-f16-1024/last.ckpt")
     c["vqgan_weights_sha256"]='e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71'
     paths=[INPUTS/(n+".json") for n in ["训练清单","源验证清单","源测试清单","目标开发清单"]]

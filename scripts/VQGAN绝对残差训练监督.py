@@ -24,7 +24,7 @@ def verify_training(code_commit):
     import numpy as np  # 独立验收仅使用CPU，不加载检测器或恢复器。
     spec=importlib.util.spec_from_file_location('absolute_independent_metrics',ROOT/'scripts/绝对残差独立指标.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
-    machine=load(ROOT/'r01.machine.json');out=Path(machine['output_root'])/'r01'/RUN
+    machine=load(ROOT/'machine.local.json');out=Path(machine['output_root'])/'r01'/RUN
     meta=load(out/'metadata.json');result=load(out/'result.json');curve=load(out/'learning_curve.json')
     if meta['code_commit']!=code_commit:raise ValueError('训练代码身份不匹配')
     if meta.get('config',{}).get('residual')!='absolute_diff' or meta.get('protocol',{}).get('residual')!='absolute_diff':raise ValueError('配置或冻结协议不是绝对残差')

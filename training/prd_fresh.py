@@ -35,7 +35,7 @@ LABELS = {"FaceForensics++": {"FF-real": 0, "FF-DF": 1, "FF-F2F": 1, "FF-FS": 1,
 def baseline_settings(root, variant):
     """构造各方案共用的早停协议，机器路径与方法注册仍取当前工作树。"""
     from prd_r01.config import read_config
-    config = read_config(root/"r01.machine.json",variant)
+    config = read_config(root/"machine.local.json",variant)
     config.update(train_batch_size=32,test_batch_size=64,workers=0,persistent_workers=False,
                   augmentation_protocol="legacy_uint8_online_v1",reconstruction_mode="online_after_augment",
                   reconstruction_caches={},residual="signed_diff")

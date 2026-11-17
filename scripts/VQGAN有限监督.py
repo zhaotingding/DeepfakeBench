@@ -31,7 +31,7 @@ def verify():
     spec=importlib.util.spec_from_file_location('paired_verifier',ROOT/'scripts/首批双卡监督.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     metrics=module.independent_metrics  # 复用已登记的独立秩和AUC实现，不调用训练指标函数。
-    machine=json.loads((ROOT/'r01.machine.json').read_text());out=Path(machine['output_root'])/'r01'/RUN
+    machine=json.loads((ROOT/'machine.local.json').read_text());out=Path(machine['output_root'])/'r01'/RUN
     result=json.loads((out/'complete_result.json').read_text());meta=json.loads((out/'metadata.json').read_text())
     if not result.get('complete_evaluation') or result['optimizer_updates']!=21576:raise ValueError('训练或完整评估未完成')
     if set(result['endpoints'])!={'source_best','terminal'}:raise ValueError('缺少权重端点')

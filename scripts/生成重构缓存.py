@@ -12,7 +12,7 @@ def main():
     from prd_r01.data import load_manifest
     from prd_r01.cache import operator_spec, row_key, build_cache
     parser = argparse.ArgumentParser(description="生成一次重构缓存，供多个epoch和实验复用")
-    parser.add_argument("--machine", default=str(ROOT / "r01.machine.json"))
+    parser.add_argument("--machine", default=str(ROOT / "machine.local.json"))
     parser.add_argument("--manifest", action="append", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--device", default="cuda:0")

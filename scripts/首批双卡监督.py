@@ -55,7 +55,7 @@ def independent_metrics(logits,rows):
 def verify_run(variant):
     import numpy as np
     name=CONFIG['display_names'][variant]
-    machine=json.loads((ROOT/'r01.machine.json').read_text())
+    machine=json.loads((ROOT/'machine.local.json').read_text())
     out=Path(machine['output_root'])/'r01'/('4090-'+name+'-20261029-种子3407')
     result=json.loads((out/'result.json').read_text());meta=json.loads((out/'metadata.json').read_text())
     expected=CONFIG['epochs']*((CONFIG['source_train_frames']+15)//16)

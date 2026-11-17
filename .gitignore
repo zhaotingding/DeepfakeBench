@@ -51,5 +51,5 @@ training/pretrained/*.dat
 # zip
 *.zip
 
-# R01 machine-local paths
-/r01.machine.json
+# 本机配置（不提交）
+/machine.local.json

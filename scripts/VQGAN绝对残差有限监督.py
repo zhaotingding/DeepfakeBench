@@ -32,7 +32,7 @@ def verify():
     spec=importlib.util.spec_from_file_location('paired_verifier',ROOT/'scripts/绝对残差独立指标.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     metrics=module.independent_metrics  # 复用已登记的独立秩和AUC实现，不调用训练指标函数。
-    machine=json.loads((ROOT/'r01.machine.json').read_text(encoding="utf-8"));out=Path(machine['output_root'])/'r01'/RUN
+    machine=json.loads((ROOT/'machine.local.json').read_text(encoding="utf-8"));out=Path(machine['output_root'])/'r01'/RUN
     result=json.loads((out/'complete_result.json').read_text(encoding="utf-8"));meta=json.loads((out/'metadata.json').read_text(encoding="utf-8"))
     if meta.get('config',{}).get('residual')!='absolute_diff' or meta.get('protocol',{}).get('residual')!='absolute_diff' or result.get('residual')!='absolute_diff':raise ValueError('模型配置、冻结协议或完整结果不是绝对残差')
     if not result.get('complete_evaluation') or result['optimizer_updates']!=21576:raise ValueError('训练或完整评估未完成')
